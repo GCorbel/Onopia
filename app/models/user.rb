@@ -6,12 +6,13 @@ class User < ActiveRecord::Base
   has_many :new
   has_many :opportunity
   
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  validate :password, :presence => true
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  apply_simple_captcha
+  
+  acts_as_authentic do |config|
+    config.ignore_blank_passwords = false
+    config.maintain_sessions = false
+  end
   
 end

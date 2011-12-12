@@ -32,9 +32,11 @@ gem 'jquery-rails'
 
 group :test do
   gem 'rspec-rails'
-  gem 'cucumber-rails'
+  gem 'autotest-rails'
+  gem 'spork'
+  gem 'capybara'
 end
 
-gem 'haml'
-gem 'devise'
+gem "galetahub-simple_captcha", :require => "simple_captcha"
+gem 'authlogic'
 

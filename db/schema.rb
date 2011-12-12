@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207233351) do
+ActiveRecord::Schema.define(:version => 20111211225855) do
 
   create_table "account_types", :force => true do |t|
     t.string   "label"
@@ -131,36 +131,25 @@ ActiveRecord::Schema.define(:version => 20111207233351) do
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email"
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "login"
-    t.string   "password"
-    t.string   "identite"
-    t.boolean  "show_messages"
-    t.boolean  "show_opportunities"
-    t.boolean  "show_dashboad"
-    t.boolean  "show_news"
-    t.integer  "threshold_high"
-    t.integer  "threshold_medium"
-    t.integer  "threshold_low"
+  create_table "simple_captcha_data", :force => true do |t|
+    t.string   "key",        :limit => 40
+    t.string   "value",      :limit => 6
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "simple_captcha_data", ["key"], :name => "idx_key"
+
+  create_table "users", :force => true do |t|
+    t.string   "username",                             :null => false
+    t.string   "email",                                :null => false
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.boolean  "active",            :default => false, :null => false
+    t.string   "perishable_token",  :default => "",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
