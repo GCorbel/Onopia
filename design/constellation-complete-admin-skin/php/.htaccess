@@ -1,0 +1,9 @@
+# Custom error pages
+# Change path to where you installed the template
+
+ErrorDocument 400 /Constellation/php/_errors/400.php
+ErrorDocument 401 /Constellation/php/_errors/401.php
+ErrorDocument 403 /Constellation/php/_errors/403.php
+ErrorDocument 404 /Constellation/php/_errors/404.php
+ErrorDocument 500 /Constellation/php/_errors/500.php
+ErrorDocument 503 /Constellation/php/_errors/503.php

@@ -1,0 +1,674 @@
+<div class="block-content upper-index">
+<h1>Content blocks</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+
+<p>The template provides a simple markup to easily create blocks around your content sections, with a nice glass effect and extra controls.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Basic markup</h2>
+
+<p>To wrap your content into separate blocks, use this kind of markup:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-content"&gt;
+	&lt;h1&gt;Block title&lt;/h1&gt;
+	&lt;p&gt;Put your content here&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-content">
+			<h1>Block title</h1>
+			<p>Put your content here</p>
+		</div>
+	</div></div>
+</div>
+
+<p>To add a glass-like border, add a wrapping div with the <strong>block-border</strong> class:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+		&lt;p&gt;Put your content here&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content">
+			<h1>Block title</h1>
+			<p>Put your content here</p>
+		</div></div>
+	</div></div>
+</div>
+
+<p>You can then use several content blocks:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+		&lt;p&gt;Put your content here&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="block-content no-title"&gt;
+		&lt;p&gt;Put your content here&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border">
+			<div class="block-content">
+				<h1>Block title</h1>
+				<p>Put your content here</p>
+			</div>
+			<div class="block-content no-title">
+				<p>Put your content here</p>
+			</div>
+		</div>
+	</div></div>
+</div>
+
+<p>To create a block without title, add the class <strong>no-title</strong> (it will remove the extra padding)</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content no-title"&gt;
+		&lt;p&gt;Put your content here&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content no-title">
+			<p>Put your content here</p>
+		</div></div>
+	</div></div>
+</div>
+
+<p>You can add a link next to the title:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content"&gt;
+		&lt;h1&gt;
+			Block title
+			&lt;a href="#"&gt;&lt;img src="images/icons/fugue/plus-circle-blue.png" width="16" height="16"&gt; add&lt;/a&gt;
+		&lt;/h1&gt;
+		&lt;p&gt;Put your content here&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content">
+			<h1>
+				Block title
+				<a href="javascript:void(0);"><img src="images/icons/fugue/plus-circle-blue.png" width="16" height="16"> add</a>
+			</h1>
+			<p>Put your content here</p>
+		</div></div>
+	</div></div>
+</div>
+
+<p>To use a black background, add the <strong>dark-bg</strong> class:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content dark-bg"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+		&lt;p&gt;Put your content here&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content dark-bg">
+			<h1>Block title</h1>
+			<p>Put your content here</p>
+		</div></div>
+	</div></div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Block controls</h2>
+
+<p>You can easily add controls to a block using the <strong>block-controls</strong> class. 2 styles are available:</p>
+
+<h4>Tabs controls (for use with the <a href="content/functions/tabs.html">tabs plugin</a>):</h4>
+
+<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+			
+		&lt;div class="block-controls"&gt;
+			&lt;!-- Use the class js-tabs to enable JS tabs script --&gt;
+			&lt;ul class="controls-tabs js-tabs with-children-tip"&gt;
+				&lt;li class="current"&gt;&lt;a href="#tab-stats" title="Charts"&gt;&lt;img src="images/icons/web-app/24/Bar-Chart.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#tab-comments" title="Comments"&gt;&lt;img src="images/icons/web-app/24/Comment.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#tab-medias" title="Medias"&gt;&lt;img src="images/icons/web-app/24/Picture.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#tab-users" title="Users"&gt;&lt;img src="images/icons/web-app/24/Profile.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#tab-infos" title="Informations"&gt;&lt;img src="images/icons/web-app/24/Info.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		
+		&lt;div id="tab-stats"&gt;Put the stats tab content here&lt;/div&gt;
+		&lt;div id="tab-comments"&gt;Put the comments tab content here&lt;/div&gt;
+		&lt;div id="tab-medias"&gt;Put the medias tab content here&lt;/div&gt;
+		&lt;div id="tab-users"&gt;Put the users tab content here&lt;/div&gt;
+		&lt;div id="tab-infos"&gt;Put the infos tab content here&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	
+<div class="lite-grey-gradient with-padding with-margin">
+	<div class="block-border"><div class="block-content">
+		<h1>Block title</h1>
+		
+		<div class="block-controls">
+			<ul class="controls-tabs js-tabs with-children-tip">
+				<li class="current"><a href="#tab-stats" title="Charts"><img src="images/icons/web-app/24/Bar-Chart.png" width="24" height="24"></a></li>
+				<li><a href="#tab-comments" title="Comments"><img src="images/icons/web-app/24/Comment.png" width="24" height="24"></a></li>
+				<li><a href="#tab-medias" title="Medias"><img src="images/icons/web-app/24/Picture.png" width="24" height="24"></a></li>
+				<li><a href="#tab-users" title="Users"><img src="images/icons/web-app/24/Profile.png" width="24" height="24"></a></li>
+				<li><a href="#tab-infos" title="Informations"><img src="images/icons/web-app/24/Info.png" width="24" height="24"></a></li>
+			</ul>
+		</div>
+		
+		<div id="tab-stats">Put the stats tab content here</div>
+		<div id="tab-comments">Put the comments tab content here</div>
+		<div id="tab-medias">Put the medias tab content here</div>
+		<div id="tab-users">Put the users tab content here</div>
+		<div id="tab-infos">Put the infos tab content here</div>
+	</div></div>
+</div>
+
+<p><em><b>Note:</b> the class <strong>with-children-tip</strong> is for showing tip on hover. See <a href="content/functions/tips.html">related section</a> for more details</em></p>
+
+<hr>
+
+<h4>Buttons:</h4>
+
+<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+			
+		&lt;div class="block-controls"&gt;
+			&lt;ul class="controls-buttons"&gt;
+				&lt;li&gt;No block&lt;/li&gt;
+				&lt;li class="controls-block"&gt;No link&lt;/li&gt;
+				&lt;li class="sep"&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#" title="Previous"&gt;&lt;img src="images/icons/fugue/navigation-180.png" width="16" height="16"&gt; Prev&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#" title="Page 1" class="current&gt;&lt;b&gt;1&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#" title="Page 2""&gt;&lt;b&gt;2&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#" title="Page 3"&gt;&lt;b&gt;3&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#" title="Next"&gt;Next &lt;img src="images/icons/fugue/navigation.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		
+		&lt;p&gt;Put your content here&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<div class="lite-grey-gradient with-padding with-margin">
+	<div class="block-border"><div class="block-content">
+		<h1>Block title</h1>
+		
+		<div class="block-controls">
+			<ul class="controls-buttons">
+				<li>No block</li>
+				<li class="controls-block">No link</li>
+				<li class="sep"></li>
+				<li><a href="javascript:void(0)" title="Previous"><img src="images/icons/fugue/navigation-180.png" width="16" height="16"> Prev</a></li>
+				<li><a href="javascript:void(0)" title="Page 1" class="current"><b>1</b></a></li>
+				<li><a href="javascript:void(0)" title="Page 2"><b>2</b></a></li>
+				<li><a href="javascript:void(0)" title="Page 3"><b>3</b></a></li>
+				<li><a href="javascript:void(0)" title="Next">Next <img src="images/icons/fugue/navigation.png" width="16" height="16"></a></li>
+			</ul>
+		</div>
+		
+		<p>Put your content here</p>
+	</div></div>
+</div>
+
+<p>If you don't want to use a <strong>ul</strong>, you can use a <strong>div</strong> instead:</p>
+
+<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+			
+		&lt;div class="block-controls"&gt;
+			&lt;div class="controls-buttons"&gt;
+				&lt;div&gt;In a div&lt;/div&gt;
+				&lt;span&gt;In a span&lt;/span&gt;
+				&lt;a href="#"&gt;In a link&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		
+		&lt;p&gt;Put your content here&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<div class="lite-grey-gradient with-padding with-margin">
+	<div class="block-border"><div class="block-content">
+		<h1>Block title</h1>
+		
+		<div class="block-controls">
+			<div class="controls-buttons">
+				<div>In a div</div>
+				<span>In a span</span>
+				<a href="#">In a link</a>
+			</div>
+		</div>
+		
+		<p>Put your content here</p>
+	</div></div>
+</div>
+
+<p>With this markup, you can group several buttons together:</p>
+
+<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+			
+		&lt;div class="block-controls"&gt;
+			&lt;div class="controls-buttons"&gt;
+				&lt;!-- The class sub-hover removes the hover effect for the whole div --&gt;
+				&lt;div class="sub-hover"&gt;
+					&lt;a href="#"&gt;Link 1&lt;/a&gt;
+					&lt;a href="#"&gt;Link 2&lt;/a&gt;
+					&lt;span class="disabled"&gt;Link 3&lt;/span&gt;&lt;!-- Add the class disabled to create a visual effect --&gt;
+				&lt;/div&gt;
+				&lt;div&gt;
+					&lt;a href="#"&gt;Link 1&lt;/a&gt;
+					&lt;a href="#"&gt;Link 2&lt;/a&gt;
+					&lt;span class="disabled"&gt;Link 3&lt;/span&gt;&lt;!-- Add the class disabled to create a visual effect --&gt;
+				&lt;/div&gt;
+				
+				&lt;!-- Some built-in icons are available --&gt;
+				&lt;div class="sub-hover"&gt;
+					&lt;a href="#" class="control-first"&gt;First&lt;/a&gt;
+					&lt;a href="#" class="control-prev"&gt;Previous&lt;/a&gt;
+					&lt;a href="#" class="control-next"&gt;Next&lt;/a&gt;
+					&lt;a href="#" class="control-last"&gt;Last&lt;/a&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		
+		&lt;p&gt;Put your content here&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<div class="lite-grey-gradient with-padding with-margin">
+	<div class="block-border"><div class="block-content">
+		<h1>Block title</h1>
+		
+		<div class="block-controls">
+			<div class="controls-buttons">
+				<!-- The class sub-hover removes the hover effect for the whole div -->
+				<div class="sub-hover">
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<span class="disabled">Link 3</span><!-- Add the class disabled to create a visual effect -->
+				</div>
+				<div>
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<span class="disabled">Link 3</span><!-- Add the class disabled to create a visual effect -->
+				</div>
+				
+				<!-- Some built-in icons are available -->
+				<div class="sub-hover">
+					<a href="#" class="control-first">First</a>
+					<a href="#" class="control-prev">Previous</a>
+					<a href="#" class="control-next">Next</a>
+					<a href="#" class="control-last">Last</a>
+				</div>
+			</div>
+		</div>
+		
+		<p>Put your content here</p>
+	</div></div>
+</div>
+
+<p>If you only need a control block in your content-block, add the class <strong>no-padding</strong> to it to remove extra content space:</p>
+
+<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content no-padding"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+			
+		&lt;div class="block-controls"&gt;
+			&lt;ul class="controls-buttons"&gt;
+				&lt;li&gt;&lt;a href="#" title="Previous"&gt;&lt;img src="images/icons/fugue/navigation-180.png" width="16" height="16"&gt; Prev&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#" title="Page 1" class="current&gt;&lt;b&gt;1&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#" title="Page 2""&gt;&lt;b&gt;2&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#" title="Page 3"&gt;&lt;b&gt;3&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#" title="Next"&gt;Next &lt;img src="images/icons/fugue/navigation.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<div class="lite-grey-gradient with-padding with-margin">
+	<div class="block-border"><div class="block-content no-padding">
+		<h1>Block title</h1>
+		
+		<div class="block-controls">
+			<ul class="controls-buttons">
+				<li><a href="javascript:void(0)" title="Previous"><img src="images/icons/fugue/navigation-180.png" width="16" height="16"> Prev</a></li>
+				<li><a href="javascript:void(0)" title="Page 1" class="current"><b>1</b></a></li>
+				<li><a href="javascript:void(0)" title="Page 2"><b>2</b></a></li>
+				<li><a href="javascript:void(0)" title="Page 3"><b>3</b></a></li>
+				<li><a href="javascript:void(0)" title="Next">Next <img src="images/icons/fugue/navigation.png" width="16" height="16"></a></li>
+			</ul>
+		</div>
+	</div></div>
+</div>
+
+</div>
+
+<div class="block-content no-title">
+<h2>Action tabs</h2>
+
+<p>These small tabs can be located on the left or the right (or even both) of any block, or within any element that has <em>position:relative</em> or <em>position:absolute</em> - in the default template markup, this is the &lt;section&gt; element.</p>
+
+<pre class="brush: html;">
+&lt;section&gt;
+	
+	&lt;!-- Tabs on the left --&gt;
+	&lt;ul class="action-tabs with-children-tip children-tip-left"&gt;
+		&lt;li&gt;&lt;a href="javascript:history.back()" title="Go back"&gt;&lt;img src="images/icons/fugue/navigation-180.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="javascript:window.location.reload()" title="Reload"&gt;&lt;img src="images/icons/fugue/arrow-circle.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	
+	&lt;!-- Tabs on the right --&gt;
+	&lt;ul class="action-tabs right with-children-tip children-tip-right"&gt;
+		&lt;li&gt;&lt;a href="#" title="Show details"&gt;&lt;img src="images/icons/fugue/application-monitor.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	
+	&lt;div class="block-border"&gt;
+		&lt;div class="block-content"&gt;
+			&lt;h1&gt;Block title&lt;/h1&gt;
+			
+			&lt;p&gt;Put your content here&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	
+&lt;/section&gt;
+</pre>
+
+<div class="lite-grey-gradient with-padding with-margin" style="text-align:center">
+	<div class="relative" style="width: 35%; margin: 0 auto; text-align:left;">
+		<ul class="action-tabs with-children-tip children-tip-left">
+			<li><a href="javascript:void(0)" title="Go back"><img src="images/icons/fugue/navigation-180.png" width="16" height="16"></a></li>
+			<li><a href="javascript:void(0)" title="Reload"><img src="images/icons/fugue/arrow-circle.png" width="16" height="16"></a></li>
+		</ul>
+		
+		<ul class="action-tabs right with-children-tip children-tip-right">
+			<li><a href="javascript:void(0)" title="Show details"><img src="images/icons/fugue/application-monitor.png" width="16" height="16"></a></li>
+		</ul>
+		
+		<div class="block-border"><div class="block-content">
+			<h1>Block title</h1>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div></div>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Header and footer</h2>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+		
+		&lt;!-- Header block --&gt;
+		&lt;div class="block-header"&gt;Header&lt;/div&gt;
+		
+		&lt;p&gt;Put your content here&lt;/p&gt;
+		
+		&lt;!-- Footer block --&gt;
+		&lt;div class="block-footer"&gt;
+			&lt;div class="float-right"&gt;
+				Some other content
+			&lt;/div&gt;
+			Some content
+		&lt;/div&gt;
+		
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content">
+			<h1>Block title</h1>
+			
+			<div class="block-header">Header</div>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			
+			<div class="block-footer">
+				<div class="float-right">
+					Some other content
+				</div>
+				
+				Some content
+			</div>
+		</div></div>
+	</div></div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Remove padding</h2>
+
+<p>Content blocks have a padding around content, except for some styles. If you want to remove this padding, just add the class <strong>no-margin</strong>:</p>
+
+<h4>Without no-margin</h4>
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-border"&gt;&lt;div class="block-content"&gt;
+	&lt;h1&gt;List calendar&lt;/h1&gt;
+	
+	...
+	
+	&lt;ul class="message"&gt;
+		&lt;li&gt;12 events found&lt;/li&gt;
+	&lt;/ul&gt;
+	
+	&lt;table cellspacing="0" class="list-calendar"&gt;
+		...
+	&lt;/table&gt;
+
+&lt;/div&gt;&lt;/div&gt;
+</pre>
+	</div>
+	
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content">
+			<h1>List calendar</h1>
+			
+			<div class="block-controls">
+				<ul class="controls-buttons">
+					<li>
+						<label for="show-empty">Show empty days</label>
+						<input type="checkbox" name="show-empty" id="show-empty" value="1" class="mini-switch" checked="checked">
+					</li>
+				</ul>
+			</div>
+			
+			<ul class="message">
+				<li>12 events found</li>
+			</ul>
+			
+			<table cellspacing="0" class="list-calendar">
+				<tbody>
+					<tr class="empty">
+						<th scope="row">01</th>
+						<td>
+							<ul class="mini-menu">
+								<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+							</ul>
+							No events
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">02</th>
+						<td>
+							<ul class="mini-menu">
+								<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+							</ul>
+							<ul class="events-dots-list">
+								<li><a href="javascript:void(0)"><span></span> Lena's birthday</a></li>
+								<li><a href="javascript:void(0)"><span></span> Replace server hard drive</a></li>
+								<li><a href="javascript:void(0)"><span></span> Max's birthday</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr class="empty">
+						<th scope="row">03</th>
+						<td>
+							<ul class="mini-menu">
+								<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+							</ul>
+							No events
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		
+		</div></div>
+	</div></div>
+</div>
+
+<h4>With no-margin</h4>
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-border"&gt;&lt;div class="block-content"&gt;
+	&lt;h1&gt;List calendar&lt;/h1&gt;
+	
+	...
+	
+	&lt;!-- With the class no-margin --&gt;
+	&lt;ul class="message no-margin"&gt;
+		&lt;li&gt;12 events found&lt;/li&gt;
+	&lt;/ul&gt;
+	
+	&lt;!-- Note: for tables, a wrapping div is required --&gt;
+	&lt;div class="no-margin"&gt;
+		&lt;table cellspacing="0" class="list-calendar"&gt;
+			...
+		&lt;/table&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;&lt;/div&gt;
+</pre>
+	</div>
+	
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		
+		<div class="block-border"><div class="block-content">
+			<h1>List calendar</h1>
+			
+			<div class="block-controls">
+				<ul class="controls-buttons">
+					<li>
+						<label for="show-empty">Show empty days</label>
+						<input type="checkbox" name="show-empty" id="show-empty" value="1" class="mini-switch" checked="checked">
+					</li>
+				</ul>
+			</div>
+			
+			<ul class="message no-margin">
+				<li>12 events found</li>
+			</ul>
+			
+			<div class="no-margin">
+				<table cellspacing="0" class="list-calendar">
+					<tbody>
+						<tr class="empty">
+							<th scope="row">01</th>
+							<td>
+								<ul class="mini-menu">
+									<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+								</ul>
+								No events
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">02</th>
+							<td>
+								<ul class="mini-menu">
+									<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+								</ul>
+								<ul class="events-dots-list">
+									<li><a href="javascript:void(0)"><span></span> Lena's birthday</a></li>
+									<li><a href="javascript:void(0)"><span></span> Replace server hard drive</a></li>
+									<li><a href="javascript:void(0)"><span></span> Max's birthday</a></li>
+								</ul>
+							</td>
+						</tr>
+						<tr class="empty">
+							<th scope="row">03</th>
+							<td>
+								<ul class="mini-menu">
+									<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+								</ul>
+								No events
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		
+		</div></div>
+	</div></div>
+</div>
+</div>

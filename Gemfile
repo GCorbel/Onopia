@@ -28,13 +28,21 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
+  gem 'capybara'
   gem 'rspec-rails'
   gem 'autotest-rails'
   gem 'spork'
   gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'email_spec'
+  gem 'cucumber-rails'
+  gem 'spork'
+  gem 'launchy'
+  gem 'pickle'
+  gem 'database_cleaner'
 end
 
 gem "galetahub-simple_captcha", :require => "simple_captcha"

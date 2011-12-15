@@ -1,0 +1,259 @@
+<div class="block-content upper-index no-padding">
+<h1>Tabs</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>About tabs</h2>
+
+<p>There are 4 tabs styles included in the template. They all work the same way: just add your tabs, and give them a link with the same <strong>hashtag</strong> as the <strong>id</strong> of the tab content-block. Tabs are activated using javascript: just add the class <strong>js-tabs</strong> and the template will activate them automatically. It will also enable tab showing/hiding events - <a href="content/functions/tabs.html">read more</a></p>
+
+<p>There can be as many nested tabs levels as wanted, the only requirement is that all tabs/content-block must have a different hashtag/id (quite logical, in fact).</p>
+
+<p>Note that some tabs require a wrapping div around the tabs content-blocks, some don't - refer to the default markup below to learn more.</p>
+
+<p>As all other template effects, tabs are activated within the JS <a href="content/functions/setup.html">setup function</a>, and the template also provides a <a href="content/functions/tabs.html">handy function</a> to resize every tabs content-blocks to the same height: just add the class <strong>same-height</strong> to the tabs parent &lt;ul&gt;.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Standard tabs</h2>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;!-- Use the class js-tabs to enable JS tabs script --&gt;
+&lt;ul class="tabs js-tabs same-height"&gt;
+	&lt;li class="current"&gt;&lt;a href="#tab-current"&gt;Current tab&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#tab-other"&gt;Other tab&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;span&gt;Disabled tab&lt;/span&gt;&lt;/li&gt;
+	&lt;li class="with-margin"&gt;&lt;a href="#" title="Add tab"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="tabs-content"&gt;
+	
+	&lt;div id="tab-current"&gt;
+		&lt;p&gt;Current tab content&lt;/p&gt;
+	&lt;/div&gt;
+	
+	&lt;div id="tab-other"&gt;
+		&lt;p&gt;Other tab content&lt;/p&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<ul class="tabs js-tabs same-height">
+			<li class="current"><a href="#tab-current">Current tab</a></li>
+			<li><a href="#tab-other">Other tab</a></li>
+			<li><span>Disabled tab</span></li>
+			<li class="with-margin"><a href="javascript:void(0)" title="Add tab"><img src="images/icons/add.png" width="16" height="16"></a></li>
+		</ul>
+		
+		<div class="tabs-content">
+			
+			<div id="tab-current" style="height:15em">
+				<p>Current tab content</p>
+			</div>
+			
+			<div id="tab-other">
+				<p>Other tab content</p>
+			</div>
+		
+		</div>
+	</div></div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Side tabs</h2>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="col200pxL-left"&gt;
+	
+	&lt;h3&gt;Title&lt;/h3&gt;
+	
+	&lt;!-- Use the class js-tabs to enable JS tabs script --&gt;
+	&lt;ul class="side-tabs js-tabs same-height"&gt;
+		&lt;li&gt;&lt;a href="#tab-global" title="Global properties"&gt;Global properties&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab-settings" title="Language settings"&gt;Language settings&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab-relations" title="Relations"&gt;Relations&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab-history" title="History"&gt;History&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;span&gt;Disabled tab&lt;/span&gt;&lt;/li&gt;
+		&lt;li class="icon-tab with-margin"&gt;&lt;a href="#" title="Add tab"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	
+&lt;/div&gt;
+&lt;div class="col200pxL-right"&gt;
+	
+	&lt;div id="tab-global" class="tabs-content" style="height:300px;"&gt;
+		Global properties
+	&lt;/div&gt;
+	
+	&lt;div id="tab-settings" class="tabs-content"&gt;
+		Language settings
+	&lt;/div&gt;
+	
+	&lt;div id="tab-relations" class="tabs-content"&gt;
+		Relations
+	&lt;/div&gt;
+	
+	&lt;div id="tab-history" class="tabs-content"&gt;
+		History
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="col200pxL-left">
+			
+			<h3>Title</h3>
+			
+			<ul class="side-tabs js-tabs same-height">
+				<li><a href="#tab-global" title="Global properties">Global properties</a></li>
+				<li><a href="#tab-settings" title="Language settings">Language settings</a></li>
+				<li><a href="#tab-relations" title="Relations">Relations</a></li>
+				<li><a href="#tab-history" title="History">History</a></li>
+				<li><span>Disabled tab</span></li>
+				<li class="icon-tab with-margin"><a href="javascript:void(0)" title="Add tab"><img src="images/icons/add.png" width="16" height="16"></a></li>
+			</ul>
+			
+		</div>
+		<div class="col200pxL-right">
+			
+			<div id="tab-global" class="tabs-content" style="height:25em;">
+				Global properties
+			</div>
+			
+			<div id="tab-settings" class="tabs-content">
+				Language settings
+			</div>
+			
+			<div id="tab-relations" class="tabs-content">
+				Relations
+			</div>
+			
+			<div id="tab-history" class="tabs-content">
+				History
+			</div>
+		
+		</div>
+	</div></div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Mini tabs</h2>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="tabs-content"&gt;
+	&lt;!-- Use the class js-tabs to enable JS tabs script --&gt;
+	&lt;ul class="mini-tabs no-margin js-tabs same-height"&gt;
+		&lt;li&gt;&lt;a href="#tab-en"&gt;&lt;img src="images/icons/flags/us.png" width="16" height="11" alt="English" title="English"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="current"&gt;&lt;a href="#tab-fr"&gt;&lt;img src="images/icons/flags/fr.png" width="16" height="11" alt="French" title="French"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab-de"&gt;&lt;img src="images/icons/flags/de.png" width="16" height="11" alt="German" title="German"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab-es"&gt;&lt;img src="images/icons/flags/es.png" width="16" height="11" alt="Spanish" title="Spanish"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab-ru"&gt;&lt;img src="images/icons/flags/ru.png" width="16" height="11" alt="Russian" title="Russian"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#tab-jp"&gt;&lt;img src="images/icons/flags/jp.png" width="16" height="11" alt="Japanese" title="Japanese"&gt; JP&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	
+	&lt;div id="tab-en"&gt;English tab content&lt;/div&gt;
+	&lt;div id="tab-fr"&gt;French tab content&lt;/div&gt;
+	&lt;div id="tab-de"&gt;German tab content&lt;/div&gt;
+	&lt;div id="tab-es"&gt;Spanish tab content&lt;/div&gt;
+	&lt;div id="tab-ru"&gt;Russian tab content&lt;/div&gt;
+	&lt;div id="tab-jp"&gt;Japanese tab content&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="tabs-content">
+			<ul class="mini-tabs no-margin js-tabs same-height">
+				<li><a href="#tab-en"><img src="images/icons/flags/us.png" width="16" height="11" alt="English" title="English"></a></li>
+				<li class="current"><a href="#tab-fr"><img src="images/icons/flags/fr.png" width="16" height="11" alt="French" title="French"></a></li>
+				<li><a href="#tab-de"><img src="images/icons/flags/de.png" width="16" height="11" alt="German" title="German"></a></li>
+				<li><a href="#tab-es"><img src="images/icons/flags/es.png" width="16" height="11" alt="Spanish" title="Spanish"></a></li>
+				<li><a href="#tab-ru"><img src="images/icons/flags/ru.png" width="16" height="11" alt="Russian" title="Russian"></a></li>
+				<li><a href="#tab-jp"><img src="images/icons/flags/jp.png" width="16" height="11" alt="Japanese" title="Japanese"> JP</a></li>
+			</ul>
+			
+			<div id="tab-en" style="height:15em">English tab content</div>
+			<div id="tab-fr">French tab content</div>
+			<div id="tab-de">German tab content</div>
+			<div id="tab-es">Spanish tab content</div>
+			<div id="tab-ru">Russian tab content</div>
+			<div id="tab-jp">Japanese tab content</div>
+		</div>
+	</div></div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Block tabs</h2>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;div class="block-border"&gt;
+	&lt;div class="block-content"&gt;
+		&lt;h1&gt;Block title&lt;/h1&gt;
+			
+		&lt;div class="block-controls"&gt;
+			&lt;!-- Use the class js-tabs to enable JS tabs script --&gt;
+			&lt;ul class="controls-tabs js-tabs with-children-tip"&gt;
+				&lt;li class="current"&gt;&lt;a href="#tab-stats" title="Charts"&gt;&lt;img src="images/icons/web-app/24/Bar-Chart.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#tab-comments" title="Comments"&gt;&lt;img src="images/icons/web-app/24/Comment.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#tab-medias" title="Medias"&gt;&lt;img src="images/icons/web-app/24/Picture.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#tab-users" title="Users"&gt;&lt;img src="images/icons/web-app/24/Profile.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#tab-infos" title="Informations"&gt;&lt;img src="images/icons/web-app/24/Info.png" width="24" height="24"&gt;&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		
+		&lt;div id="tab-stats"&gt;Put the stats tab content here&lt;/div&gt;
+		&lt;div id="tab-comments"&gt;Put the comments tab content here&lt;/div&gt;
+		&lt;div id="tab-medias"&gt;Put the medias tab content here&lt;/div&gt;
+		&lt;div id="tab-users"&gt;Put the users tab content here&lt;/div&gt;
+		&lt;div id="tab-infos"&gt;Put the infos tab content here&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content">
+			<h1>Block title</h1>
+			
+			<div class="block-controls">
+				<ul class="controls-tabs js-tabs with-children-tip">
+					<li class="current"><a href="#tab-stats" title="Charts"><img src="images/icons/web-app/24/Bar-Chart.png" width="24" height="24"></a></li>
+					<li><a href="#tab-comments" title="Comments"><img src="images/icons/web-app/24/Comment.png" width="24" height="24"></a></li>
+					<li><a href="#tab-medias" title="Medias"><img src="images/icons/web-app/24/Picture.png" width="24" height="24"></a></li>
+					<li><a href="#tab-users" title="Users"><img src="images/icons/web-app/24/Profile.png" width="24" height="24"></a></li>
+					<li><a href="#tab-infos" title="Informations"><img src="images/icons/web-app/24/Info.png" width="24" height="24"></a></li>
+				</ul>
+			</div>
+			
+			<div id="tab-stats" style="height:15em">Put the stats tab content here</div>
+			<div id="tab-comments">Put the comments tab content here</div>
+			<div id="tab-medias">Put the medias tab content here</div>
+			<div id="tab-users">Put the users tab content here</div>
+			<div id="tab-infos">Put the infos tab content here</div>
+		</div></div>
+	</div></div>
+</div>
+
+<p><em><b>Note:</b> the class <strong>with-children-tip</strong> is for showing tip on hover. See <a href="content/functions/tips.html">related section</a> for more details</em></p>
+</div>

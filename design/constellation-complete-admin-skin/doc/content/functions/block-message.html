@@ -1,0 +1,142 @@
+<div class="block-content upper-index no-padding">
+<h1>Block message</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Adding messages</h2>
+
+<p>The template has a built-in message style (<a href="content/css/generic.html">learn more</a>), which is designed to fit in the content-block box. You can add message manually, or use the template function to automatically add a message:</p>
+
+<pre class="brush: js">
+/**
+ * Insert a message into a block
+ * @param string|array message a message, or an array of messages to inserted
+ * @param object options optional object with following values:
+ * 		- type: one of the available message classes : 'info' (default), 'warning', 'error', 'success', 'loading'
+ * 		- position: either 'top' (default) or 'bottom'
+ * 		- animate: true to show the message with an animation (default), else false
+ * 		- noMargin: true to apply the no-margin class to the message (default), else false
+ */
+$(selector).blockMessage(message, options);
+</pre>
+
+<p>Note that the function will automatically detect headers blocks (block-controls, header...) and add the message after them - same thing for footer blocks.</p>
+
+<p>To change the default configuration at runtime, you can edit function's defaults:</p>
+
+<pre class="brush: js">
+// One of the available message classes : 'info' (default), 'warning', 'error', 'success', 'loading'
+$.fn.blockMessage.defaults.type = 'info';
+
+// Either 'top' (default) or 'bottom'
+$.fn.blockMessage.defaults.position = 'top';
+
+// True to show the message with an animation (default), else false
+$.fn.blockMessage.defaults.animate = true;
+
+// True to apply the no-margin class to the message (default), else false
+$.fn.blockMessage.defaults.noMargin = true;
+</pre>
+
+<hr>
+
+<h4 class="with-margin">Demo</h4>
+<div class="columns">
+	<div class="colx2-left">
+		<div class="lite-grey-gradient with-padding">
+			<script type="application/javascript">
+			
+				function addMessage()
+				{
+					var message = $.trim($('#message').val());
+					if (message.length > 0)
+					{
+						$('#demo-message').blockMessage(message, {
+							type: $('#message-type').val(),
+							position: $('#message-position').val()
+						});
+					}
+					else
+					{
+						alert('Please enter a message!');
+					}
+				};
+			
+			</script>
+			
+			<div class="block-border"><form method="post" class="block-content form" action="" onsubmit="addMessage(); return false;">
+				<h1>New message</h1>
+				
+				<p><label for="message">Enter message</label>
+				<textarea name="message" id="message" class="full-width">Hello world!</textarea></p>
+				<p><label class="inline" for="message-type">Type:</label> <select name="message-type" id="message-type">
+					<option value="info">info</option>
+					<option value="warning">warning</option>
+					<option value="error">error</option>
+					<option value="success">success</option>
+					<option value="loading">loading</option>
+				</select> &nbsp; <label class="inline" for="message-position">Position:</label> <select name="message-position" id="message-position">
+					<option value="top">top</option>
+					<option value="bottom">bottom</option>
+				</select> &nbsp; <button type="submit">Add message</button></p>
+				
+			</form></div>
+		</div>
+	</div>
+	<div class="colx2-right">
+		<div class="lite-grey-gradient with-padding">
+			<div class="block-border"><div class="block-content" id="demo-message">
+				<h1>Demo block</h1>
+				
+				<div class="block-controls">
+					<ul class="controls-buttons">
+						<li><a href="javascript:void(0)" onclick="$('#demo-message').removeBlockMessages();"><img src="images/icons/fugue/arrow-circle.png" width="16" height="16"> Clear</a></li>
+					</ul>
+				</div>
+				
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div></div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Removing messages</h2>
+
+<p>Clearing all messages in a content-block can be done with this function:</p>
+
+<pre class="brush: js">
+/**
+ * Remove all messages from the block
+ * @param object options optional object with following values:
+ * 		- only: string or array of strings of message classes which will be removed
+ * 		- except: string or array of strings of message classes which will not be removed (ignored if 'only' is provided)
+ * 		- animate: true to remove the message with an animation (default), else false
+ */
+$(selector).removeBlockMessages(options);
+</pre>
+
+<p>To change the default configuration at runtime, you can edit function's defaults:</p>
+
+<pre class="brush: js">
+// String or array of strings of message classes which will be removed
+$.fn.removeBlockMessages.defaults.only = false;
+
+// String or array of strings of message classes which will not be removed (ignored if 'only' is provided)
+$.fn.removeBlockMessages.defaults.except = false;
+
+// True to remove the message with an animation (default), else false
+$.fn.removeBlockMessages.defaults.animate = true;
+</pre>
+</div>

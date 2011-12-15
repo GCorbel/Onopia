@@ -1,0 +1,68 @@
+<div class="block-content upper-index">
+<h1>Special pages</h1>
+
+<h2>About special pages</h2>
+
+<p>The template includes several special pages:</p>
+
+<dl class="definition">
+	<dt>login</dt>
+	<dd>User login page with ajax demo script (with server-side script on the php version)</dd>
+	
+	<dt>wizard</dt>
+	<dd>Example page for a setup wizard</dd>
+	
+	<dt>old-browsers</dt>
+	<dd>Blocking page displayed automatically to older browsers to prevent them from accessing the application</dd>
+	
+	<dt>_errors/error</dt>
+	<dd>Example error page, with detailed error report. The php version is also fully fonctional - see file error.php at the root of the Php template for usage example - and includes report sending through an ajax request to file sendReport.php (see below).</dd>
+	
+	<dt>_errors/sendReport</dt>
+	<dd>Example page for sending error report. The php version works, in association with error.php - just add mail sending of logging depending on your needs.</dd>
+	
+	<dt>_errors/xxx</dt>
+	<dd><p class="small-margin">Error documents, can be used for instance with Apache webserver with an .htaccess file (provided in the php version) or any other HTTP server:</p>
+	<p class="small-margin"><b>400:</b> Bad request<br>
+	<b>401:</b> Unauthorized<br>
+	<b>403:</b> Forbidden<br>
+	<b>404:</b> Page not found<br>
+	<b>500:</b> Internal server error<br>
+	<b>503:</b> Service Unavailable</p>
+</dl>
+
+<div class="mini-infos">
+	<p>All pages (except the one for the older browsers) are compatible with both standard an mobile template, by using CSS media Queries.</p>
+</div>
+
+<p>These pages (except the one for the older browsers) use the template standard classes, and a custom CSS file. Just note that they also have the class <strong>special-page</strong> applied to the &lt;body&gt; element: this is only required for script optimizations.</p>
+
+<p>Also note that all pages in folder <b>_errors/</b> in the php version (except sendReport.php) are intended to be loaded either by the HTTP server or by a php script, so relative pathes to CSS/JS/images won't work if you open them directly.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Error documents</h2>
+
+<p>To use the template error documents with an Apache HTTP server, make sure that you can use .htaccess files, and create a file named .htaccess at the root of your website (or edit it if it already exists):</p>
+
+<pre class="brush: plain">
+ErrorDocument 400 /_errors/400.php
+ErrorDocument 401 /_errors/401.php
+ErrorDocument 403 /_errors/403.php
+ErrorDocument 404 /_errors/404.php
+ErrorDocument 500 /_errors/500.php
+ErrorDocument 503 /_errors/503.php
+</pre>
+
+<p>Note that if your website is in a folder under the root of your hosting, you'll need to provide the absolute path (relative pathes won't work):</p>
+
+<pre class="brush: plain">
+# Example with folder /admin/
+ErrorDocument 400 /admin/_errors/400.php
+ErrorDocument 401 /admin/_errors/401.php
+ErrorDocument 403 /admin/_errors/403.php
+ErrorDocument 404 /admin/_errors/404.php
+ErrorDocument 500 /admin/_errors/500.php
+ErrorDocument 503 /admin/_errors/503.php
+</pre>
+</div>

@@ -1,0 +1,109 @@
+<div class="block-content upper-index no-padding">
+<h1>Table sorting plugin</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js, standard.js, jquery.dataTables.min.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		mobile, standard</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>About the plugin</h2>
+
+<p>Table sorting is done using the plugin <strong>DataTable</strong> available here: <a href="http://www.datatables.net">http://www.datatables.net</a>. You can find an complete documentation for using and customizing the plugin on this website.</p>
+
+<p class="message warning"><strong>Note:</strong> the plugin does not allow <strong>&lt;th&gt;</strong> cells within the <strong>&lt;tbody&gt;</strong> element, remember to remove them. If you want to keep the visual styling of the &lt;th&gt;, you can use an custom class: <&lt;td class="th"&gt;</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Example implementation</h2>
+
+<p>Here is an example of implementation of the plugin - you can test a working version on the default index.html/php in the package:</p>
+
+<pre class="brush: js">
+/*
+ * We need to edit the plugin classes names to match the template ones
+ */
+$.fn.dataTableExt.oStdClasses.sWrapper = 'no-margin last-child';
+$.fn.dataTableExt.oStdClasses.sInfo = 'message no-margin';
+$.fn.dataTableExt.oStdClasses.sLength = 'float-left';
+$.fn.dataTableExt.oStdClasses.sFilter = 'float-right';
+$.fn.dataTableExt.oStdClasses.sPaging = 'sub-hover paging_';
+$.fn.dataTableExt.oStdClasses.sPagePrevEnabled = 'control-prev';
+$.fn.dataTableExt.oStdClasses.sPagePrevDisabled = 'control-prev disabled';
+$.fn.dataTableExt.oStdClasses.sPageNextEnabled = 'control-next';
+$.fn.dataTableExt.oStdClasses.sPageNextDisabled = 'control-next disabled';
+$.fn.dataTableExt.oStdClasses.sPageFirst = 'control-first';
+$.fn.dataTableExt.oStdClasses.sPagePrevious = 'control-prev';
+$.fn.dataTableExt.oStdClasses.sPageNext = 'control-next';
+$.fn.dataTableExt.oStdClasses.sPageLast = 'control-last';
+
+/*
+ * Apply the plugin to every table with the class 'sortable'
+ */
+$(document).ready(function()
+{
+	$('.sortable').each(function(i)
+	{
+		// DataTable config
+		var table = $(this),
+			oTable = table.dataTable({
+				/*
+				 * Set DOM structure for table controls
+				 * @url http://www.datatables.net/examples/basic_init/dom.html
+				 */
+				sDom: '&lt;"block-controls"&lt;"controls-buttons"p&gt;&gt;rti&lt;"block-footer clearfix"lf&gt;',
+				
+				/*
+				 * Callback to apply template setup
+				 */
+				fnDrawCallback: function()
+				{
+					this.parent().applyTemplateSetup();
+				},
+				fnInitComplete: function()
+				{
+					this.parent().applyTemplateSetup();
+				}
+			});
+		
+		// Sorting arrows behaviour
+		table.find('thead .sort-up').click(function(event)
+		{
+			// Stop link behaviour
+			event.preventDefault();
+			
+			// Find column index
+			var column = $(this).closest('th'),
+				columnIndex = column.parent().children().index(column.get(0));
+			
+			// Send command
+			oTable.fnSort([[columnIndex, 'asc']]);
+			
+			// Prevent bubbling
+			return false;
+		});
+		table.find('thead .sort-down').click(function(event)
+		{
+			// Stop link behaviour
+			event.preventDefault();
+			
+			// Find column index
+			var column = $(this).closest('th'),
+				columnIndex = column.parent().children().index(column.get(0));
+			
+			// Send command
+			oTable.fnSort([[columnIndex, 'desc']]);
+			
+			// Prevent bubbling
+			return false;
+		});
+	});
+});
+</pre>
+</div>

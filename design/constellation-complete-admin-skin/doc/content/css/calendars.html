@@ -1,0 +1,1422 @@
+<div class="block-content upper-index no-padding">
+<h1>Calendars</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css, calendars.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Calendar classes</h2>
+
+<p>All month-calendars use table as a structure. There are some common classes you can use to style cells within these:</p>
+
+<ul class="picto-list">
+	<li>week-end</li>
+	<li>other-month</li>
+	<li>today</li>
+	<li>unavailable</li>
+</ul>
+</div>
+
+<div class="block-content no-title">
+<h2>Small calendar</h2>
+
+<p>Floating, fixed-size calendar:</p>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;div class="mini-calendar"&gt;
+	&lt;div class="calendar-controls"&gt;
+		&lt;a href="#" class="calendar-prev" title="Previous month"&gt;&lt;img src="images/cal-arrow-left.png" width="16" height="16"&gt;&lt;/a&gt;
+		&lt;a href="#" class="calendar-next" title="Next month"&gt;&lt;img src="images/cal-arrow-right.png" width="16" height="16"&gt;&lt;/a&gt;
+		Apr 2010
+	&lt;/div&gt;
+	
+	&lt;table cellspacing="0"&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th scope="col" class="week-end"&gt;S&lt;/th&gt;
+				&lt;th scope="col"&gt;M&lt;/th&gt;
+				&lt;th scope="col"&gt;T&lt;/th&gt;
+				&lt;th scope="col"&gt;W&lt;/th&gt;
+				&lt;th scope="col"&gt;T&lt;/th&gt;
+				&lt;th scope="col"&gt;F&lt;/th&gt;
+				&lt;th scope="col" class="week-end"&gt;S&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end other-month"&gt;28&lt;/td&gt;
+				&lt;td class="other-month"&gt;29&lt;/td&gt;
+				&lt;td class="other-month"&gt;30&lt;/td&gt;
+				&lt;td class="other-month"&gt;31&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/td&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;6&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;7&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;8&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;!-- Current day highlight --&gt;
+				&lt;td class="today"&gt;&lt;a href="#"&gt;9&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;10&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;11&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;12&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;13&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;14&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;15&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;16&lt;/a&gt;&lt;/td&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;17&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;18&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;19&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;20&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;21&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;22&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;23&lt;/a&gt;&lt;/td&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;24&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;25&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;!-- Unavailable days --&gt;
+				&lt;td class="unavailable"&gt;26&lt;/td&gt;
+				&lt;td class="unavailable"&gt;27&lt;/td&gt;
+				&lt;td class="unavailable"&gt;28&lt;/td&gt;
+				
+				&lt;td&gt;&lt;a href="#"&gt;29&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;30&lt;/a&gt;&lt;/td&gt;
+				&lt;td class="week-end other-month"&gt;1&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<div class="mini-calendar">
+			<div class="calendar-controls">
+				<a href="javascript:void(0)" class="calendar-prev" title="Previous month"><img src="images/cal-arrow-left.png" width="16" height="16"></a>
+				<a href="javascript:void(0)" class="calendar-next" title="Next month"><img src="images/cal-arrow-right.png" width="16" height="16"></a>
+				Apr 2010
+			</div>
+			
+			<table cellspacing="0">
+				<thead>
+					<tr>
+						<th scope="col" class="week-end">S</th>
+						<th scope="col">M</th>
+						<th scope="col">T</th>
+						<th scope="col">W</th>
+						<th scope="col">T</th>
+						<th scope="col">F</th>
+						<th scope="col" class="week-end">S</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="week-end other-month">28</td>
+						<td class="other-month">29</td>
+						<td class="other-month">30</td>
+						<td class="other-month">31</td>
+						<td><a href="javascript:void(0)">1</a></td>
+						<td><a href="javascript:void(0)">2</a></td>
+						<td class="week-end"><a href="javascript:void(0)">3</a></td>
+					</tr>
+					<tr>
+						<td class="week-end"><a href="javascript:void(0)">4</a></td>
+						<td><a href="javascript:void(0)">5</a></td>
+						<td><a href="javascript:void(0)">6</a></td>
+						<td><a href="javascript:void(0)">7</a></td>
+						<td><a href="javascript:void(0)">8</a></td>
+						<td class="today"><a href="javascript:void(0)">9</a></td>
+						<td class="week-end"><a href="javascript:void(0)">10</a></td>
+					</tr>
+					<tr>
+						<td class="week-end"><a href="javascript:void(0)">11</a></td>
+						<td><a href="javascript:void(0)">12</a></td>
+						<td><a href="javascript:void(0)">13</a></td>
+						<td><a href="javascript:void(0)">14</a></td>
+						<td><a href="javascript:void(0)">15</a></td>
+						<td><a href="javascript:void(0)">16</a></td>
+						<td class="week-end"><a href="javascript:void(0)">17</a></td>
+					</tr>
+					<tr>
+						<td class="week-end"><a href="javascript:void(0)">18</a></td>
+						<td><a href="javascript:void(0)">19</a></td>
+						<td><a href="javascript:void(0)">20</a></td>
+						<td><a href="javascript:void(0)">21</a></td>
+						<td><a href="javascript:void(0)">22</a></td>
+						<td><a href="javascript:void(0)">23</a></td>
+						<td class="week-end"><a href="javascript:void(0)">24</a></td>
+					</tr>
+					<tr>
+						<td class="week-end"><a href="javascript:void(0)">25</a></td>
+						<td class="unavailable">26</td>
+						<td class="unavailable">27</td>
+						<td class="unavailable">28</td>
+						<td><a href="javascript:void(0)">29</a></td>
+						<td><a href="javascript:void(0)">30</a></td>
+						<td class="week-end other-month">1</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<p class="next-to-mini-calendar">You can put content next to the mini-calendar using the class <strong>next-to-mini-calendar</strong>:<br>
+		&lt;p class="next-to-mini-calendar"&gt;&lt;/p&gt;</p>
+		
+		<div class="clear with-margin"></div>
+		
+		<div class="mini-calendar float-right">
+			<div class="calendar-controls">
+				<a href="javascript:void(0)" class="calendar-prev" title="Previous month"><img src="images/cal-arrow-left.png" width="16" height="16"></a>
+				<a href="javascript:void(0)" class="calendar-next" title="Next month"><img src="images/cal-arrow-right.png" width="16" height="16"></a>
+				Apr 2010
+			</div>
+			
+			<table cellspacing="0">
+				<thead>
+					<tr>
+						<th scope="col" class="week-end">S</th>
+						<th scope="col">M</th>
+						<th scope="col">T</th>
+						<th scope="col">W</th>
+						<th scope="col">T</th>
+						<th scope="col">F</th>
+						<th scope="col" class="week-end">S</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="week-end other-month">28</td>
+						<td class="other-month">29</td>
+						<td class="other-month">30</td>
+						<td class="other-month">31</td>
+						<td><a href="javascript:void(0)">1</a></td>
+						<td><a href="javascript:void(0)">2</a></td>
+						<td class="week-end"><a href="javascript:void(0)">3</a></td>
+					</tr>
+					<tr>
+						<td class="week-end"><a href="javascript:void(0)">4</a></td>
+						<td><a href="javascript:void(0)">5</a></td>
+						<td><a href="javascript:void(0)">6</a></td>
+						<td><a href="javascript:void(0)">7</a></td>
+						<td><a href="javascript:void(0)">8</a></td>
+						<td class="today"><a href="javascript:void(0)">9</a></td>
+						<td class="week-end"><a href="javascript:void(0)">10</a></td>
+					</tr>
+					<tr>
+						<td class="week-end"><a href="javascript:void(0)">11</a></td>
+						<td><a href="javascript:void(0)">12</a></td>
+						<td><a href="javascript:void(0)">13</a></td>
+						<td><a href="javascript:void(0)">14</a></td>
+						<td><a href="javascript:void(0)">15</a></td>
+						<td><a href="javascript:void(0)">16</a></td>
+						<td class="week-end"><a href="javascript:void(0)">17</a></td>
+					</tr>
+					<tr>
+						<td class="week-end"><a href="javascript:void(0)">18</a></td>
+						<td><a href="javascript:void(0)">19</a></td>
+						<td><a href="javascript:void(0)">20</a></td>
+						<td><a href="javascript:void(0)">21</a></td>
+						<td><a href="javascript:void(0)">22</a></td>
+						<td><a href="javascript:void(0)">23</a></td>
+						<td class="week-end"><a href="javascript:void(0)">24</a></td>
+					</tr>
+					<tr>
+						<td class="week-end"><a href="javascript:void(0)">25</a></td>
+						<td class="unavailable">26</td>
+						<td class="unavailable">27</td>
+						<td class="unavailable">28</td>
+						<td><a href="javascript:void(0)">29</a></td>
+						<td><a href="javascript:void(0)">30</a></td>
+						<td class="week-end other-month">1</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<p class="next-to-mini-calendar">You can also float the mini-calendar by adding the class <strong>float-right</strong> to it. The class <strong>next-to-mini-calendar</strong> will then adapt automatically.</p>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Medium calendar</h2>
+
+<p>Fluid calendar with several markers: events count and multiple corner indicators.</p>
+
+<pre class="brush: html">
+&lt;div class="medium-calendar"&gt;
+	&lt;div class="calendar-controls"&gt;
+		&lt;a href="#" class="calendar-prev" title="Previous month"&gt;&lt;img src="images/cal-arrow-left.png" width="16" height="16"&gt;&lt;/a&gt;
+		&lt;a href="#" class="calendar-next" title="Next month"&gt;&lt;img src="images/cal-arrow-right.png" width="16" height="16"&gt;&lt;/a&gt;
+		Apr 2010
+	&lt;/div&gt;
+	
+	&lt;table cellspacing="0"&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th scope="col" class="week-end"&gt;Sun&lt;/th&gt;
+				&lt;th scope="col"&gt;Mon&lt;/th&gt;
+				&lt;th scope="col"&gt;Tue&lt;/th&gt;
+				&lt;th scope="col"&gt;Wed&lt;/th&gt;
+				&lt;th scope="col"&gt;Thu&lt;/th&gt;
+				&lt;th scope="col"&gt;Fri&lt;/th&gt;
+				&lt;th scope="col" class="week-end"&gt;Sat&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end other-month"&gt;28&lt;/td&gt;
+				&lt;td class="other-month"&gt;29&lt;/td&gt;
+				&lt;td class="other-month"&gt;30&lt;/td&gt;
+				&lt;td class="other-month"&gt;31&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;!-- Cell with blue corner --&gt;
+				&lt;td&gt;&lt;a href="#"&gt;&lt;span class="blue-corner"&gt;2&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;!-- Number of events --&gt;
+				&lt;td&gt;&lt;a href="#"&gt;5&lt;span class="nb-events"&gt;54&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;td&gt;&lt;a href="#"&gt;6&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;7&lt;span class="nb-events"&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;!-- You can use both corners on one cell --&gt;
+				&lt;td&gt;&lt;a href="#"&gt;&lt;span class="red-corner"&gt;&lt;span class="blue-corner"&gt;8&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;!-- Current day highlight --&gt;
+				&lt;td&gt;&lt;a href="#"&gt;&lt;span class="today"&gt;9&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;10&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;11&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;12&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;13&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;14&lt;span class="nb-events"&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;&lt;span class="red-corner"&gt;15&lt;/span&gt;&lt;span class="nb-events"&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;16&lt;/a&gt;&lt;/td&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;17&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;18&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;19&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;20&lt;span class="nb-events"&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;21&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;22&lt;span class="nb-events"&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;&lt;span class="blue-corner"&gt;23&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;&lt;span class="blue-corner"&gt;24&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td class="week-end"&gt;&lt;a href="#"&gt;25&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;!-- Unavailable days --&gt;
+				&lt;td class="unavailable"&gt;26&lt;/td&gt;
+				&lt;td class="unavailable"&gt;27&lt;/td&gt;
+				&lt;td class="unavailable"&gt;28&lt;/td&gt;
+				
+				&lt;td&gt;&lt;a href="#"&gt;29&lt;/a&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;a href="#"&gt;30&lt;/a&gt;&lt;/td&gt;
+				
+				&lt;!-- Events count can also be used for other month cells --&gt;
+				&lt;!-- When there is no link, a div is required to position the event count element --&gt;
+				&lt;td class="week-end other-month"&gt;&lt;div&gt;&lt;span class="blue-corner"&gt;1&lt;/span&gt;&lt;span class="nb-events"&gt;2&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/div&gt;
+</pre>
+<div class="lite-grey-gradient with-padding with-margin" style="text-align:center;">
+	<div class="medium-calendar" style="max-width:26em; margin: 0 auto;">
+		<div class="calendar-controls">
+			<a href="javascript:void(0)" class="calendar-prev" title="Previous month"><img src="images/cal-arrow-left.png" width="16" height="16"></a>
+			<a href="javascript:void(0)" class="calendar-next" title="Next month"><img src="images/cal-arrow-right.png" width="16" height="16"></a>
+			Apr 2010
+		</div>
+		
+		<table cellspacing="0">
+			<thead>
+				<tr>
+					<th scope="col" class="week-end">Sun</th>
+					<th scope="col">Mon</th>
+					<th scope="col">Tue</th>
+					<th scope="col">Wed</th>
+					<th scope="col">Thu</th>
+					<th scope="col">Fri</th>
+					<th scope="col" class="week-end">Sat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="week-end other-month">28</td>
+					<td class="other-month">29</td>
+					<td class="other-month">30</td>
+					<td class="other-month">31</td>
+					<td><a href="javascript:void(0)">1</a></td>
+					<td><a href="javascript:void(0)"><span class="blue-corner">2</span></a></td>
+					<td class="week-end"><a href="javascript:void(0)">3</a></td>
+				</tr>
+				<tr>
+					<td class="week-end"><a href="javascript:void(0)">4</a></td>
+					<td><a href="javascript:void(0)">5<span class="nb-events">54</span></a></td>
+					<td><a href="javascript:void(0)">6</a></td>
+					<td><a href="javascript:void(0)">7<span class="nb-events">1</span></a></td>
+					<td><a href="javascript:void(0)"><span class="red-corner"><span class="blue-corner">8</span></span></a></td>
+					<td><a href="javascript:void(0)"><span class="today">9</span></a></td>
+					<td class="week-end"><a href="javascript:void(0)">10</a></td>
+				</tr>
+				<tr>
+					<td class="week-end"><a href="javascript:void(0)">11</a></td>
+					<td><a href="javascript:void(0)">12</a></td>
+					<td><a href="javascript:void(0)">13</a></td>
+					<td><a href="javascript:void(0)">14<span class="nb-events">1</span></a></td>
+					<td><a href="javascript:void(0)"><span class="red-corner">15</span><span class="nb-events">1</span></a></td>
+					<td><a href="javascript:void(0)">16</a></td>
+					<td class="week-end"><a href="javascript:void(0)">17</a></td>
+				</tr>
+				<tr>
+					<td class="week-end"><a href="javascript:void(0)">18</a></td>
+					<td><a href="javascript:void(0)">19</a></td>
+					<td><a href="javascript:void(0)">20<span class="nb-events">1</span></a></td>
+					<td><a href="javascript:void(0)">21</a></td>
+					<td><a href="javascript:void(0)">22<span class="nb-events">1</span></a></td>
+					<td><a href="javascript:void(0)"><span class="blue-corner">23</span></a></td>
+					<td class="week-end"><a href="javascript:void(0)"><span class="blue-corner">24</span></a></td>
+				</tr>
+				<tr>
+					<td class="week-end"><a href="javascript:void(0)">25</a></td>
+					<td class="unavailable">26</td>
+					<td class="unavailable">27</td>
+					<td class="unavailable">28</td>
+					<td><a href="javascript:void(0)">29</a></td>
+					<td><a href="javascript:void(0)">30</a></td>
+					<!-- div required to position elements -->
+					<td class="week-end other-month"><div><span class="blue-corner">1</span><span class="nb-events">2</span></div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Large calendar</h2>
+
+<p>Fluid calendar with 2 events listing styles and add event button.</p>
+
+<pre class="brush: html">
+&lt;table cellspacing="0" class="calendar"&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th scope="col" class="black-cell"&gt;&lt;span class="success"&gt;&lt;/span&gt;&lt;/th&gt;
+			&lt;th scope="col" class="week-end"&gt;Sunday&lt;/th&gt;
+			&lt;th scope="col"&gt;Monday&lt;/th&gt;
+			&lt;th scope="col"&gt;Tuesday&lt;/th&gt;
+			&lt;th scope="col"&gt;Wednesday&lt;/th&gt;
+			&lt;th scope="col"&gt;Thursday&lt;/th&gt;
+			&lt;th scope="col"&gt;Friday&lt;/th&gt;
+			&lt;th scope="col" class="week-end"&gt;Saturday&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;13&lt;/th&gt;
+			&lt;td class="week-end other-month"&gt;
+				&lt;span class="day"&gt;28&lt;/span&gt;
+			&lt;/td&gt;
+			&lt;td class="other-month"&gt;
+				&lt;span class="day"&gt;29&lt;/span&gt;
+			&lt;/td&gt;
+			&lt;td class="other-month"&gt;
+				&lt;span class="day"&gt;30&lt;/span&gt;
+			&lt;/td&gt;
+			&lt;td class="other-month"&gt;
+				&lt;span class="day"&gt;31&lt;/span&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;!-- Day number --&gt;
+				&lt;a href="#" class="day"&gt;1&lt;/a&gt;
+				
+				&lt;!-- Add event button --&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;2&lt;/a&gt;
+				
+				&lt;!-- Events dot list --&gt;
+				&lt;ul class="dot-events with-children-tip"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;Lena's birthday&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#"&gt;Replace server hard drive&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#"&gt;Max's birthday&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td class="week-end"&gt;
+				&lt;a href="#" class="day"&gt;3&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;14&lt;/th&gt;
+			&lt;td class="week-end"&gt;
+				&lt;a href="#" class="day"&gt;4&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;5&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+				
+				&lt;!-- Full events list --&gt;
+				&lt;ul class="events"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;9:00&lt;/b&gt; Meeting&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;11:00&lt;/b&gt; Meeting with D.H.&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				
+				&lt;!-- Drop-down events list --&gt;
+				&lt;div class="more-events"&gt;
+					3 more events
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;14:00&lt;/b&gt; Meeting&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;17:00&lt;/b&gt; Soccer&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;21:00&lt;/b&gt; Diner with Jane&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/div&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;6&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;7&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+				&lt;ul class="events"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;9:00&lt;/b&gt; Meeting&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;8&lt;/a&gt;
+				&lt;ul class="dot-events with-children-tip"&gt;
+				
+					&lt;!-- You can change a dot color to red --&gt;
+					&lt;!-- The link is not required in a dot --&gt;
+					&lt;li class="red"&gt;Tax payment limit date&lt;/li&gt;
+					
+					&lt;li&gt;&lt;a href="#"&gt;Check server hard drive logs&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day today"&gt;9&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td class="week-end"&gt;
+				&lt;a href="#" class="day"&gt;10&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;15&lt;/th&gt;
+			&lt;td class="week-end"&gt;
+				&lt;a href="#" class="day"&gt;11&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;12&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;13&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;14&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+				&lt;ul class="events"&gt;
+				
+					&lt;!-- You can change an event color to red --&gt;
+					&lt;!-- The link is not required --&gt;
+					&lt;li class="red"&gt;&lt;b&gt;17:00&lt;/b&gt; Meeting&lt;/li&gt;
+					
+				&lt;/ul&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;15&lt;/a&gt;
+				&lt;ul class="dot-events with-children-tip"&gt;
+					&lt;li class="red"&gt;John's birthday&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+				&lt;ul class="events"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;17:00&lt;/b&gt; Soccer&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;16&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td class="week-end"&gt;
+				&lt;a href="#" class="day"&gt;17&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;16&lt;/th&gt;
+			&lt;td class="week-end"&gt;
+				&lt;a href="#" class="day"&gt;18&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;19&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;20&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;21&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+				&lt;ul class="events"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;8:00&lt;/b&gt; Meeting&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;22&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+				&lt;ul class="events"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;17:00&lt;/b&gt; Soccer&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;23&lt;/a&gt;
+				&lt;ul class="dot-events with-children-tip"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;Check server hard drive logs&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td class="week-end"&gt;
+				&lt;a href="#" class="day"&gt;24&lt;/a&gt;
+				&lt;ul class="dot-events with-children-tip"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;Send final report&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;17&lt;/th&gt;
+			&lt;td class="week-end"&gt;
+				&lt;a href="#" class="day"&gt;25&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			
+			&lt;!-- Unavailable days --&gt;
+			&lt;td class="unavailable"&gt;
+				&lt;span class="day"&gt;26&lt;/span&gt;
+			&lt;/td&gt;
+			&lt;td class="unavailable"&gt;
+				&lt;span class="day"&gt;27&lt;/span&gt;
+			&lt;/td&gt;
+			&lt;td class="unavailable"&gt;
+				&lt;span class="day"&gt;28&lt;/span&gt;
+			&lt;/td&gt;
+			
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;29&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;a href="#" class="day"&gt;30&lt;/a&gt;
+				&lt;a href="#" class="add-event"&gt;Add&lt;/a&gt;
+			&lt;/td&gt;
+			
+			&lt;!-- Events dot list can also be used for other month cells --&gt;
+			&lt;td class="week-end other-month"&gt;
+				&lt;span class="day"&gt;1&lt;/span&gt;
+				&lt;ul class="dot-events with-children-tip"&gt;
+					&lt;li&gt;Tom's birthday&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+
+<table cellspacing="0" class="calendar">
+	<thead>
+		<tr>
+			<th scope="col" class="black-cell"><span class="success"></span></th>
+			<th scope="col" class="week-end">Sunday</th>
+			<th scope="col">Monday</th>
+			<th scope="col">Tuesday</th>
+			<th scope="col">Wednesday</th>
+			<th scope="col">Thursday</th>
+			<th scope="col">Friday</th>
+			<th scope="col" class="week-end">Saturday</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">13</th>
+			<td class="week-end other-month">
+				<span class="day">28</span>
+			</td>
+			<td class="other-month">
+				<span class="day">29</span>
+			</td>
+			<td class="other-month">
+				<span class="day">30</span>
+			</td>
+			<td class="other-month">
+				<span class="day">31</span>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">1</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">2</a>
+				<ul class="dot-events with-children-tip">
+					<li><a href="javascript:void(0)">Lena's birthday</a></li>
+					<li><a href="javascript:void(0)">Replace server hard drive</a></li>
+					<li><a href="javascript:void(0)">Max's birthday</a></li>
+				</ul>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td class="week-end">
+				<a href="javascript:void(0)" class="day">3</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">14</th>
+			<td class="week-end">
+				<a href="javascript:void(0)" class="day">4</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">5</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+				<ul class="events">
+					<li><a href="javascript:void(0)"><b>9:00</b> Meeting</a></li>
+					<li><a href="javascript:void(0)"><b>11:00</b> Meeting with D.H.</a></li>
+				</ul>
+				<div class="more-events">
+					3 more events
+					<ul>
+						<li><a href="javascript:void(0)"><b>14:00</b> Meeting</a></li>
+						<li><a href="javascript:void(0)"><b>17:00</b> Soccer</a></li>
+						<li><a href="javascript:void(0)"><b>21:00</b> Diner with Jane</a></li>
+					</ul>
+				</div>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">6</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">7</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+				<ul class="events">
+					<li><a href="javascript:void(0)"><b>9:00</b> Meeting</a></li>
+				</ul>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">8</a>
+				<ul class="dot-events with-children-tip">
+					<li class="red">Tax payment limit date</li>
+					<li><a href="javascript:void(0)">Check server hard drive logs</a></li>
+				</ul>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day today">9</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td class="week-end">
+				<a href="javascript:void(0)" class="day">10</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">15</th>
+			<td class="week-end">
+				<a href="javascript:void(0)" class="day">11</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">12</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">13</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">14</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+				<ul class="events">
+					<li class="red"><b>17:00</b> Meeting</li>
+				</ul>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">15</a>
+				<ul class="dot-events with-children-tip">
+					<li class="red">John's birthday</li>
+				</ul>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+				<ul class="events">
+					<li><a href="javascript:void(0)"><b>17:00</b> Soccer</a></li>
+				</ul>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">16</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td class="week-end">
+				<a href="javascript:void(0)" class="day">17</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">16</th>
+			<td class="week-end">
+				<a href="javascript:void(0)" class="day">18</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">19</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">20</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">21</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+				<ul class="events">
+					<li><a href="javascript:void(0)"><b>8:00</b> Meeting</a></li>
+				</ul>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">22</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+				<ul class="events">
+					<li><a href="javascript:void(0)"><b>17:00</b> Soccer</a></li>
+				</ul>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">23</a>
+				<ul class="dot-events with-children-tip">
+					<li><a href="javascript:void(0)">Check server hard drive logs</a></li>
+				</ul>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td class="week-end">
+				<a href="javascript:void(0)" class="day">24</a>
+				<ul class="dot-events with-children-tip">
+					<li><a href="javascript:void(0)">Send final report</a></li>
+				</ul>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">17</th>
+			<td class="week-end">
+				<a href="javascript:void(0)" class="day">25</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td class="unavailable">
+				<span class="day">26</span>
+			</td>
+			<td class="unavailable">
+				<span class="day">27</span>
+			</td>
+			<td class="unavailable">
+				<span class="day">28</span>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">29</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td>
+				<a href="javascript:void(0)" class="day">30</a>
+				<a href="javascript:void(0)" class="add-event">Add</a>
+			</td>
+			<td class="week-end other-month">
+				<span class="day">1</span>
+				<ul class="dot-events with-children-tip">
+					<li>Tom's birthday</li>
+				</ul>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div class="block-content no-title">
+<h2>List calendar</h2>
+
+<p>Small list of events with days:</p>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;table cellspacing="0" class="list-calendar"&gt;
+	&lt;tbody&gt;
+	
+		&lt;!-- Use the class empty to change visual style --&gt;
+		&lt;tr class="empty"&gt;
+			&lt;th scope="row"&gt;01&lt;/th&gt;
+			&lt;td&gt;
+			
+				&lt;!-- Example of use for a mini-menu --&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Add event"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt; Add event&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				
+				No events
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;02&lt;/th&gt;
+			&lt;td&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Add event"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt; Add event&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				
+				&lt;!-- Events dot list --&gt;
+				&lt;ul class="events-dots-list"&gt;
+					&lt;!-- The opening span is for the dot --&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;&lt;/span&gt; Lena's birthday&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;&lt;/span&gt; Replace server hard drive&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;&lt;/span&gt; Max's birthday&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr class="empty"&gt;
+			&lt;th scope="row"&gt;03&lt;/th&gt;
+			&lt;td&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Add event"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt; Add event&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				No events
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr class="empty"&gt;
+			&lt;th scope="row"&gt;04&lt;/th&gt;
+			&lt;td&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Add event"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt; Add event&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				No events
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;05&lt;/th&gt;
+			&lt;td&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Add event"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt; Add event&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				
+				&lt;!-- Full events list --&gt;
+				&lt;ul class="events"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;9:00&lt;/b&gt; Meeting&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;11:00&lt;/b&gt; Meeting with D.H.&lt;/a&gt;&lt;/li&gt;
+					
+					&lt;!-- You can change an event color to red --&gt;
+					&lt;!-- The link is not required --&gt;
+					&lt;li class="red"&gt;&lt;a href="#"&gt;&lt;b&gt;14:00&lt;/b&gt; Meeting&lt;/a&gt;&lt;/li&gt;
+					
+				&lt;/ul&gt;
+				
+				&lt;!-- Drop-down events list --&gt;
+				&lt;div class="more-events"&gt;
+					2 more events
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;17:00&lt;/b&gt; Soccer&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;21:00&lt;/b&gt; Diner with Jane&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/div&gt;
+				
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr class="empty"&gt;
+			&lt;th scope="row"&gt;06&lt;/th&gt;
+			&lt;td&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Add event"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt; Add event&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				No events
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;07&lt;/th&gt;
+			&lt;td&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Add event"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt; Add event&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;ul class="events"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;&lt;b&gt;9:00&lt;/b&gt; Meeting&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;08&lt;/th&gt;
+			&lt;td&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Add event"&gt;&lt;img src="images/icons/add.png" width="16" height="16"&gt; Add event&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;ul class="events-dots-list"&gt;
+				
+					&lt;!-- You can change an event color to red --&gt;
+					&lt;!-- The link is not required --&gt;
+					&lt;li class="red"&gt;&lt;span&gt;&lt;/span&gt; Tax payment limit date&lt;/li&gt;
+					
+					&lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;&lt;/span&gt; Check server hard drive logs&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<table cellspacing="0" class="list-calendar">
+			<tbody>
+				<tr class="empty">
+					<th scope="row">01</th>
+					<td>
+						<ul class="mini-menu">
+							<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+						</ul>
+						No events
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">02</th>
+					<td>
+						<ul class="mini-menu">
+							<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+						</ul>
+						<ul class="events-dots-list">
+							<li><a href="javascript:void(0)"><span></span> Lena's birthday</a></li>
+							<li><a href="javascript:void(0)"><span></span> Replace server hard drive</a></li>
+							<li><a href="javascript:void(0)"><span></span> Max's birthday</a></li>
+						</ul>
+					</td>
+				</tr>
+				<tr class="empty">
+					<th scope="row">03</th>
+					<td>
+						<ul class="mini-menu">
+							<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+						</ul>
+						No events
+					</td>
+				</tr>
+				<tr class="empty">
+					<th scope="row">04</th>
+					<td>
+						<ul class="mini-menu">
+							<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+						</ul>
+						No events
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">05</th>
+					<td>
+						<ul class="mini-menu">
+							<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+						</ul>
+						<ul class="events">
+							<li><a href="javascript:void(0)"><b>9:00</b> Meeting</a></li>
+							<li><a href="javascript:void(0)"><b>11:00</b> Meeting with D.H.</a></li>
+							<li class="red"><a href="javascript:void(0)"><b>14:00</b> Meeting</a></li>
+						</ul>
+						<div class="more-events">
+							2 more events
+							<ul>
+								<li><a href="javascript:void(0)"><b>17:00</b> Soccer</a></li>
+								<li><a href="javascript:void(0)"><b>21:00</b> Diner with Jane</a></li>
+							</ul>
+						</div>
+					</td>
+				</tr>
+				<tr class="empty">
+					<th scope="row">06</th>
+					<td>
+						<ul class="mini-menu">
+							<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+						</ul>
+						No events
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">07</th>
+					<td>
+						<ul class="mini-menu">
+							<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+						</ul>
+						<ul class="events">
+							<li><a href="javascript:void(0)"><b>9:00</b> Meeting</a></li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">08</th>
+					<td>
+						<ul class="mini-menu">
+							<li><a href="javascript:void(0)" title="Add event"><img src="images/icons/add.png" width="16" height="16"> Add event</a></li>
+						</ul>
+						<ul class="events-dots-list">
+							<li class="red"><span></span> Tax payment limit date</li>
+							<li><a href="javascript:void(0)"><span></span> Check server hard drive logs</a></li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Week calendar</h2>
+
+<p>The following features are available:</p>
+
+<dl class="definition">
+	<dt>Easy positioning</dt>
+	<dd><p class="small-margin">Use the following classes to define an event position within a day:</p>
+	
+		<ul class="picto-list">
+			<li><strong>from-7-30</strong>, <strong>from-7-45</strong>, <strong>from-8</strong>, <strong>from-8-15</strong>,... to <strong>from-20-15</strong> to define event start</li>
+			<li><strong>to-7-30</strong>, <strong>to-7-45</strong>, <strong>to-8</strong>, <strong>to-8-15</strong>,... to <strong>to-20-15</strong> to define event end</li>
+		</ul>
+		
+		<strong>Example:</strong> &lt;li class="from-8 to-12"&gt;&lt;/li&gt;, &lt;li class="from-9-45 to-10-15"&gt;&lt;/li&gt;...
+	</dd>
+	
+	<dt>Multiple event colors</dt>
+	<dd>
+		<ul class="picto-list">
+			<li><strong>Grey</strong> (default)</li>
+			<li><strong>Blue</strong> (use class <em>event-blue</em>)</li>
+			<li><strong>Green</strong> (use class <em>event-green</em>)</li>
+			<li><strong>Orange</strong> (use class <em>event-orange</em>)</li>
+			<li><strong>Purple</strong> (use class <em>event-purple</em>)</li>
+		</ul>
+	</dd>
+	
+	<dt>Dot events</dt>
+	<dd>For whole day events</dd>
+	
+	<dt>Simultaneous events</dt>
+	<dd>Display side by side</dd>
+	
+	<dt>Break hours display</dt>
+	<dd>Use the class <strong>lunch</strong> : &lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;</dd>
+	
+	<dt>Visual style for unavailable user/resource</dt>
+	<dd>Add the class <strong>unavailable</strong> to the event list: lt;li class="unavailable"&gt;</li></dd>
+</dl>
+
+<h4>Example markup:</h4>
+
+<pre class="brush: html">
+&lt;ul class="week-calendar"&gt;
+	
+	&lt;!-- Day hours --&gt;
+	&lt;li class="week-cal-hours"&gt;
+		&lt;div&gt;&lt;span class="day"&gt;&nbsp;&lt;/span&gt;&lt;/div&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;span&gt;08:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;09:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;10:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;11:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;12:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;01:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;02:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;03:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;04:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;05:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;06:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;07:00&lt;/span&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span&gt;08:00&lt;/span&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	&lt;!-- Add the class weekend to add visual style --&gt;
+	&lt;li class="day1 weekend"&gt;
+		&lt;div class="day"&gt;Sunday&lt;/div&gt;
+		&lt;ul&gt;
+		
+			&lt;!-- Visual break-time display --&gt;
+			&lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	&lt;li class="day2"&gt;
+		&lt;div class="day"&gt;
+		
+			&lt;!-- Whole day events --&gt;
+			&lt;ul class="dot-events with-children-tip"&gt;
+				&lt;li class="red"&gt;Tax payment limit date&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Check server hard drive logs&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			Monday
+		&lt;/div&gt;
+		&lt;ul&gt;
+			&lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;
+			&lt;li class="from-10-15 to-11-45"&gt;
+			
+				&lt;!-- You can use the mini-menu --&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Edit"&gt;&lt;img src="images/icons/fugue/pencil.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#" title="Delete"&gt;&lt;img src="images/icons/fugue/cross-circle.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;span class="event-time"&gt;10:15 - 11:45&lt;/span&gt;
+				Event description
+			&lt;/li&gt;
+			
+			&lt;!-- Custom color event --&gt;
+			&lt;li class="from-14 to-17 purple"&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Edit"&gt;&lt;img src="images/icons/fugue/pencil.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#" title="Delete"&gt;&lt;img src="images/icons/fugue/cross-circle.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;span class="event-time"&gt;14:00 - 17:00&lt;/span&gt;
+				Event description
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	&lt;li class="day3"&gt;
+		&lt;div class="day"&gt;Tuesday&lt;/div&gt;
+		&lt;ul&gt;
+			&lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;
+			
+			&lt;!-- Use class half-left or half-right to display simultaneous events --&gt;
+			&lt;li class="from-9 to-11-30 half-left"&gt;
+				&lt;span class="event-time"&gt;09:00 - 11:30&lt;/span&gt;
+				Event description
+			&lt;/li&gt;
+			&lt;li class="from-10-30 to-12 half-right blue"&gt;
+				&lt;span class="event-time"&gt;10:30 - 12:00&lt;/span&gt;
+				Event description
+			&lt;/li&gt;
+			&lt;li class="from-16 to-17-30 orange"&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Edit"&gt;&lt;img src="images/icons/fugue/pencil.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#" title="Delete"&gt;&lt;img src="images/icons/fugue/cross-circle.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;span class="event-time"&gt;16:00 - 17:30&lt;/span&gt;
+				Event description
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	&lt;li class="day4"&gt;
+		&lt;div class="day"&gt;Wednesday&lt;/div&gt;
+		&lt;ul&gt;
+			&lt;!-- Unavailability for the whole day --&gt;
+			&lt;li class="unavailable"&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	&lt;li class="day5"&gt;
+		&lt;div class="day"&gt;Thursday&lt;/div&gt;
+		&lt;ul&gt;
+			&lt;!-- Unavailability period --&gt;
+			&lt;li class="unavailable from-9 to-11"&gt;&lt;/li&gt;
+			&lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;
+			&lt;li class="from-14-15 to-17-45 green"&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Edit"&gt;&lt;img src="images/icons/fugue/pencil.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#" title="Delete"&gt;&lt;img src="images/icons/fugue/cross-circle.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;span class="event-time"&gt;14:15 - 17:45&lt;/span&gt;
+				Event description
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	&lt;li class="day6"&gt;
+		&lt;div class="day"&gt;Friday&lt;/div&gt;
+		&lt;ul&gt;
+			&lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;
+			&lt;li class="from-10-15 to-11-45"&gt;
+				&lt;ul class="mini-menu"&gt;
+					&lt;li&gt;&lt;a href="#" title="Edit"&gt;&lt;img src="images/icons/fugue/pencil.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href="#" title="Delete"&gt;&lt;img src="images/icons/fugue/cross-circle.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;span class="event-time"&gt;10:15 - 11:45&lt;/span&gt;
+				Event description
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	&lt;li class="day7 weekend"&gt;
+		&lt;div class="day"&gt;Saturday&lt;/div&gt;
+		&lt;ul&gt;
+			&lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+&lt;/ul&gt;
+</pre>
+
+<ul class="week-calendar">
+	<li class="week-cal-hours">
+		<div><span class="day">&nbsp;</span></div>
+		<ul>
+			<li><span>08:00</span></li>
+			<li><span>09:00</span></li>
+			<li><span>10:00</span></li>
+			<li><span>11:00</span></li>
+			<li><span>12:00</span></li>
+			<li><span>01:00</span></li>
+			<li><span>02:00</span></li>
+			<li><span>03:00</span></li>
+			<li><span>04:00</span></li>
+			<li><span>05:00</span></li>
+			<li><span>06:00</span></li>
+			<li><span>07:00</span></li>
+			<li><span>08:00</span></li>
+		</ul>
+	</li>
+	
+	<li class="day1 weekend">
+		<div class="day">Sunday</div>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+		</ul>
+	</li>
+	
+	<li class="day2">
+		<div class="day">
+			<ul class="dot-events with-children-tip">
+				<li class="red">Tax payment limit date</li>
+				<li><a href="#">Check server hard drive logs</a></li>
+			</ul>
+			Monday
+		</div>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="from-10-15 to-11-45">
+				<ul class="mini-menu">
+					<li><a href="#" title="Edit"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a></li>
+					<li><a href="#" title="Delete"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a></li>
+				</ul>
+				<span class="event-time">10:15 - 11:45</span>
+				Event description
+			</li>
+			<li class="from-14 to-17 purple">
+				<ul class="mini-menu">
+					<li><a href="#" title="Edit"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a></li>
+					<li><a href="#" title="Delete"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a></li>
+				</ul>
+				<span class="event-time">14:00 - 17:00</span>
+				Event description
+			</li>
+		</ul>
+	</li>
+	
+	<li class="day3">
+		<div class="day">Tuesday</div>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="from-9 to-11-30 half-left">
+				<span class="event-time">09:00 - 11:30</span>
+				Event description
+			</li>
+			<li class="from-10-30 to-12 half-right blue">
+				<span class="event-time">10:30 - 12:00</span>
+				Event description
+			</li>
+			<li class="from-16 to-17-30 orange">
+				<ul class="mini-menu">
+					<li><a href="#" title="Edit"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a></li>
+					<li><a href="#" title="Delete"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a></li>
+				</ul>
+				<span class="event-time">16:00 - 17:30</span>
+				Event description
+			</li>
+		</ul>
+	</li>
+	
+	<li class="day4">
+		<div class="day">Wednesday</div>
+		<ul>
+			<li class="unavailable"></li>
+		</ul>
+	</li>
+	
+	<li class="day5">
+		<div class="day">Thursday</div>
+		<ul>
+			<li class="unavailable from-9 to-11"></li>
+			<li class="lunch from-12 to-14"></li>
+			<li class="from-14-15 to-17-45 green">
+				<ul class="mini-menu">
+					<li><a href="#" title="Edit"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a></li>
+					<li><a href="#" title="Delete"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a></li>
+				</ul>
+				<span class="event-time">14:15 - 17:45</span>
+				Event description
+			</li>
+		</ul>
+	</li>
+	
+	<li class="day6">
+		<div class="day">Friday</div>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="from-10-15 to-11-45">
+				<ul class="mini-menu">
+					<li><a href="#" title="Edit"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a></li>
+					<li><a href="#" title="Delete"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a></li>
+				</ul>
+				<span class="event-time">10:15 - 11:45</span>
+				Event description
+			</li>
+		</ul>
+	</li>
+	
+	<li class="day7 weekend">
+		<div class="day">Saturday</div>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+		</ul>
+	</li>
+	
+</ul>
+</div>

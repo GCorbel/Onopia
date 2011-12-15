@@ -1,0 +1,51 @@
+<div class="block-content upper-index">
+<h1>Positioning</h1>
+
+<h2>Hierarchy</h2>
+
+<p>The template uses many positioned elements, such as menus, overlapping divs and so on. To avoid z-index issues, it uses a strict z-index hierachy:</p>
+
+<dl class="definition">
+	<dt>88 or 89</dt>
+	<dd>Positioned elements at normal level</dd>
+	
+	<dt>98 or 99</dt>
+	<dd>Positioned for menu</dd>
+	
+	<dt>100</dt>
+	<dd>Footer (standard template only)</dd>
+	
+	<dt>999900</dt>
+	<dd>Tooltip</dd>
+	
+	<dt>999910</dt>
+	<dd>Menu</dd>
+	
+	<dt>999950</dt>
+	<dd>Fixed control bar</dd>
+	
+	<dt>999980</dt>
+	<dd>Lightbox</dd>
+	
+	<dt>999990</dt>
+	<dd>Notifications</dd>
+</dl>
+</div>
+
+<div class="block-content no-title">
+<h2>Elements positioning</h2>
+
+<p>All template positioned styles already have their z-index set up according to this hierarchy. However, if you need to position a custom element, you may use this two classes:</p>
+
+<dl class="definition">
+	<dt>.absolute</dt>
+	<dd>Class with <em>position:absolute</em> and <em>z-index:89</em></dd>
+	
+	<dt>.relative</dt>
+	<dd>Class with <em>position:relative</em> and <em>z-index:89</em></dd>
+</dl>
+
+<p>In some case (mostly drop-down menus), you'll need an element to have a slightly higher index as the following ones, so menus (for instance) won't get covered. In these cases, add the class <strong>upper-index</strong> to the element to give it a z-index of <strong>100</strong>.</p>
+
+<p>This way, you don't have to remind which z-index to use.</p>
+</div>

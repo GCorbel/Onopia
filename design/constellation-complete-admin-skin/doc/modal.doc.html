@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Modal window plugin documentation</title>
+<style type="text/css">
+
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-bottom: 15px;
+}
+
+</style>
+</head>
+
+<body>
+<h1>Modal window plugin documentation</h1>
+<p>The modal window plugin provides an easy way to interact with the user. You can open as many windows as wanted, resize them, move them, load AJAX content... A wide range of options allow precise control of the windows behaviour.</p>
+<h2>Opening a new window</h2>
+<p>There are two ways to open a new modal window, both of which accept an options map (see below for a detailed list) and return the jQuery object of the new window.</p>
+<h3>From scratch:</h3>
+<p>This is the standard way:</p>
+<pre>$.modal({
+	content: '&lt;p&gt;Write your modal content here&lt;/p&gt;',
+	title: 'New modal window',
+	maxWidth: 500,
+	buttons: {
+		'Close': function(win) { win.closeModal(); }
+	}
+});</pre>
+<h3>From an existing content:</h3>
+<p>You can use any existing content as your modal content. It will be duplicated (the original content is left untouched) and revealed if hidden:
+<pre>$('#my-modal').modal({
+	title: 'New modal window',
+	maxWidth: 500,
+	buttons: {
+		'Close': function(win) { win.closeModal(); }
+	}
+});</pre>
+<h2>Window options</h2>
+<dl>
+<dt>content</dt>
+<dd>Content of the window: HTML or jQuery object<br />
+Default: false</dd>
+<dt>url</dt>
+<dd>Url for loading content<br />
+Default: false</dd>
+<dt>title</dt>
+<dd>Title of the window, or false for none<br />
+Default: false</dd>
+<dt>border</dt>
+<dd>Add glass-like border to the window (required to enable resizing)<br />
+Default: true</dd>
+<dt>draggable</dt>
+<dd>Enable window moving (only work if title is defined)<br />
+Default: true</dd>
+<dt>resizable</dt>
+<dd>Enable window resizing (only work if border is true)<br />
+Default: true</dd>
+<dt>scrolling</dt>
+<dd>If  true, enable content vertical scrollbar if content is higher than 'height' (or 'maxHeight' if 'height' is undefined)<br />
+Default: true</dd>
+<dt>loadingMessage</dt>
+<dd>Loading message, or false for none (can be HTML)<br />
+Default: 'Loading...'</dd>
+<dt>closeButton</dt>
+<dd>Wether or not to display the close window right tab<br />
+Default: true</dd>
+<dt>buttons</dt>
+<dd>Map of bottom buttons, with text as key and function on click as value<br />
+Ex: {'Close' : function(win) { win.closeModal(); } }<br />
+Default: {}</dd>
+<dt>buttonsAlign</dt>
+<dd>Alignement of buttons ('left', 'center' or 'right')<br />
+Default: 'right'</dd>
+<dt>onClose</dt>
+<dd>Function called when closing window. It may return false or call event.preventDefault() to prevent closing<br />
+Default: false</dd>
+<dt>minHeight</dt>
+<dd>Minimum content height<br />
+Default: 40</dd>
+<dt>minWidth</dt>
+<dd>Minimum content width<br />
+Default: 200</dd>
+<dt>maxHeight</dt>
+<dd>Maximum content width, or false for no limit<br />
+Default: false</dd>
+<dt>maxWidth</dt>
+<dd>Maximum content height, or false for no limit<br />
+Default: false</dd>
+<dt>height</dt>
+<dd>Initial content height, or false for fluid size<br />
+Default: false</dd>
+<dt>width</dt>
+<dd>Initial content width, or false for fluid size<br />
+Default: 450</dd>
+<dt>loadingMessage</dt>
+<dd>If AJAX load only - loading message, or false for none (can be HTML)<br />
+Default: 'Loading...'</dd>
+<dt>complete</dt>
+<dd>If AJAX load only - a callback function that is executed when the request completes. (same as jQuery.load())<br />
+Default: function(responseText, textStatus, XMLHttpRequest) {}</dd>
+<dt>resize</dt>
+<dd>If AJAX load only - true to resize window on loading message and when content is loaded. To define separately, use options below.<br />
+Default: true</dd>
+<dt>resizeOnMessage</dt>
+<dd>If AJAX load only - use true to resize window on loading message<br />
+Default: false</dd>
+<dt>resizeOnLoad</dt>
+<dd>If AJAX load only - use true to resize window when content is loaded<br />
+Default: false</dd>
+</dl>
+<h2>Plugin methods</h2>
+<dl>
+	<dt>selector.getModalContentBlock()</dt>
+	<dd> Use this method to retrieve the content div in the modal window</dd>
+	<dt>selector.getModalWindow()</dt>
+	<dd>Use this method to retrieve the modal window from any element within it</dd>
+	<dt>selector.setModalContent(content, resize)</dt>
+	<dd>Set window content<br />
+@param string|jQuery content the content to put: HTML or a jQuery object<br />
+@param boolean resize use true to resize window to fit content (height only)</dd>
+	<dt>selector.setModalContentSize(width, height)</dt>
+	<dd> Set window content-block size<br />
+@param int|boolean width the width to set, true to keep current or false for fluid width<br />
+@param int|boolean height the height to set, true to keep current or false for fluid height</dd>
+	<dt>selector.loadModalContent(url, options)</dt>
+	<dt></dt>
+	<dd>Load AJAX content<br />
+		@param string url the content url<br />
+		@param object options an object with any of the following options:<br />
+		* 		- string loadingMessage any message to display while loading (may contain HTML), or leave empty to keep current content<br />
+		* 		- string|object data a map or string that is sent to the server with the request (same as jQuery.load())<br />
+		* 		- function complete a callback function that is executed when the request completes. (same as jQuery.load())<br />
+		* 		- boolean resize use true to resize window on loading message and when content is loaded. To define separately, use options below:<br />
+		* 		- boolean resizeOnMessage use true to resize window on loading message<br />
+		* 		- boolean resizeOnLoad use true to resize window when content is loaded</dd>
+	<dt>selector.setModalTitle(newTitle)</dt>
+	<dd>Set modal title<br />
+@param string newTitle the new title (may contain HTML), or an empty string to remove the title</dd>
+	<dt>selector.centerModal(animate)</dt>
+	<dd>Center the window<br />
+@param boolean animate true to animate the window movement</dd>
+	<dd></dd>
+	<dt>selector.putModalOnFront()</dt>
+	<dd>Put modal on front</dd>
+	<dd></dd>
+	<dt>selector.closeModal()</dt>
+	<dd>Closes the window</dd>
+</dl>
+<h2>Special vars</h2>
+<dl>
+	<dt>$.modal.current</dt>
+	<dd>Shortcut to the current window if any, else is false</dd>
+	<dt>$.modal.all</dt>
+	<dd>jQuery selection of all opened modal windows</dd>
+</dl>
+</body>
+</html>

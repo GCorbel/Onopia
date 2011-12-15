@@ -1,0 +1,182 @@
+<!doctype html>
+<!--[if lt IE 8 ]><html lang="en" class="no-js ie ie7"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie"><![endif]-->
+<!--[if (gt IE 8)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Constellation Admin Skin</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<!-- Mobile metas -->
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+	
+	<!-- Those meta will turn your website into an app on the iPhone -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-startup-image" href="../images/iphone_startup.png">
+	
+	<!-- Global stylesheets -->
+	<link href="../css/reset.css" rel="stylesheet" type="text/css">
+	<link href="../css/common.css" rel="stylesheet" type="text/css">
+	<link href="../css/form.css" rel="stylesheet" type="text/css">
+	<link href="../css/mobile.css" rel="stylesheet" type="text/css">
+	<link href="../css/special-pages.css" rel="stylesheet" type="text/css">
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="icon" type="image/png" href="../favicon-large.png">
+	<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+	
+	<!-- Modernizr for support detection, all javascript libs are moved right above </body> for better performance -->
+	<script src="../js/libs/modernizr.custom.min.js"></script>
+	
+</head>
+
+<body class="special-page login-bg">
+	
+	<section id="login-block" class="medium-margin">
+		<div class="block-border"><form class="form block-content" name="login-form" id="login-form" method="post" action="">
+			
+			<div class="block-header">Please login</div>
+			
+			<input type="hidden" name="a" id="a" value="send">
+			<p class="inline-mini-label small-margin">
+				<label for="login"><span class="big">User</span></label>
+				<input type="text" name="login" id="login" class="full-width" value="">
+			</p>
+			<p class="inline-mini-label">
+				<label for="pass"><span class="big">Pass</span></label>
+				<input type="password" name="pass" id="pass" class="full-width" value="">
+			</p>
+			
+			<button type="submit" class="float-right">Login</button>
+			<p class="input-height">
+				<input type="checkbox" name="keep-logged" id="keep-logged" value="1" class="mini-switch" checked="checked">
+				<label for="keep-logged" class="inline">Keep me logged in</label>
+			</p>
+			
+		</form></div>
+	</section>
+	
+	<p><button type="button" class="big full-width">Lost password?</button></p>
+	
+	<!--
+	
+	Updated as v1.5:
+	Libs are moved here to improve performance
+	
+	-->
+	
+	<!-- Generic libs -->
+	<script src="../js/libs/jquery-1.6.3.min.js"></script>
+	
+	<!-- Template core functions -->
+	<script src="../js/common.js"></script>
+	<script src="../js/mobile.js"></script>
+	<script src="../js/jquery.tip.js"></script>
+	
+	<!-- example login script -->
+	<script>
+	
+		$(document).ready(function()
+		{
+			// We'll catch form submission to do it in AJAX, but this works also with JS disabled
+			$('#login-form').submit(function(event)
+			{
+				// Stop full page load
+				event.preventDefault();
+				
+				// Check fields
+				var login = $('#login').val();
+				var pass = $('#pass').val();
+				
+				if (!login || login.length == 0)
+				{
+					$('#login-block').removeBlockMessages().blockMessage('Please enter your user name', {type: 'warning'});
+				}
+				else if (!pass || pass.length == 0)
+				{
+					$('#login-block').removeBlockMessages().blockMessage('Please enter your password', {type: 'warning'});
+				}
+				else
+				{
+					var submitBt = $(this).find('button[type=submit]');
+					submitBt.disableBt();
+					
+					// Target url
+					var target = $(this).attr('action');
+					if (!target || target == '')
+					{
+						// Page url without hash
+						target = document.location.href.match(/^([^#]+)/)[1];
+					}
+					
+					// Request
+					var data = {
+						a: $('#a').val(),
+						login: login,
+						pass: pass
+					};
+					var redirect = $('#redirect');
+					if (redirect.length > 0)
+					{
+						data.redirect = redirect.val();
+					}
+					
+					// Start timer
+					var sendTimer = new Date().getTime();
+					
+					// Send
+					$.ajax({
+						url: target,
+						dataType: 'json',
+						type: 'POST',
+						data: data,
+						success: function(data, textStatus, XMLHttpRequest)
+						{
+							if (data.valid)
+							{
+								// Small timer to allow the 'cheking login' message to show when server is too fast
+								var receiveTimer = new Date().getTime();
+								if (receiveTimer-sendTimer < 500)
+								{
+									setTimeout(function()
+									{
+										document.location.href = data.redirect;
+										
+									}, 500-(receiveTimer-sendTimer));
+								}
+								else
+								{
+									document.location.href = data.redirect;
+								}
+							}
+							else
+							{
+								// Message
+								$('#login-block').removeBlockMessages().blockMessage(data.error || 'An unexpected error occured, please try again', {type: 'error'});
+								
+								submitBt.enableBt();
+							}
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown)
+						{
+							// Message
+							$('#login-block').removeBlockMessages().blockMessage('Error while contacting server, please try again', {type: 'error'});
+							
+							submitBt.enableBt();
+						}
+					});
+					
+					// Message
+					$('#login-block').removeBlockMessages().blockMessage('Please wait, cheking login...', {type: 'loading'});
+				}
+			});
+		});
+	
+	</script>
+	
+</body>
+</html>

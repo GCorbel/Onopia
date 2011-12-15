@@ -183,7 +183,7 @@ fr:
     updated_at: "Modifié le"
 
   errors:
-    format: "Le %{attribute} %{message}"
+    format: "%{attribute} : %{message}"
     messages: &errors_messages
       inclusion: "n'est pas inclus(e) dans la liste"
       exclusion: "n'est pas disponible"
@@ -228,7 +228,6 @@ fr:
         username: Pseudo
         email: Email
         password: Mot de passe
-        password_confirmation: Mot de passe (confirmation)
 
   home:
     successfully_updated: "Votre mot de passe a été modifié"

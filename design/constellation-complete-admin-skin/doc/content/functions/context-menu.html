@@ -1,0 +1,209 @@
+<div class="block-content upper-index no-padding">
+<h1>Context menu</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js, standard.js, jquery.contextMenu.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Using the context menu</h2>
+
+<p>The template provides a simple way to add custom context menu to any element in your pages. Here's an example on how to enable this menu:</p>
+
+<pre class="brush: js">
+$(document).ready(function()
+{
+	// Add a context menu to the target element
+	$(selector).bind('contextMenu', function(event, list)
+	{
+		// Create two menu entries
+		list.push({ text: 'Delete', link:'#', icon:'delete' });
+		list.push({ text: 'Edit', link:'#', icon:'edit' });
+		
+		// Separator
+		list.push(false);
+		
+		// Last link
+		list.push({ text: 'About', link:'#', icon:'search' });
+	});
+});
+</pre>
+
+<p>You can add as many elements as needed. Each entry has to be an object with any of the following properties (they're all optional):</p>
+
+<dl class="definition">
+	<dt>text</dt>
+	<dd>The text for the menu entry (default: 'Link')</dd>
+	
+	<dt>alt</dt>
+	<dd>The title for the entry (default: '')</dt>
+	
+	<dt>link</dt>
+	<dd>The entry link - if none, the entry will appear as disabled (default: none)</dt>
+	
+	<dt>subs</dt>
+	<dd>An array with sub-menu entries (see below), will automatically create the sub-menu if filled (default: none)</dt>
+	
+	<dt>icon</dt>
+	<dd>The menu entry icon class name, without the <i>icon_</i> part - see <a href="content/css/menus.html">drop down menu's reference</a> for a complete list (default: none)</dd>
+</dl>
+
+<h4 class="with-margin">Some examples</h4>
+
+<pre class="brush: js">
+// Simple entry
+list.push({ text: 'Entry', link:'#' });
+
+// Disabled entry
+list.push({ text: 'Disabled' });
+
+// With icon
+list.push({ text: 'With icon', link:'#', icon:'edit' });
+
+// Separator
+list.push(false);
+
+// With sub-menu
+list.push({ text: 'Entry', link:'#', subs:[
+	{ text: 'Entry', link:'#' },
+	{ text: 'Entry', link:'#' },
+	{ text: 'Entry', link:'#' }
+] });
+
+// With sub-sub-menu
+list.push({ text: 'Entry', link:'#', subs:[
+	{ text: 'Entry', link:'#' },
+	{ text: 'Entry', link:'#' },
+	{ text: 'Entry', link:'#', subs:[
+		{ text: 'Entry', link:'#' },
+		{ text: 'Entry', link:'#' },
+		{ text: 'Entry', link:'#' }
+	] }
+] });
+</pre>
+</div>
+
+<div class="block-content no-title">
+<h2>Going further</h2>
+
+<p>Thanks to jQuery hooks, you can add as many context menu builders as needed on an element, the plugin will combine them into one menu. For instance, let's say you need to add a context menu to a favorites list, but want the first one to have a specific option:</p>
+
+<pre class="brush: js">
+$(document).ready(function()
+{
+	// Context menu for all favorites
+	// the parameter 'list' is an array with all currently added entries
+	$('.favorites li').bind('contextMenu', function(event, list)
+	{
+		var li = $(this);
+		
+		// How about a little processing?
+		if (li.prev().length > 0)
+		{
+			list.push({ text: 'Move up', link:'#', icon:'up' });
+		}
+		if (li.next().length > 0)
+		{
+			list.push({ text: 'Move down', link:'#', icon:'down' });
+		}
+		list.push(false);	// Separator
+		list.push({ text: 'Delete', link:'#', icon:'delete' });
+		list.push({ text: 'Edit', link:'#', icon:'edit' });
+	});
+	
+	// Extra options for the first one
+	$('.favorites li:first').bind('contextMenu', function(event, list)
+	{
+		list.push(false);	// Separator
+		list.push({ text: 'Settings', icon:'terminal', link: '#', subs:[
+			{ text: 'General settings', link: '#', icon: 'blog' },
+			{ text: 'System settings', link: '#', icon: 'server' },
+			{ text: 'Website settings', link: '#', icon: 'network' }
+		] });
+	});
+});
+</pre>
+
+<p>Here what it looks like (try right-clicking):</p>
+
+<div class="box" style="width:25em;">
+	<ul class="favorites" id="context-demo">
+				
+		<li>
+			<img src="images/icons/web-app/48/Info.png" width="48" height="48">
+			<a href="#">Settings<br>
+			<small>System &gt; Settings</small></a>
+		</li>
+		
+		<li>
+			<img src="images/icons/web-app/48/Line-Chart.png" width="48" height="48">
+			<a href="#">Bandwidth usage<br>
+			<small>Stats &gt; Server &gt; Bandwidth usage</small></a>
+		</li>
+		
+		<li>
+			<img src="images/icons/web-app/48/Modify.png" width="48" height="48">
+			<a href="#">New post<br>
+			<small>Write &gt; New post</small></a>
+		</li>
+		
+		<li>
+			<img src="images/icons/web-app/48/Pie-Chart.png" width="48" height="48">
+			<a href="#">Browsers stats<br>
+			<small>Stats &gt; Sites &gt; Browsers stats</small></a>
+		</li>
+		
+		<li>
+			<img src="images/icons/web-app/48/Comment.png" width="48" height="48">
+			<a href="#">Manage comments<br>
+			<small>Comments &gt; Manage comments</small></a>
+		</li>
+		
+	</ul>
+	<script>
+	
+		$(document).ready(function()
+		{
+			// Context menu for all favorites
+			$('#context-demo li').bind('contextMenu', function(event, list)
+			{
+				var li = $(this);
+				
+				// Add links to the menu
+				if (li.prev().length > 0)
+				{
+					list.push({ text: 'Move up', link:'#', icon:'up' });
+				}
+				if (li.next().length > 0)
+				{
+					list.push({ text: 'Move down', link:'#', icon:'down' });
+				}
+				list.push(false);	// Separator
+				list.push({ text: 'Delete', link:'#', icon:'delete' });
+				list.push({ text: 'Edit', link:'#', icon:'edit' });
+			});
+			
+			// Extra options for the first one
+			$('#context-demo li:first').bind('contextMenu', function(event, list)
+			{
+				list.push(false);	// Separator
+				list.push({ text: 'Settings', icon:'terminal', link: '#', subs:[
+					{ text: 'General settings', link: '#', icon: 'blog' },
+					{ text: 'System settings', link: '#', icon: 'server' },
+					{ text: 'Website settings', link: '#', icon: 'network' }
+				] });
+			});
+		});
+	
+	</script>
+</div>
+
+<p>Note that the parameter <strong>list</strong> contains all entries added by previous handlers, so it's possible to edit them if needed.</p>
+</div>

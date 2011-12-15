@@ -1,0 +1,187 @@
+<div class="block-content upper-index no-padding">
+<h1>Generic functions</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Fold/expand</h2>
+
+<p>jQuery provides 2 functions for collapsing/expanding elements with animation, but these do not always have the expected behaviour (depending on margin/padding mostly). So the template defines 2 alternative functions, <strong>fold()</strong> and <strong>expand()</strong>.</p>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<h4>Fold</h4>
+		<pre class="brush: js">
+/**
+ * Fold an element
+ * @param string|int duration a string (fast, normal or slow) or a number of millisecond. Default: 'normal'. - optional
+ * @param function callback any function to call at the end of the effect. Default: none. - optional
+ */
+$(selector).fold(duration, callback);
+</pre>
+		
+		<h4>Expand</h4>
+		<pre class="brush: js">
+/**
+ * Expand an element
+ * @param string|int duration a string (fast, normal or slow) or a number of millisecond. Default: 'normal'. - optional
+ * @param function callback any function to call at the end of the effect. Default: none. - optional
+ */
+$(selector).expand(duration, callback);
+</pre>
+	</div>
+	<div class="colx3-right">
+		<p>
+			<button type="button" onclick="$('#expand-demo').fold();">Fold</button>
+			<button type="button" onclick="$('#expand-demo').expand();">Expand</button>
+		</p>
+		<p id="expand-demo" class="box with-padding">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Element removing</h2>
+
+<p>These are shortcut methods for removing an element with an animation:</p>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<h4>Fold and remove</h4>
+		<pre class="brush: js">
+/**
+ * Remove an element with folding effect
+ * @param string|int duration a string (fast, normal or slow) or a number of millisecond. Default: 'normal'. - optional
+ * @param function callback any function to call at the end of the effect. Default: none. - optional
+ */
+$(selector).foldAndRemove(duration, callback);
+</pre>
+	</div>
+	<div class="colx3-right">
+		<p>
+			<button type="button" onclick="$('#fold-demo').foldAndRemove();">Fold and remove</button>
+		</p>
+		<p id="fold-demo" class="box with-padding">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		<p class="box with-padding">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	</div>
+</div>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<h4>Fade and remove</h4>
+		<pre class="brush: js">
+/**
+ * Remove an element with fading then folding effect
+ * @param string|int duration a string (fast, normal or slow) or a number of millisecond. Default: 'normal'. - optional
+ * @param function callback any function to call at the end of the effect. Default: none. - optional
+ */
+$(selector).fadeAndRemove(duration, callback);
+</pre>
+	</div>
+	<div class="colx3-right">
+		<p>
+			<button type="button" onclick="$('#fold-fade').fadeAndRemove();">Fade and remove</button>
+		</p>
+		<p id="fold-fade" class="box with-padding">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		<p class="box with-padding">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Ajax loading effect</h2>
+
+<p>This method is a wrapper for jQuery load() method: it adds a semi-transparent layer above the target element while waiting for the server to respond (with a custom message), thus telling the user its request is beeing processed. If load complete with success, the layer is removed, else an error message is displayed, allowing the user to retry.</p>
+
+<pre class="brush: js">
+/**
+ * jQuery load() method wrapper : add a visual effect on the load() target
+ * Parameters are the same as load()
+ */
+$(selector).loadWithEffect(url, data, callback);
+</pre>
+
+<div class="columns">
+	<div class="colx2-left">
+		<h4 class="with-margin">Effect when loading</h4>
+		<div class="box with-padding relative">
+			<div class="loading-mask"><span>Loading...</span></div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+	</div>
+	<div class="colx2-right">
+		<h4 class="with-margin">Effect when error</h4>
+		<div class="box with-padding relative">
+			<div class="loading-mask"><span class="error">Error while loading<br>
+			<a href="javascript:void(0)">Retry</a> / <a href="javascript:void(0)">Cancel</a></span></div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+	</div>
+</div>
+
+<p>Note that the function requires that the target element should have a parent element (direct or not) with position:absolute or position:relative. If not sure, or if the effect layer does not match correctly your target element size, add the class <strong>relative</strong> at runtime:</p>
+
+<pre class="brush: js">
+var target = $(selector);
+target.parent().addClass('relative');
+target.loadWithEffect(url, data, callback);
+</pre>
+
+<p>To change the default texts of the loading box at runtime, you can edit function's defaults:</p>
+
+<pre class="brush: js">
+// Message when loading
+$.fn.loadWithEffect.defaults.message = 'Loading...';
+
+// Message if a loading error occurs
+$.fn.loadWithEffect.defaults.errorMessage = 'Error while loading';
+
+// Retry link text
+$.fn.loadWithEffect.defaults.retry = 'Retry';
+
+// Cancel link text
+$.fn.loadWithEffect.defaults.cancel = 'Cancel';
+</pre>
+</div>
+
+<div class="block-content no-title">
+<h2>Enabling/disabling buttons</h2>
+
+<p>Enabling/disabling buttons can normally be achieved quite easily by setting <em>button.disabled</em> to true in javascript. But the template uses a CSS selector to style disabled buttons that's not currently supported by Internet Explorer. so if you want your application to work the same way on all platforms, here are 2 simple functions that will do this and add the CSS class when required:</p>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: js">
+/**
+ * Enables a button
+ */
+$(myButton).enableBt();
+
+/**
+ * Disables a button
+ */
+$(myButton).disableBt();
+</pre>
+	</div>
+	<div class="colx3-right">
+		<p>
+			<button type="button" onclick="$('#button-demo').enableBt();">Enable</button>
+			<button type="button" onclick="$('#button-demo').disableBt();">Disable</button>
+		</p>
+		<p id="expand-demo" class="box with-padding"><button type="button" id="button-demo" class="full-width">Target button</button></p>
+	</div>
+</div>
+</div>

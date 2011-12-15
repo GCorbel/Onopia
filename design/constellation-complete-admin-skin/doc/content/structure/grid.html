@@ -1,0 +1,66 @@
+<div class="block-content upper-index">
+<h1>Grid system</h1>
+
+<h2>960.grid</h2>
+
+<p>The template uses a grid system (on the standard template only), the one from <a href="http://960.gs/">960.gs</a>. It divides the document in 12 columns, and blocks can span accross columns for easyier layout.</p>
+
+<p>It comes in 2 versions:</p>
+
+<dl class="definition">
+	<dt>Fixed</dt>
+	<dd>The document is 960px wide, centered in the viewport, and columns are 60px wide. Great if you have little amount of data to display.</dd>
+
+	<dt>Fluid</dt>
+	<dd>The document expands to fill the entire viewport, and columns have variable width. Ideal for large sets of data.</dd>
+</dl>
+
+<p>To choose which version to use, just comment/uncomment the desired line in the document &lt;head&gt;:</p>
+
+<dl class="definition">
+	<dt>Fixed</dt>
+	<dd>
+		<pre class="brush: html;">
+&lt;!-- Comment/uncomment one of these files to toggle between fixed and fluid layout --&gt;
+&lt;link href="css/960.gs.css" rel="stylesheet" type="text/css"&gt;
+&lt;!--&lt;link href="css/960.gs.fluid.css" rel="stylesheet" type="text/css"&gt;--&gt;
+</pre>
+	</dd>
+	
+	<dt>Fluid</dt>
+	<dd>
+		<pre class="brush: html;">
+&lt;!-- Comment/uncomment one of these files to toggle between fixed and fluid layout --&gt;
+&lt;!--&lt;link href="css/960.gs.css" rel="stylesheet" type="text/css"&gt;--&gt;
+&lt;link href="css/960.gs.fluid.css" rel="stylesheet" type="text/css"&gt;
+</pre>
+	</dd>
+</dl>
+</div>
+
+<div class="block-content no-title">
+<h2>Using the grid</h2>
+
+<p>Here is a quick example on how to use the grid system to setup 2 colums side by side:</p>
+<pre class="brush: html;">
+&lt;article class="container_12"&gt;
+
+	&lt;section class="grid_4"&gt;
+		[Column content goes here]
+	&lt;/section&gt;
+	
+	&lt;section class="grid_8"&gt;
+		[Column content goes here]
+	&lt;/section&gt;
+	
+&lt;/article&gt;
+</pre>
+
+<p>There are much more classes to use, to learn more on how to use the grid system, go to <a href="http://960.gs/">960.gs</a>.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Can I use another grid system?</h2>
+
+<p>Sure: the template does not rely on any class of the selected grid system, you can use you favorite one.</p>
+</div>

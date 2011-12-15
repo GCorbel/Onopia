@@ -1,0 +1,275 @@
+<div class="block-content upper-index no-padding">
+<h1>Planning</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css, planning.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+
+<p>The <strong>planning</strong> class is a full-featured style for displaying user/resource plannings. It has the following features:</p>
+
+<dl class="definition">
+	<dt>Easy positioning in timeline</dt>
+	<dd><p class="small-margin">Use the following classes to define an event timeline position:</p>
+	
+		<ul class="picto-list">
+			<li><strong>from-7-30</strong>, <strong>from-7-45</strong>, <strong>from-8</strong>, <strong>from-8-15</strong>,... to <strong>from-20-15</strong> to define event start</li>
+			<li><strong>to-7-30</strong>, <strong>to-7-45</strong>, <strong>to-8</strong>, <strong>to-8-15</strong>,... to <strong>to-20-15</strong> to define event end</li>
+			<li><strong>at-7-30</strong>, <strong>at-7-45</strong>, <strong>at-8</strong>, <strong>at-8-15</strong>,... to <strong>at-20-15</strong> to define milestones and current time line positions</li>
+		</ul>
+		
+		<strong>Example:</strong> &lt;li class="from-8 to-12"&gt;&lt;/li&gt;, &lt;li class="from-9-45 to-10-15"&gt;&lt;/li&gt;...
+	</dd>
+	
+	<dt>Multiple event colors</dt>
+	<dd>
+		<ul class="picto-list">
+			<li><strong>Grey</strong> (default)</li>
+			<li><strong>Blue</strong> (use class <em>event-blue</em>)</li>
+			<li><strong>Green</strong> (use class <em>event-green</em>)</li>
+			<li><strong>Orange</strong> (use class <em>event-orange</em>)</li>
+			<li><strong>Purple</strong> (use class <em>event-purple</em>)</li>
+		</ul>
+	</dd>
+	
+	<dt>Event progress indicator</dt>
+	<dd>Just set a width in % to the &lt;span&gt; inside the event &lt;li&gt; (see example sourcecode for detailled markup)</dd>
+	
+	<dt>Break hours display</dt>
+	<dd>Use the class <strong>lunch</strong> : &lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;</dd>
+	
+	<dt>Current time line</dt>
+	<dd>Use the class <strong>current-time</strong> : &lt;li class="current-time at-9-30"&gt;&lt;/li&gt;</dd>
+	
+	<dt>Visual style for unavailable user/resource</dt>
+	<dd>Add the class <strong>zebras</strong> to the event list: &lt;ul class="zebras"&gt; or &lt;li class="zebras"&gt;</li></dd>
+</dl>
+</div>
+
+<div class="block-content no-title">
+<h2>Example</h2>
+
+<pre class="brush: html">
+&lt;ul class="planning"&gt;
+	
+	&lt;!-- This is the header with hours --&gt;
+	&lt;li class="planning-header"&gt;
+		&lt;span&gt;&lt;b&gt;Users&lt;/b&gt;&lt;/span&gt;
+		&lt;ul&gt;
+			&lt;li class="at-8"&gt;8&lt;/li&gt;
+			&lt;li class="at-9"&gt;9&lt;/li&gt;
+			&lt;li class="at-10"&gt;10&lt;/li&gt;
+			&lt;li class="at-11"&gt;11&lt;/li&gt;
+			&lt;li class="at-12"&gt;12&lt;/li&gt;
+			&lt;li class="at-13"&gt;1&lt;/li&gt;
+			&lt;li class="at-14"&gt;2&lt;/li&gt;
+			&lt;li class="at-15"&gt;3&lt;/li&gt;
+			&lt;li class="at-16"&gt;4&lt;/li&gt;
+			&lt;li class="at-17"&gt;5&lt;/li&gt;
+			&lt;li class="at-18"&gt;6&lt;/li&gt;
+			&lt;li class="at-19"&gt;7&lt;/li&gt;
+			&lt;li class="at-20"&gt;8&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	&lt;li&gt;
+		
+		&lt;!-- User name - the link is optional, you can use a span instead --&gt;
+		&lt;a href="#"&gt;&lt;img src="images/icons/fugue/user-red.png" width="16" height="16"&gt; John&lt;/a&gt;
+		&lt;ul&gt;
+			
+			&lt;!-- Display the lunch break time range --&gt;
+			&lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;
+			
+			&lt;!-- Visual style when unavailable --&gt;
+			&lt;li class="zebras from-16 to-19"&gt;&lt;/li&gt;
+			
+			&lt;!-- Display a red line at current time --&gt;
+			&lt;li class="current-time at-9-30"&gt;&lt;/li&gt;
+			
+			&lt;!-- Event markup --&gt;
+			&lt;!-- You can use a &lt;span&gt; instead of the &lt;a&gt; --&gt;
+			&lt;li class="from-8 to-12"&gt;&lt;a href="#" title="Event description" class="with-tip"&gt;8:00 - 12:00&lt;/a&gt;&lt;/li&gt;
+			
+			&lt;!-- Milestone --&gt;
+			&lt;li class="milestone at-15"&gt;&lt;a href="#" title="Milestone description" class="with-tip"&gt;&lt;/a&gt;&lt;/li&gt;
+			
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	&lt;li&gt;
+		&lt;a href="#"&gt;&lt;img src="images/icons/fugue/user-green.png" width="16" height="16"&gt; Sam&lt;/a&gt;
+		&lt;ul&gt;
+			&lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;
+			&lt;li class="current-time at-9-30"&gt;&lt;/li&gt;
+			
+			&lt;!-- Event markup with progress --&gt;
+			&lt;!-- Note that you'll need to display time twice : before and inside the span --&gt;
+			&lt;!-- This is required when the progress bar is smaller than the text --&gt;
+			&lt;li class="from-9 to-12"&gt;&lt;a href="#" title="Event description" class="with-tip"&gt;9:00 - 12:00&lt;span class="event-blue" style="width:17%"&gt;9:00 - 12:00&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+			
+			&lt;li class="milestone at-15"&gt;&lt;a href="#" title="Milestone description" class="with-tip"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href="#"&gt;&lt;img src="images/icons/fugue/user-gray.png" width="16" height="16"&gt; Marc&lt;/a&gt;
+		&lt;ul&gt;
+			&lt;li class="lunch from-12 to-14"&gt;&lt;/li&gt;
+			&lt;li class="current-time at-9-30"&gt;&lt;/li&gt;
+			
+			&lt;!-- There can be as many events as needed --&gt;
+			&lt;li class="event-green from-8 to-12"&gt;&lt;a href="#" title="Event description" class="with-tip"&gt;8:00 - 12:00&lt;/a&gt;&lt;/li&gt;
+			&lt;li class="from-14 to-18"&gt;&lt;a href="#" title="Event description" class="with-tip"&gt;2:00 - 6:00&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;span&gt;&lt;img src="images/icons/fugue/user-female.png" width="16" height="16"&gt; Jane&lt;/span&gt;
+		
+		&lt;!-- Visual style when unavailable --&gt;
+		&lt;ul class="zebras"&gt;&lt;/ul&gt;
+	&lt;/li&gt;
+	
+	...
+	
+&lt;/ul&gt;
+</pre>
+
+<ul class="planning">
+	
+	<!-- This is the header with hours -->
+	<li class="planning-header">
+		<span><b>Users</b></span>
+		<ul>
+			<li class="at-8">8</li>
+			<li class="at-9">9</li>
+			<li class="at-10">10</li>
+			<li class="at-11">11</li>
+			<li class="at-12">12</li>
+			<li class="at-13">1</li>
+			<li class="at-14">2</li>
+			<li class="at-15">3</li>
+			<li class="at-16">4</li>
+			<li class="at-17">5</li>
+			<li class="at-18">6</li>
+			<li class="at-19">7</li>
+			<li class="at-20">8</li>
+		</ul>
+	</li>
+	
+	<li>
+		
+		<!-- User name - the link is optional -->
+		<a href="javascript:void(0)"><img src="images/icons/fugue/user-red.png" width="16" height="16"> John</a>
+		<ul>
+			
+			<!-- Display the lunch break time range -->
+			<li class="lunch from-12 to-14"></li>
+			
+			<!-- Visual style when unavailable -->
+			<li class="zebras from-16 to-19"></li>
+			
+			<!-- Display a red line at current time -->
+			<li class="current-time at-9-30"></li>
+			
+			<!-- Event markup -->
+			<!-- You can use a <span> instead of the <a> -->
+			<li class="from-8 to-12"><a href="javascript:void(0)" title="Event description" class="with-tip">8:00 - 12:00</a></li>
+			
+			<!-- Milestone -->
+			<li class="milestone at-15"><a href="javascript:void(0)" title="Milestone description" class="with-tip"></a></li>
+			
+		</ul>
+	</li>
+	
+	<li>
+		<a href="javascript:void(0)"><img src="images/icons/fugue/user-green.png" width="16" height="16"> Sam</a>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="current-time at-9-30"></li>
+			
+			<!-- Event markup with progress -->
+			<!-- Note that you'll need to display time twice : before and inside the span -->
+			<!-- This is required when the progress bar is smaller than the text -->
+			<li class="from-9 to-12"><a href="javascript:void(0)" title="Event description" class="with-tip">9:00 - 12:00<span class="event-blue" style="width:17%">9:00 - 12:00</span></a></li>
+			
+			<li class="milestone at-12"><a href="javascript:void(0)" title="Milestone description" class="with-tip"></a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="javascript:void(0)"><img src="images/icons/fugue/user-gray.png" width="16" height="16"> Marc</a>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="current-time at-9-30"></li>
+			
+			<!-- There can be as many events as needed -->
+			<li class="event-green from-8 to-12"><a href="javascript:void(0)" title="Event description" class="with-tip">8:00 - 12:00</a></li>
+			<li class="from-14 to-18"><a href="javascript:void(0)" title="Event description" class="with-tip">2:00 - 6:00</a></li>
+		</ul>
+	</li>
+	<li>
+		<span><img src="images/icons/fugue/user-female.png" width="16" height="16"> Jane</span>
+		
+		<!-- Visual style when unavailable -->
+		<ul class="zebras"></ul>
+	</li>
+	<li>
+		<a href="javascript:void(0)"><img src="images/icons/fugue/user-gray-female.png" width="16" height="16"> Lena</a>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="current-time at-9-30"></li>
+			<li class="event-orange from-8 to-10"><a href="javascript:void(0)" title="Event description" class="with-tip">8:00 - 10:00</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="javascript:void(0)"><img src="images/icons/fugue/user-business-gray.png" width="16" height="16"> Erik</a>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="current-time at-9-30"></li>
+			<li class="event-blue from-8-30 to-11-30"><a href="javascript:void(0)" title="Event description" class="with-tip">8:30 - 11:30</a></li>
+			<li class="event-blue from-16 to-18"><a href="javascript:void(0)" title="Event description" class="with-tip">4:00 - 6:00</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="javascript:void(0)"><img src="images/icons/fugue/user-business-boss.png" width="16" height="16"> George</a>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="current-time at-9-30"></li>
+			<li class="event-purple from-8 to-11"><a href="javascript:void(0)" title="Event description" class="with-tip">8:00 - 11:00</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="javascript:void(0)"><img src="images/icons/fugue/user-business.png" width="16" height="16"> James</a>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="current-time at-9-30"></li>
+			<li class="milestone at-10"><a href="javascript:void(0)" title="Milestone description" class="with-tip"></a></li>
+			<li class="milestone at-11"><a href="javascript:void(0)" title="Milestone description" class="with-tip"></a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="javascript:void(0)"><img src="images/icons/fugue/user-black.png" width="16" height="16"> Nathan</a>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="current-time at-9-30"></li>
+			<li class="event-blue from-8 to-12"><a href="javascript:void(0)" title="Event description" class="with-tip">8:00 - 12:00</a></li>
+			<li class="event-purple from-16 to-18"><a href="javascript:void(0)" title="Event description" class="with-tip">4:00 - 6:00</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="javascript:void(0)"><img src="images/icons/fugue/user-thief.png" width="16" height="16"> Elwin</a>
+		<ul>
+			<li class="lunch from-12 to-14"></li>
+			<li class="current-time at-9-30"></li>
+			<li class="event-blue from-8 to-12"><a href="javascript:void(0)" title="Event description" class="with-tip">8:00 - 12:00</a></li>
+		</ul>
+	</li>
+</ul>
+</div>

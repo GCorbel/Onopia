@@ -1,0 +1,276 @@
+<div class="block-content upper-index no-padding">
+<h1>Menus</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css, standard.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Drop-down menu</h2>
+
+<p>Available on: <strong>standard template</strong></p>
+
+<p>This is a handy standard drop-down menu, with support for infinite nested levels and icons. It works without any JS, but uses a little jQuery to add fading effect and revert sub-menus that would show out of the screen. Here is the required markup for this menu (in a button in this example):</p>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;!-- Note the required class: with-menu --&gt;
+&lt;div class="button with-menu"&gt;
+	Actions
+	
+	&lt;!-- Here comes the menu --&gt;
+	&lt;div class="menu"&gt;
+	
+		&lt;!-- This is the arrow down image --&gt;
+		&lt;img src="images/menu-open-arrow.png" width="16" height="16"&gt;
+		
+		&lt;!-- Menu content --&gt;
+		&lt;ul&gt;
+			&lt;li class="icon_export"&gt;&lt;a href="#"&gt;Choose folder&lt;/a&gt;
+				&lt;ul&gt;
+					&lt;li class="icon_network"&gt;&lt;a href="#"&gt;Website&lt;/a&gt;&lt;/li&gt;
+					&lt;li class="icon_server"&gt;&lt;a href="#"&gt;Server root&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li class="icon_refresh"&gt;&lt;a href="#"&gt;Reload&lt;/a&gt;&lt;/li&gt;
+			&lt;!-- This is a disabled menu line: --&gt;
+			&lt;li class="icon_search"&gt;Search&lt;/li&gt;
+			&lt;li class="sep"&gt;&lt;/li&gt;
+			&lt;li class="icon_terminal"&gt;&lt;a href="#"&gt;Custom search&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;!-- End  of menu content --&gt;
+	&lt;/div&gt;
+	&lt;!-- Menu end --&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<!-- Note the required class: with-menu -->
+		<div class="button with-menu">
+			Actions
+			
+			<!-- Here comes the menu -->
+			<div class="menu">
+			
+				<!-- This is the arrow down image -->
+				<img src="images/menu-open-arrow.png" width="16" height="16">
+				
+				<!-- Menu content -->
+				<ul>
+					<li class="icon_export"><a href="javascript:void(0);">Choose folder</a>
+						<ul>
+							<li class="icon_network"><a href="javascript:void(0);">Website</a></li>
+							<li class="icon_server"><a href="javascript:void(0);">Server root</a></li>
+						</ul>
+					</li>
+					<li class="icon_refresh"><a href="javascript:void(0);">Reload</a></li>
+					<li class="icon_search">Search</li>
+					<li class="sep"></li>
+					<li class="icon_terminal"><a href="javascript:void(0);">Custom search</a></li>
+				</ul>
+				<!-- End  of menu content -->
+			</div>
+			<!-- Menu end -->
+		</div>
+	</div>
+</div>
+
+<p>The class <strong>with-menu</strong> is required on the parent element to position the menu and the opening arrow.</p>
+
+<p>If you need the whole element to open the menu, here is another markup:</p>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;!-- Note the required class: menu-opener --&gt;
+&lt;div class="button menu-opener"&gt;
+	&lt;!-- v1.5: you can now use the button as a working link --&gt;
+	&lt;a href="#"&gt;Actions&lt;/a&gt;
+	
+	&lt;!-- This is the arrow down image --&gt;
+	&lt;div class="menu-arrow"&gt;
+		&lt;img src="images/menu-open-arrow.png" width="16" height="16"&gt;
+	&lt;/div&gt;
+	
+	&lt;!-- Menu content --&gt;
+	&lt;div class="menu"&gt;
+		&lt;ul&gt;
+			&lt;li class="icon_export"&gt;&lt;a href="#"&gt;Choose folder&lt;/a&gt;
+				&lt;ul&gt;
+					&lt;li class="icon_network"&gt;&lt;a href="#"&gt;Website&lt;/a&gt;&lt;/li&gt;
+					&lt;li class="icon_server"&gt;&lt;a href="#"&gt;Server root&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li class="icon_refresh"&gt;&lt;a href="#"&gt;Reload&lt;/a&gt;&lt;/li&gt;
+			&lt;!-- This is a disabled menu line: --&gt;
+			&lt;li class="icon_search"&gt;Search&lt;/li&gt;
+			&lt;li class="sep"&gt;&lt;/li&gt;
+			&lt;li class="icon_terminal"&gt;&lt;a href="#"&gt;Custom search&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+	&lt;!-- End  of menu content --&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<!-- Note the required class: menu-opener -->
+		<div class="button menu-opener">
+			<!-- v1.5: you can now use the button as a working link -->
+			<a href="#">Actions</a>
+			
+			<!-- This is the arrow down image -->
+			<div class="menu-arrow">
+				<img src="images/menu-open-arrow.png" width="16" height="16">
+			</div>
+			
+			<!-- Menu content -->
+			<div class="menu">
+				<ul>
+					<li class="icon_export"><a href="javascript:void(0);">Choose folder</a>
+						<ul>
+							<li class="icon_network"><a href="javascript:void(0);">Website</a></li>
+							<li class="icon_server"><a href="javascript:void(0);">Server root</a></li>
+						</ul>
+					</li>
+					<li class="icon_refresh"><a href="javascript:void(0);">Reload</a></li>
+					<!-- This is a disabled menu line: -->
+					<li class="icon_search">Search</li>
+					<li class="sep"></li>
+					<li class="icon_terminal"><a href="javascript:void(0);">Custom search</a></li>
+				</ul>
+			</div>
+			<!-- End  of menu content -->
+		</div>
+	</div>
+</div>
+
+<p>The drop-down can be used in many elements: main menu (see demo files for example), inline-blocks... If you need to use it in a block title, there's a little bit of extra markup, because while this would work...</p>
+
+<pre class="brush: html">
+&lt;h1 class="with-menu"&gt;
+	Title
+	
+	&lt;!-- Here comes the menu --&gt;
+	&lt;div class="menu"&gt;
+		...
+	&lt;/div&gt;
+	&lt;!-- Menu end --&gt;
+&lt;/h1&gt;
+</pre>
+
+<p>... it is better to use this kind of markup, with a wrapping &lt;div&gt;:</p>
+
+<pre class="brush: html">
+&lt;div class="h1 with-menu"&gt;
+	&lt;h1&gt;Title&lt;/h1&gt;
+	
+	&lt;!-- Here comes the menu --&gt;
+	&lt;div class="menu"&gt;
+		...
+	&lt;/div&gt;
+	&lt;!-- Menu end --&gt;
+&lt;/h1&gt;
+</pre>
+
+<p>Here is a preview of the build-in icons styles:</p>
+
+<ul class="picto-list clearfix">
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/address-book.png);">.icon_address</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/alarm-clock-blue.png);">.icon_alarm</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/application-blog.png);">.icon_blog</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/application-terminal.png);">.icon_terminal</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/battery-full.png);">.icon_battery</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/building.png);">.icon_building</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/calendar-day.png);">.icon_calendar</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/cards-address.png);">.icon_cards</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/chart.png);">.icon_chart</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/computer.png);">.icon_computer</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/database.png);">.icon_database</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/cross-circle.png);">.icon_delete</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/document-excel.png);">.icon_doc_excel</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/document-pdf.png);">.icon_doc_pdf</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/document-excel-csv.png);">.icon_doc_csv</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/document-image.png);">.icon_doc_image</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/document-globe.png);">.icon_doc_web</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/arrow-270.png);">.icon_down</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/pencil.png);">.icon_edit</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/film.png);">.icon_film</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/hard-hat.png);">.icon_security</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/images.png);">.icon_images</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/mail.png);">.icon_mail</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/monitor.png);">.icon_monitor</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/newspaper.png);">.icon_newspaper</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/magnifier.png);">.icon_search</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/globe-network.png);">.icon_network</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/server.png);">.icon_server</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/application-export.png);">.icon_export</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/arrow-circle.png);">.icon_refresh</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/counter-reset.png);">.icon_reset</li>
+	<li style="float:left; width:200px; background-image: url(images/icons/fugue/arrow-090.png);">.icon_up</li>
+</ul>
+
+<p><b>Note:</b> if the content-block is not wide enough for its menu, this menu may be covered by the next content-block (normal z-index behaviour). To prevent this, you'll need to give it a slightly higher index: add the class <strong>upper-index</strong> to the content-block to give it a z-index of <strong>100</strong>.</p>
+
+<pre class="brush: html">
+&lt;div class="content-block upper-index"&gt;
+	&lt;div class="menu"&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="content-block"&gt;
+	...
+&lt;/div&gt;
+</pre>
+</div>
+
+<div class="block-content no-title">
+<h2>Mini menu</h2>
+
+<p>This is an contextual menu which shows up when its parent element is hovered. Usefull for quick access or element-specific commands.</p>
+
+<p>This menu can be added in any element with <em>position:relative</em> or <em>position:absolute</em> (<a href="content/structure/positioning.html">read more on positioning</a>)</p>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;ul class="mini-menu"&gt;
+	&lt;li&gt;&lt;a href="#" title="Move down"&gt;&lt;img src="images/icons/fugue/arrow-270.png" width="16" height="16"&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#" title="Delete"&gt;&lt;img src="images/icons/fugue/cross-circle.png" width="16" height="16"&gt; Delete&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<p><strong>Example on favorites list:</strong></p>
+		<ul class="favorites box">
+			<li>
+				<img src="images/icons/web-app/48/Info.png" width="48" height="48">
+				<a href="javascript:void(0)">Settings<br>
+				<small>System &gt; Settings</small></a>
+				<ul class="mini-menu">
+					<li><a href="javascript:void(0)" title="Move down"><img src="images/icons/fugue/arrow-270.png" width="16" height="16"></a></li>
+					<li><a href="javascript:void(0)" title="Delete"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"> Delete</a></li>
+				</ul>
+			</li>
+			<li>
+				<img src="images/icons/web-app/48/Line-Chart.png" width="48" height="48">
+				<a href="javascript:void(0)">Bandwidth usage<br>
+				<small>Stats &gt; Server &gt; Bandwidth usage</small></a>
+				<ul class="mini-menu">
+					<li><a href="javascript:void(0)" title="Move up"><img src="images/icons/fugue/arrow-090.png" width="16" height="16"></a></li>
+					<li><a href="javascript:void(0)" title="Move down"><img src="images/icons/fugue/arrow-270.png" width="16" height="16"></a></li>
+					<li><a href="javascript:void(0)" title="Delete"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"> Delete</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+</div>

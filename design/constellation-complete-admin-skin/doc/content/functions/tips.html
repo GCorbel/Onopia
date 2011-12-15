@@ -1,0 +1,203 @@
+<div class="block-content upper-index no-padding">
+<h1>Tips plugin</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js, jquery.tips.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>About tips</h2>
+
+<p>The tip plugin is an easy way to show elements' title attribute or any additional information. It can be used in two ways:</p>
+
+<dl class="definition">
+	<dt>CSS</dt>
+	<dd>Just add a specific class to your elements, and the template setup will add tips on them.</dd>
+	
+	<dt>Javascript</dt>
+	<dd>The template provides several functions to add tips and control them.</dd>
+</dl>
+
+<h4 class="small-margin">Tip bubble content</h4>
+
+<p>The tip bubble content is set automatically following this logic:</p>
+
+<ul class="bullet-list">
+	<li>If the element has a <b>title</b> attribute, it is used.</li>
+	<li>If not, the element text will be used. This works even if the text is in children elements (see <a href="http://api.jquery.com/text/">jQuery text() method</a>).</li>
+	<li>If none, the tip will contain "No tip".</li>
+</ul>
+
+<p>Note that when using javascript, you'll be able to pass a specific content in the function's options.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>CSS</h2>
+
+<p>To add a tip on an element, add the class <strong>with-tip</strong> to it:</p>
+
+<pre class="brush: html">
+&lt;!-- example on an image --&gt;
+&lt;img src="images/demo/files/file1-mini.png" width="64" height="45" class="with-tip" title="Image title"&gt;
+</pre>
+
+<ul class="gallery with-padding lite-grey-gradient">
+	<li><img src="images/demo/files/file1-mini.png" width="64" height="45" class="with-tip" title="Image title"></li>
+	<li><img src="images/demo/files/file2-mini.png" width="64" height="36" class="with-tip" title="Image title"></li>
+	<li><img src="images/demo/files/file3-mini.png" width="64" height="43" class="with-tip" title="Image title"></li>
+	<li><img src="images/demo/files/file4-mini.png" width="64" height="45" class="with-tip" title="Image title"></li>
+	<li><img src="images/demo/files/file5-mini.png" width="64" height="50" class="with-tip" title="Image title"></li>
+	<li><img src="images/demo/files/file6-mini.png" width="64" height="48" class="with-tip" title="Image title"></li>
+</ul>
+
+<p>If you need to add tips on every element within another element, just add the class <strong>with-children-tip</strong> to the parent element:</p>
+
+<pre class="brush: html">
+&lt;ul class="tags with-children-tip"&gt;
+	&lt;li class="tag-time" title="Click to edit tag: Sea"&gt;Sea&lt;/li&gt;
+	&lt;li class="tag-tags" title="Click to edit tag: Fish"&gt;Fish&lt;/li&gt;
+	&lt;li class="tag-user" title="Click to edit tag: Bubble"&gt;Bubble&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+<div class="lite-grey-gradient with-padding with-margin">
+	<ul class="tags with-children-tip">
+		<li class="tag-time" title="Click to edit tag: Sea">Sea</li>
+		<li class="tag-tags" title="Click to edit tag: Fish">Fish</li>
+		<li class="tag-user" title="Click to edit tag: Bubble">Bubble</li>
+	</ul>
+</div>
+
+<h4>Position</h4>
+<p>It is also possible to control tag position with classes:</p>
+
+<dl class="definition">
+	<dt>tip-right</dt>
+	<dd>Tip on the right</dd>
+	
+	<dt>tip-bottom</dt>
+	<dd>Tip below</dd>
+	
+	<dt>tip-left</dt>
+	<dd>Tip on the left</dd>
+</dl>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;ul class="simple-list with-icon with-children-tip" style="width:15em"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Tip on top (default)&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="tip-right"&gt;&lt;a href="#"&gt;Tip on the right&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="tip-left"&gt;&lt;a href="#"&gt;Tip on the left&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="tip-bottom"&gt;&lt;a href="#"&gt;Tip below&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<ul class="simple-list with-icon with-children-tip" style="width:15em">
+			<li><a href="#">Tip on top (default)</a></li>
+			<li class="tip-right"><a href="#">Tip on the right</a></li>
+			<li class="tip-left"><a href="#">Tip on the left</a></li>
+			<li class="tip-bottom"><a href="#">Tip below</a></li>
+		</ul>
+	</div>
+</div>
+
+<p>Classes on the same principle as with-children-tip:</p>
+
+<dl class="definition">
+	<dt>children-tip-right</dt>
+	<dd>Tip on the right for children elements</dd>
+	
+	<dt>children-tip-bottom</dt>
+	<dd>Tip below for children elements</dd>
+	
+	<dt>children-tip-left</dt>
+	<dd>Tip on the left for children elements</dd>
+</dl>
+</div>
+
+<div class="block-content no-title">
+<h2>Javascript</h2>
+
+<p>To dynamically add a tip on an element, use the following code:</p>
+
+<pre class="brush: js">
+$(selector).tip(options);
+</pre>
+
+<p>The available options are:</p>
+
+<dl class="definition">
+	<dt>content</dt>
+	<dd>Content of the tip (may be HTML) or false for auto detect (default: false)</dd>
+	
+	<dt>onHover</dt>
+	<dd>Show tip only on hover (default: true)</dd>
+	
+	<dt>reverseHover</dt>
+	<dd>Hide tip on hover in, show on hover out (default: false)</dd>
+	
+	<dt>stickIfCurrent</dt>
+	<dd>Enable permanent tip on elements with the class 'current' (default: false)</dd>
+	
+	<dt>currentClass</dt>
+	<dd>Name of the 'current' class (default: 'current')</dd>
+	
+	<dt>offset</dt>
+	<dd>Offset of the tip from the element (default: 4)</dd>
+	
+	<dt>position</dt>
+	<dd>Position of the tip relative to the element - possible values: 'top', 'left', 'bottom', 'right' (default: 'top')</dd>
+	
+	<dt>animationOffset</dt>
+	<dd>Offset for the animation (pixels) (default: 4)</dd>
+	
+	<dt>delay</dt>
+	<dd>Delay before tip shows up on hover (milliseconds) (default: 0)</dd>
+</dl>
+
+<p>You can change the function's defaults at runtime like this:</p>
+
+<pre class="brush: js">
+// Example: change delay
+$.fn.tip.defaults.delay = 1000;
+</pre>
+
+<hr>
+
+<h4 class="with-margin">Other functions</h4>
+
+<pre class="brush: js">
+/**
+ * Add tip (if not exist) and show it with effect
+ * @param object options same as the tip() method
+ */
+$(selector).showTip(options);
+
+/**
+ * Hide then remove tip
+ */
+$(selector).hideTip();
+
+/**
+ * Update tip content
+ * @param mixed content any content (text or HTML) for the tip, of false for automatic detection
+ */
+$(selector).updateTipContent(content);
+
+/**
+ * Call this function to refresh tips when using the stickIfCurrent option 
+ * and the 'current' element has changed
+ */
+$(selector).refreshTip();
+</pre>
+
+</div>

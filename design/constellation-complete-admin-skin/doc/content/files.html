@@ -1,0 +1,122 @@
+<div class="block-content upper-index">
+<h1>Files</h1>
+
+<p>The template comes with 2 sets of files: one with bare HTML (usefull if you want to use it with anything else than Php), and one with HTML+Php : it includes some code to handle errors with the build-in error page, combine/compress JS & CSS files, display Php/Apache version, retrieve search results...</p>
+
+<p>The files are organized as below (Php only files are in <strong>bold blue</strong>):</p>
+
+<ul class="arbo with-title">
+	<li>
+		<span class="title-search">Template files</span>
+		<ul>
+			<li>
+				<span class="toggle"></span>
+				<span class="folder">_errors</span>
+				<ul>
+					<li><span class="document-web">400.html/<strong>php</strong>: <span class="empty">Custom error 400 page : Bad request (<a href="content/structure/special.html">more</a>)</span></span></li>
+					<li><span class="document-web">401.html/<strong>php</strong> : <span class="empty">Custom error 401 page : Unauthorized (<a href="content/structure/special.html">more</a>)</span></span></li>
+					<li><span class="document-web">403.html/<strong>php</strong> : <span class="empty">Custom error 403 page : Forbidden (<a href="content/structure/special.html">more</a>)</span></span></li>
+					<li><span class="document-web">404.html/<strong>php</strong> : <span class="empty">Custom error 404 page : Page not found (<a href="content/structure/special.html">more</a>)</span></span></li>
+					<li><span class="document-web">500.html/<strong>php</strong> : <span class="empty">Custom error 500 page : Internal server error (<a href="content/structure/special.html">more</a>)</span></span></li>
+					<li><span class="document-web">503.html/<strong>php</strong> : <span class="empty">Custom error 503 page : Service Unavailable (<a href="content/structure/special.html">more</a>)</span></span></li>
+					<li><span class="document-web">error.html/<strong>php</strong> : <span class="empty">Final error page with error description script (<a href="content/functions/scripts.html">more</a>)</span></span></li>
+					<li><span class="document-web"><strong>libError.php</strong> : <span class="empty">A bunch of functions required to handle errors (<a href="content/functions/scripts.html">more</a>)</span></span></li>
+					<li><span class="document-web">sendReport.html/<strong>php</strong> : <span class="empty">Example page to allow users to send error report (<a href="content/functions/scripts.html">more</a>)</span></span></li>
+				</ul>
+			</li>
+			<li>
+				<span class="toggle"></span>
+				<span class="folder">css</span>
+				<ul>
+					<li><span class="folder"><strong>cache</strong> : <span class="empty">Folder for caching CSS compressed files (<a href="content/functions/compression.html">more</a>)</span></span></li>
+					<li><span class="document-web">960.gs.css : <span class="empty">Grid system for fixed layout (<a href="content/structure/grid.html">more</a>)</span></span></li>
+					<li><span class="document-web">960.gs.fluid.css : <span class="empty">Grid system for fluid layout (<a href="content/structure/grid.html">more</a>)</span></span></li>
+					<li><span class="document-web">block-lists.css : <span class="empty">Block lists styles (<a href="content/css/block-lists.html">more</a>)</span></span></li>
+					<li><span class="document-web">calendars.css : <span class="empty">Mini, medium and large calendars (<a href="content/css/calendars.html">more</a>)</span></span></li>
+					<li><span class="document-web">common.css : <span class="empty">Generic styles for both standard and mobile templates (<a href="content/css/generic.html">more</a>)</span></span></li>
+					<li><span class="document-web">form.css : <span class="empty">Form styling (<a href="content/css/form.html">more</a>)</span></span></li>
+					<li><span class="document-web">gallery.css : <span class="empty">Image gallery styles (<a href="content/css/gallery.html">more</a>)</span></span></li>
+					<li><span class="document-web"><strong>mini.php</strong> : <span class="empty">Script for combining/compressing CSS files (<a href="content/functions/compression.html">more</a>)</span></span></li>
+					<li><span class="document-web">mobile.css : <span class="empty">Styles for the mobile template (<a href="content/functions/mobile.html">more</a>)</span></span></li>
+					<li><span class="document-web">planning.css : <span class="empty">Planning grid styles (<a href="content/css/planning.html">more</a>)</span></span></li>
+					<li><span class="document-web">reset.css : <span class="empty">CSS reset</span></span></li>
+					<li><span class="document-web">simple-lists.css : <span class="empty">Simple lists styles (<a href="content/css/simple-lists.html">more</a>)</span></span></li>
+					<li><span class="document-web">special-pages.css : <span class="empty">Styles for the special pages (<a href="content/structure/special.html">more</a>)</span></span></li>
+					<li><span class="document-web">standard.css : <span class="empty">Styles for the standard template</span></span></li>
+					<li><span class="document-web">standard.css : <span class="empty">Styles for the standard template, modified to use the alternate main nav style</span></span></li>
+					<li><span class="document-web">table.css : <span class="empty">Tables styles (<a href="content/css/table.html">more</a>)</span></span></li>
+					<li><span class="document-web">wizard.css : <span class="empty">Wizard styles (<a href="content/css/wizard.html">more</a>)</span></span></li>
+				</ul>
+			</li>
+			<li>
+				<span class="toggle"></span>
+				<span class="folder">images</span>
+				<ul>
+					<li><span class="folder">demo : <span class="empty">Various images for the demo pages, remove on your website</span></span></li>
+					<li>
+						<span class="toggle"></span>
+						<span class="folder">icons</span>
+						<ul>
+							<li><span class="folder">browsers : <span class="empty">Browsers icons for the 'please update' page (<a href="content/functions/old-browsers.html">more</a>)</span></span></li>
+							<li><span class="folder">finefiles : <span class="empty">Icons for the .files style (see <a href="content/credits.html">credits</a> for more infos)</span></span></li>
+							<li><span class="folder">flags : <span class="empty">Country flags, used in the demo pages (see <a href="content/credits.html">credits</a> for more infos)</span></span></li>
+							<li><span class="folder">fugue : <span class="empty">Some icons from the great Fugue Icon Set (see <a href="content/credits.html">credits</a> for more infos)</span></span></li>
+							<li><span class="folder">web-app : <span class="empty">The Web Application Icon Set (see <a href="content/credits.html">credits</a> for more infos)</span></span></li>
+							<li><span class="document-image empty">Some other template icons</span></li>
+						</ul>
+					</li>
+					<li><span class="folder">old-browsers-bg : <span class="empty">Images for the older browsers not handling CSS3 gradients</span></span></li>
+					<li><span class="folder">old-browsers-screen : <span class="empty">Images for the 'please update' page (<a href="content/functions/old-browsers.html">more</a>)</span></span></li>
+					<li><span class="document-image empty">All other template images</span></li>
+				</ul>
+			</li>
+			<li>
+				<span class="toggle"></span>
+				<span class="folder">js</span>
+				<ul>
+					<li><span class="folder"><strong>cache</strong> : <span class="empty">folder for caching JS compressed files (<a href="content/functions/compression.html">more</a>)</span></span></li>
+					<li><span class="folder"><strong>jquery.datepick</strong> : <span class="empty">jQuery DatePicker plugin (<a href="content/plugins/datepick.html">more</a>)</span></span></li>
+					<li><span class="document-web">common.js : <span class="empty">Common jQuery functions for both standard and mobile templates (<a href="content/functions/setup.html">more</a>)</span></span></li>
+					<li><span class="document-web">html5.js : <span class="empty">JS tweak to enable HTML5 support for older browsers (<a href="content/structure/html5.html">more</a>)</span></span></li>
+					<li><span class="document-web">jquery-1.4.2.min.js : <span class="empty">jQuery lib</span></span></li>
+					<li><span class="document-web">jquery.accessibleList.js : <span class="empty">AccessibleList plugin : shorten and paginate a list (<a href="content/functions/accessible-list.html">more</a>)</span></span></li>
+					<li><span class="document-web">jquery.contextMenu.js : <span class="empty">Custom context menu plugin (<a href="content/functions/context-menu.html">more</a>)</span></span></li>
+					<li><span class="document-web">jquery.dataTables.min.js : <span class="empty">DataTables plugin (<a href="content/plugins/datatable.html">more</a>)</span></span></li>
+					<li><span class="document-web">jquery.hashchange.js : <span class="empty">Library needed to emulate the 'hashChange' event on older browsers, needed for the tabs (see <a href="content/credits.html">credits</a> for more infos)</span></span></li>
+					<li><span class="document-web">jquery.tip.js : <span class="empty">Tool tips plugin (<a href="content/functions/tips.html">more</a>)</span></span></li>
+					<li><span class="document-web"><strong>jsmin.php</strong> : <span class="empty">Library used for combining/compressing CSS files (<a href="content/functions/compression.html">more</a>)</span></span></li>
+					<li><span class="document-web">list.js : <span class="empty">Template functions for some list styles (<a href="content/css/simple-lists.html">more</a>)</span></span></li>
+					<li><span class="document-web"><strong>mini.php</strong> : <span class="empty">Script for combining/compressing JS files (<a href="content/functions/compression.html">more</a>)</span></span></li>
+					<li><span class="document-web">mobile.js : <span class="empty">jQuery functions for the mobile template (<a href="content/functions/mobile.html">more</a>)</span></span></li>
+					<li><span class="document-web">old-browsers.js : <span class="empty">older browsers detection (<a href="content/functions/old-browsers.html">more</a>)</span></span></li>
+					<li><span class="document-web">searchField.js : <span class="empty">ajax search field plugin (<a href="content/functions/searchfield.html">more</a>)</span></span></li>
+					<li><span class="document-web">standard.ie.js : <span class="empty">jQuery functions for the standard template (<a href="content/functions/setup.html">more</a>)</span></span></li>
+					<li><span class="document-web">standard.js : <span class="empty">jQuery functions for the standard template (IE support) (<a href="content/functions/setup.html">more</a>)</span></span></li>
+				</ul>
+			</li>
+			<li>
+				<span class="toggle"></span>
+				<span class="folder">mobile</span>
+				<ul>
+					<li><span class="document-web">index.html/<strong>php</strong> : <span class="empty">Example dashboard page</span></span></li>
+					<li><span class="document-web">login.html/<strong>php</strong> : <span class="empty">Example ajax login page with working scripts for the php version</span></span></li>
+					<li><span class="document-web">tour-*.html/<strong>php</strong> : <span class="empty">Demo pages with styles use examples</span></span></li>
+				</ul>
+			</li>
+			<li><span class="document-web"><strong>.htaccess</strong> : <span class="empty">Apache htaccess file for custom 404, 403, 500... error pages (<a href="content/structure/special.html">more</a>)</span></span></li>
+			<li><span class="document-web">ajax-modal.html : <span class="empty">Random data for the demo modal window (<a href="content/functions/modal.html">more</a>)</span></span></li>
+			<li><span class="document-web">ajax-tab.html : <span class="empty">Random data for the demo ajax tab (<a href="content/functions/tabs.html">more</a>)</span></span></li>
+			<li><span class="document-image">apple-touch-icon.png : <span class="empty">Favicon for iOS devices (iPhone)</span></span></li>
+			<li><span class="document-web"><strong>error.php</strong> : <span class="empty">Example of script triggering an error (<a href="content/functions/scripts.html">more</a>)</span></span></li>
+			<li><span class="document-image">favicon-large.png : <span class="empty">Favicon for modern browsers (32x32 PNG)</span></span></li>
+			<li><span class="document-image">favion.ico : <span class="empty">Standard favicon</span></span></li>
+			<li><span class="document-web">index.html/<strong>php</strong> : <span class="empty">Example page with most styles</span></span></li>
+			<li><span class="document-web">index-alt.html/<strong>php</strong> : <span class="empty">Example page with most styles, modified to use the alternate main nav style</span></span></li>
+			<li><span class="document-web">login.html/<strong>php</strong> : <span class="empty">Example ajax login page with working scripts for the php version (<a href="content/functions/scripts.html">more</a>)</span></span></li>
+			<li><span class="document-web">old-browsers.html/<strong>php</strong> : <span class="empty">Page to tell users to update their browser (<a href="content/functions/old-browsers.html">more</a>)</span></span></li>
+			<li><span class="document-web">search.html/<strong>php</strong> : <span class="empty">Script called by the searchField plugin (<a href="content/functions/searchfield.html">more</a>)</span></span></li>
+			<li><span class="document-web">wizard.html/<strong>php</strong> : <span class="empty">Example wizard page (<a href="content/css/wizard.html">more</a>)</span></span></li>
+		</ul>
+	</li>
+</ul>
+</div>

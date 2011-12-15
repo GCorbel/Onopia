@@ -1,0 +1,72 @@
+<div class="block-content upper-index no-padding">
+<h1>Date picker plugin</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js, standard.js, jquery.datepick/jquery.datepick.min.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		mobile, standard</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>About the plugin</h2>
+
+<p>The date picker uses the plugin <strong>jQuery Datepicker</strong> available here: <a href="http://keith-wood.name/datepick.html">http://keith-wood.name/datepick.html</a>. You can find an complete documentation for using and customizing the plugin on this website.</p>
+
+<p class="message info">Thanks to <a href="http://themeforest.net/user/sbkyle">sbkyle</a> for the styling example!</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Example implementation</h2>
+
+<p>Here is an example of implementation of the plugin - you can test a working version on the default index.html/php in the package:</p>
+
+<pre class="brush: js">
+/*
+ * Apply the plugin to every input with the class 'datepicker'
+ */
+$(document).ready(function()
+{
+	/*
+	 * Datepicker
+	 */
+	$('.datepicker').datepick({
+		alignment: 'bottom',
+		showOtherMonths: true,
+		selectOtherMonths: true,
+		renderer: {
+			picker: '&lt;div class="datepick block-border clearfix form"&gt;&lt;div class="mini-calendar clearfix"&gt;' +
+					'{months}&lt;/div&gt;&lt;/div&gt;',
+			monthRow: '{months}', 
+			month: '&lt;div class="calendar-controls"&gt;' +
+						'{monthHeader:M yyyy}' +
+					'&lt;/div&gt;' +
+					'&lt;table cellspacing="0"&gt;' +
+						'&lt;thead&gt;{weekHeader}&lt;/thead&gt;' +
+						'&lt;tbody&gt;{weeks}&lt;/tbody&gt;&lt;/table&gt;', 
+			weekHeader: '&lt;tr&gt;{days}&lt;/tr&gt;', 
+			dayHeader: '&lt;th&gt;{day}&lt;/th&gt;', 
+			week: '&lt;tr&gt;{days}&lt;/tr&gt;', 
+			day: '&lt;td&gt;{day}&lt;/td&gt;', 
+			monthSelector: '.month', 
+			daySelector: 'td', 
+			rtlClass: 'rtl', 
+			multiClass: 'multi', 
+			defaultClass: 'default', 
+			selectedClass: 'selected', 
+			highlightedClass: 'highlight', 
+			todayClass: 'today', 
+			otherMonthClass: 'other-month', 
+			weekendClass: 'week-end', 
+			commandClass: 'calendar', 
+			commandLinkClass: 'button',
+			disabledClass: 'unavailable'
+		}
+	});
+});
+</pre>
+</div>

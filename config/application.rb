@@ -53,9 +53,9 @@ module Onopia
     
     # Configure generators values. Many other options are available,
     # be sure to check the documentation.
-    config.generators do |g|
-      g.test_framework :rspec, :fixture => false
-    end
+    #config.generators do |g|
+    #  g.test_framework :rspec, :fixture => false
+    #end
 
     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   end

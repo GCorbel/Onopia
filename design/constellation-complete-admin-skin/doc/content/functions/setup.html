@@ -1,0 +1,70 @@
+<div class="block-content upper-index no-padding">
+<h1>Template setup</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>About template setup</h2>
+
+<p>The template provides a wide range of components, and some of them require a little bit of javascript to work. A little more is also used to enhance Internet Explorer 7 and 8 to support template features.</p>
+<p>To simplify the use of these elements, the template defines a setup function, that will be called automatically at startup, and can be easilly applied to any content loaded in your pages. Here is an example of how to extend this function:</p>
+
+<pre class="brush: js">
+/**
+ * Add a new template function
+ * @param function func the function to be called on a jQuery object
+ * @param boolean prioritary set to true to call the function before all others (optional)
+ * @return void
+ */
+$.fn.addTemplateSetup(function()
+{
+	/**
+	 * Do anything needed to setup template
+	 * Note: use this.find(selector) rather than $(selector), as the function has to be called on every loaded content
+	 */
+	this.find('a')...;
+});
+
+// To register a prioritary function
+$.fn.addTemplateSetup(function() { ... }, true);
+</pre>
+
+<p>Every registered function will be called at startup on the whole document.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Applying setup</h2>
+<p>To apply the template setup on some loaded content, for instance with the .load() method, do as follow:</p>
+
+<pre class="brush: js">
+$('#content').load(href, '', function()
+{
+	$(this).applyTemplateSetup();
+});
+</pre>
+
+<p>Other examples, when inserting content:</p>
+
+<pre class="brush: js">
+// InsertAfter method example
+$('&lt;...&gt;').insertAfter('#content').applyTemplateSetup();
+
+// After method example
+$('#content').after('&lt;...&gt;').next().applyTemplateSetup();
+
+// Append method example
+$('#content').append('&lt;...&gt;').children(':last').applyTemplateSetup();
+
+// Prepend method example
+$('#content').prepend('&lt;...&gt;').children(':first').applyTemplateSetup();
+</pre>
+</div>

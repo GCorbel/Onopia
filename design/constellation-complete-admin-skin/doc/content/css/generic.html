@@ -1,0 +1,332 @@
+<div class="block-content upper-index no-padding">
+<h1>Generic styles</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Basic styles</h2>
+
+<p>The template declares some basic styles at the beginning of the file <strong>common.css</strong>, whose name are quite self-explanatory:</p>
+
+<dl class="definition">
+	<dt>.align-left, .align-center, .align-right</dt>
+	<dd>Text align classes</dd>
+	
+	<dt>.with-margin, .small-margin, .medium-margin, .large-margin, .no-bottom-margin</dt>
+	<dd>These classes add or remove bottom margin</dd>
+	
+	<dt>.margin-left, .margin-right, .gutter-left, .gutter-right</dt>
+	<dd>These classes add margin on right or left sides</dd>
+	
+	<dt>.with-padding</dt>
+	<dd>This class add a 1em padding</dd>
+	
+	<dt>.float-left, .float-right</dt>
+	<dd>Standard floating classes</dd>
+	
+	<dt>.relative, .absolute</dt>
+	<dd>Classes for positioned elements (<a href="content/structure/positioning.html">read more</a>)</dd>
+	
+	<dt>.picto</dt>
+	<dd>This class is designed for 16px height images displayed inline: it makes them fit the correct line-height</dd>
+	
+	<dt>.clearfix</dt>
+	<dd>This is a usefull class which allows to adjust a block to its inner floated elements height<br>
+	To learn more : <a href="http://perishablepress.com/press/2008/02/05/lessons-learned-concerning-the-clearfix-css-hack">http://perishablepress.com/press/2008/02/05/lessons-learned-concerning-the-clearfix-css-hack</a></dd>
+</dl>
+</div>
+
+<div class="block-content no-title">
+<h2>Page background</h2>
+
+<p>To use the alternate dark background, add the class <strong>dark</strong> to the &lt;html&gt; element:</p>
+
+<pre class="brush: html">
+&lt;html class="dark"&gt;
+	...
+&lt;/html&gt;
+</pre>
+</div>
+
+<div class="block-content no-title">
+<h2>Block styles</h2>
+
+<div class="box">&lt;div class="box"&gt;&lt;/div&gt;</div>
+
+<div class="infos">&lt;div class="infos"&gt;&lt;/div&gt;</div>
+
+<div class="mini-infos">&lt;div class="mini-infos"&gt;&lt;/div&gt;</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Text styles</h2>
+
+<p class="empty">&lt;span class="empty"&gt;&lt;/span&gt;</p>
+
+<p class="grey">&lt;span class="grey"&gt;&lt;/span&gt;</p>
+
+<p class="clearfix"><span class="number">42</span>&lt;span class="number"&gt;42&lt;/span&gt;</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Backgrounds</h2>
+
+<div class="grey-bg with-padding with-margin">&lt;div class="grey-bg"&gt;&lt;/div&gt;</div>
+
+<div class="dark-grey-gradient with-padding with-margin">&lt;div class="dark-grey-gradient"&gt;&lt;/div&gt;</div>
+
+<div class="lite-grey-gradient with-padding with-margin">&lt;div class="lite-grey-gradient"&gt;&lt;/div&gt;</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Buttons</h2>
+
+<p><a class="button" href="javascript:void(0)">&lt;a class="button"&gt;&lt;/a&gt;</a></p>
+
+<p><a class="button red" href="javascript:void(0)">&lt;a class="button red"&gt;&lt;/a&gt;</a></p>
+
+<p><button type="button">&lt;button type="button"&gt;&lt;/button&gt;</button></p>
+
+<p><button type="button" class="red">&lt;button type="button" class="red"&gt;&lt;/button&gt;</button></p>
+
+<p><button type="button" class="grey">&lt;button type="button" class="grey"&gt;&lt;/button&gt;</button></p>
+
+<p><button type="button" class="small">&lt;button type="button" class="small"&gt;&lt;/button&gt;</button></p>
+
+<p>You can use the button style on other elements, with class <strong>big-button</strong>:</p>
+
+<p class="big-button">&lt;p class="big-button"&gt;&lt;/p&gt;</p>
+</div>
+
+<div class="block-content no-title">
+<h2>iPhone checkboxes</h2>
+
+<p>
+	<input type="checkbox" name="switch-off" id="switch-off" value="1" class="switch">
+	<label for="switch-off">&lt;input type="checkbox" class="switch"&gt;</label>
+</p>
+
+<p>
+	<input type="checkbox" name="switch-on" id="switch-on" value="1" checked="checked" class="switch">
+	<label for="switch-on">&lt;input type="checkbox" checked="checked" class="switch"&gt;</label>
+</p>
+
+<p>
+	<input type="checkbox" name="small-switch-off" id="small-switch-off" value="1" class="mini-switch">
+	<label for="small-switch-off">&lt;input type="checkbox" class="mini-switch"&gt;</label>
+</p>
+
+<p>
+	<input type="checkbox" name="small-switch-on" id="small-switch-on" value="1" class="mini-switch" checked="checked">
+	<label for="small-switch-on">&lt;input type="checkbox" checked="checked" class="mini-switch"&gt;</label>
+</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Message</h2>
+
+<p>Messages can use two different node types : &lt;p&gt; or &lt;ul&gt;, depending on if you need to display only one message at a time, or several:</p>
+
+<p class="message">&lt;p class="message"&gt;&lt;/p&gt;</p>
+<ul class="message">
+	<li>&lt;ul class="message"&gt;</li>
+	<li>&lt;li&gt;Message&lt;/li&gt;</li>
+	<li>&lt;li&gt;Message&lt;/li&gt;</li>
+	<li>&lt;/ul&gt;</li>
+</ul>
+
+<p>There are five differents message styles:</p>
+
+<p class="message">&lt;p class="message"&gt;&lt;/p&gt;</p>
+<p class="message warning">&lt;p class="message warning"&gt;&lt;/p&gt;</p>
+<p class="message error">&lt;p class="message error"&gt;&lt;/p&gt;</p>
+<p class="message success">&lt;p class="message success"&gt;&lt;/p&gt;</p>
+<p class="message loading">&lt;p class="message loading"&gt;&lt;/p&gt;</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Close button</h2>
+
+<p>You can add a close button to any element: just add the following code, and the template will make it remove its direct parent node when clicked.</p>
+
+<pre class="brush: html">
+	&lt;span class="close-bt"&gt;&lt;/span&gt;
+</pre>
+
+<p>For instance:</p>
+
+<pre class="brush: html">
+	&lt;p class="message"&gt;&lt;span class="close-bt"&gt;&lt;/span&gt;My message&lt;/p&gt;
+</pre>
+
+<p class="message"><span class="close-bt"></span>My message</p>
+
+<p>For &lt;ul&gt; messages:</p>
+
+<pre class="brush: html">
+	&lt;ul class="message"&gt;
+		&lt;li&gt;My message&lt;/li&gt;
+		&lt;li&gt;My message&lt;/li&gt;
+		&lt;li class="close-bt"&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+</pre>
+
+<ul class="message">
+	<li>My message</li>
+	<li>My message</li>
+	<li class="close-bt"></li>
+</ul>
+
+<p>Note that the parent element need to have <em>position:absolute</em> or <em>position:relative</em>. You can add the class <strong>relative</strong> to it if needed (<a href="content/structure/positioning.html">read more about positioning</a>):</p>
+
+<pre class="brush: html">
+&lt;div class="box dark-grey-gradient relative"&gt;
+	&lt;span class="close-bt"&gt;&lt;/span&gt;
+	Place box content here
+&lt;/div&gt;
+</pre>
+
+<div class="box lite-grey-gradient relative">
+	<span class="close-bt"></span>
+	Place box content here
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Progress bar</h2>
+
+<p>There's a generic progress bar style, which can be used with the HTML5 element &lt;span&gt;:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+<pre class="brush: html">
+&lt;span class="progress-bar"&gt;
+	&lt;span style="width: 68%"&gt;68%&lt;/span&gt;
+&lt;/span&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<p class="with-padding"><span class="progress-bar">
+			<span style="width: 68%">68%</span>
+		</span></p>
+	</div>
+</div>
+
+<p>There are 3 other colors:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+<pre class="brush: html">
+&lt;span class="progress-bar"&gt;
+	&lt;span class="green" style="width: 68%"&gt;68%&lt;/span&gt;
+&lt;/span&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<p class="with-padding"><span class="progress-bar">
+			<span class="green" style="width: 68%">68%</span>
+		</span></p>
+	</div>
+</div>
+
+<div class="columns">
+	<div class="colx2-left">
+<pre class="brush: html">
+&lt;span class="progress-bar"&gt;
+	&lt;span class="orange" style="width: 68%"&gt;68%&lt;/span&gt;
+&lt;/span&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<p class="with-padding"><span class="progress-bar">
+			<span class="orange" style="width: 68%">68%</span>
+		</span></p>
+	</div>
+</div>
+
+<div class="columns">
+	<div class="colx2-left">
+<pre class="brush: html">
+&lt;span class="progress-bar"&gt;
+	&lt;span class="purple" style="width: 68%"&gt;68%&lt;/span&gt;
+&lt;/span&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<p class="with-padding"><span class="progress-bar">
+			<span class="purple" style="width: 68%">68%</span>
+		</span></p>
+	</div>
+</div>
+
+<p>You can add animated stripes:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+<pre class="brush: html">
+&lt;span class="progress-bar"&gt;
+	&lt;span class="with-stripes" style="width: 75%"&gt;&lt;/span&gt;
+&lt;/span&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<p class="with-padding"><span class="progress-bar">
+			<span class="with-stripes" style="width: 75%"></span>
+		</span></p>
+	</div>
+</div>
+
+<div class="columns">
+	<div class="colx2-left">
+<pre class="brush: html">
+&lt;span class="progress-bar"&gt;
+	&lt;span class="green with-stripes" style="width: 75%"&gt;&lt;/span&gt;
+&lt;/span&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<p class="with-padding"><span class="progress-bar">
+			<span class="green with-stripes" style="width: 75%"></span>
+		</span></p>
+	</div>
+</div>
+
+<div class="columns">
+	<div class="colx2-left">
+<pre class="brush: html">
+&lt;span class="progress-bar"&gt;
+	&lt;span class="orange with-stripes" style="width: 75%"&gt;&lt;/span&gt;
+&lt;/span&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<p class="with-padding"><span class="progress-bar">
+			<span class="orange with-stripes" style="width: 75%"></span>
+		</span></p>
+	</div>
+</div>
+
+<div class="columns">
+	<div class="colx2-left">
+<pre class="brush: html">
+&lt;span class="progress-bar"&gt;
+	&lt;span class="purple with-stripes" style="width: 75%"&gt;&lt;/span&gt;
+&lt;/span&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<p class="with-padding"><span class="progress-bar">
+			<span class="purple with-stripes" style="width: 75%"></span>
+		</span></p>
+	</div>
+</div>
+</div>

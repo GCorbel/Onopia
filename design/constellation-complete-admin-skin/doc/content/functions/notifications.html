@@ -1,0 +1,49 @@
+<div class="block-content upper-index no-padding">
+<h1>Notifications</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js, standard.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Showing notifications</h2>
+
+<p>The template has a built-in growl-like notification function, which displays messages a the upper-right corner of the screen. To use it, simply call:</p>
+
+<pre class="brush: js">
+/**
+ * Display a notification. If the page is not yet ready, delay the notification until it is ready.
+ * @var string message a text or html message to display
+ * @var object options an object with any options for the message - optional
+ * 		- closeButton: true to add a close button to the message (default: true)
+ * 		- autoClose: true to close message after (closeDelay) ms (default: true)
+ * 		- closeDelay: delay before message close (default: 8000)
+ */
+notify(message, options);
+</pre>
+
+<form class="form box dark-grey-gradient" method="post" action="" onsubmit="notify($('#notify-message').val()); return false;">
+	<p>Try it!: <input type="text" name="notify-message" id="notify-message" value="&lt;b&gt;Hello&lt;/b&gt; world!"> <button type="submit">Notify</button></p>
+</form>
+
+<p>To change the default configuration at runtime, you can edit function's defaults:</p>
+
+<pre class="brush: js">
+// Add a close button to the message
+notify.defaults.closeButton = true;
+
+// Message will close after (closeDelay) ms
+notify.defaults.autoClose = true;
+
+// Delay before message close
+notify.defaults.closeDelay = 8000;
+</pre>
+
+</div>

@@ -1,0 +1,557 @@
+<div class="block-content upper-index no-padding">
+<h1>Form</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css, form.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Basics</h2>
+
+<p>The template does not style every form element by default. To use the form styles, apply the class <strong>form</strong> to your &lt;form&gt; element.</p>
+
+<p>Note that there are some pseudo-form styles: fieldset and legend - see below to learn more - that can be used outside any form.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Fieldset</h2>
+
+<div class="box">
+	<p class="infos">To collapse a fieldset, add the class <strong>collapsed</strong> to it. Note that, for accessibility issues, it is not recommended to apply it in the source-code, but rather at runtime, because if the browser has Javascript disabled or if it stops on an error, the user won't be able to expand the collapsed fieldset. Therefore, you should rather use the class <strong>collapse</strong> (without <b>d</b>): the template setup function will then automatically collapse these fieldsets at startup.</p>
+</div>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;!-- Add the class 'form' --&gt;
+&lt;form method="post" class="form" action=""&gt;
+	
+	&lt;!-- Default fieldset --&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Legend&lt;/legend&gt;
+		&lt;p&gt;Any content here&lt;/p&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;!-- With grey background --&gt;
+	&lt;fieldset class="grey-bg"&gt;
+		&lt;legend&gt;With background&lt;/legend&gt;
+		&lt;p&gt;Any content here&lt;/p&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;!-- Collapsible fieldset --&gt;
+	&lt;fieldset class="grey-bg"&gt;
+		&lt;!--
+		Just add a empty link tag in the legend to make the whole fieldset collapsible
+		There are inline classes to display/hide content depending on the whether the fieldset is expanded or not:
+		- show-expanded: only show content when the fieldset is expanded
+		- show-collapsed: only show content when the fieldset is collapsed
+		--&gt;
+		&lt;legend&gt;&lt;a href="#"&gt;
+			Click here to 
+			&lt;span class="show-expanded"&gt;collapse&lt;/span&gt;
+			&lt;span class="show-collapsed"&gt;expand&lt;/span&gt;
+		&lt;/a&gt;&lt;/legend&gt;
+		&lt;p&gt;Any content here&lt;/p&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;!-- Add the class 'collapsed' or 'collapse' (read above) to a branch to collapse it --&gt;
+	&lt;fieldset class="grey-bg collapse"&gt;
+		&lt;legend&gt;&lt;a href="#"&gt;Collapsed at startup&lt;/a&gt;&lt;/legend&gt;
+		&lt;p&gt;Any content here&lt;/p&gt;
+	&lt;/fieldset&gt;
+	
+&lt;/form&gt;
+
+&lt;hr&gt;
+
+&lt;h4 class="with-margin"&gt;Use of fieldset style out of any form:&lt;/h4&gt;
+
+&lt;!-- The class with-legend adds margin to the top of the fieldset to fit the legend --&gt;
+&lt;div class="fieldset with-legend"&gt;
+	&lt;div class="legend"&gt;Pseudo-legend&lt;/div&gt;
+	&lt;p&gt;Pseudo-fieldset content&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<!-- Add the class 'form' -->
+		<form method="post" class="form with-margin" action="return false">
+			
+			<!-- Default fieldset -->
+			<fieldset>
+				<legend>Legend</legend>
+				<p>Any content here</p>
+			</fieldset>
+			
+			<!-- With grey background -->
+			<fieldset class="grey-bg">
+				<legend>With background</legend>
+				<p>Any content here</p>
+			</fieldset>
+			
+			<!-- Collapsible fieldset -->
+			<fieldset class="grey-bg">
+				<!--
+				Just add a empty link tag in the legend to make the whole fieldset collapsible
+				There are inline classes to display/hide content depending on the whether the fieldset is expanded or not:
+				- show-expanded: only show content when the fieldset is expanded
+				- show-collapsed: only show content when the fieldset is collapsed
+				-->
+				<legend><a href="#">Click here to <span class="show-expanded">collapse</span><span class="show-collapsed">expand</span></a></legend>
+				<p>Any content here</p>
+			</fieldset>
+			
+			<!-- Add the class 'collapsed' or 'collapse' (read above) to a branch to collapse it -->
+			<fieldset class="grey-bg collapse">
+				<legend><a href="#">Collapsed at startup</a></legend>
+				<p>Any content here</p>
+			</fieldset>
+			
+		</form>
+		
+		<hr>
+		
+		<h4 class="with-margin">Use of fieldset style out of any form:</h4>
+		
+		<!-- The class with-legend adds margin to the top of the fieldset to fit the legend -->
+		<div class="fieldset with-legend">
+			<div class="legend">Pseudo-legend</div>
+			<p>Pseudo-fieldset content</p>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Fields and labels</h2>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;!-- Add the class 'form' --&gt;
+&lt;form method="post" class="form" action=""&gt;
+	
+	&lt;!-- Standard labels behave as blocks --&gt;
+	&lt;p&gt;
+		&lt;label for="field1"&gt;Default block label&lt;/label&gt;
+		&lt;input type="text" name="field1" id="field1"&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- Light label --&gt;
+	&lt;p&gt;
+		&lt;label for="field2" class="light"&gt;Light label&lt;/label&gt;
+		&lt;input type="text" name="field2" id="field2"&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- Disabled --&gt;
+	&lt;p&gt;
+		&lt;label for="field_disabled" class="disabled"&gt;Disabled&lt;/label&gt;
+		&lt;input type="text" name="field_disabled" id="field_disabled"&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- Simple inline label (see below for more inline labels options) --&gt;
+	&lt;p&gt;
+		&lt;input type="checkbox" name="field3" id="field3"&gt;
+		&lt;label for="field3" class="inline"&gt;Inline label&lt;/label&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- You can simulate a label --&gt;
+	&lt;p&gt;
+		&lt;span class="label"&gt;Pseudo-label&lt;/span&gt;
+		&lt;input type="checkbox" name="field3" id="field3"&gt;
+		&lt;label for="field3" class="inline"&gt;Inline label&lt;/label&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- Use class input-type-text to simulate a text input --&gt;
+	&lt;p&gt;
+		&lt;span class="input-type-text"&gt;
+			&lt;input type="text" name="field12" id="field12" value=""&gt;
+			&lt;a href="javascript:alert('Open calendar');"&gt;&lt;img src="images/icons/fugue/calendar-month.png" width="16" height="16"&gt;&lt;/a&gt;
+		&lt;/span&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- checkable inputs list --&gt;
+	&lt;ul class="checkable-list"&gt;
+		&lt;li&gt;&lt;input type="radio" name="simple-radio" id="simple-radio-1" value="1"&gt;&nbsp;&lt;label for="simple-radio-1"&gt;Group&lt;/label&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;input type="radio" name="simple-radio" id="simple-radio-2" value="2"&gt;&nbsp;&lt;label for="simple-radio-2"&gt;Separate&lt;/label&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;input type="radio" name="simple-radio" id="simple-radio-3" value="3"&gt;&nbsp;&lt;label for="simple-radio-3"&gt;Other&lt;/label&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	
+	&lt;p&gt;&lt;input type="text" name="field13" id="field13" class="full-width"&gt;&lt;/p&gt;
+	&lt;p&gt;&lt;select name="field14" id="field14" class="full-width"&gt;
+		&lt;option&gt;Select&lt;/option&gt;
+	&lt;/select&gt;&lt;/p&gt;
+	&lt;p&gt;&lt;textarea name="field13" id="field13" class="full-width"&gt;&lt;/textarea&gt;&lt;/p&gt;
+	
+&lt;/form&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<!-- Add the class 'form' -->
+		<form method="post" class="form" action="return false">
+			
+			<!-- Standard labels behave as blocks -->
+			<p>
+				<label for="field1">Default block label</label>
+				<input type="text" name="field1" id="field1">
+			</p>
+			
+			<!-- Light label -->
+			<p>
+				<label for="field2" class="light">Light label</label>
+				<input type="text" name="field2" id="field2">
+			</p>
+			
+			<!-- Disabled -->
+			<p>
+				<label for="field_disabled" class="disabled">Disabled</label>
+				<input type="text" name="field_disabled" id="field_disabled">
+			</p>
+			
+			<!-- Simple inline label (see below for more inline labels options) -->
+			<p>
+				<input type="checkbox" name="field3" id="field3">
+				<label for="field3" class="inline">Inline label</label>
+			</p>
+			
+			<!-- You can simulate a label -->
+			<p>
+				<span class="label">Pseudo-label</span>
+				<input type="checkbox" name="field3" id="field3">
+				<label for="field3" class="inline">Inline label</label>
+			</p>
+			
+			<h3 class="small-margin">Elements within a input-like block</h3>
+			
+			<!-- Use class input-type-text to simulate a text input -->
+			<p>
+				<span class="input-type-text">
+					<input type="text" name="field12" id="field12" value="">
+					<a href="javascript:alert('Open calendar');"><img src="images/icons/fugue/calendar-month.png" width="16" height="16"></a>
+				</span>
+			</p>
+			
+			<h3 class="small-margin">Checkable list</h3>
+			
+			<!-- checkable inputs list -->
+			<ul class="checkable-list">
+				<li><input type="radio" name="simple-radio" id="simple-radio-1" value="1">&nbsp;<label for="simple-radio-1">Group</label></li>
+				<li><input type="radio" name="simple-radio" id="simple-radio-2" value="2">&nbsp;<label for="simple-radio-2">Separate</label></li>
+				<li><input type="radio" name="simple-radio" id="simple-radio-3" value="3">&nbsp;<label for="simple-radio-3">Other</label></li>
+			</ul>
+			
+			<h3 class="small-margin">Full-width</h3>
+			
+			<p><input type="text" name="field13" id="field13" class="full-width"></p>
+			<p><select name="field14" id="field14" class="full-width">
+				<option>Select</option>
+			</select></p>
+			<p><textarea name="field15" id="field15" class="full-width"></textarea></p>
+			
+		</form>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Validation styles</h2>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;!-- Add the class 'form' --&gt;
+&lt;form method="post" class="form" action="return false"&gt;
+	
+	&lt;!-- To style an input a invalid, add the class error --&gt;
+	&lt;p&gt;
+		&lt;input type="text" name="validation1" id="validation1" value="Invalid input" class="error"&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- Visual indicators --&gt;
+	&lt;!-- A element with position:relative is required --&gt;
+	&lt;p&gt;&lt;span class="relative"&gt;
+		&lt;input type="text" name="validation2" id="validation2" value="Valid input"&gt;
+		&lt;span class="check-ok"&gt;&lt;/span&gt;
+	&lt;/span&gt;&lt;/p&gt;
+	
+	&lt;p&gt;&lt;span class="relative"&gt;
+		&lt;input type="text" name="validation3" id="validation3" value="Invalid input" class="error"&gt;
+		&lt;span class="check-error"&gt;&lt;/span&gt;
+	&lt;/span&gt;&lt;/p&gt;
+	
+	&lt;p&gt;&lt;span class="relative"&gt;
+		&lt;input type="text" name="validation4" id="validation4" value="Input with warning"&gt;
+		&lt;span class="check-warning"&gt;&lt;/span&gt;
+	&lt;/span&gt;&lt;/p&gt;
+	
+	&lt;!-- With pseudo input blocks, no need for an extra span --&gt;
+	&lt;span class="input-type-text error relative"&gt;
+		&lt;input type="text" name="validation5" id="validation5" value=""&gt;
+		&lt;img src="images/icons/fugue/calendar-month.png" width="16" height="16"&gt;
+		&lt;span class="check-error"&gt;&lt;/span&gt;
+	&lt;/span&gt;
+	
+&lt;/form&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<!-- Add the class 'form' -->
+		<form method="post" class="form" action="return false">
+			
+			<!-- To style an input a invalid, add the class error -->
+			<p>
+				<input type="text" name="validation1" id="validation1" value="Invalid input" class="error">
+			</p>
+			
+			<h3 class="small-margin">Indicators</h3>
+			
+			<!-- A element with position:relative is required -->
+			<p><span class="relative">
+				<input type="text" name="validation2" id="validation2" value="Valid input">
+				<span class="check-ok"></span>
+			</span></p>
+			
+			<p><span class="relative">
+				<input type="text" name="validation3" id="validation3" value="Invalid input" class="error">
+				<span class="check-error"></span>
+			</span></p>
+			
+			<p><span class="relative">
+				<input type="text" name="validation4" id="validation4" value="Input with warning">
+				<span class="check-warning"></span>
+			</span></p>
+			
+			<!-- With pseudo input blocks, no need for an extra span -->
+			<span class="input-type-text error relative">
+				<input type="text" name="validation5" id="validation5" value="">
+				<img src="images/icons/fugue/calendar-month.png" width="16" height="16">
+				<span class="check-error"></span>
+			</span>
+			
+		</form>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Required fields</h2>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;!-- Add the class 'form' --&gt;
+&lt;form method="post" class="form" action=""&gt;
+
+	&lt;!-- Required label --&gt;
+	&lt;p&gt;
+		&lt;label for="field4" class="required"&gt;Required label&lt;/label&gt;
+		&lt;input type="text" name="field4" id="field4"&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- Required class can be applied to an entire div, fieldset or even form --&gt;
+	&lt;fieldset class="grey-bg required"&gt;
+		&lt;legend&gt;Required fieldset&lt;/legend&gt;
+		&lt;p&gt;
+			&lt;label for="field5"&gt;Label&lt;/label&gt;
+			&lt;input type="text" name="field5" id="field5"&gt;
+		&lt;/p&gt;
+		&lt;p&gt;
+			&lt;input type="checkbox" name="field6" id="field6"&gt;
+			&lt;label for="field6" class="inline"&gt;Label&lt;/label&gt;
+		&lt;/p&gt;
+		&lt;p&gt;
+			&lt;input type="checkbox" name="field7" id="field7"&gt;
+			&lt;label for="field7" class="inline"&gt;Label&lt;/label&gt;
+		&lt;/p&gt;
+	&lt;/fieldset&gt;
+
+&lt;/form&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<!-- Add the class 'form' -->
+		<form method="post" class="form" action="return false">
+		
+			<!-- Required label -->
+			<p>
+				<label for="field4" class="required">Required label</label>
+				<input type="text" name="field4" id="field4">
+			</p>
+			
+			<!-- Required class can be applied to an entire block -->
+			<fieldset class="grey-bg required">
+				<legend>Required fieldset</legend>
+				<p>
+					<label for="field5">Label</label>
+					<input type="text" name="field5" id="field5">
+				</p>
+				<p>
+					<input type="checkbox" name="field6" id="field6">
+					<label for="field6" class="inline">Label</label>
+				</p>
+				<p>
+					<input type="checkbox" name="field7" id="field7">
+					<label for="field7" class="inline">Label</label>
+				</p>
+			</fieldset>
+		
+		</form>
+	</div>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Layout</h2>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;!-- Add the class 'form' --&gt;
+&lt;form method="post" class="form" action=""&gt;
+
+	&lt;!-- inline label with padding --&gt;
+	&lt;p class="inline-label"&gt;
+		&lt;label for="field8"&gt;Inline label&lt;/label&gt;
+		&lt;input type="text" name="field8" id="field8"&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- inline label with medium padding --&gt;
+	&lt;p class="inline-medium-label"&gt;
+		&lt;label for="field12"&gt;Medium label&lt;/label&gt;
+		&lt;input type="text" name="field12" id="field12"&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- inline label with small padding --&gt;
+	&lt;p class="inline-small-label"&gt;
+		&lt;label for="field13"&gt;Small label&lt;/label&gt;
+		&lt;input type="text" name="field13" id="field13"&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- inline label with mini padding --&gt;
+	&lt;p class="inline-mini-label"&gt;
+		&lt;label for="field23"&gt;Mini label&lt;/label&gt;
+		&lt;input type="text" name="field23" id="field23"&gt;
+	&lt;/p&gt;
+	
+	&lt;!-- inline-label class can be applied to an entire div, fieldset or even form --&gt;
+	&lt;fieldset class="grey-bg inline-label"&gt;
+		&lt;legend&gt;Inline labels&lt;/legend&gt;
+		&lt;p&gt;
+			&lt;label for="field9"&gt;Label&lt;/label&gt;
+			&lt;input type="text" name="field9" id="field9"&gt;
+		&lt;/p&gt;
+		&lt;p&gt;
+			&lt;label for="field10"&gt;Label&lt;/label&gt;
+			&lt;input type="text" name="field10" id="field10"&gt;
+		&lt;/p&gt;
+		&lt;p&gt;
+			&lt;input type="checkbox" name="field11" id="field11"&gt;
+			&lt;label for="field11" class="inline"&gt;Label&lt;/label&gt;
+		&lt;/p&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;!-- The class input-height allows creating text blocks with the same height as a input element --&gt;
+	&lt;div class="columns"&gt;
+		&lt;div class="colx3-left-double required"&gt;
+			&lt;label for="field16"&gt;Page title&lt;/label&gt;
+			&lt;input type="text" name="field16" id="field16" value="English" class="full-width"&gt;
+		&lt;/div&gt;
+		&lt;div class="colx3-right"&gt;
+			&lt;span class="label required"&gt;Active&lt;/span&gt;
+			&lt;p class="input-height grey-bg"&gt;
+				&lt;input type="radio" name="field17" id="field17-1" value="1" checked="checked"&gt;&nbsp;&lt;label for="field17-1"&gt;Yes&lt;/label&gt; 
+				&lt;input type="radio" name="field17" id="field17-0" value="0"&gt;&nbsp;&lt;label for="field17-0"&gt;No&lt;/label&gt;
+			&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	
+	&lt;!-- The class one-line-input floats the input on the right, and the label on the left --&gt;
+	&lt;p class="one-line-input grey-bg with-padding"&gt;
+		&lt;label for="field18"&gt;Label&lt;/label&gt;
+		&lt;input type="text" name="field18" id="field18"&gt;
+	&lt;/p&gt;
+	
+&lt;/form&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<!-- Add the class 'form' -->
+		<form method="post" class="form" action="return false">
+		
+			<!-- inline label with padding -->
+			<p class="inline-label">
+				<label for="field8">Inline label</label>
+				<input type="text" name="field8" id="field8">
+			</p>
+			
+			<!-- inline label with medium padding -->
+			<p class="inline-medium-label">
+				<label for="field12">Medium label</label>
+				<input type="text" name="field12" id="field12">
+			</p>
+			
+			<!-- inline label with small padding -->
+			<p class="inline-small-label">
+				<label for="field13">Small label</label>
+				<input type="text" name="field13" id="field13">
+			</p>
+			
+			<!-- inline label with mini padding -->
+			<p class="inline-mini-label">
+				<label for="field23">Mini label</label>
+				<input type="text" name="field23" id="field23">
+			</p>
+			
+			<!-- inline-label class can be applied to an entire block -->
+			<fieldset class="grey-bg inline-label">
+				<legend>Inline labels</legend>
+				<p>
+					<label for="field9">Label</label>
+					<input type="text" name="field9" id="field9">
+				</p>
+				<p>
+					<label for="field10">Label</label>
+					<input type="text" name="field10" id="field10">
+				</p>
+				<p>
+					<input type="checkbox" name="field11" id="field11">
+					<label for="field11" class="inline">Label</label>
+				</p>
+			</fieldset>
+			
+			<h3 class="small-margin">Input-height blocks</h3>
+			
+			<!-- The class input-height allows creating text blocks with the same height as a input element -->
+			<div class="columns">
+				<div class="colx3-left-double required">
+					<label for="field16">Page title</label>
+					<input type="text" name="field16" id="field16" value="English" class="full-width">
+				</div>
+				<div class="colx3-right">
+					<span class="label required">Active</span>
+					<p class="input-height grey-bg">
+						<input type="radio" name="field17" id="field17-1" value="1" checked="checked">&nbsp;<label for="field17-1">Yes</label> 
+						<input type="radio" name="field17" id="field17-0" value="0">&nbsp;<label for="field17-0">No</label>
+					</p>
+				</div>
+			</div>
+			
+			<h3 class="small-margin">One line input</h3>
+			
+			<!-- The class one-line-input floats the input on the right, and the label on the left -->
+			<p class="one-line-input grey-bg with-padding">
+				<label for="field18">Label</label>
+				<input type="text" name="field18" id="field18">
+			</p>
+			
+		</form>
+	</div>
+</div>
+</div>

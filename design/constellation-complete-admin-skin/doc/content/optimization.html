@@ -1,0 +1,28 @@
+<div class="block-content upper-index">
+<h1>Optimization</h1>
+
+<h2>About template optimization</h2>
+
+<p>The Constellation Admin Skin uses many CSS3 effects, such as gradients or drop-shadows, which can be heavy on older browsers if your pages are very long. To improve rendering speed, you may remove some of these CSS3 effects, using the guide below.</p>
+
+</div>
+
+<div class="block-content no-title">
+<h2>How to optimize?</h2>
+
+<p>To easily remove unwanted CSS code, run the following regular expression in your favorite IDE and replace them with nothing:</p>
+
+<dl class="definition">
+	<dt>Remove drop-shadows</dt>
+	<dd>\s+(-moz-|-webkit-)?(box|text)-shadow:[^;]+;</dd>
+	
+	<dt>Remove gradients</dt>
+	<dd>\s+background: *(-moz-linear|-webkit)-gradient[^;]+;</dd>
+	
+	<dt>Remove background sizing</dt>
+	<dd>\s+(-o-|-moz-|-webkit-)?background-size:[^;]+;</dd>
+	
+	<dt>Remove empty selectors</dt>
+	<dd>[\.\-_#:a-zA-Z0-9,\s ]+\{\s*\}</dd>
+</dl>
+</div>

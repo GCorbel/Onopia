@@ -1,0 +1,75 @@
+<div class="block-content upper-index no-padding">
+<h1>CSS/JS compression</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		mini.php, jsmin.php</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>About compression</h2>
+
+<p>To reduce bandwith use and number of request to the server, the template includes a simple yet efficient system to combine/compress CSS &amp; Javascript files with php. To use it, just call the file <strong>mini.php</strong> id the <b>js/</b> or the <b>css/</b> folder:</p>
+
+<h4>Combine JS files</h4>
+<pre class="brush: html">
+&lt;!--
+
+Example: load of jquery-1.4.2.min.js, common.js, standard.js and jquery.tip.js
+
+--&gt;
+
+&lt;!-- Standard: 4 files, 4 requests and 113 ko --&gt;
+&lt;script src="js/jquery-1.4.2.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/common.js"&gt;&lt;/script&gt;
+&lt;script src="js/standard.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.tip.js"&gt;&lt;/script&gt;
+
+&lt;!-- Combined: 1 file, 1 request and 29.3 ko (if compression available) --&gt;
+&lt;script src="js/mini.php?files=jquery-1.4.2.min,common,standard,jquery.tip"&gt;&lt;/script&gt;
+</pre>
+
+<h4>Combine CSS files</h4>
+<pre class="brush: html">
+&lt;!--
+
+Example: load of reset.css, common.css, form.css and standard.css
+
+--&gt;
+
+&lt;!-- Standard: 4 files, 4 requests and 114 ko --&gt;
+&lt;link href="css/reset.css" rel="stylesheet" type="text/css"&gt;
+&lt;link href="css/common.css" rel="stylesheet" type="text/css"&gt;
+&lt;link href="css/form.css" rel="stylesheet" type="text/css"&gt;
+&lt;link href="css/standard.css" rel="stylesheet" type="text/css"&gt;
+
+&lt;!-- Combined: 1 file, 1 request and 14.4 ko (if compression available) --&gt;
+&lt;link href="css/mini.php?files=reset,common,form,standard" rel="stylesheet" type="text/css"&gt;
+</pre>
+
+<p>There can be as many files as needed, just list them separated by a comma. Note that the file extension is not required to reduce string length, but you can leave it on.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Cache</h2>
+
+<p>To limit server load, this system uses a cache (one for js and one for css): the combined file is created once, them served from cache folder. If a file is modified, the cache is automatically refreshed.</p>
+
+<p>Cache files are located in the <b>cache</b> folder in both <b>js</b> and <b>css</b> folders. Note that the cache cleaning mechanism only deletes cache files after an hour, so if you make many changes to your css/js files you may end up with many old cache files. Just let the system clear them after a little while, or remove every files if you need to empty folder.</p>
+
+<p>You may delete cache files any time, they will be re-created automatically.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Compression</h2>
+
+<p>The system uses files compression to reduce bandwith use even more. To be available, it only requires the php <strong>zlib</strong> extension (if not activated, it will try to enable it at runtime).</p>
+
+<p>The zlib extension will first check which compression system the user browser can handle, and then uses it to return combined files.</p>
+</div>

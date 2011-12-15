@@ -1,0 +1,96 @@
+<div class="block-content upper-index">
+<h1>About HTML5</h1>
+
+<p><strong>HTML5</strong> is the next big thing in webdesign. Although it's final version (WC recommendation) is not to be expected before 2022, all modern browsers already support it, and using it grants your web application a longer lifetime.</p>
+
+<h2>Backward compatibility</h2>
+
+<p>This template uses a few HTML5 features (mainly new HTML nodes types), and to achieve compatibility with older browsers, it uses these 2 hacks:</p>
+
+<dl class="definition">
+	<dt>CSS declaration</dt>
+	<dd>
+		Located in the file <strong>reset.css</strong>, this hack simply consists on declaring a default behaviour for the new HTML5 nodes, so older browsers will display them properly<br>
+		
+		<pre class="brush: css;">
+/*
+ * Default HTML5 behaviour for older browsers
+ */
+article, aside, audio, canvas, command, datalist, 
+details, embed, figcaption, figure, footer, header, 
+hgroup, keygen, meter, nav, output, progress, 
+section, source, video { display: block; }
+mark, rp, rt, ruby, summary, time{ display: inline }
+</pre>
+	</dd>
+	
+	<dt>JS declaration</dt>
+	<dd>
+		The file <strong>html5.js</strong> forces the browser to parse new nodes correctly, by creating an instance of each. Note that IE wouldn't behave otherwise.<br>
+		
+		
+		<pre class="brush: css;">
+document.createElement("article");
+document.createElement("aside");
+[...]
+document.createElement("time");
+document.createElement("video");
+</pre>
+	</dd>
+</dl>
+</div>
+
+<div class="block-content no-title">
+<h2>What does it changes?</h2>
+
+<p>Besides new node types, HTML5 brings a lot of new features: local storage, geolocation, drag &amp; drop... - you can go here for some demos: <a href="http://html5demos.com/">html5demos.com/</a>.</p>
+
+<p>Regarding this template, the only thing you need to know about HTML5 is that the markup is slightly different from previous HTML versions. Here is an excerpt of the changes you'll see in the sourcecode:</p>
+
+<dl class="definition">
+	<dt>Simplified doctype</dt>
+	<dd>
+		No need for complicated declarations anymore: just declare your document as HTML and it's all!<br>
+		<pre class="brush: html;">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+[...]
+&lt;/html&gt;
+</pre>
+	</dd>
+	
+	<dt>New charset meta</dt>
+	<dd>
+		Declaring the document charset has never been easyier:<br>
+		<pre class="brush: html;">
+&lt;meta charset="utf-8"&gt;
+</pre>
+	</dd>
+	
+	<dt>No trailing slash for empty nodes</dt>
+	<dd>
+		<pre class="brush: html;">
+&lt;br&gt;
+&lt;img src="image.png"&gt;
+</pre>
+	</dd>
+</dl>
+</div>
+
+<div class="block-content no-title">
+<h2>Some HTML5 nodes used here...</h2>
+
+<dl class="definition">
+	<dt>&lt;article&gt;</dt>
+	<dd>This node is used as the main content wrapper</dd>
+	
+	<dt>&lt;section&gt;</dt>
+	<dd>Defines a content block</dd>
+	
+	<dt>&lt;header&gt;, &lt;nav&gt;, &lt;footer&gt;</dt>
+	<dd>Used as logical structural elements</dd>
+	
+	<dt>&lt;progress&gt;, &lt;meter&gt;</dt>
+	<dd>Used to display progress bars. Not that &lt;meter&gt; is to display a current state/level, &lt;progress&gt; to show progression</dd>
+</dl>
+</div>

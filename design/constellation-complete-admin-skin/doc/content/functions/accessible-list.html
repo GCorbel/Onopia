@@ -1,0 +1,179 @@
+<div class="block-content upper-index no-padding">
+<h1>AccessibleList plugin</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js, jquery.accessibleList.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>About AccessibleList</h2>
+
+<p>This plugin is intended for shortening and paginating long lists, so it won't break your page layout or disturb the user. In the template, it is mainly used for the status bar drop-down lists.</p>
+
+<p>Here's a demo:</p>
+
+<div style="width:25em">
+	<ul class="small-files-list icon-comment" id="demo-accessible">
+		<li>
+			<a href="#"><strong>Jane</strong>: I don't think so<br>
+			<small>On <strong>Post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Ken_54</strong>: What about using a different...<br>
+			<small>On <strong>Post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Jane</strong> Sure, but no more.<br>
+			<small>On <strong>Another post</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Max</strong>: Have you seen that...<br>
+			<small>On <strong>Post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Anonymous</strong>: Good luck!<br>
+			<small>On <strong>My first post</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Sébastien</strong>: This sure rocks!<br>
+			<small>On <strong>Another post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>John</strong>: Me too!<br>
+			<small>On <strong>Third post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>John</strong> This can be solved by...<br>
+			<small>On <strong>Another post</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Jane</strong>: No prob.<br>
+			<small>On <strong>Post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Anonymous</strong>: I had the following...<br>
+			<small>On <strong>My first post</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Anonymous</strong>: Yes<br>
+			<small>On <strong>Post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Lian</strong>: Please make sure that...<br>
+			<small>On <strong>Last post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Ann</strong> Thanks!<br>
+			<small>On <strong>Last post</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Max</strong>: Don't tell me what...<br>
+			<small>On <strong>Post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Gordon</strong>: Here is an article about...<br>
+			<small>On <strong>My another post</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Lee</strong>: Try to reset the value first<br>
+			<small>On <strong>Last title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Lee</strong>: Sure!<br>
+			<small>On <strong>Second post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Many</strong> Great job, keep on!<br>
+			<small>On <strong>Third post</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>John</strong>: I really like this<br>
+			<small>On <strong>First title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Paul</strong>: Hello, I have an issue with...<br>
+			<small>On <strong>My first post</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>June</strong>: Yuck.<br>
+			<small>On <strong>Another title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Jane</strong>: Wow, sounds amazing, do...<br>
+			<small>On <strong>Another title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Esther</strong>: Man, this is the best...<br>
+			<small>On <strong>Another post</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>Max</strong>: Thanks!<br>
+			<small>On <strong>Post title</strong></small></a>
+		</li>
+		<li>
+			<a href="#"><strong>John</strong>: I'd say it is not safe...<br>
+			<small>On <strong>My first post</strong></small></a>
+		</li>
+	</ul>
+</div>
+<script>
+
+	$('#demo-accessible').accessibleList();
+
+</script>
+</div>
+
+<div class="block-content no-title">
+<h2>Using the plugin</h2>
+
+<p>To use the plugin on a list, just call:</p>
+
+<pre class="brush: js">
+$(selector).accessibleList(options);
+</pre>
+
+<p><b>options</b> is an object with any of the options below.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Available options</h2>
+<dl class="definition">
+	<dt>moreAfter</dt>
+	<dd>Max number of visible lines in each list above 'more' button (0 or false for no masking) (default: 2)</dd>
+	
+	<dt>pageSize</dt>
+	<dd>Number of visible matches per page (0 for no pagination) (default: 7)</dd>
+	
+	<dt>startPage</dt>
+	<dd>Number of page displayed on startup (default: 1)</dd>
+	
+	<dt>openedOnStart</dt>
+	<dd>Tell wether the list should be expanded on startup (ignored if moreAfter is on 0) (default: false)</dd>
+	
+	<dt>animate</dt>
+	<dd>Enable animation on list expand/page change (default: true)</dd>
+	
+	<dt>moreText</dt>
+	<dd>Text for the 'more' button (default: 'More')</dd>
+	
+	<dt>lessText</dt>
+	<dd>Text for the 'less' button (default: 'Less')</dd>
+	
+	<dt>after</dt>
+	<dd>Callback function after collapsing/expading/changing page. 'this' is the target list (default: false)</dd>
+</dl>
+
+<p>You can change the function's defaults at runtime like this:</p>
+
+<pre class="brush: js">
+// Example: change 'more' button text
+$.fn.accessibleList.defaults.moreText = 'Want more?';
+</pre>
+</div>

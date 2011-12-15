@@ -1,0 +1,78 @@
+<div class="block-content upper-index">
+<h1>Template versions</h1>
+
+<h2>CSS/JS structure</h2>
+
+<p>The template comes in 2 versions:</p>
+
+<dl class="definition">
+	<dt>Standard</dt>
+	<dd>This is the default template, for computer screens.</dd>
+	
+	<dt>Mobile</dt>
+	<dd>This template is designed for webkit based mobile browsers (like iPhone, Android...), and is compatible with finger interactions: large buttons, special menu...</dd>
+</dl>
+
+<p>Both templates share a number of CSS styles and jQuery functions: they are located in the files <strong>common.css</strong> and <strong>common.js</strong>.</p>
+
+<p>The version-specific styles (menus, bars...) are gathered in the files <strong>standard.css</strong> and <strong>mobile.css</strong>, as for the version-specific jQuery functions in the files <strong>standard.js</strong> and <strong>mobile.js</strong>. Note that there is also a file <strong>standard.ie.js</strong>, needed to handle missing CSS selectors for Internet Explorer 7 &amp; 8.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>About Internet Explorer</h2>
+
+<p>To allow easy handling of IE-specific styles without using css hacks, the template uses 2 nested conditionnal divs:</p>
+
+<pre class="brush: html;">
+&lt;body&gt;
+&lt;!-- The template uses conditional comments to add wrappers div for ie8 and ie7 - just add .ie or .ie7 prefix to your css selectors when needed --&gt;
+&lt;!--[if lt IE 9]&gt;&lt;div class="ie"&gt;&lt;![endif]--&gt;
+&lt;!--[if lt IE 8]&gt;&lt;div class="ie7"&gt;&lt;![endif]--&gt;
+
+	[Content]
+
+&lt;!--[if lt IE 8]&gt;&lt;/div&gt;&lt;![endif]--&gt;
+&lt;!--[if lt IE 9]&gt;&lt;/div&gt;&lt;![endif]--&gt;
+&lt;/body&gt;
+</pre>
+
+<h4>How does it work?</h4>
+
+<p>With conditionnal comments, only Internet Explorer will see these divs: IE7 and below will only see the &lt;div class="ie7"&gt;, IE8 will see both.</p>
+
+<p>Targetting a specific version of IE can be done just by adding a small selector:</p>
+
+<pre class="brush: css;">
+.mySelector {
+	/* This will apply to all browsers */
+	}
+	
+	.ie7 .mySelector {
+		/* This will apply to IE7 and below */
+	}
+	
+	.ie .mySelector {
+		/* This will apply to IE8 and below */
+	}
+</pre>
+
+<p>The jQuery script in <strong>standard.ie.js</strong> will also automatically add classes <strong>first-child</strong> and <strong>first-child</strong> to every first and last childs, replacing the missing <strong>:first-child</strong> and <strong>:last-child</strong> selectors. Note that because IE doesn't understand them at all, you'll have to split the style selectors, otherwise it won't work:</p>
+
+<pre class="brush: css;">
+/* This won't work in IE */
+.mySelector:first-child,
+.mySelector.first-child {
+	margin-top: 0;
+}
+
+/* This will work */
+.mySelector:first-child {
+	margin-top: 0;
+}
+.mySelector.first-child { /* IE class */
+	margin-top: 0;
+}
+</pre>
+
+<p>Note that IE9 (currently in alpha version) does not require such targetting, because it handles all required CSS3 selectors</p>
+</div>

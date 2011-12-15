@@ -1,0 +1,385 @@
+<div class="block-content upper-index no-padding">
+<h1>Tabs plugin</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>How to use the plugin</h2>
+
+<div class="box">
+<p class="mini-infos">The template includes 4 different tabs styles, <a href="content/css/tabs.html">click here</a> for more details and example markup.</p>
+</div>
+
+<p>By default, tabs are not JS enabled, to allow use of the styles in cases where switching is not done on client side. To enable JS tabs, all you need to do is add the class <strong>js-tab</strong> to it:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;!-- Use the class js-tabs to enable JS tabs script --&gt;
+&lt;ul class="tabs js-tabs"&gt;
+	...
+&lt;/ul&gt;
+
+</pre>
+	</div>
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<ul class="tabs js-tabs">
+			<li class="current"><a href="#tab-current">Current tab</a></li>
+			<li><a href="#tab-other">Other tab</a></li>
+		</ul>
+		
+		<div class="tabs-content">
+			
+			<div id="tab-current">
+				<p>Current tab content</p>
+			</div>
+			
+			<div id="tab-other">
+				<p>Other tab content</p>
+				<p>Other tab content</p>
+				<p>Other tab content</p>
+			</div>
+		
+		</div>
+	</div></div>
+</div>
+
+<p>As you may have noticed if you clicked on the tabs, their contents are not the same height, so the whole block resizes each time you change of tab - not great, huh? The template has another built-in function to equalize tabs content-blocks height, just by adding the class <strong>same-height</strong> - try changing the tabs now:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;!-- Use the class js-tabs to enable JS tabs script --&gt;
+&lt;ul class="tabs js-tabs same-height"&gt;
+	...
+&lt;/ul&gt;
+
+</pre>
+	</div>
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<ul class="tabs js-tabs same-height">
+			<li class="current"><a href="#tab-current2">Current tab</a></li>
+			<li><a href="#tab-other2">Other tab</a></li>
+		</ul>
+		
+		<div class="tabs-content">
+			
+			<div id="tab-current2">
+				<p>Current tab content</p>
+			</div>
+			
+			<div id="tab-other2">
+				<p>Other tab content</p>
+				<p>Other tab content</p>
+				<p>Other tab content</p>
+			</div>
+		
+		</div>
+	</div></div>
+</div>
+
+<p>Tabs can also be nested - there can be as many levels as you need. The same-height function works also:</p>
+
+<div class="col200pxL-left">
+			
+			<h3>Title</h3>
+			
+			<ul class="side-tabs js-tabs same-height">
+				<li><a href="#tab-global" title="Global properties">Global properties</a></li>
+				<li><a href="#tab-settings" title="Language settings">Language settings</a></li>
+				<li><a href="#tab-relations" title="Relations">Relations</a></li>
+				<li><a href="#tab-history" title="History">History</a></li>
+			</ul>
+			
+		</div>
+		<div class="col200pxL-right">
+			
+			<div id="tab-global" class="tabs-content">
+				<ul class="tabs js-tabs same-height">
+					<li class="current"><a href="#tab-current3">Current tab</a></li>
+					<li><a href="#tab-other3">Other tab</a></li>
+				</ul>
+				
+				<div class="tabs-content">
+					
+					<div id="tab-current3">
+						
+						<ul class="mini-tabs no-margin js-tabs same-height">
+							<li><a href="#tab-en"><img src="images/icons/flags/us.png" width="16" height="11" alt="English" title="English"></a></li>
+							<li class="current"><a href="#tab-fr"><img src="images/icons/flags/fr.png" width="16" height="11" alt="French" title="French"></a></li>
+							<li><a href="#tab-de"><img src="images/icons/flags/de.png" width="16" height="11" alt="German" title="German"></a></li>
+							<li><a href="#tab-es"><img src="images/icons/flags/es.png" width="16" height="11" alt="Spanish" title="Spanish"></a></li>
+							<li><a href="#tab-ru"><img src="images/icons/flags/ru.png" width="16" height="11" alt="Russian" title="Russian"></a></li>
+							<li><a href="#tab-jp"><img src="images/icons/flags/jp.png" width="16" height="11" alt="Japanese" title="Japanese"></a></li>
+						</ul>
+						
+						<div id="tab-en" style="height:10em">English tab content</div>
+						<div id="tab-fr">French tab content</div>
+						<div id="tab-de">German tab content</div>
+						<div id="tab-es">Spanish tab content</div>
+						<div id="tab-ru">Russian tab content</div>
+						<div id="tab-jp">Japanese tab content</div>
+						
+					</div>
+					
+					<div id="tab-other3">
+						<p>Other tab content</p>
+						<p>Other tab content</p>
+						<p>Other tab content</p>
+					</div>
+				
+				</div>
+			</div>
+			
+			<div id="tab-settings" class="tabs-content">
+				Language settings
+			</div>
+			
+			<div id="tab-relations" class="tabs-content">
+				Relations
+			</div>
+			
+			<div id="tab-history" class="tabs-content">
+				History
+			</div>
+		
+		</div>
+</div>
+
+<div class="block-content no-title">
+<h2>jQuery functions</h2>
+
+<h4>Basics</h4>
+
+<p>To manually init some new tabs (for example, created at runtime), use the following code:.</p>
+
+<pre class="brush: js">
+$(selector).updateTabs();
+</pre>
+
+<p>To equalize tabs height:</p>
+
+<pre class="brush: js">
+$(selector).equalizeTabContentHeight();
+</pre>
+
+<p>To reset tabs height (after equalization):</p>
+
+<pre class="brush: js">
+$(selector).resetTabContentHeight();
+</pre>
+
+<p>To show a specific tab (apply on tab content-blocks, not tabs, ie: $('#my-tab').showTab(); ):</p>
+
+<pre class="brush: js">
+$(selector).showTab();
+</pre>
+
+<h4>Tips</h4>
+
+<p>The function will not reset sizes before equalizing height, so if your tabs content-blocks have already been equalized or if some of them have an inline size, you should reset them first:</p>
+
+<pre class="brush: js">
+$(selector).resetTabContentHeight().equalizeTabContentHeight();
+</pre>
+
+<p>Keep in mind that the tabs height must be equalized before calling updateTabs(). You can do this in one call:</p>
+
+<pre class="brush: js">
+$(selector).equalizeTabContentHeight().updateTabs();
+</pre>
+</div>
+
+<div class="block-content no-title">
+<h2>Enabling the back button</h2>
+
+<p>The tabs plugin uses the hashtag of the page url (the part after the #) to remind what tabs are opened, so when the user refreshes the page or goes back to a previous page, the last opened tabs are automatically selected.</p>
+
+<p>If you want to disable this function, use the following code:</p>
+
+<pre class="brush: js">
+$.fn.updateTabs.enabledHash = false;
+</pre>
+</div>
+
+<div class="block-content no-title">
+<h2>Tabs events</h2>
+
+<p>When tabs are enabled, you can attach listener on them to catch when they are shown/hidden. You can do this in two ways:</p>
+
+<h4>Use the built-in functions:</h4>
+
+<pre class="brush: js">
+/**
+ * Add a listener fired when a tab is shown
+ * @param function callback any function to call when the listener is fired.
+ * @param boolean runOnce if true, the callback will be run one time only. Default: false - optional
+ */
+$(selector).onTabShow(callback, runOnce);
+
+/**
+ * Add a listener fired when a tab is hidden
+ * @param function callback any function to call when the listener is fired.
+ * @param boolean runOnce if true, the callback will be run one time only. Default: false - optional
+ */
+$(selector).onTabHide(callback, runOnce);
+</pre>
+
+<h4>Bind event handlers:</h4>
+
+<p>Note: this is basically what the above functions do, so use this only if you need special behaviour.</p>
+
+<pre class="brush: js">
+$(selector).bind('tabshow', callback);
+$(selector).bind('tabhide', callback);
+</pre>
+
+<hr>
+
+<p><strong>Important:</strong> the tabshow event will be called even at startup when showing the first tab. So if you need to attach a listener to this event, it has to be done before the template setup fires. This can be done in two ways:</p>
+
+<p>Put your script before the template script:</p>
+<pre class="brush: html">
+&lt;script&gt;
+
+	$document.ready(function()
+	{
+		// Tab setup
+		$('myTab').onTabShow(function()
+		{
+			// Do anything needed for tab setup here
+		});
+	});
+
+&lt;/script&gt;
+&lt;script src="js/common.js"&gt;&lt;/script&gt;
+</pre>
+
+<p>Put your script inline, just after the element:</p>
+<pre class="brush: html">
+&lt;div id="myTab"&gt;
+	Tab content
+&lt;/div&gt;
+&lt;script&gt;
+
+	// Tab setup
+	$('myTab').onTabShow(function()
+	{
+		// Do anything needed for tab setup here
+	});
+
+&lt;/script&gt;
+</pre>
+
+<hr>
+
+<h4>Example</h4>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html;">
+&lt;!-- Tabs --&gt;
+&lt;ul class="tabs js-tabs same-height"&gt;
+	&lt;li class="current"&gt;
+		&lt;a href="#tab-event1"&gt;
+			Show: &lt;span id="tab1-shown"&gt;0&lt;/span&gt;, 
+			hide: &lt;span id="tab1-hidden"&gt;0&lt;/span&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href="#tab-event2"&gt;
+			Show: &lt;span id="tab2-shown"&gt;0&lt;/span&gt;, 
+			hide: &lt;span id="tab2-hidden"&gt;0&lt;/span&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="tabs-content"&gt;
+	
+	&lt;div id="tab-event1"&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+	&lt;/div&gt;
+	
+	&lt;div id="tab-event2"&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+	&lt;/div&gt;
+	
+	&lt;!-- Event script --&gt;
+	&lt;script&gt;
+	
+		$('#tab-event1, #tab-event2').onTabShow(function()
+		{
+			var num = this.id.substr(9, 1);
+			$('#tab'+num+'-shown').text(parseInt($('#tab'+num+'-shown').text())+1);
+			
+		}).onTabHide(function()
+		{
+			var num = this.id.substr(9, 1);
+			$('#tab'+num+'-hidden').text(parseInt($('#tab'+num+'-hidden').text())+1);
+		});
+	
+	&lt;/script&gt;
+
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<div class="lite-grey-gradient with-padding">
+			<div class="box with-margin">
+				<p class="mini-infos">The tabs counters are incremented each tab their content-block is show or hidden:</p>
+			</div>
+			<ul class="tabs js-tabs same-height">
+				<li class="current">
+					<a href="#tab-event1">
+						Show: <span id="tab1-shown">0</span>, 
+						hide: <span id="tab1-hidden">0</span>
+					</a>
+				</li>
+				<li>
+					<a href="#tab-event2">
+						Show: <span id="tab2-shown">0</span>, 
+						hide: <span id="tab2-hidden">0</span>
+					</a>
+				</li>
+			</ul>
+			
+			<div class="tabs-content">
+				
+				<div id="tab-event1">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+				
+				<div id="tab-event2">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+				
+				<script>
+				
+					$('#tab-event1, #tab-event2').onTabShow(function()
+					{
+						var num = this.id.substr(9, 1);
+						$('#tab'+num+'-shown').text(parseInt($('#tab'+num+'-shown').text())+1);
+						
+					}).onTabHide(function()
+					{
+						var num = this.id.substr(9, 1);
+						$('#tab'+num+'-hidden').text(parseInt($('#tab'+num+'-hidden').text())+1);
+					});
+				
+				</script>
+			
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>

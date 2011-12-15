@@ -1,0 +1,440 @@
+<div class="block-content upper-index">
+<h1>Table</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css, table.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+
+<p>The file table.css define 2 main classes : <strong>table</strong>, for table styling, and <strong>head</strong>, which allows creating a table-header-like element.</p>
+</div>
+
+<div class="block-content no-title">
+<h2>Table example</h2>
+
+<p>To use the built-in table style, just add the class <strong>table</strong> to any table. Note that a valid markup (rows should be in a &lt;tbody&gt; element, headers in a &lt;thead&gt;...) is required.</p>
+
+<form class="form" method="post" action="">
+	<!-- Add the class 'table' -->
+	<table class="table" cellspacing="0" width="100%">
+	
+		<thead>
+			<tr>
+				<!-- This is a special cell for loading statuses - see below for more -->
+				<th class="black-cell"><span class="loading"></span></th>
+				
+				<th scope="col">
+				
+					<!-- Table sorting arrows -->
+					<span class="column-sort">
+						<a href="javascript:void(0)" title="Sort up" class="sort-up active"></a>
+						<a href="javascript:void(0)" title="Sort down" class="sort-down"></a>
+					</span>
+					
+					Title
+				</th>
+				<th scope="col">Keywords</th>
+				<th scope="col">Preview</th>
+				<th scope="col">
+					<span class="column-sort">
+						<a href="javascript:void(0)" title="Sort up" class="sort-up"></a>
+						<a href="javascript:void(0)" title="Sort down" class="sort-down"></a>
+					</span>
+					Date
+				</th>
+				<th scope="col">
+					<span class="column-sort">
+						<a href="javascript:void(0)" title="Sort up" class="sort-up"></a>
+						<a href="javascript:void(0)" title="Sort down" class="sort-down"></a>
+					</span>
+					Size
+				</th>
+				<th scope="col" class="table-actions">Actions</th>
+			</tr>
+		</thead>
+	
+		<tfoot>
+			<tr>
+				<td colspan="6"><img src="images/icons/fugue/arrow-curve-000-left.png" width="16" height="16" class="picto"> <b>Total:</b> 6 records found</td>
+				<td><a href="javascript:void(0)" class="button"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"> delete all</a></td>
+			</tr>
+		</tfoot>
+		
+		<tbody>
+			
+			<tr>
+				<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+				<td>Lorem ipsum sit amet</td>
+				<td><ul class="keywords">
+					<li><a href="javascript:void(0)">Ocean</a></li>
+					<li class="orange-keyword"><a href="javascript:void(0)">Sun</a></li>
+				</ul></td>
+				<td><a href="javascript:void(0)"><small><img src="images/icons/fugue/image.png" width="16" height="16" class="picto"> jpg | 12 Ko</small></a></td>
+				<td>02-05-2010</td>
+				<td>320 x 240</td>
+				
+				<!-- The class table-actions is designed for action icons -->
+				<td class="table-actions">
+					<a href="javascript:void(0)" title="Edit" class="with-tip"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a>
+					<a href="javascript:void(0)" title="Delete" class="with-tip"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+				</td>
+			</tr>
+			
+			<tr>
+				<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-2" value="2"></th>
+				<td>Lorem ipsum sit amet</td>
+				<td><ul class="keywords">
+					<li class="purple-keyword">People</li>
+				</ul></td>
+				<td><a href="javascript:void(0)"><small><img src="images/icons/fugue/image.png" width="16" height="16" class="picto"> jpg | 12 Ko</small></a></td>
+				<td>02-05-2010</td>
+				<td>320 x 240</td>
+				<td class="table-actions">
+					<a href="javascript:void(0)" title="Edit" class="with-tip"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a>
+					<a href="javascript:void(0)" title="Delete" class="with-tip"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+				</td>
+			</tr>
+			
+			<tr>
+				<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-3" value="3"></th>
+				<td>Lorem ipsum sit amet</td>
+				<td><ul class="keywords">
+					<li>Sea</li>
+					<li>Fish</li>
+					<li>Bubble</li>
+				</ul></td>
+				<td><a href="javascript:void(0)"><small><img src="images/icons/fugue/image.png" width="16" height="16" class="picto"> jpg | 12 Ko</small></a></td>
+				<td>02-05-2010</td>
+				<td>320 x 240</td>
+				<td class="table-actions">
+					<a href="javascript:void(0)" title="Edit" class="with-tip"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a>
+					<a href="javascript:void(0)" title="Delete" class="with-tip"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+				</td>
+			</tr>
+			
+			<tr>
+				<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-4" value="4"></th>
+				<td>Lorem ipsum sit amet</td>
+				<td class="empty">(none)</td>
+				<td><a href="javascript:void(0)"><small><img src="images/icons/fugue/image.png" width="16" height="16" class="picto"> jpg | 12 Ko</small></a></td>
+				<td>02-05-2010</td>
+				<td>320 x 240</td>
+				<td class="table-actions">
+					<a href="javascript:void(0)" title="Edit" class="with-tip"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a>
+					<a href="javascript:void(0)" title="Delete" class="with-tip"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+				</td>
+			</tr>
+			
+			<tr>
+				<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-5" value="5"></th>
+				<td>Lorem ipsum sit amet</td>
+				<td><ul class="keywords">
+					<li>Ocean</li>
+				</ul></td>
+				<td><a href="javascript:void(0)"><small><img src="images/icons/fugue/image.png" width="16" height="16" class="picto"> jpg | 12 Ko</small></a></td>
+				<td>02-05-2010</td>
+				<td>320 x 240</td>
+				<td class="table-actions">
+					<a href="javascript:void(0)" title="Edit" class="with-tip"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a>
+					<a href="javascript:void(0)" title="Delete" class="with-tip"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+				</td>
+			</tr>
+		</tbody>
+	
+	</table>
+</form>
+
+<pre class="brush: html">
+&lt;!-- Add the class 'table' --&gt;
+&lt;table class="table" cellspacing="0" width="100%"&gt;
+
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;!-- This is a special cell for loading statuses - see below for more --&gt;
+			&lt;th class="black-cell"&gt;&lt;span class="loading"&gt;&lt;/span&gt;&lt;/th&gt;
+			
+			&lt;th scope="col"&gt;
+			
+				&lt;!-- Table sorting arrows --&gt;
+				&lt;span class="column-sort"&gt;
+					&lt;a href="#" title="Sort up" class="sort-up active"&gt;&lt;/a&gt;
+					&lt;a href="#" title="Sort down" class="sort-down"&gt;&lt;/a&gt;
+				&lt;/span&gt;
+				
+				Title
+			&lt;/th&gt;
+			&lt;th scope="col"&gt;Keywords&lt;/th&gt;
+			&lt;th scope="col"&gt;Preview&lt;/th&gt;
+			&lt;th scope="col"&gt;
+				&lt;span class="column-sort"&gt;
+					&lt;a href="#" title="Sort up" class="sort-up"&gt;&lt;/a&gt;
+					&lt;a href="#" title="Sort down" class="sort-down"&gt;&lt;/a&gt;
+				&lt;/span&gt;
+				Date
+			&lt;/th&gt;
+			&lt;th scope="col"&gt;
+				&lt;span class="column-sort"&gt;
+					&lt;a href="#" title="Sort up" class="sort-up"&gt;&lt;/a&gt;
+					&lt;a href="#" title="Sort down" class="sort-down"&gt;&lt;/a&gt;
+				&lt;/span&gt;
+				Size
+			&lt;/th&gt;
+			&lt;th scope="col" class="table-actions"&gt;Actions&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+
+	&lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;td colspan="6"&gt;&lt;img src="images/icons/fugue/arrow-curve-000-left.png" width="16" height="16" class="picto"&gt; &lt;b&gt;Total:&lt;/b&gt; 6 records found&lt;/td&gt;
+			&lt;td&gt;&lt;a href="#" class="button"&gt;&lt;img src="images/icons/fugue/cross-circle.png" width="16" height="16"&gt; delete all&lt;/a&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+	
+	&lt;tbody&gt;
+		
+		&lt;tr&gt;
+			&lt;th scope="row" class="table-check-cell"&gt;&lt;input type="checkbox" name="selected[]" id="table-selected-1" value="1"&gt;&lt;/th&gt;
+			&lt;td&gt;Lorem ipsum sit amet&lt;/td&gt;
+			&lt;td&gt;&lt;ul class="keywords"&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Ocean&lt;/a&gt;&lt;/li&gt;
+				&lt;li class="orange-keyword"&gt;&lt;a href="#"&gt;Sun&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;a href="#"&gt;&lt;small&gt;&lt;img src="images/icons/fugue/image.png" width="16" height="16" class="picto"&gt; jpg | 12 Ko&lt;/small&gt;&lt;/a&gt;&lt;/td&gt;
+			&lt;td&gt;02-05-2010&lt;/td&gt;
+			&lt;td&gt;320 x 240&lt;/td&gt;
+			
+			&lt;!-- The class table-actions is designed for action icons --&gt;
+			&lt;td class="table-actions"&gt;
+				&lt;a href="#" title="Edit" class="with-tip"&gt;&lt;img src="images/icons/fugue/pencil.png" width="16" height="16"&gt;&lt;/a&gt;
+				&lt;a href="#" title="Delete" class="with-tip"&gt;&lt;img src="images/icons/fugue/cross-circle.png" width="16" height="16"&gt;&lt;/a&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		
+		...
+		
+	&lt;/tbody&gt;
+
+&lt;/table&gt;
+</pre>
+
+<p class="message warning">Note: if you are using the <strong>DataTables plugin</strong>, you can not use <strong>TH</strong> inside the <strong>TBODY</strong> element. Instead, use &lt;td class="th"&gt;.</p>
+
+</div>
+
+<div class="block-content no-title">
+<h2>Head example</h2>
+
+<!-- The optional class with-head adds a border and a bottom margin - same a table class -->
+<div class="with-head">
+	<div class="head">
+	
+		<!-- The class with-gap is specific to the '.head' element, it adds a small margin to the right -->
+		<div class="black-cell with-gap"><span class="success"></span></div>
+		
+		<div class="black-cell">Sort by</div>
+		<div>
+			<span class="column-sort">
+				<a href="javascript:void(0)" title="Sort up" class="sort-up active"></a>
+				<a href="javascript:void(0)" title="Sort down" class="sort-down"></a>
+			</span>
+			Name
+		</div>
+		<div>
+			<span class="column-sort">
+				<a href="javascript:void(0)" title="Sort up" class="sort-up"></a>
+				<a href="javascript:void(0)" title="Sort down" class="sort-down"></a>
+			</span>
+			Date
+		</div>
+		<div>
+			<span class="column-sort">
+				<a href="javascript:void(0)" title="Sort up" class="sort-up"></a>
+				<a href="javascript:void(0)" title="Sort down" class="sort-down"></a>
+			</span>
+			Filesize
+		</div>
+		
+		<!-- Buttons are automatically floated to the right -->
+		<a class="button" href="#">Upload</a>
+	</div>
+</div>
+
+<pre class="brush: html">
+&lt;!-- The optional class with-head adds a border and a bottom margin - same a table class --&gt;
+&lt;div class="with-head"&gt;
+	&lt;div class="head"&gt;
+	
+		&lt;!-- The class with-gap is specific to the '.head' element, it adds a small margin to the right --&gt;
+		&lt;div class="black-cell with-gap"&gt;&lt;span class="success"&gt;&lt;/span&gt;&lt;/div&gt;
+		
+		&lt;div class="black-cell"&gt;Sort by&lt;/div&gt;
+		&lt;div&gt;
+			&lt;span class="column-sort"&gt;
+				&lt;a href="#" title="Sort up" class="sort-up active"&gt;&lt;/a&gt;
+				&lt;a href="#" title="Sort down" class="sort-down"&gt;&lt;/a&gt;
+			&lt;/span&gt;
+			Name
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;span class="column-sort"&gt;
+				&lt;a href="#" title="Sort up" class="sort-up"&gt;&lt;/a&gt;
+				&lt;a href="#" title="Sort down" class="sort-down"&gt;&lt;/a&gt;
+			&lt;/span&gt;
+			Date
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;span class="column-sort"&gt;
+				&lt;a href="#" title="Sort up" class="sort-up"&gt;&lt;/a&gt;
+				&lt;a href="#" title="Sort down" class="sort-down"&gt;&lt;/a&gt;
+			&lt;/span&gt;
+			Filesize
+		&lt;/div&gt;
+		
+		&lt;!-- Buttons are automatically floated to the right --&gt;
+		&lt;a class="button" href="#"&gt;Upload&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+</div>
+
+<div class="block-content no-title">
+<h2>Available elements</h2>
+
+<h4>Black cell</h4>
+<p>This is a special cell style, which can be used anywhere in the table. It is primarily intended for loading statuses, with 3 built-in statuses:</p>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;!-- Loading --&gt;
+&lt;th class="black-cell"&gt;&lt;span class="loading"&gt;&lt;/span&gt;&lt;/th&gt;
+
+&lt;!-- Success --&gt;
+&lt;th class="black-cell"&gt;&lt;span class="success"&gt;&lt;/span&gt;&lt;/th&gt;
+
+&lt;!-- Error --&gt;
+&lt;th class="black-cell"&gt;&lt;span class="error"&gt;&lt;/span&gt;&lt;/th&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<!-- Loading -->
+		<h4 class="small-margin">Loading</h4>
+		<table class="table" cellspacing="0">
+			<thead>
+				<tr>
+					<th class="black-cell"><span class="loading"></span></th>
+				</tr>
+			</thead>
+		</table>
+		
+		<!-- Success -->
+		<h4 class="small-margin">Success</h4>
+		<table class="table" cellspacing="0">
+			<thead>
+				<tr>
+					<th class="black-cell"><span class="success"></span></th>
+				</tr>
+			</thead>
+		</table>
+		
+		<!-- Error -->
+		<h4 class="small-margin">Error</h4>
+		<table class="table" cellspacing="0">
+			<thead>
+				<tr>
+					<th class="black-cell"><span class="error"></span></th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+
+<h4>Sorting arrows</h4>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;th&gt;
+	&lt;!-- Standard --&gt;
+	&lt;span class="column-sort"&gt;
+		&lt;a href="#" title="Sort up" class="sort-up"&gt;&lt;/a&gt;
+		&lt;a href="#" title="Sort down" class="sort-down"&gt;&lt;/a&gt;
+	&lt;/span&gt;
+	
+	Columns name
+&lt;/th&gt;
+
+&lt;th&gt;
+	&lt;!-- To mark an arrow as active, add the class 'active' to it --&gt;
+	&lt;span class="column-sort"&gt;
+		&lt;a href="#" title="Sort up" class="sort-up active"&gt;&lt;/a&gt;
+		&lt;a href="#" title="Sort down" class="sort-down"&gt;&lt;/a&gt;
+	&lt;/span&gt;
+	
+	Columns name
+&lt;/th&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<h4 class="small-margin">Standard</h4>
+		<table class="table" cellspacing="0">
+			<thead>
+				<tr>
+					<th>
+						<span class="column-sort">
+							<a href="javascript:void(0)" title="Sort up" class="sort-up"></a>
+							<a href="javascript:void(0)" title="Sort down" class="sort-down"></a>
+						</span>
+						Column name
+					</th>
+				</tr>
+			</thead>
+		</table>
+		
+		<h4 class="small-margin">Active</h4>
+		<table class="table" cellspacing="0">
+			<thead>
+				<tr>
+					<th>
+						<span class="column-sort">
+							<a href="javascript:void(0)" title="Sort up" class="sort-up active"></a>
+							<a href="javascript:void(0)" title="Sort down" class="sort-down"></a>
+						</span>
+						Column name
+					</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+
+<h4>Actions</h4>
+
+<div class="columns">
+	<div class="colx3-left-double">
+		<pre class="brush: html">
+&lt;td class="table-actions"&gt;
+	&lt;a href="#" title="Edit" class="with-tip"&gt;&lt;img src="images/icons/fugue/pencil.png" width="16" height="16"&gt;&lt;/a&gt;
+	&lt;a href="#" title="Delete" class="with-tip"&gt;&lt;img src="images/icons/fugue/cross-circle.png" width="16" height="16"&gt;&lt;/a&gt;
+&lt;/td&gt;
+</pre>
+	</div>
+	<div class="colx3-right">
+		<table class="table" cellspacing="0">
+			<tbody>
+				<tr>
+					<td class="table-actions">
+						<a href="javascript:void(0)" title="Edit" class="with-tip"><img src="images/icons/fugue/pencil.png" width="16" height="16"></a>
+						<a href="javascript:void(0)" title="Delete" class="with-tip"><img src="images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>

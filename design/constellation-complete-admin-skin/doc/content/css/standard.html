@@ -1,0 +1,402 @@
+<div class="block-content upper-index no-padding">
+<h1>Standard template classes</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css, standard.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Columns</h2>
+
+<p>There are 3 styles of columns : 2, 3 and 4 columns. You can use them wherever needed, but it is best to wrap them in a div with the <strong>columns</strong> class:</p>
+
+<pre class="brush: html">
+&lt;div class="columns"&gt;
+	
+	&lt;!-- Columns blocks here --&gt;
+	
+&lt;/div&gt;
+</pre>
+
+<p>This block will automatically expand to fit the inner columns, most of which are floating. So there's no need to add a clearing &lt;div&gt; after the columns.</p>
+
+<h4>2 columns</h4>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;div class="columns"&gt;
+	
+	&lt;!-- Left column --&gt;
+	&lt;div class="colx2-left"&gt;
+		Left column content
+	&lt;/div&gt;
+	
+	&lt;!-- Right column --&gt;
+	&lt;div class="colx2-left"&gt;
+		Right column content
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<div class="columns">
+			<div class="colx2-left grey-bg" style="height:200px;">
+				Left column content
+			</div>
+			<div class="colx2-right grey-bg" style="height:200px;">
+				Right column content
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>3 columns</h4>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;div class="columns"&gt;
+	
+	&lt;!-- Left column --&gt;
+	&lt;div class="colx3-left"&gt;
+		Left column content
+	&lt;/div&gt;
+	
+	&lt;!-- Center column --&gt;
+	&lt;div class="colx3-center"&gt;
+		Center column content
+	&lt;/div&gt;
+	
+	&lt;!-- Right column --&gt;
+	&lt;div class="colx3-right"&gt;
+		Right column content
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<div class="columns">
+			<div class="colx3-left grey-bg" style="height:200px;">
+				Left column content
+			</div>
+			<div class="colx3-center grey-bg" style="height:200px;">
+				Center column content
+			</div>
+			<div class="colx3-right grey-bg" style="height:200px;">
+				Right column content
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>3 columns with column span</h4>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;div class="columns"&gt;
+	
+	&lt;!-- Left column --&gt;
+	&lt;div class="colx3-left-double"&gt;
+		Left column content
+	&lt;/div&gt;
+	
+	&lt;!-- Right column --&gt;
+	&lt;div class="colx3-right"&gt;
+		Right column content
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<div class="columns">
+			<div class="colx3-left-double grey-bg" style="height:200px;">
+				Left column content
+			</div>
+			<div class="colx3-right grey-bg" style="height:200px;">
+				Right column content
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;div class="columns"&gt;
+	
+	&lt;!-- Left column --&gt;
+	&lt;div class="colx3-left"&gt;
+		Left column content
+	&lt;/div&gt;
+	
+	&lt;!-- Right column --&gt;
+	&lt;div class="colx3-right-double"&gt;
+		Right column content
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<div class="columns">
+			<div class="colx3-left grey-bg" style="height:200px;">
+				Left column content
+			</div>
+			<div class="colx3-right-double grey-bg" style="height:200px;">
+				Right column content
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>200px fixed width column</h4>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;div class="columns"&gt;
+	&lt;div class="col200pxL-left" style="height:200px;"&gt;
+		200px column content
+		
+		&lt;div class="col200pxL-bottom"&gt;
+			Column bottom content
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col200pxL-right" style="height:200px;"&gt;
+		Remaining width content
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<div class="columns">
+			<div class="col200pxL-left lite-grey-gradient" style="height:200px;">
+				200px column content
+				
+				<div class="col200pxL-bottom dark-grey-gradient">
+					Column bottom content
+				</div>
+			</div>
+			<div class="col200pxL-right dark-grey-gradient" style="height:200px;">
+				Remaining width content
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;div class="columns"&gt;
+	&lt;div class="col200pxR-right" style="height:200px;"&gt;
+		200px column content
+		
+		&lt;div class="col200pxR-bottom"&gt;
+			Column bottom content
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col200pxR-left" style="height:200px;"&gt;
+		Remaining width content
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right">
+		<div class="columns">
+			<div class="col200pxR-right lite-grey-gradient" style="height:200px;">
+				200px column content
+				
+				<div class="col200pxR-bottom dark-grey-gradient">
+					Column bottom content
+				</div>
+			</div>
+			<div class="col200pxR-left dark-grey-gradient" style="height:200px;">
+				Remaining width content
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Content columns</h4>
+
+<p>These columns are designed to be used within a content block, and fit all available space:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;div class="content-columns"&gt;
+	
+	&lt;!-- Vertical separator --&gt;
+	&lt;div class="content-columns-sep"&gt;&lt;/div&gt;
+	
+	&lt;!-- Left column --&gt;
+	&lt;div class="content-left"&gt;&lt;div class="dark-grey-gradient with-padding" style="height:200px;"&gt;
+		Left column content
+	&lt;/div&gt;&lt;/div&gt;
+	
+	&lt;!-- Right column --&gt;
+	&lt;div class="content-right"&gt;&lt;div class="dark-grey-gradient with-padding" style="height:200px;"&gt;
+		Right column content
+	&lt;/div&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content">
+			<h1>Content columns</h1>
+			
+			<div class="block-controls">
+				<ul class="controls-buttons">
+					<li class="sep"></li>
+					<li><a href="javascript:void(0)" title="Reload"><img src="images/icons/fugue/arrow-circle.png" width="16" height="16"></a></li>
+				</ul>
+			</div>
+			
+			<!-- Content columns -->
+			<div class="content-columns">
+				
+				<!-- Vertical separator -->
+				<div class="content-columns-sep"></div>
+				
+				<!-- Left column -->
+				<div class="content-left"><div class="dark-grey-gradient with-padding" style="height:200px;">
+					Left column content
+				</div></div>
+				
+				<!-- Right column -->
+				<div class="content-right"><div class="dark-grey-gradient with-padding" style="height:200px;">
+					Right column content
+				</div></div>
+			
+			</div>
+			<!-- End of content columns -->
+			
+		</div></div>
+	</div></div>
+</div>
+
+<p>There are size variations using <strong>left30</strong> (left column has 30% width) and <strong>right30</strong> (right column has 30% width) classes:</p>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;div class="content-columns left30"&gt;
+	
+	&lt;!-- Vertical separator --&gt;
+	&lt;div class="content-columns-sep"&gt;&lt;/div&gt;
+	
+	&lt;!-- Left column --&gt;
+	&lt;div class="content-left"&gt;&lt;div class="dark-grey-gradient with-padding" style="height:200px;"&gt;
+		Left column content
+	&lt;/div&gt;&lt;/div&gt;
+	
+	&lt;!-- Right column --&gt;
+	&lt;div class="content-right"&gt;&lt;div class="dark-grey-gradient with-padding" style="height:200px;"&gt;
+		Right column content
+	&lt;/div&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content">
+			<h1>Content columns</h1>
+			
+			<div class="block-controls">
+				<ul class="controls-buttons">
+					<li class="sep"></li>
+					<li><a href="javascript:void(0)" title="Reload"><img src="images/icons/fugue/arrow-circle.png" width="16" height="16"></a></li>
+				</ul>
+			</div>
+			
+			<!-- Content columns -->
+			<div class="content-columns left30">
+				
+				<!-- Vertical separator -->
+				<div class="content-columns-sep"></div>
+				
+				<!-- Left column -->
+				<div class="content-left"><div class="dark-grey-gradient with-padding" style="height:200px;">
+					Left column content
+				</div></div>
+				
+				<!-- Right column -->
+				<div class="content-right"><div class="dark-grey-gradient with-padding" style="height:200px;">
+					Right column content
+				</div></div>
+			
+			</div>
+			<!-- End of content columns -->
+			
+		</div></div>
+	</div></div>
+</div>
+
+<div class="columns">
+	<div class="colx2-left">
+		<pre class="brush: html">
+&lt;div class="content-columns right30"&gt;
+	
+	&lt;!-- Vertical separator --&gt;
+	&lt;div class="content-columns-sep"&gt;&lt;/div&gt;
+	
+	&lt;!-- Left column --&gt;
+	&lt;div class="content-left"&gt;&lt;div class="dark-grey-gradient with-padding" style="height:200px;"&gt;
+		Left column content
+	&lt;/div&gt;&lt;/div&gt;
+	
+	&lt;!-- Right column --&gt;
+	&lt;div class="content-right"&gt;&lt;div class="dark-grey-gradient with-padding" style="height:200px;"&gt;
+		Right column content
+	&lt;/div&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+	</div>
+	<div class="colx2-right"><div class="lite-grey-gradient with-padding">
+		<div class="block-border"><div class="block-content">
+			<h1>Content columns</h1>
+			
+			<div class="block-controls">
+				<ul class="controls-buttons">
+					<li class="sep"></li>
+					<li><a href="javascript:void(0)" title="Reload"><img src="images/icons/fugue/arrow-circle.png" width="16" height="16"></a></li>
+				</ul>
+			</div>
+			
+			<!-- Content columns -->
+			<div class="content-columns right30">
+				
+				<!-- Vertical separator -->
+				<div class="content-columns-sep"></div>
+				
+				<!-- Left column -->
+				<div class="content-left"><div class="dark-grey-gradient with-padding" style="height:200px;">
+					Left column content
+				</div></div>
+				
+				<!-- Right column -->
+				<div class="content-right"><div class="dark-grey-gradient with-padding" style="height:200px;">
+					Right column content
+				</div></div>
+			
+			</div>
+			<!-- End of content columns -->
+			
+		</div></div>
+	</div></div>
+</div>
+</div>

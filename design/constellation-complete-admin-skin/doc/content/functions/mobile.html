@@ -1,0 +1,77 @@
+<div class="block-content upper-index no-padding">
+<h1>Mobile functions</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js, mobile.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Menu</h2>
+
+<p>The mobile template has a built-in menu that opens and navigates like an iPhone menu. No additionnal JS is needed, the menu is automatically activated by the mobile template. Here is how the markup should be:</p>
+
+<pre class="brush: html">
+&lt;!-- Main wrapper --&gt;
+&lt;div id="menu"&gt;
+	
+	&lt;!-- Menu button --&gt;
+	&lt;a href="#"&gt;Menu&lt;/a&gt;
+	
+	&lt;!-- Menu content --&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Write&lt;/a&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Articles&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Add article&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Posts&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Add post&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Stats&lt;/a&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Global stats&lt;/a&gt;
+					
+					&lt;!-- There can be infinite nested levels --&gt;
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href="#"&gt;Views&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href="#"&gt;Unique visitors&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href="#"&gt;Sources&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Server load&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Website stats&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Reports&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;logs&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Users&lt;/a&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href="#"&gt;List&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Add user&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;System settings&lt;/a&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href="#"&gt;General&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Server config&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;User groups&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;My profile&lt;/a&gt;&lt;/li&gt;
+		
+		&lt;!-- The class red adds a background to highlight some element --&gt;
+		&lt;li class="red"&gt;&lt;a href="#"&gt;Logout&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	
+&lt;/div&gt;
+</pre>
+</div>

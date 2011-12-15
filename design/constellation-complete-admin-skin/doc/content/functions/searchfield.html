@@ -1,0 +1,156 @@
+<div class="block-content upper-index no-padding">
+<h1>SearchField plugin</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.js, jquery.accessibleList.js, searchfield.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>About searchField plugin</h2>
+
+<p>This plugin is used to extend the template search field, offering real-time search and graphical results display. As soon as the user starts typing, requests are sent to the server and results are displayed in real-time. The plugin can also search within the template main navigation, thus providing immediate results (this behaviour cna be disabled).</p>
+
+<p>It relies on the accessibleList plugin to collapse too long results, so the list always fit on the screen.</p>
+
+<p>To use it, just call:</p>
+
+<pre class="brush: js">
+$(selector).advancedSearchField(options);
+</pre>
+
+<p><b>options</b> is an object with any of the options below.</p>
+
+<p>The plugin is called automatically at startup in the file standard.js.</p>
+
+</div>
+
+<div class="block-content no-title">
+<h2>Available options</h2>
+<dl class="definition">
+	<dt>minSearchLength</dt>
+	<dd>Minimum search string length (default: 2)</dd>
+	
+	<dt>moreButtonAfter</dt>
+	<dd>Max number of visible matches in each list above 'more' button (0 for no masking) (default: 3)</dd>
+	
+	<dt>matchesPerPage</dt>
+	<dd>Number of visible matches per page (0 for no pagination) (default: 5)</dd>
+	
+	<dt>firstRequestDelay</dt>
+	<dd>Delay before first request in ms (avoid multiple request while user types) (default: 250)</dd>
+	
+	<dt>nextRequestDelay</dt>
+	<dd>Minimum delay between search requests in ms (reduces server load) (default: 750)</dd>
+	
+	<dt>noUpdateDelay</dt>
+	<dd>Minimum delay upon which the plugin considers the user has stopped typing long enough to start the next request with firstRequestDelay delay, thus responding faster (default: 3000)</dd>
+	
+	<dt>enableNavSearch</dt>
+	<dd>Enable search within template navigation (default: true)</dd>
+	
+	<dt>tipFocus</dt>
+	<dd>Tip when user focuses the search field (default: 'Enter your search')</dd>
+	
+	<dt>tipTooShort</dt>
+	<dd>Tip if search is too short (default: 'Enter at least 2 chars')</dd>
+	
+	<dt>messageLoading</dt>
+	<dd>Message while loading (default: 'Loading results...')</dd>
+	
+	<dt>messageNoMatches</dt>
+	<dd>Message when no matches found (default: 'No matches')</dd>
+	
+	<dt>messageSearchDone</dt>
+	<dd>Message when the search request is done (default: 'Not found? &lt;a href="#"&gt;Try advanced search &raquo;&lt;/a&gt;')</dd>
+	
+	<dt>messageErrorFull</dt>
+	<dd>Full message if an error occurs while loading results (default: 'Error while loading results, please try again')</dd>
+	
+	<dt>messageError</dt>
+	<dd>Status message if an error occurs while loading results (default: 'Error while loading')</dd>
+	
+	<dt>titleTemplateResult</dt>
+	<dd>Title of the result section showing template nav items (default: 'Admin pages')</dd>
+</dl>
+
+<p>You can change the function's defaults at runtime like this:</p>
+
+<pre class="brush: js">
+// Example: change the minimum search length
+$.fn.advancedSearchField.defaults.minSearchLength = 4;
+</pre>
+</div>
+
+<div class="block-content no-title">
+<h2>Search script</h2>
+
+<p>The plugin will automatically call the page defined by the form's <em>action</em> attribute, or the page itself if the attribute is empty.</p>
+
+<p>To create your own search script, retrieve the user search string in the <strong>$_POST['s']</strong> var. You can find an example of formatted results in the file <strong>search.html</strong>/<strong>search.php</strong>.</p>
+
+</div>
+
+<div class="block-content no-title">
+<h2>Search list markup</h2>
+
+<p>Here is an example of result list markup:</p>
+
+<pre class="brush: html">
+&lt;!-- The main block - created by the plugin --&gt;
+&lt;div id="search-result" class="result-block"&gt;
+	&lt;!-- Top arrow --&gt;
+	&lt;span class="arrow"&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;
+	
+	&lt;h2&gt;Admin pages&lt;/h2&gt;
+	&lt;p class="results-count"&gt;&lt;strong&gt;7&lt;/strong&gt; matches&lt;/p&gt;
+	&lt;ul class="small-files-list icon-html"&gt;
+		&lt;li&gt;
+			&lt;a href="#"&gt;&lt;strong&gt;Add&lt;/strong&gt; new user&lt;br&gt;
+			&lt;small&gt;Users &gt; Add new user&lt;/small&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="#"&gt;&lt;strong&gt;Add&lt;/strong&gt; new image&lt;br&gt;
+			&lt;small&gt;Write &gt; Library &gt; Add new image&lt;/small&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="#"&gt;Recently &lt;strong&gt;add&lt;/strong&gt;ed comments&lt;br&gt;
+			&lt;small&gt;Comments &gt; Recently added comments&lt;/small&gt;&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	
+	&lt;!-- This element is created by the plugin AccessibleList --&gt;
+	&lt;a href="#" class="search-more"&gt;More&lt;/a&gt;
+	&lt;hr&gt;
+	
+	&lt;h2&gt;Website pages&lt;/h2&gt;
+	&lt;p class="results-count"&gt;&lt;strong&gt;1&lt;/strong&gt; match&lt;/p&gt;
+	&lt;ul class="small-files-list icon-xml"&gt;
+		&lt;li&gt;
+			&lt;a href="#"&gt;How to create an &lt;strong&gt;add&lt;/strong&gt;-on&lt;br&gt;
+			&lt;small&gt;&lt;strong&gt;Author:&lt;/strong&gt; John Doe&lt;/small&gt;&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	
+	&lt;hr&gt;
+	
+	&lt;h2&gt;Images&lt;/h2&gt;
+	&lt;p class="results-count"&gt;&lt;strong&gt;1&lt;/strong&gt; match&lt;/p&gt;
+	&lt;ul class="small-files-list icon-img"&gt;
+		&lt;li&gt;
+			&lt;a href="#"&gt;Create_&lt;strong&gt;add&lt;/strong&gt;-on_illustration_1.jpg&lt;br&gt;
+			&lt;small&gt;&lt;strong&gt;Size:&lt;/strong&gt; 320x240&lt;/small&gt;&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	
+	&lt;!-- Status line --&gt;
+	&lt;p id="search-info" class="result-info loading"&gt;Not found? &lt;a href="#"&gt;Try advanced search &raquo;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+</div>

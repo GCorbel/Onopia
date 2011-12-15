@@ -1,0 +1,114 @@
+<div class="block-content upper-index no-padding">
+<h1>Old browsers detection</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		old-browsers.js</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>About old browsers detection</h2>
+
+<p>The standard template provides a simple browser detection to redirect older ones to the dedicated page. It is quite usefull to avoid users from using with an unsupported browser and complaining about bugs - or having to do extra compatibility tests.</p>
+
+<p>Here is how it works:</p>
+
+<ul class="bullet-list">
+	<li>When the user with the old browser enters the page, the script detect an uncompatible version</li>
+	<li>The script redirect the user to the page old-browsers.html/php, where the user is given instructions to update</li>
+	<li>This page can be bypassed by clicking on the button at the bottom of the page (read below how to disable this)</li>
+	<li style="background:none;"><b>If the user clicks:</b></li>
+	<li>The user is redirected to its previous page, with an extra url parameter</li>
+	<li>The script detects the parameter, and write a cookie to remind to bypass detection next time</li>
+	<li>The page is displayed</li>
+</ul>
+
+<p>The detection part of the script:</p>
+
+<pre class="brush: js">
+// Change these values to fit your needs
+if (
+	($.browser.msie &amp;&amp; parseFloat($.browser.version) &lt; 7) ||			// IE 6 and lower
+	($.browser.mozilla &amp;&amp; parseFloat($.browser.version) &lt; 1.9) ||	// Firefox 2 and lower
+	($.browser.opera &amp;&amp; parseFloat($.browser.version) &lt; 9) ||		// Opera 8 and lower
+	($.browser.webkit &amp;&amp; parseInt($.browser.version) &lt; 400)			// Older Chrome and Safari
+) {
+	// If no cookie has been set
+	if (getCookie('forceAccess') !== 'yes')
+	{
+		// If coming back from the old browsers page
+		if (window.location.search.indexOf('forceAccess=yes') > -1)
+		{
+			// Mark for future tests
+			setCookie('forceAccess', 'yes');
+		}
+		else
+		{
+			document.location.href = 'old-browsers.php';
+		}
+	}
+}
+</pre>
+
+<p>Note that this only works if javascript is enabled. Note that the same function could be achieve server-side (ie: in Php) with a little coding, using the browser <b>useragent</b> and some browser detection lib like <a href="http://techpatterns.com/downloads/php_browser_detection.php">this one</a>. It would look like: <b>(not tested)</b></p>
+
+<pre class="brush: php">
+// Session need to be on
+session_start();
+
+// Lib
+require('browser_detection.php');
+
+// Detect browser
+$browser = browser_detection('browser_working');
+$browser_version = browser_detection('browser_math_number');
+
+// Change these values to fit your needs
+if (
+	($browser == 'ie' and $browser_version &lt; 7) ||			// IE 6 and lower
+	($browser == 'moz' and $browser_version &lt; 1.9) ||		// Firefox 2 and lower
+	($browser == 'op' and $browser_version &lt; 9) ||			// Opera 8 and lower
+	(($browser == 'saf' or $browser == 'chrome') and $browser_version &lt; 4)	// Older Chrome and Safari
+) {
+	// If no session var has been set
+	if (!isset($_SESSION['forceAccess']))
+	{
+		// If coming back from the old browsers page
+		if (isset($_GET['forceAccess']))
+		{
+			// Mark for future tests
+			$_SESSION['forceAccess'] = 'yes';
+		}
+		else
+		{
+			header('Location: old-browsers.php');
+			exit();
+		}
+	}
+}
+</pre>
+</div>
+
+<div class="block-content no-title">
+<h2>Removing the bypass option</h2>
+
+<p>If you do not want to allow the users to by-pass this check, remove the link from the old-browsers.html/php page and use the following detection code instead:</p>
+
+<pre class="brush: js">
+// Change these values to fit your needs
+if (
+	($.browser.msie &amp;&amp; parseFloat($.browser.version) &lt; 7) ||			// IE 6 and lower
+	($.browser.mozilla &amp;&amp; parseFloat($.browser.version) &lt; 1.9) ||	// Firefox 2 and lower
+	($.browser.opera &amp;&amp; parseFloat($.browser.version) &lt; 9) ||		// Opera 8 and lower
+	($.browser.webkit &amp;&amp; parseInt($.browser.version) &lt; 400)			// Older Chrome and Safari
+) {
+	document.location.href = 'old-browsers.php';
+}
+</pre>
+</div>

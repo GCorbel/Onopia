@@ -1,0 +1,72 @@
+<div class="block-content upper-index no-padding">
+<h1>Wizard</h1>
+	
+<div class="block-controls">
+	<ul class="controls-buttons">
+		<li><b>Required files:</b><br>
+		common.css, wizard.css</li>
+		<li class="sep"></li>
+		<li><b>Available in:</b><br>
+		standard + mobile</li>
+	</ul>
+</div>
+</div>
+
+<div class="block-content no-title">
+<h2>Example</h2>
+
+<pre class="brush: html">
+&lt;ol class="wizard-steps"&gt;
+	&lt;!-- Step markup --&gt;
+	&lt;li&gt;
+		&lt;!-- The link is optional --&gt;
+		&lt;a href="#"&gt;
+			&lt;!-- The class status-ok adds a little tick to the number --&gt;
+			&lt;span class="number"&gt;1&lt;span class="status-ok"&gt;&lt;/span&gt;&lt;/span&gt;
+			Page title
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href="#"&gt;
+			&lt;span class="number"&gt;2&lt;/span&gt;
+			Image
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;!-- Disabled step markup --&gt;
+	&lt;li class="disabled"&gt;
+		&lt;span class="number"&gt;3&lt;/span&gt;
+		Publish
+	&lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+
+<div class="block-border">
+	<div class="block-content">
+		<ol class="wizard-steps" style="margin-top: -2.833em">	<!-- This is a tweak for the demo -->
+			<!-- Step markup -->
+			<li>
+				<!-- The link is optional -->
+				<a href="javascript:void(0)">
+					<!-- The class status-ok adds a little tick to the number -->
+					<span class="number">1<span class="status-ok"></span></span>
+					Page title
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)">
+					<span class="number">2</span>
+					Image
+				</a>
+			</li>
+			<!-- Disabled step markup -->
+			<li class="disabled">
+				<span class="number">3</span>
+				Publish
+			</li>
+		</ol>
+		
+		<p>Any content here...</p>
+		
+	</div>
+</div>
+</div>
