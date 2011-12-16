@@ -278,15 +278,14 @@ fr:
       successfully_created: "Vous avez été enregistré. Un courriel de confirmation vous a été envoyé. Vous devez confirmer votre inscription pour continuer."
       successfully_updated: "Votre compte a été modifié"
       successfully_destroyed: "Votre compte a été supprimé"
-    new:
-      submit: "S'inscrire"
     edit:
       change_password_link: "Modifier le mot de passe"
       submit: "Valider"
 
   user_sessions:
     new:
-      submit: "Se connecter"
+      submit_sign_up: "Valider"
+      submit_sign_in: "Se connecter"
   user_reset_passwords:
     controller:
       successfully_updated: "Votre mot de passe a été modifié"
@@ -301,6 +300,7 @@ fr:
   user_activates:
     controller:
       user_activated: "Votre compte a été activé. Vous pouvez vous connecter."
+      error: "Une erreur s'est produite lors de l'activation de votre compte"
   simple_captcha:
     label: "Veuillez saisir le code ci-dessous:"
     message:

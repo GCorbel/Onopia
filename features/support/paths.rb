@@ -9,8 +9,15 @@ module NavigationHelpers
     case page_name
 
     when /the home\s?page/
-      '/'
+      root_path
+      
+    when /the login page/
+      login_path
 
+    when /the user activates page for (.*)/
+      user = User.find_by_username($1)
+      url_for(:controller => :user_activates, :action => :new, :id => user.perishable_token)
+    
     # the following are examples using path_to_pickle
 
     when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page
