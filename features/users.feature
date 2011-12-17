@@ -13,9 +13,9 @@ Feature: Users
     And I have no user
     
     When I fill in the following:
-      | Pseudo       | Guirecc                  |
-      | Email        | test@test.com            |
-      | Mot de passe | test1234                 |
+      | user[username] | Guirecc                  |
+      | user[email]    | test@test.com            |
+      | user[password] | test1234                 |
     And I press "Valider"
     
     Then I should see "Vous avez été enregistré. Un courriel de confirmation vous a été envoyé. Vous devez confirmer votre inscription pour continuer"
@@ -60,3 +60,25 @@ Feature: Users
 ################################################################
 #                          Connection
 ################################################################
+  Scenario: log in with valid information
+  
+    Given a user exists with username: "Guirecc", active: true
+
+    When I go to the login page
+	  And I fill in the following:
+      | user_session[username] | Guirecc                  |
+      | user_session[password] | test1234                 |
+	
+	  Then I should be on the home page
+	  And I should see "Bienvue, Guirecc"
+
+  Scenario: log in with invalid information
+	  Given I have no user
+
+    When I go to the login page
+	  And I fill in the following:
+      | user_session[username] | Guirecc                  |
+      | user_session[password] | test1234                 |
+	    
+	  Then I should be on the login page
+	  And I should see "Login ou mot de passe incorrect"
