@@ -7,7 +7,7 @@ Feature: Users
 ################################################################
 #                          Registration
 ################################################################
-  @javascript
+  @javascript @registration
   Scenario: Create a user with valid information
     Given I am on the login page
     And I have no user
@@ -27,7 +27,7 @@ Feature: Users
       | username  | email         | active   |
       | Guirecc   | test@test.com | false    |
       
-  @email
+  @email @registration
   Scenario: Create a user with valid information and receive an email
     Given I am on the login page
     And I have no user
@@ -44,7 +44,7 @@ Feature: Users
     And I should see "http://localhost:3000/user_activates" in the email body
       
   
-  @javascript    
+  @javascript @registration   
   Scenario: Create a user with invalid information
     Given I am on the login page
     
@@ -102,3 +102,11 @@ Feature: Users
     And I press "Se connecter"
 	      
 	  Then I should see "1 erreur à été commise"
+	  
+	@connexion
+	Scenario: try to access in the loggin page when I am logged
+	  Given I am logged user
+	  
+	  When I go to the login page
+	  
+	  Then I should be on the home page

@@ -3,7 +3,6 @@
 <h2>Ouvrir un compte</h2>
 
 <%= form_for(@user, :remote => true) do |f| %>
-  <%= render "shared/error_messages", :target => @user %>
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
@@ -25,7 +24,6 @@
 <% end %>
 
 <%= form_for(@user_session, :remote => true) do |f| %>
-  <%= render "shared/error_messages", :target => @user_session %>
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
