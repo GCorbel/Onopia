@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :current_user, :current_user_session
   
   private
     def render_error_json(object)
@@ -20,6 +21,12 @@ class ApplicationController < ActionController::Base
     def redirect_logged
       if current_user
         redirect_to root_path
+      end
+    end
+    
+    def redirect_logout
+      unless current_user
+        redirect_to login_path
       end
     end
 

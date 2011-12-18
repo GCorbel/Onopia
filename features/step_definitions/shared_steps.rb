@@ -5,17 +5,28 @@ module UserHelpers
     fill_in 'user_session_password', :with => user.password
     click_button "Se connecter"
   end
+  def user_session
+    @session ||= UserSession.find
+  end
+  def current_user_session
+    activate_authlogic
+    return @current_user_session if defined?(@current_user_session)
+    @current_user_session = UserSession.find
+  end
+
+  def current_user
+    activate_authlogic
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.user
+  end
 end
 World(UserHelpers)
 
-Then /^I should see an error message$/ do
-  page.should have_selector("div#errorExplanation")
-end
 
-Then /^Show me the html$/ do
-  puts page.html
+Given /^I am a logged user$/ do
+  user = Factory.create(:user, :active => true)
+  log_a_user(user)
 end
-
 
 When /^I wait until all Ajax requests are complete$/ do
   keep_looping = true
@@ -34,7 +45,14 @@ When /^I wait until all Ajax requests are complete$/ do
   end
 end
 
-Given /^I am logged user$/ do
-  user = Factory.create(:user, :active => true)
-  log_a_user(user)
+Then /^I should see an error message$/ do
+  page.should have_selector("div#errorExplanation")
+end
+
+Then /^show me the html$/ do
+  puts page.html
+end
+
+Then /^I should be disconnected$/ do
+  user_session.should == nil
 end

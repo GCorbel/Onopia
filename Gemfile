@@ -43,7 +43,6 @@ group :test do
   gem 'launchy'
   gem 'pickle'
   gem 'database_cleaner'
-  gem "action_mailer_cache_delivery", git: "git://github.com/ragaskar/action_mailer_cache_delivery.git"
 end
 
 gem "galetahub-simple_captcha", :require => "simple_captcha"

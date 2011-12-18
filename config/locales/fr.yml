@@ -305,4 +305,8 @@ fr:
     label: "Veuillez saisir le code ci-dessous:"
     message:
       user: "le code de sécurité n'est pas valide"
+      
+  home:
+    index:
+      are_you_sure: "Êtes vous sûre?"
     

@@ -105,8 +105,24 @@ Feature: Users
 	  
 	@connexion
 	Scenario: try to access in the loggin page when I am logged
-	  Given I am logged user
+	  Given I am a logged user
 	  
 	  When I go to the login page
 	  
 	  Then I should be on the home page
+
+
+################################################################
+#                          Disconnection
+################################################################	  
+	  
+	@disconnection
+  Scenario: log out a user
+  
+    Given I am a logged user
+	
+	  When I go to the home page
+	  And I follow "Se deconnecter"
+	
+	  Then I should be on the login page
+	  And I should be disconnected

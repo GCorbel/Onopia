@@ -1,9 +1,3 @@
-GIT
-  remote: git://github.com/ragaskar/action_mailer_cache_delivery.git
-  revision: 20a2dd50e54fcb45ff38afa2cdfdc08d5b479c74
-  specs:
-    action_mailer_cache_delivery (0.1.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -61,7 +55,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.1.3)
-    columnize (0.3.5)
+    columnize (0.3.6)
     cucumber (1.1.4)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -78,7 +72,7 @@ GEM
       mail (~> 2.2)
       rspec (~> 2.0)
     erubis (2.7.0)
-    execjs (1.2.11)
+    execjs (1.2.12)
       multi_json (~> 1.0)
     factory_girl (2.3.2)
       activesupport
@@ -135,7 +129,7 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
-    rdoc (3.11)
+    rdoc (3.12)
       json (~> 1.4)
     rspec (2.7.0)
       rspec-core (~> 2.7.0)
@@ -161,13 +155,13 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.5)
-    sass (3.1.11)
+    sass (3.1.12)
     sass-rails (3.1.5)
       actionpack (~> 3.1.0)
       railties (~> 3.1.0)
       sass (~> 3.1.10)
       tilt (~> 1.3.2)
-    selenium-webdriver (2.14.0)
+    selenium-webdriver (2.15.0)
       childprocess (>= 0.2.1)
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
@@ -185,7 +179,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
-    uglifier (1.1.0)
+    uglifier (1.2.0)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
     xpath (0.1.4)
@@ -195,7 +189,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  action_mailer_cache_delivery!
   authlogic
   autotest-rails
   capybara

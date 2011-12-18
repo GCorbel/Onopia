@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
-  def index
+
+  before_filter :redirect_logout
+  def index    
     @user = User.new
   end
 

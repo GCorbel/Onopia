@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
 
-  before_filter :redirect_logged
+  before_filter :redirect_logged, :except => :destroy
 
   # GET /user_sessions/new
   # GET /user_sessions/new.xml
@@ -20,5 +20,15 @@ class UserSessionsController < ApplicationController
     else 
       render_error_json(@user_session)
     end
+  end
+
+  # DELETE /user_sessions/1
+  # DELETE /user_sessions/1.xml
+  def destroy
+    @user_session = UserSession.find
+    if @user_session
+      @user_session.destroy
+    end
+    redirect_to login_path
   end
 end
