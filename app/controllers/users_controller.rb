@@ -7,9 +7,10 @@ class UsersController < ApplicationController
     
     if (ENV["RAILS_ENV"] == "test" and @user.save) or @user.save_with_captcha
       UserMailer.activation(@user).deliver
-      redirect_to(login_path, :notice => t("successfully_created", :scope => 'users.controller'))
+      render :json => { state: 'success', html: t("successfully_created", :scope => 'users.controller')}
     else
-      render "user_sessions/new"
+      html = render_to_string( :partial => "shared/error_messages", :locals => { :target => @user } )
+      render :json => { state: 'error', html: html}
     end
   end
 end

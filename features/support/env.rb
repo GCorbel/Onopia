@@ -12,13 +12,11 @@ Spork.prefork do
   # Make sure this require is after you require cucumber/rails/world.
   require 'email_spec' # add this line if you use spork
   require 'email_spec/cucumber'
-
-  # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
-  # order to ease the transition to Capybara we set the default here. If you'd
-  # prefer to use XPath just remove this line and adjust any selectors in your
-  # steps to use the XPath syntax.
+  
   Capybara.default_selector = :css
-
+  Capybara.javascript_driver = :selenium
+  Capybara.server_port = 8200
+  Capybara.app_host = "http://localhost:8200"
 end
  
 Spork.each_run do
@@ -38,7 +36,8 @@ Spork.each_run do
   # recommended as it will mask a lot of errors for you!
   #
   ActionController::Base.allow_rescue = false
-  
+  Cucumber::Rails::World.use_transactional_fixtures = false
+
   # Remove/comment out the lines below if your app doesn't have a database.
   # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
   begin

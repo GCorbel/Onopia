@@ -4,11 +4,10 @@ require 'spec_helper'
 describe User do
 
   before {@user = Factory.build(:user)}
-  subject {@user}
   
   
   it "should return the username for to_s function" do
-    to_s == @user.username
+    @user.to_s.should == @user.username
   end
   
   it "should be inactive on creation" do 

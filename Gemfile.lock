@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ragaskar/action_mailer_cache_delivery.git
+  revision: 20a2dd50e54fcb45ff38afa2cdfdc08d5b479c74
+  specs:
+    action_mailer_cache_delivery (0.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -189,6 +195,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action_mailer_cache_delivery!
   authlogic
   autotest-rails
   capybara

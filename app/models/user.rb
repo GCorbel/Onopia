@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
     config.require_password_confirmation = false
   end
   
+  def to_s
+    self.username
+  end
+  
 end

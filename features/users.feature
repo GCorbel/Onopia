@@ -7,7 +7,7 @@ Feature: Users
 ################################################################
 #                          Registration
 ################################################################
-
+  @javascript
   Scenario: Create a user with valid information
     Given I am on the login page
     And I have no user
@@ -17,24 +17,40 @@ Feature: Users
       | user[email]    | test@test.com            |
       | user[password] | test1234                 |
     And I press "Valider"
+    And I wait until all Ajax requests are complete
     
-    Then I should see "Vous avez été enregistré. Un courriel de confirmation vous a été envoyé. Vous devez confirmer votre inscription pour continuer"
+    Then I should see "Vous avez été enregistré."
+    And I should see "Un courriel de confirmation vous a été envoyé."
+    And I should see "Vous devez confirmer votre inscription pour continuer."
     And I should be on the login page
-    And "test@test.com" should receive an email
-    
-    When "test@test.com" open the email with subject "Activation de votre compte"
-    And I should see "http://localhost:3000/user_activates" in the email body
     And the following users should exist:
       | username  | email         | active   |
       | Guirecc   | test@test.com | false    |
       
+  @email
+  Scenario: Create a user with valid information and receive an email
+    Given I am on the login page
+    And I have no user
+    
+    When I fill in the following:
+      | user[username] | Guirecc                  |
+      | user[email]    | test@test.com            |
+      | user[password] | test1234                 |
+    And I press "Valider"
+    
+    Then "test@test.com" should receive an email
+    
+    When "test@test.com" open the email with subject "Activation de votre compte"
+    And I should see "http://localhost:3000/user_activates" in the email body
       
+  
+  @javascript    
   Scenario: Create a user with invalid information
     Given I am on the login page
     
     When I press "Valider" 
     
-    Then I should see an error message
+    Then I should be on the login page
     And I should see "erreurs ont étés commises"
     And I should see "Email : ne semble pas être une adresse email"
     And I should see "Pseudo : est trop court"
@@ -60,18 +76,22 @@ Feature: Users
 ################################################################
 #                          Connection
 ################################################################
+  @javascript @connexion
   Scenario: log in with valid information
   
-    Given a user exists with username: "Guirecc", active: true
+    Given a user exists with username: "Guirecc", password: "test1234", active: true
 
     When I go to the login page
 	  And I fill in the following:
       | user_session[username] | Guirecc                  |
       | user_session[password] | test1234                 |
+    And I press "Se connecter"
+    And I wait until all Ajax requests are complete
 	
 	  Then I should be on the home page
-	  And I should see "Bienvue, Guirecc"
+	  And I should see "Bienvenue Guirecc"
 
+  @javascript @connexion
   Scenario: log in with invalid information
 	  Given I have no user
 
@@ -79,6 +99,6 @@ Feature: Users
 	  And I fill in the following:
       | user_session[username] | Guirecc                  |
       | user_session[password] | test1234                 |
-	    
-	  Then I should be on the login page
-	  And I should see "Login ou mot de passe incorrect"
+    And I press "Se connecter"
+	      
+	  Then I should see "1 erreur à été commise"
