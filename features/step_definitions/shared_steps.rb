@@ -1,33 +1,3 @@
-module UserHelpers
-  def log_a_user(user)
-    visit login_path
-    fill_in 'user_session_username', :with => user.username
-    fill_in 'user_session_password', :with => user.password
-    click_button "Se connecter"
-  end
-  def user_session
-    @session ||= UserSession.find
-  end
-  def current_user_session
-    activate_authlogic
-    return @current_user_session if defined?(@current_user_session)
-    @current_user_session = UserSession.find
-  end
-
-  def current_user
-    activate_authlogic
-    return @current_user if defined?(@current_user)
-    @current_user = current_user_session && current_user_session.user
-  end
-end
-World(UserHelpers)
-
-
-Given /^I am a logged user$/ do
-  user = Factory.create(:user, :active => true)
-  log_a_user(user)
-end
-
 When /^I wait until all Ajax requests are complete$/ do
   keep_looping = true
   while keep_looping do

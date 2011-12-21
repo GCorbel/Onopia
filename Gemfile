@@ -35,7 +35,6 @@ group :test do
   gem 'rspec-rails'
   gem 'autotest-rails'
   gem 'spork'
-  gem 'capybara'
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'cucumber-rails'

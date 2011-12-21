@@ -290,7 +290,7 @@ fr:
     controller:
       successfully_updated: "Votre mot de passe a été modifié"
       successfully_created: "Un courriel de confirmation vous a été envoyé. Vous devez suivre les étapes indquées pour continuer."
-      unknown_email : "Cette adresse email n'est pas enregistrée."
+      unknown_email: "Cette adresse email n'est pas enregistrée."
 
     new:
       submit: "Valider"
@@ -309,4 +309,9 @@ fr:
   home:
     index:
       are_you_sure: "Êtes vous sûre?"
+      
+  configuration:
+    index:
+      are_you_sur: "Êtes vous sûre?"
+      submit: "Valider"
     

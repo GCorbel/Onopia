@@ -79,17 +79,17 @@ Feature: Users
   @javascript @connexion
   Scenario: log in with valid information
   
-    Given a user exists with username: "Guirecc", password: "test1234", active: true
+    Given a user exists with username: "Unlogged", password: "test1234", active: true
 
     When I go to the login page
 	  And I fill in the following:
-      | user_session[username] | Guirecc                  |
+      | user_session[username] | Unlogged                 |
       | user_session[password] | test1234                 |
     And I press "Se connecter"
     And I wait until all Ajax requests are complete
 	
 	  Then I should be on the home page
-	  And I should see "Bienvenue Guirecc"
+	  And I should see "Bienvenue Unlogged"
 
   @javascript @connexion
   Scenario: log in with invalid information
@@ -97,7 +97,7 @@ Feature: Users
 
     When I go to the login page
 	  And I fill in the following:
-      | user_session[username] | Guirecc                  |
+      | user_session[username] | Unlogged                 |
       | user_session[password] | test1234                 |
     And I press "Se connecter"
 	      
@@ -105,7 +105,7 @@ Feature: Users
 	  
 	@connexion
 	Scenario: try to access in the loggin page when I am logged
-	  Given I am a logged user
+    Given I am logged in as "Guirecc"
 	  
 	  When I go to the login page
 	  
@@ -119,10 +119,49 @@ Feature: Users
 	@disconnection
   Scenario: log out a user
   
-    Given I am a logged user
+    Given I am logged in as "Guirecc"
 	
 	  When I go to the home page
 	  And I follow "Se deconnecter"
 	
 	  Then I should be on the login page
 	  And I should be disconnected
+
+################################################################
+#                          Deletion
+################################################################	
+  Scenario: delete a user
+  
+    Given I am logged in as "Guirecc"
+    
+    When I go to the configuration page
+	  And I follow "Supprimer mon compte"
+	
+	  Then I should be on the login page
+	  And I should see "Votre compte à été supprimé"
+	  And user should not exist
+	  And I should be disconnected
+
+################################################################
+#                          Modification
+################################################################	
+  
+  @javascript
+  Scenario: update a user
+  
+    Given I am logged in as "Guirecc"
+    
+    When I go to the configuration page
+	  Then I fill in the following:
+      | user[username] | Guirecc2                 |
+      | user[email]    | test@test.com            |
+      | user[password] | test1234                 |
+    And I press "Valider"
+    And I wait until all Ajax requests are complete
+	
+	  Then I should be on the configuration page
+	  And I should see "Votre compte a été modifié"
+    And the following users should exist:
+      | username  | email         | active |
+      | Guirecc2  | test@test.com | true   |
+	

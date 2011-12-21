@@ -1,7 +1,4 @@
 <%= flash[:notice] %>
 en cours
 
-<%= @current_user %>
 <%= link_to "Se deconnecter", user_session_path(@current_user), :confirm => t('.are_you_sure'), :method => :delete %>
-
-<%= button_to "Delete", user_session_path(@current_user), :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?" %>

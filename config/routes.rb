@@ -1,10 +1,16 @@
 Onopia::Application.routes.draw do
+  get "configuration/index"
+
   get "home/index"
   
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   
-  resources :users, :user_activates, :user_sessions
+  match 'configuration' => 'configuration#index', :as => :configuration
+  
+  resources :users
+  resources :user_activates, :user_sessions
+  resources :configuration, :only => [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
