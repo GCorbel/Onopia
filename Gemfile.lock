@@ -166,6 +166,12 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
+    simplecov (0.5.4)
+      multi_json (~> 1.0.3)
+      simplecov-html (~> 0.5.3)
+    simplecov-html (0.5.3)
+    simplecov-rcov (0.2.3)
+      simplecov (>= 0.4.1)
     spork (0.8.5)
     sprockets (2.0.3)
       hike (~> 1.2)
@@ -205,6 +211,8 @@ DEPENDENCIES
   rspec-rails
   ruby-debug19
   sass-rails (~> 3.1.5)
+  simplecov
+  simplecov-rcov
   spork
   sqlite3
   uglifier (>= 1.0.3)

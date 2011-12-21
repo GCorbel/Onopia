@@ -42,6 +42,8 @@ group :test do
   gem 'launchy'
   gem 'pickle'
   gem 'database_cleaner'
+  gem 'simplecov'
+  gem 'simplecov-rcov'
 end
 
 gem "galetahub-simple_captcha", :require => "simple_captcha"

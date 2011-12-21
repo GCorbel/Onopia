@@ -1,6 +1,7 @@
 require 'spork'
  
 Spork.prefork do
+
   require 'rubygems'
   ENV["RAILS_ENV"] ||= "test"
   
@@ -15,6 +16,11 @@ Spork.prefork do
   Capybara.default_selector = :css
   Capybara.server_port = 8200
   Capybara.app_host = "http://localhost:8200"
+
+  require 'simplecov'
+  SimpleCov.coverage_dir 'coverage/cucumber'
+  SimpleCov.start 'rails'
+
 end
  
 Spork.each_run do
