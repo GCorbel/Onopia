@@ -44,6 +44,7 @@ group :test do
   gem 'database_cleaner'
   gem 'simplecov'
   gem 'simplecov-rcov'
+  gem 'capybara-webkit'
 end
 
 gem "galetahub-simple_captcha", :require => "simple_captcha"

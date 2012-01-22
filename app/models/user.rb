@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   apply_simple_captcha
   
   acts_as_authentic do |config|
-    config.ignore_blank_passwords = false
+    config.ignore_blank_passwords = true
     config.maintain_sessions = false
     config.require_password_confirmation = false
   end

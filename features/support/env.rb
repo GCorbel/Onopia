@@ -24,7 +24,6 @@ Spork.prefork do
 end
  
 Spork.each_run do
-  
   ActionController::Base.allow_rescue = false
   Cucumber::Rails::World.use_transactional_fixtures = false
   begin
