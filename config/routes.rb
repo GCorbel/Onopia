@@ -1,4 +1,5 @@
 Onopia::Application.routes.draw do
+
   get "configuration/index"
 
   get "home/index"
@@ -11,6 +12,10 @@ Onopia::Application.routes.draw do
   resources :users
   resources :user_activates, :user_sessions
   resources :configuration, :only => [:index]
+  
+  scope "/admin", :module => "admin" do
+    resources :banks
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

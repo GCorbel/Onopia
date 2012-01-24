@@ -1,0 +1,17 @@
+<%= form_for @bank do |f| %>
+  <%= render :partial => "shared/error_messages", :locals => { :target => @bank  }  %>
+  
+  <p>
+    <%= f.label :label %><br />
+    <%= f.text_field :label %>
+  </p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :icon %><br />
+    <%= f.text_field :icon %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

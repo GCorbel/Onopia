@@ -45,8 +45,12 @@ group :test do
   gem 'simplecov'
   gem 'simplecov-rcov'
   gem 'capybara-webkit'
+  gem "mocha"
+end
+
+group :development do
+  gem "nifty-generators"
 end
 
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'authlogic'
-
