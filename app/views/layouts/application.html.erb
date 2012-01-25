@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Onopia</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <% if ENV["RAILS_ENV"] == "test" %>
-      <%= javascript_include_tag('culerity') %>
-  <% end %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<div id="message"></div>
-<div id="errors"></div>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <% if ENV["RAILS_ENV"] == "test" %>
+        <%= javascript_include_tag('culerity') %>
+    <% end %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= yield %>
+    </div>
+    <div id="message"></div>
+    <div id="errors"></div>
+  </body>
 </html>

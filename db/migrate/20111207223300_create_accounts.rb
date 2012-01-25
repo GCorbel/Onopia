@@ -3,7 +3,7 @@ class CreateAccounts < ActiveRecord::Migration
     create_table :accounts do |t|
       t.string :login
       t.string :password
-      t.string :type
+      t.integer :type_id
       t.decimal :balance, :precision => 2
       
       t.belongs_to :user

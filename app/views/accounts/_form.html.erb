@@ -1,0 +1,19 @@
+<%= form_for @account do |f| %>
+  <p>
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label :type_id %><br />
+    <%= f.number_field :type_id %>
+  </p>
+  <p>
+    <%= f.label :balance %><br />
+    <%= f.text_field :balance %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

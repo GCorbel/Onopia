@@ -22,11 +22,10 @@ ActiveRecord::Schema.define(:version => 20111211225855) do
   create_table "accounts", :force => true do |t|
     t.string   "login"
     t.string   "password"
-    t.string   "type"
+    t.integer  "type_id"
     t.decimal  "balance",    :precision => 2, :scale => 0
     t.integer  "user_id"
-    t.integer  "bank_id"
-    t.integer  "type_id"
+    t.integer  "blank_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,10 +37,10 @@ ActiveRecord::Schema.define(:version => 20111211225855) do
     t.string   "frequency"
     t.string   "operation"
     t.decimal  "amount",     :precision => 2, :scale => 0
-    t.integer  "account_id"
     t.integer  "category"
     t.boolean  "send"
     t.integer  "user_id"
+    t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -116,15 +115,15 @@ ActiveRecord::Schema.define(:version => 20111211225855) do
 
   create_table "records", :force => true do |t|
     t.string   "label"
-    t.decimal  "amount",       :precision => 2, :scale => 0
+    t.decimal  "amount",      :precision => 2, :scale => 0
     t.boolean  "credit"
     t.boolean  "splitted"
-    t.integer  "record_id"
     t.string   "code"
-    t.decimal  "balance",      :precision => 2, :scale => 0
+    t.decimal  "balance",     :precision => 2, :scale => 0
     t.boolean  "virtual"
+    t.integer  "record_id"
     t.integer  "user_id"
-    t.integer  "categorie_id"
+    t.integer  "category_id"
     t.integer  "account_id"
     t.integer  "project_id"
     t.datetime "created_at"
