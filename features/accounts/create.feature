@@ -17,9 +17,8 @@ Feature:
     And I should see "Configuration de mon compte"
     
     
-  @now
   Scenario: search a new account
-    When I fill in "Credit" with "Rechercher un établissement bancaire"
+    When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"
     
     Then I should see "Credit Agricole"
@@ -29,9 +28,9 @@ Feature:
     
     Then I should see "Credit Agricole"
     
-    
+  
   Scenario: 
-    When I fill in "Credit" with "Rechercher un établissement bancaire"
+    When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"
     And I press "Configurer"
     And I fill in "Type" with "CODEVI"

@@ -29,10 +29,6 @@ class UserSessionsController < ApplicationController
     if @user_session
       @user_session.destroy
     end
-    #if ENV["RAILS_ENV"] == "test"
-    #  @current_user.active = false 
-    #  @current_user.save
-    #end
     redirect_to login_path
   end
 end

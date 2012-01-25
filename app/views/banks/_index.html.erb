@@ -1,2 +1,15 @@
 Ajout d'un compte bancaire
 Configuration de mon compte
+
+<%= form_for @bank, :url => banks_path, :action => :index, :method => :get, :remote => true do |f| %>
+  <%= f.label :label, "Rechercher un établissement bancaire : " %><%= f.text_field :label %>
+  <%= f.submit "Rechercher" %>
+<% end %>
+
+<% @banks.each do |bank| -%>
+  <%= bank.label %>
+<% end -%>
+
+<% ('A'..'Z').each do |letter| %>
+  <%= link_to letter, banks_path(:bank => {:label => letter}), :remote => true %>
+<% end %>
