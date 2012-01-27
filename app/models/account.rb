@@ -5,4 +5,9 @@ class Account < ActiveRecord::Base
   has_many :record
   has_many :project
   has_many :alert
+  
+  
+  validates :type_id, :presence => true
+  validates :login, :presence => true
+  validates :password, :presence => true
 end

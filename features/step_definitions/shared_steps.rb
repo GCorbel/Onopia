@@ -1,3 +1,10 @@
+When /^There is an empty an empty database$/ do
+  User.destroy_all
+  Account.destroy_all
+  AccountType.destroy_all
+  Bank.destroy_all
+end
+
 When /^I wait until all Ajax requests are complete$/ do
   keep_looping = true
   while keep_looping do

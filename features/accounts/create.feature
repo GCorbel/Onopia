@@ -4,7 +4,8 @@ Feature:
   I want to link a new account with the site
   
   Background:
-    Given I am logged in as "Guirecc"
+    Given There is an empty an empty database
+    And I am logged in as "Guirecc"
     And a bank exists
     And account type exist with label: "CODEVI"
       
@@ -28,7 +29,6 @@ Feature:
     
     Then I should see "Credit Agricole"
     
-  @now
   Scenario: 
     When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"
@@ -46,3 +46,14 @@ Feature:
       | type_id  | login         | password   |
       | 1        | 0123456789    | test234    |
     
+    
+  @now 
+  Scenario: 
+    When I fill in "Rechercher un établissement bancaire" with "Credit"
+    And I press "Rechercher"
+    And I follow "Configurer"
+    And I press "Ajouter le compte"
+    And I wait until all Ajax requests are complete
+    
+    Then I should see "erreurs ont étés commises"
+    And I should be on the configuration page

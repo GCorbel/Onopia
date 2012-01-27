@@ -1,5 +1,5 @@
 <%= flash[:notice] %>
-
+  <%= render :partial => "shared/error_messages", :locals => { :target => @account  }  %>
 <%= form_for @account, :remote => true do |f| %>
   <p>
     <%= f.label :login, "Identifiant" %><br />
@@ -7,7 +7,7 @@
   </p>
   <p>
     <%= f.label :password, "Mot de passe" %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </p>
   <p>
     <%= f.label :type_id %><br />

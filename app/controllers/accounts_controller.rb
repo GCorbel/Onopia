@@ -16,8 +16,9 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(params[:account])
+    
     unless @account.save
-      render 'new'
+      render :new
     end
   end
 
