@@ -224,10 +224,16 @@ fr:
     attributes:
       models:
         user: Utilisateur
+        account: "Compte"
+        bank: "Banque"
       user:
         username: Pseudo
         email: Email
         password: Mot de passe
+      account:
+        login: "Identifiant"
+        password: "Mot de passe"
+        type: "Type"
 
   home:
     successfully_updated: "Votre mot de passe a été modifié"
