@@ -6,7 +6,7 @@ Feature:
   Background:
     Given I am logged in as "Guirecc"
     And a bank exists
-    And account type exist with label: "ADEVI"
+    And account type exist with label: "CODEVI"
       
     When I go to the configuration page
     And I follow "Ajouter un compte bancaire"
@@ -28,20 +28,21 @@ Feature:
     
     Then I should see "Credit Agricole"
     
-  
+  @now
   Scenario: 
     When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"
-    And I press "Configurer"
-    And I fill in "Type" with "CODEVI"
+    And I follow "Configurer"
+    And I select "CODEVI" from "Type"
     And I fill in "Identifiant" with "0123456890"
     And I fill in "Mot de passe" with "test1234"
-    And I press "Valider"
+    And I press "Ajouter le compte"
+    And I wait until all Ajax requests are complete
     
     Then I should see "Votre compte a été correctement paramétré."
-    And I should see "Configurer d'autres comptes bancaires"
-    And I should should have an account
-    And the following account should exist:
-      | type  | login         | password   |
-      | 1     | 0123456789    | test234    |
+    And I should see "Ajout d'un compte bancaire"
+    And I should be on the configuration page
+    And the following accounts should exist:
+      | type_id  | login         | password   |
+      | 1        | 0123456789    | test234    |
     

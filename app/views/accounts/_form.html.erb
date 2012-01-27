@@ -1,19 +1,17 @@
-<%= form_for @account do |f| %>
+<%= flash[:notice] %>
+
+<%= form_for @account, :remote => true do |f| %>
   <p>
-    <%= f.label :login %><br />
+    <%= f.label :login, "Identifiant" %><br />
     <%= f.text_field :login %>
   </p>
   <p>
-    <%= f.label :password %><br />
+    <%= f.label :password, "Mot de passe" %><br />
     <%= f.text_field :password %>
   </p>
   <p>
     <%= f.label :type_id %><br />
-    <%= f.number_field :type_id %>
+    <%= f.collection_select(:type_id, AccountType.all, :id, :label) %>
   </p>
-  <p>
-    <%= f.label :balance %><br />
-    <%= f.text_field :balance %>
-  </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Ajouter le compte" %></p>
 <% end %>

@@ -1,5 +1,5 @@
 class BanksController < ApplicationController
-  respond_to :html, :js
+  respond_to :js
   def index
     @bank = Bank.new(params[:bank])
     if @bank.label

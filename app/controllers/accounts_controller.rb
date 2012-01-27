@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class AccountsController < ApplicationController
 
   respond_to :js
@@ -15,10 +16,8 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(params[:account])
-    if @account.save
-      redirect_to @account, :notice => "Successfully created account."
-    else
-      render :action => 'new'
+    unless @account.save
+      render 'new'
     end
   end
 
@@ -29,7 +28,7 @@ class AccountsController < ApplicationController
   def update
     @account = Account.find(params[:id])
     if @account.update_attributes(params[:account])
-      redirect_to @account, :notice  => "Successfully updated account."
+      redirect_to @account, :notice  => "Votre compte a été correctement modifié."
     else
       render :action => 'edit'
     end
@@ -38,6 +37,6 @@ class AccountsController < ApplicationController
   def destroy
     @account = Account.find(params[:id])
     @account.destroy
-    redirect_to accounts_url, :notice => "Successfully destroyed account."
+    redirect_to accounts_url, :notice => "Votre compte a été correctement supprimé."
   end
 end

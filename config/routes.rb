@@ -1,5 +1,7 @@
 Onopia::Application.routes.draw do
 
+  namespace(:admin){ resources :account_types }
+
   resources :accounts
 
   get "configuration/index"

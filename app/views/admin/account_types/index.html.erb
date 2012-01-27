@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>Label</th>
+  </tr>
+  <% for account_type in @account_types %>
+    <tr>
+      <td><%= account_type.label %></td>
+      <td><%= link_to "Show", [:admin, account_type] %></td>
+      <td><%= link_to "Edit", edit_admin_account_type_path(account_type) %></td>
+      <td><%= link_to "Destroy", [:admin, account_type], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Admin/Account Type", new_admin_account_type_path %></p>

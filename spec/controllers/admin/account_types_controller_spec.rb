@@ -1,11 +1,11 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper'
 
-describe AccountsController do
+describe Admin::AccountTypesController do
   fixtures :all
   render_views
-  
+    
   before(:each) do
-    Factory.create(:account)
+    Factory.create(:account_type)
   end
 
   it "index action should render index template" do
@@ -14,48 +14,48 @@ describe AccountsController do
   end
 
   it "show action should render show template" do
-    get :show, :id => Account.first
+    get :show, :id => AccountType.first
     response.should render_template(:show)
   end
 
   it "new action should render new template" do
-    get :new, :format => :js
+    get :new
     response.should render_template(:new)
   end
 
   it "create action should render new template when model is invalid" do
-    Account.any_instance.stubs(:valid?).returns(false)
-    post :create, :format => :js
+    AccountType.any_instance.stubs(:valid?).returns(false)
+    post :create
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
-    Account.any_instance.stubs(:valid?).returns(true)
-    post :create, :format => :js
-    response.should render_template(:create)
+    AccountType.any_instance.stubs(:valid?).returns(true)
+    post :create
+    response.should redirect_to(admin_account_type_url(assigns[:account_type]))
   end
 
   it "edit action should render edit template" do
-    get :edit, :id => Account.first
+    get :edit, :id => AccountType.first
     response.should render_template(:edit)
   end
 
   it "update action should render edit template when model is invalid" do
-    Account.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Account.first
+    AccountType.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => AccountType.first
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
-    Account.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Account.first
-    response.should redirect_to(account_url(assigns[:account]))
+    AccountType.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => AccountType.first
+    response.should redirect_to(admin_account_type_url(assigns[:account_type]))
   end
 
   it "destroy action should destroy model and redirect to index action" do
-    account = Account.first
-    delete :destroy, :id => account
-    response.should redirect_to(accounts_url)
-    Account.exists?(account.id).should be_false
+    account_type = AccountType.first
+    delete :destroy, :id => account_type
+    response.should redirect_to(admin_account_types_url)
+    AccountType.exists?(account_type.id).should be_false
   end
 end

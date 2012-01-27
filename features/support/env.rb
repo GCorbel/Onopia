@@ -31,7 +31,6 @@ Spork.each_run do
   rescue NameError
     raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
   end
-  Cucumber::Rails::Database.javascript_strategy = :truncation
   load "#{Rails.root}/config/routes.rb"
   Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
   I18n.backend.load_translations
