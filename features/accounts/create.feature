@@ -29,13 +29,14 @@ Feature:
     
     Then I should see "Credit Agricole"
     
+     
   Scenario: 
     When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"
     And I follow "Configurer"
-    And I select "CODEVI" from "Type"
-    And I fill in "Identifiant" with "0123456890"
-    And I fill in "Mot de passe" with "test1234"
+    And I select "CODEVI" from "account[type_id]"
+    And I fill in "account[login]" with "0123456890"
+    And I fill in "account[password]" with "test1234"
     And I press "Ajouter le compte"
     And I wait until all Ajax requests are complete
     
@@ -47,7 +48,6 @@ Feature:
       | 1        | 0123456789    | test234    |
     
     
-  @now 
   Scenario: 
     When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"

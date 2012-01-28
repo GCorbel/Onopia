@@ -8,6 +8,9 @@ class Account < ActiveRecord::Base
   
   
   validates :type_id, :presence => true
+  validates :user_id, :presence => true
+  validates :bank_id, :presence => true
+  
   validates :login, :presence => true
   validates :password, :presence => true
 end

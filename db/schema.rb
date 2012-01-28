@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20111211225855) do
   create_table "accounts", :force => true do |t|
     t.string   "login"
     t.string   "password"
-    t.integer  "type_id"
     t.decimal  "balance",    :precision => 2, :scale => 0
     t.integer  "user_id"
-    t.integer  "blank_id"
+    t.integer  "bank_id"
+    t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

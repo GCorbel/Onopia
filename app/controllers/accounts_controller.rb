@@ -12,11 +12,12 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
+    @account.bank_id = params[:bank_id]
   end
 
   def create
     @account = Account.new(params[:account])
-    
+    @account.user_id = current_user.id
     unless @account.save
       render :new
     end

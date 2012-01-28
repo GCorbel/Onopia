@@ -8,7 +8,7 @@ Configuration de mon compte
 
 <% @banks.each do |bank| -%>
   <%= bank.label %>
-  <%= link_to 'Configurer', new_account_path(:bank => bank), :remote => true %>
+  <%= link_to 'Configurer', new_account_path(:bank => bank, :bank_id => bank.id), :remote => true %>
 <% end -%>
 
 <% ('A'..'Z').each do |letter| %>

@@ -6,24 +6,29 @@ describe User do
   before {@account = Factory.build(:account)}
   
   it "should be invalid with empty login" do 
-    @account.login = ""
-    @account.save
-    @account.errors[:login].size.should == 1
-    @account.errors[:login].first.should == "doit être rempli(e)"          
+    should_be_invalid_with_empty(@account, "login")          
   end
   
   it "should be invalid with empty password" do 
-    @account.password = ""
-    @account.save
-    @account.errors[:password].size.should == 1
-    @account.errors[:password].first.should == "doit être rempli(e)"          
+    should_be_invalid_with_empty(@account, "password")          
   end
   
   it "should be invalid with empty type" do 
-    @account.type_id = ""
-    @account.save
-    @account.errors[:type_id].size.should == 1
-    @account.errors[:type_id].first.should == "doit être rempli(e)"          
+    should_be_invalid_with_empty(@account, "type_id")           
+  end
+  
+  it "should be invalid with empty bank" do 
+    should_be_invalid_with_empty(@account, "bank_id")         
+  end
+  
+  def should_be_invalid_with_empty(object, field)
+    object.send(field+"=", "")
+    object.save
+    object.errors[field].each do |error|
+      puts error
+    end
+    object.errors[field].size.should == 1
+    object.errors[field].first.should == "doit être rempli(e)" 
   end
   
 end
