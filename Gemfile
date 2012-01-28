@@ -44,7 +44,7 @@ group :test do
   gem 'database_cleaner'
   gem 'simplecov'
   gem 'simplecov-rcov'
-  gem 'capybara-webkit'
+#  gem 'capybara-webkit'
   gem "mocha"
   gem 'capybara-firebug'
   gem "prawn", '0.8.4'
@@ -59,3 +59,5 @@ gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'authlogic'
 gem 'meta_search'
 gem "pdf-toolkit"
+gem 'classifier'
+gem 'madeleine'
