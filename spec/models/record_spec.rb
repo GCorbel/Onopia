@@ -37,13 +37,18 @@ describe Record do
       Record.madeleine.should == madeleine
     end
     
-    it "should initialize madeleine only for the first record" do
-      Record.madeleine = nil
-      Record.new
-      Record.madeleine.should_not be_nil
+    it "should initialize madeleine only one time" do
       madeleine = Record.madeleine
-      Record.new
+      Record.madeleine = nil
+      Record.madeleine.should_not be_nil
+      Record.madeleine.should_not == madeleine
+      madeleine = Record.madeleine
       Record.madeleine.should == madeleine
+    end
+    
+    it "should store madeleine" do
+      Madeleine::DefaultSnapshotMadeleine.any_instance.expects(:take_snapshot)
+      Record.store_madeleine
     end
   end
   
