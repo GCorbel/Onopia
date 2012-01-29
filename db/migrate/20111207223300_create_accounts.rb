@@ -7,7 +7,7 @@ class CreateAccounts < ActiveRecord::Migration
       
       t.belongs_to :user
       t.belongs_to :bank
-      t.belongs_to :type
+      t.belongs_to :account_type
 
       t.timestamps
     end

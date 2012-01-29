@@ -29,12 +29,11 @@ Feature:
     
     Then I should see "Credit Agricole"
     
-     
   Scenario: 
     When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"
     And I follow "Configurer"
-    And I select "CODEVI" from "account[type_id]"
+    And I select "CODEVI" from "account[account_type_id]"
     And I fill in "account[login]" with "0123456890"
     And I fill in "account[password]" with "test1234"
     And I press "Ajouter le compte"
@@ -44,8 +43,8 @@ Feature:
     And I should see "Ajout d'un compte bancaire"
     And I should be on the configuration page
     And the following accounts should exist:
-      | type_id  | login         | password   |
-      | 1        | 0123456789    | test234    |
+      | account_type_id   | login         | password   |
+      | 1                 | 0123456789    | test234    |
     
     
   Scenario: 

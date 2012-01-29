@@ -5,7 +5,13 @@ describe AccountsController do
   render_views
   
   before(:each) do
-    Factory.create(:account)
+    @account = Factory.create(:account)
+  end
+  
+  def connect_user
+    user_session = UserSession.new
+    UserSession.stubs(:find).returns(user_session)
+    UserSession.any_instance.stubs(:record).returns(@account.user)
   end
 
   it "index action should render index template" do
@@ -24,13 +30,16 @@ describe AccountsController do
   end
 
   it "create action should render new template when model is invalid" do
+    connect_user
     Account.any_instance.stubs(:valid?).returns(false)
     post :create, :format => :js
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
+    connect_user
     Account.any_instance.stubs(:valid?).returns(true)
+    Account.any_instance.stubs(:bank).returns(Factory.create(:bank))
     post :create, :format => :js
     response.should render_template(:create)
   end
@@ -53,9 +62,10 @@ describe AccountsController do
   end
 
   it "destroy action should destroy model and redirect to index action" do
+    connect_user
     account = Account.first
-    delete :destroy, :id => account
-    response.should redirect_to(accounts_url)
+    delete :destroy, :id => account, :format => :js
+    response.should render_template(:destroy)
     Account.exists?(account.id).should be_false
   end
 end

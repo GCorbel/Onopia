@@ -5,7 +5,6 @@ class Bank < ActiveRecord::Base
   validates :icon, :presence => true
   
 
-  has_many :account
-  has_many :message
-  has_many :account
+  has_many :accounts
+  has_many :messages
 end

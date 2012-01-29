@@ -33,3 +33,14 @@ end
 Then /^I should be disconnected$/ do
   user_session.should == nil
 end
+
+When /^I confirm popup$/ do
+  page.driver.browser.switch_to.alert.accept 
+  sleep(1)   
+end
+
+When /^I dismiss popup$/ do
+  page.driver.browser.switch_to.alert.dismiss
+  sleep(1)   
+end
+

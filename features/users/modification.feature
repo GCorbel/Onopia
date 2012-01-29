@@ -2,7 +2,7 @@ Feature: Users
   In order to change my information
   As a logged user
   
-  @modification @javascript
+  @javascript
   Scenario: update a user
   
     Given I am logged in as "Guirecc"
@@ -21,7 +21,7 @@ Feature: Users
       | username  | email         | active |
       | Guirecc2  | test@test.com | true   |	
   
-  @modification @javascript
+  @javascript
   Scenario: update a user without the password
   
     Given I am logged in as "Guirecc"
@@ -35,7 +35,7 @@ Feature: Users
 	
 	  Then I should be on the configuration page	
   
-  @modification @javascript
+  @javascript
   Scenario: update a user with error
   
     Given I am logged in as "Guirecc"

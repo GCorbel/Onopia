@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe User do
 
-  before {@account = Factory.build(:account)}
+  before {@account = Account.create}
   
   it "should be invalid with empty login" do 
     should_be_invalid_with_empty(@account, "login")          
@@ -14,7 +14,7 @@ describe User do
   end
   
   it "should be invalid with empty type" do 
-    should_be_invalid_with_empty(@account, "type_id")           
+    should_be_invalid_with_empty(@account, "account_type_id")           
   end
   
   it "should be invalid with empty bank" do 
@@ -23,11 +23,7 @@ describe User do
   
   def should_be_invalid_with_empty(object, field)
     object.send(field+"=", "")
-    object.save
-    object.errors[field].each do |error|
-      puts error
-    end
-    object.errors[field].size.should == 1
+    object.errors[field].size.should_not == 0
     object.errors[field].first.should == "doit être rempli(e)" 
   end
   

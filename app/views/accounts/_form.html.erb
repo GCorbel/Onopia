@@ -11,8 +11,8 @@
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :type_id %><br />
-    <%= f.collection_select(:type_id, AccountType.all, :id, :label) %>
+    <%= f.label :account_type_id %><br />
+    <%= f.collection_select(:account_type_id, AccountType.all, :id, :label) %>
   </p>
   <p><%= f.submit "Ajouter le compte" %></p>
 <% end %>

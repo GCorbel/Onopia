@@ -39,6 +39,5 @@ class AccountsController < ApplicationController
   def destroy
     @account = Account.find(params[:id])
     @account.destroy
-    redirect_to accounts_url, :notice => "Votre compte a été correctement supprimé."
   end
 end

@@ -4,6 +4,8 @@ FactoryGirl.define do
     f.sequence(:login){ |n| "guirecc"}
     f.sequence(:password){ |n| "test1234"}
     f.sequence(:balance){ |n| n*100}
-    account_type
+    association :bank, :factory => :bank
+    association :user, :factory => :user
+    association :account_type, :factory => :account_type
   end
 end

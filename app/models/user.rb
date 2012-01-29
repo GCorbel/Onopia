@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
-  has_many :account
-  has_many :alert
-  has_many :budget
-  has_many :message
-  has_many :new
-  has_many :opportunity
+  has_many :accounts
+  has_many :alerts
+  has_many :budgets
+  has_many :messages
+  has_many :news
+  has_many :opportunities
   
   validate :password, :presence => true
   validate :username, :presence => true

@@ -1,0 +1,4 @@
+<% @current_user.accounts.each do |account| %>
+  <%= account.bank.label %> 
+  <%= link_to "Supprimer", account_path(account), :confirm => "Êtes vous sûre?", :method => :delete, :id => 'destroy_account', :remote => true %>
+<% end %>
