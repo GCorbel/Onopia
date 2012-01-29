@@ -18,42 +18,58 @@ describe Record do
   
   
   it "should be categorized when there is informations" do
-    Record.madeleine = nil
+    Record.bayesian_system = nil
     create_record('Achat chez Intermarché', @category1)
     create_record('Achat chez Carrefour', @category1)
-    create_record('Salaire du travail', @category2)
+    work_record = create_record('Salaire du travail', @category2)
+    create_record('Revenus banquaire', @category2)
+    
+    label = 'Salaire du travail'
+    record = Factory.build(:record, :label => label, :category => nil)
+    record.category.should == @category2 
+    
+    work_record.train_for(@category1)
+    
+    label = 'Salaire du travail'
+    record = Factory.build(:record, :label => label, :category => nil)
+    record.category.should == @category1 
+    
+    work_record.train_for(@category2)
+    
+    label = 'Salaire du travail'
+    record = Factory.build(:record, :label => label, :category => nil)
+    record.category.should == @category2 
     
     label = 'Achat chez Leader Price'
     record = Factory.build(:record, :label => label, :category => nil)
     record.category.should == @category1 
   end
   
-  describe "madeleine" do
+  describe "bayesian system" do
     it "should change the class variable" do
-      madeleine = SnapshotMadeleine.new("bayes_data") {
-          Classifier::Bayes.new
-      }
-      Record.madeleine = madeleine
-      Record.madeleine.should == madeleine
+      bayes = NaiveBayes.new()
+      Record.bayesian_system = bayes
+      Record.bayesian_system.should == bayes
     end
     
-    it "should initialize madeleine only one time" do
-      madeleine = Record.madeleine
-      Record.madeleine = nil
-      Record.madeleine.should_not be_nil
-      Record.madeleine.should_not == madeleine
-      madeleine = Record.madeleine
-      Record.madeleine.should == madeleine
+    it "should initialize the bayesian system only one time" do
+      bayes = Record.bayesian_system
+      Record.bayesian_system = nil
+      Record.bayesian_system.should_not be_nil
+      Record.bayesian_system.should_not == bayes
+      bayes = Record.bayesian_system
+      Record.bayesian_system.should == bayes
     end
     
     it "should store madeleine" do
-      Madeleine::DefaultSnapshotMadeleine.any_instance.expects(:take_snapshot)
-      Record.store_madeleine
+      NaiveBayes.any_instance.expects(:save)
+      Record.store_bayesian_system
     end
   end
   
   def create_record(label, category)
     record = Factory.create(:record, :label => label, :category => nil)
-    record.train_for @category1
+    record.train_for category
+    record
   end
 end

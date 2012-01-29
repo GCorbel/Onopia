@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/reddavis/Naive-Bayes.git
+  revision: e9e48bc3dea92bafa23d4c4c4d83ed03254915ab
+  specs:
+    naive_bayes (0.0.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -51,8 +57,6 @@ GEM
       capybara (~> 1.0)
     childprocess (0.2.4)
       ffi (~> 1.0.6)
-    classifier (1.3.3)
-      fast-stemmer (>= 1.0.0)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.1.0)
@@ -84,7 +88,6 @@ GEM
     factory_girl_rails (1.4.0)
       factory_girl (~> 2.3.0)
       railties (>= 3.0.0)
-    fast-stemmer (1.0.0)
     ffi (1.0.11)
     galetahub-simple_captcha (0.1.3)
     gherkin (2.7.1)
@@ -227,7 +230,6 @@ DEPENDENCIES
   autotest-rails
   capybara
   capybara-firebug
-  classifier
   coffee-rails (~> 3.1.1)
   cucumber-rails
   database_cleaner
@@ -239,6 +241,7 @@ DEPENDENCIES
   madeleine
   meta_search
   mocha
+  naive_bayes!
   nifty-generators
   pdf-toolkit
   pickle

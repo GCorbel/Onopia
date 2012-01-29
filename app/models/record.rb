@@ -4,37 +4,42 @@ class Record < ActiveRecord::Base
   belongs_to :category
   belongs_to :project
   
-  #madeleine is used to store information about baysian system
-  #you can show informations at this page :
-  #http://rubydoc.info/gems/madeleine/0.7.3/frames
-  @@madeleine = nil
+  #We user Naive Bayes for the IA part
+  #You can see the documentation at this address:
+  #https://github.com/reddavis/Naive-Bayes
+  @@bayesian_system = nil
   
-  def self.madeleine= madeleine
-    @@madeleine = madeleine
+  def self.bayesian_system= bayesian_system
+    @@bayesian_system = bayesian_system
   end
   
-  #Madeleine should be initialized only one time
-  def self.madeleine
-    unless @@madeleine
-      @@madeleine = SnapshotMadeleine.new("bayes_data") {
-          Classifier::Bayes.new
-      }
-      Category.all.each do | category |
-        @@madeleine.system.add_category(category.label)
+  #The bayesian system should be initialized only one time
+  def self.bayesian_system
+    unless @@bayesian_system
+      categories = Category.all.map do | category |
+        category.id
       end
+      @@bayesian_system = NaiveBayes.new(*categories)
+      @@bayesian_system.db_filepath = 'db/baysian_system.nb'
     end
-    @@madeleine
+    @@bayesian_system
   end
   
   #Store the data
-  def self.store_madeleine
-    Record.madeleine.take_snapshot
+  def self.store_bayesian_system
+    @@bayesian_system.save
   end
   
   #train the baysian system with the category and the label's record
   def train_for(category)
-    if self.category && self.label
-      Record.madeleine.system.train(self.category.label, self.label)
+    if self.label
+      if read_attribute(:category_id)
+        begin
+          Record.bayesian_system.untrain(read_attribute(:category_id), self.label)
+        rescue
+        end
+      end
+      Record.bayesian_system.train(category.id, self.label)
     end
     self.category = category
   end
@@ -46,8 +51,8 @@ class Record < ActiveRecord::Base
       category = Category.find(category_id)
     else
       if self.label
-        category_label = Record.madeleine.system.classify(self.label)
-        category = Category.find_by_label(category_label)
+        category_id = Record.bayesian_system.classify(self.label)[0]
+        category = Category.find(category_id)
       end
     end
     category

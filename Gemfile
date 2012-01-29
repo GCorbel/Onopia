@@ -59,5 +59,5 @@ gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'authlogic'
 gem 'meta_search'
 gem "pdf-toolkit"
-gem 'classifier'
+gem 'naive_bayes', :git => 'git://github.com/reddavis/Naive-Bayes.git'
 gem 'madeleine'

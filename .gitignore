@@ -20,3 +20,4 @@
 /coverage/*
 /bayes_data
 /bayes_data/*
+/db/.fuse_hidden*
