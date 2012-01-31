@@ -31,33 +31,30 @@ gem 'jquery-rails'
 gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-  gem 'capybara'
-  gem 'rspec-rails'
-  gem 'autotest-rails'
-  gem 'spork'
-  gem 'factory_girl_rails'
-  gem 'email_spec'
-  gem 'cucumber-rails'
-  gem 'spork'
-  gem 'launchy'
-  gem 'pickle'
-  gem 'database_cleaner'
-  gem 'simplecov'
-  gem 'simplecov-rcov'
-#  gem 'capybara-webkit'
-  gem "mocha"
-  gem 'capybara-firebug'
+  gem 'capybara', '1.1.2'
+  gem 'rspec-rails', '2.7.0'
+  gem 'autotest-rails', '4.1.1'
+  gem 'spork', '0.8.5'
+  gem 'factory_girl_rails', '1.4.0'
+  gem 'email_spec', '1.2.1'
+  gem 'cucumber-rails', '1.2.1'
+  gem 'launchy', '2.0.5'
+  gem 'pickle', '0.4.10'
+  gem 'database_cleaner', '0.7.0'
+  gem 'simplecov', '0.5.4'
+  gem 'simplecov-rcov', '0.2.3'
+  gem "mocha", '0.10.0'
+  gem 'capybara-firebug', '0.0.10'
   gem "prawn", '0.8.4'
 end
 
 group :development do
-  gem "nifty-generators"
+  gem "nifty-generators", '0.4.6'
 end
 
-gem 'active_reload'
-gem "galetahub-simple_captcha", :require => "simple_captcha"
-gem 'authlogic'
-gem 'meta_search'
-gem "pdf-toolkit"
+gem 'active_reload', '0.6.1'
+gem "galetahub-simple_captcha", '0.1.3', :require => "simple_captcha"
+gem 'authlogic', '3.1.0'
+gem 'meta_search', '1.1.1'
+gem "pdf-toolkit", '0.49'
 gem 'naive_bayes', :git => 'git://github.com/reddavis/Naive-Bayes.git'
-gem 'madeleine'
