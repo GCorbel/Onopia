@@ -46,6 +46,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    capybara-firebug (0.0.10)
+      capybara (~> 1.0)
     capybara-webkit (0.7.2)
       capybara (>= 1.0.0, < 1.2)
     childprocess (0.2.3)
@@ -204,6 +206,7 @@ DEPENDENCIES
   authlogic
   autotest-rails
   capybara
+  capybara-firebug
   capybara-webkit
   coffee-rails (~> 3.1.1)
   cucumber-rails

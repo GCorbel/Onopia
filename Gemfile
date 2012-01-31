@@ -46,6 +46,7 @@ group :test do
   gem 'simplecov-rcov'
   gem 'capybara-webkit'
   gem "mocha"
+  gem 'capybara-firebug'
 end
 
 group :development do

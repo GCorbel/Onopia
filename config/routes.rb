@@ -8,7 +8,7 @@ Onopia::Application.routes.draw do
 
   get "home/index"
   
-  match 'login' => 'user_sessions#new', :as => :login
+  match 'login' => 'home#login', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   
   match 'configuration' => 'configuration#index', :as => :configuration

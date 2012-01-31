@@ -8,9 +8,8 @@ class UsersController < ApplicationController
     
     if (ENV["RAILS_ENV"] == "test" and @user.save) or @user.save_with_captcha
       UserMailer.activation(@user).deliver
-      render :json => { state: 'success', html: t("successfully_created", :scope => 'users.controller')}
     else
-      render_error_json(@user)
+      render :new
     end
   end
   
@@ -23,10 +22,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
       
-    if @user.update_attributes(params[:user])
-      render :json => { state: 'success', html: t("successfully_updated", :scope => 'users.controller')}
-    else
-      render_error_json(@user)
+    unless @user.update_attributes(params[:user])
+      render :edit
     end
   end
 end

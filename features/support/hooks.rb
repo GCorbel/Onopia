@@ -1,7 +1,6 @@
 Before do
-  DatabaseCleaner.start
-end
-
-After do
-  DatabaseCleaner.clean
+  User.destroy_all
+  Account.destroy_all
+  AccountType.destroy_all
+  Bank.destroy_all
 end

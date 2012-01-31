@@ -1,0 +1,19 @@
+<%= render :partial => "shared/error_popup", :locals => { :target => user_session }  %>
+<h1>Ouvrir un compte</h1>
+<%= form_for(user_session, :remote => true) do |f| %>
+  <div class="field">
+    <%= f.label :username, :class => "grey" %><br />
+    <%= f.text_field :username, :class => "field"  %>
+  </div>
+  <div class="field">
+    <%= f.label :password, :class => "grey" %><br />
+    <%= f.password_field :password, :class => "field"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Connexion", :class => "bt_login" %>
+  </div>
+  <br/>
+  <br/>
+<% end %>
+
+

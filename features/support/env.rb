@@ -11,6 +11,10 @@ Spork.prefork do
   require 'email_spec'
   require 'email_spec/cucumber'
   require "authlogic/test_case"
+  require 'capybara/firebug'
+  
+  
+  Selenium::WebDriver::Firefox::Profile.firebug_version = '1.8.3'
   
   Capybara.javascript_driver = :selenium
   Capybara.default_selector = :css

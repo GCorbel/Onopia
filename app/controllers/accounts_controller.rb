@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(params[:account])
-    @account.user_id = current_user.id
+    @account.user_id = @current_user.id
     unless @account.save
       render :new
     end

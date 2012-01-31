@@ -5,3 +5,7 @@
  *= require_self
  *= require_tree . 
 */
+
+#message {
+  font-size: 12px
+}

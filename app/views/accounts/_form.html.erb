@@ -1,5 +1,4 @@
-<%= flash[:notice] %>
-<%= render :partial => "shared/error_messages", :locals => { :target => @account  }  %>
+<%= render :partial => "shared/error_popup", :locals => { :target => @account  }  %>
 <%= form_for @account, :remote => true do |f| %>
     <%= f.hidden_field :bank_id %>
   <p>

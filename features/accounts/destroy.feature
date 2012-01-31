@@ -4,8 +4,7 @@ Feature:
   As a logged user
   
   Background:
-    Given There is an empty an empty database
-    And I am logged in as "Guirecc"
+    Given I am logged in as "Guirecc"
     And a bank exists
     And account type exists
     And a account exists for "Guirecc"
@@ -15,6 +14,7 @@ Feature:
   Scenario: destroy a bank account
     When I follow "destroy_account"
     And I confirm popup
+    And I wait until all Ajax requests are complete
     
     Then account should not exist
     And I should be on the configuration page

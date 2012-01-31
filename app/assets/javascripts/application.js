@@ -22,3 +22,29 @@ $(function($){
     }
   })
 });
+
+function showMessage(title, message) {
+  $("#message").html(message)
+  popUp("#message", title)
+}
+
+function popUp(id, title) {
+  $(id).wijdialog({
+    title: title,
+    width: 400,
+    autoOpen: true,
+    modal: true,
+    buttons: {
+        Ok: function () {
+            $(this).wijdialog("close");
+        }
+    },
+    captionButtons: {
+        pin: { visible: false },
+        refresh: { visible: false },
+        toggle: { visible: false },
+        minimize: { visible: false },
+        maximize: { visible: false }
+    }
+  });
+}

@@ -4,8 +4,7 @@ Feature:
   I want to link a new account with the site
   
   Background:
-    Given There is an empty an empty database
-    And I am logged in as "Guirecc"
+    Given I am logged in as "Guirecc"
     And a bank exists
     And account type exist with label: "CODEVI"
       
@@ -17,7 +16,6 @@ Feature:
     And I should see "Ajout d'un compte bancaire"
     And I should see "Configuration de mon compte"
     
-    
   Scenario: search a new account
     When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"
@@ -28,7 +26,7 @@ Feature:
     When I follow "C"
     
     Then I should see "Credit Agricole"
-    
+  
   Scenario: 
     When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"
@@ -39,15 +37,14 @@ Feature:
     And I press "Ajouter le compte"
     And I wait until all Ajax requests are complete
     
-    Then I should see "Votre compte a été correctement paramétré."
-    And I should see "Ajout d'un compte bancaire"
-    And I should be on the configuration page
-    And the following accounts should exist:
+    Then I should be on the configuration page
+    And  the following accounts should exist:
       | account_type_id   | login         | password   |
       | 1                 | 0123456789    | test234    |
+    And I should see "Votre compte a été correctement paramétré."
+    And I should see "Ajout d'un compte bancaire"
     
-    
-  Scenario: 
+  Scenario: Try to add an account with invalid data 
     When I fill in "Rechercher un établissement bancaire" with "Credit"
     And I press "Rechercher"
     And I follow "Configurer"

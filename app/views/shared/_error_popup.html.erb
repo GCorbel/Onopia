@@ -1,0 +1,5 @@
+<% if target.errors.any? %>
+  <script type="text/javascript">
+    showMessage("<%= pluralize(target.errors.count, "erreur à été commise", "erreurs ont étés commises") %>", '<%= escape_javascript(render(:partial => "shared/error_messages", :locals => { :target => target } )) %>');
+  </script>
+<% end %>

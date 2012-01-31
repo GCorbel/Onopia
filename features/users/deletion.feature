@@ -3,13 +3,13 @@ Feature: Users
   As a logged user
   I want to delete my account
   
-  
+  @javascript
   Scenario: delete a user
-  
     Given I am logged in as "Guirecc"
     
     When I go to the configuration page
 	  And I follow "Supprimer mon compte"
+    And I confirm popup
 	
 	  Then I should be on the login page
 	  And I should see "Votre compte à été supprimé"

@@ -1,0 +1,39 @@
+<%= render :partial => "shared/error_popup", :locals => { :target => user }  %>
+<h1>Accès client</h1>
+<%= form_for(user, :remote => true) do |f| %>
+  <div class="field">
+    <%= f.label :username, :class => "grey" %><br />
+    <%= f.text_field :username, :class => "field"  %>
+  </div>
+  <div class="field">
+    <%= f.label :email, :class => "grey" %><br />
+    <%= f.text_field :email, :class => "field"  %>
+  </div>
+  <div class="field">
+    <%= f.label :password, :class => "grey" %><br />
+    <%= f.password_field :password, :class => "field"  %>
+  </div>
+  <div class="field">
+  <style>
+    div.captcha img {
+      float: left;
+    }
+    div.captcha input {
+      background: none repeat scroll 0 0 #414141;
+      border: 1px solid #1A1A1A;
+      color: white;
+      height: 16px;
+      margin-left: 10px;
+      margin-right: 5px;
+      margin-top: 4px;
+      width: 110px;
+    }
+  </style>
+  <%= show_simple_captcha(:object=>"user") %>
+  </div>
+  </br>
+  Une confirmation vous sera envoyée par mail.
+  <div class="actions">
+    <%= f.submit "Valider", :class => "bt_register" %>
+  </div>
+<% end %>

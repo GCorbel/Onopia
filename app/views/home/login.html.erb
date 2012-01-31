@@ -1,0 +1,125 @@
+<!-- Panel -->
+<div id="toppanel">
+	<div id="panel">
+		<div class="content clearfix">
+			<div class="left">
+				<h1><img src="/assets/onopia_rev-small.png" /></h1>
+				<h2>Utilisation</h2>		
+				<p class="grey">Si vous possédez un compte, identifiez depuis le formulaire <b>Accès Client</b>. Dans le cas contraire, n'hésitez pas à ouvrir un compte : c'est <b>gratuit</b>.</p>
+				<h2>Une plateforme sécurisée</h2>
+				<p class="grey">Le site est entièrement sécurisé. Les accès aux données bancaires se font uniquement en lecture seule.</p>
+			</div>
+			<div class="left" id="new_user_session">
+			  <%= render :partial => 'user_sessions/new', :locals => {:user_session => @user_session} %>
+			</div>	
+			<div class="left right" id="new_user" id="new_user_session">	
+			  <%= render :partial => 'users/new', :locals => {:user => @user} %>
+			</div>
+		</div>
+	</div> <!-- /login -->	
+
+    <!-- The tab on top -->	
+	<div class="tab">
+		<ul class="login">
+	    	<li class="left">&nbsp;</li>
+	        <li>Bienvenue!</li>
+			<li class="sep">|</li>
+			<li id="toggle">
+				<a id="open" class="open" href="#">Connexion | Inscription</a>
+				<a id="close" style="display: none;" class="close" href="#">Fermer</a>	
+			</li>
+	    	<li class="right">&nbsp;</li>
+		</ul> 
+	</div> <!-- / top -->
+	
+</div> <!--panel -->
+
+<div class="welcome">
+  <h1>Rejoignez le réseau <span>onopia.com</span>, <br/>une nouvelle façon de <span>gérer son argent</span> au quotidien</h1>
+  <center><img src="/assets/onopia.png" /></center>
+</div>
+
+<div id="debug" style="width: 50%; height: 10%">
+</div>
+
+<div id="main">
+</div>
+
+<style type="text/css">
+#main { display: none; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 1000; background-color: #000; opacity: 0.6;}
+#browsers { 
+  z-Index: 1001; position: absolute; top: 30%; left: 25%; 
+  display: none; text-align: center; 
+  -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+  padding: 20px 20px; border: 3px solid yellow; width: 40em; background-color: #EDEDED;}
+.info { font-family: 'sans-serif'; font-size: 18px; color: #666; font-weight: 400; } 
+#browsers .info { background-color: lightyellow; padding: 5px 5px; }
+#browsers ul, #browsers ul li { padding: 0px 0px; margin: 0px 0px; list-style-type: none; }
+#browsers ul li { float: left; margin: 8px 8px; }
+#browsers ul li .browser { width: 5.5em; height: 6em; color: #aaa; font-family: 'sans-serif'; padding: 10px 10px; border: 1px solid #ccc; text-align: center; background: #fff;}
+#browsers ul li .browser a { font-size: 0.7em; color: #900; }
+</style>
+<div id="browsers">
+  <div class="info">Votre navigateur est trop ancien. Nous vous invitons à installer et utiliser un des navigateurs de dernière génération ci-dessous :</div>
+  <ul>
+   <li>
+    <div class="browser">
+     <img src="/assets/logos/chrome_logo.png" />
+     <div>Chrome 4.1</div>
+     <div><a href="">Télécharger</a></div>
+    </div>
+   </li>
+   <li>
+    <div class="browser">
+     <img src="/assets/logos/firefox_logo.png" />
+     <div>Firefox 3.6</div>
+     <div><a href="">Télécharger</a></div>
+    </div>
+   </li>
+   <li>
+    <div class="browser">
+     <img src="/assets/logos/ie8_logo.png" />
+     <div>IE 8.0</div>
+     <div><a href="">Télécharger</a></div>
+    </div>
+   </li>
+   <li>
+    <div class="browser">
+     <img src="/assets/logos/safari_logo.png" />
+     <div>Safari 4.0</div>
+     <div><a href="">Télécharger</a></div>
+    </div>
+   </li>
+   <li>
+    <div class="browser">
+     <img src="/assets/logos/opera_logo.png" />
+     <div>Opera 10.53</div>
+     <div><a href="">Télécharger</a></div>
+    </div>
+   </li>
+  </ul>
+  <div style="clear: both;"></div>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $("#form-register").submit( function(event) {
+      $("#loading").show();
+      $.ajax( {
+        type: 'POST',
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        success: function( content, status, xhr ) {
+	      $("#loading").hide();
+          $("#debug").html( content );
+        }
+      });
+      return false;
+    });
+    if ( jQuery.browser.msie && parseInt(jQuery.browser.version)<=6 ) { 
+       $('#main').show();
+       $('#browsers').show();
+    }
+  });
+</script>
+

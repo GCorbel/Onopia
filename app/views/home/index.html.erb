@@ -1,4 +1,4 @@
-<%= flash[:notice] %>
+Bienvenue <%= @current_user %>
 en cours
 
-<%= link_to "Se deconnecter", user_session_path(@current_user), :confirm => t('.are_you_sure'), :method => :delete %>
+<%= link_to "Se deconnecter", user_session_path(@current_user), :method => :delete %>

@@ -1,14 +1,16 @@
+@javascript
 Feature: Users
   In order to change my information
   As a logged user
   
-  @javascript
-  Scenario: update a user
-  
+  Background:
     Given I am logged in as "Guirecc"
     
     When I go to the configuration page
-	  And I fill in the following:
+  
+  
+  Scenario: update a user
+	  When I fill in the following:
       | user[username] | Guirecc2                 |
       | user[email]    | test@test.com            |
       | user[password] | test1234                 |
@@ -21,12 +23,7 @@ Feature: Users
       | username  | email         | active |
       | Guirecc2  | test@test.com | true   |	
   
-  @javascript
   Scenario: update a user without the password
-  
-    Given I am logged in as "Guirecc"
-    
-    When I go to the configuration page
 	  Then I fill in the following:
       | user[username] | Guirecc2                 |
       | user[email]    | test@test.com            |
@@ -35,12 +32,7 @@ Feature: Users
 	
 	  Then I should be on the configuration page	
   
-  @javascript
   Scenario: update a user with error
-  
-    Given I am logged in as "Guirecc"
-    
-    When I go to the configuration page
 	  Then I fill in the following:
       | user[username] | Guirecc2        |
       | user[email]    | test            |

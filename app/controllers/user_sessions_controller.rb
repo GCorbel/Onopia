@@ -14,18 +14,19 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     @user_session.remember_me = true
-    if @user_session.save
-      flash[:notice] = "Bienvenue #{@user_session.user.username}"
-      render :json => { state: 'success', redirect: root_path}
-    else 
-      render_error_json(@user_session)
+    unless @user_session.save
+      render :new, :format => :js
     end
   end
 
   # DELETE /user_sessions/1
   # DELETE /user_sessions/1.xml
   def destroy
-    @user_session = UserSession.find
+    if @current_user_session
+      @user_session = @current_user_session
+    else
+      @user_session = UserSession.find
+    end
     if @user_session
       @user_session.destroy
     end
