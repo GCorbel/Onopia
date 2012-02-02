@@ -15,7 +15,6 @@ Feature: Users
       | user[email]    | test@test.com            |
       | user[password] | test1234                 |
     And I press "Valider"
-    And I wait until all Ajax requests are complete
 	
 	  Then I should be on the configuration page
 	  And I should see "Votre compte a été modifié"
@@ -28,7 +27,6 @@ Feature: Users
       | user[username] | Guirecc2                 |
       | user[email]    | test@test.com            |
     And I press "Valider"
-    And I wait until all Ajax requests are complete
 	
 	  Then I should be on the configuration page	
   
@@ -37,7 +35,6 @@ Feature: Users
       | user[username] | Guirecc2        |
       | user[email]    | test            |
     And I press "Valider"
-    And I wait until all Ajax requests are complete
 	
 	  Then I should be on the configuration page
 	  And I should see "erreurs ont étés commises"

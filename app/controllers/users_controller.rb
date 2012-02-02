@@ -26,4 +26,10 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
+  def update_theme
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+    redirect_to configuration_path
+  end
 end

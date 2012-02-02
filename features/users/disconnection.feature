@@ -8,6 +8,6 @@ Feature: Users
     Given I am logged in as "Guirecc"
 	
 	  When I go to the home page 
-	  And I follow "Se deconnecter"
+	  And I follow "delete"
 	
 	  Then I should be disconnected

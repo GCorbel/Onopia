@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Label</th>
+    <th>Url</th>
+  </tr>
+  <% for theme in @themes %>
+    <tr>
+      <td><%= theme.label %></td>
+      <td><%= theme.url %></td>
+      <td><%= link_to "Show", [:admin, theme] %></td>
+      <td><%= link_to "Edit", edit_admin_theme_path(theme) %></td>
+      <td><%= link_to "Destroy", [:admin, theme], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Admin/Theme", new_admin_theme_path %></p>

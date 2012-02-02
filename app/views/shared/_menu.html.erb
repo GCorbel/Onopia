@@ -1,0 +1,20 @@
+<ul id="menu">
+  <li><%= link_to "Accueil", root_path %></li>
+  <li><a href="#">Comptes</a></li>
+  <li><%= link_to "Configuration", configuration_path %></li>
+  <li style="margin-left:500px">
+    <%= link_to image_tag("http://beta.onopia.com/public/img/logout.png"),
+           user_session_path(@current_user), :method => :delete, :id => "delete" %>
+  </li>
+</ul>
+
+<script id="scriptInit" type="text/javascript">
+  $(document).ready(function () {
+      $("#menu").wijmenu();
+  });
+  <% (position + 1).times do %>
+    jQuery(document).ready(function($) {
+      $("#menu").focus().wijmenu("next");
+    });
+  <% end %>
+</script>

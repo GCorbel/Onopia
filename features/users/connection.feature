@@ -17,7 +17,6 @@ Feature: Users
       | user_session[username] | Guirecc                  |
       | user_session[password] | test1234                 |
     And I press "Connexion"
-    And I wait until all Ajax requests are complete
 	
 	  Then I should be on the home page
 	  And I should see "Bienvenue Guirecc"

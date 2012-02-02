@@ -6,3 +6,5 @@ std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags ~@wip
 default: --drb <%= std_opts %> features -r features
 wip: --drb --tags @wip:3 --wip features -r features
 rerun: --drb <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip -r features
+autotest: --drb --format pretty features --strict --tags ~@wip
+autotest-all: --drb --format progress features --strict --tags ~@wip

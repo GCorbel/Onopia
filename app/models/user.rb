@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :news
   has_many :opportunities
   
+  belongs_to :theme
+  
   validate :password, :presence => true
   validate :username, :presence => true
 

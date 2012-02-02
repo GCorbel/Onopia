@@ -2,7 +2,7 @@
 <%= form_for(user, :remote => true) do |f| %>
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.text_field :username, :class => "test" %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -12,7 +12,12 @@
     <%= f.label :password %><br />
     <%= f.text_field :password %>
   </div>
+  <br/>
   <div class="actions">
     <%= f.submit t(".submit") %>
+    <%= link_to "Supprimer mon compte", 
+                      user_path(@current_user), 
+                      :confirm => "Êtes vous sûre?", 
+                      :method => :delete %>
   </div>
 <% end %>

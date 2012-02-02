@@ -6,23 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-
-$(function($){ 
-  $("form").bind('ajax:success', function(data, status, xhr) {
-    if (status.state == 'success') {
-      if (status.html) {
-        $("#message").html(status.html);
-      }
-      if (status.redirect) {
-        $(location).attr('href', status.redirect);
-      }
-    } else {
-      $("#errors").html(status.html);
-    }
-  })
-});
-
 function showMessage(title, message) {
   $("#message").html(message)
   popUp("#message", title)
@@ -48,3 +31,11 @@ function popUp(id, title) {
     }
   });
 }
+$("html").bind("ajaxSend", function() {
+  $('body').css('cursor', 'wait');
+});
+
+$("html").bind("ajaxStop", function() {
+  $('body').css('cursor', 'auto');
+});
+

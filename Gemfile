@@ -47,6 +47,7 @@ group :test do
   gem 'capybara-webkit'
   gem "mocha"
   gem 'capybara-firebug'
+  gem "prawn", '0.8.4'
 end
 
 group :development do

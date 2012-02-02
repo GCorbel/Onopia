@@ -16,7 +16,6 @@ Feature: Users
       | user[email]    | test@test.com            |
       | user[password] | test1234                 |
     And I press "Valider"
-    And I wait until all Ajax requests are complete
     
     Then "test@test.com" should receive an email
     And I should see "Vous avez été enregistré."
@@ -32,7 +31,6 @@ Feature: Users
       
   Scenario: Create a user with invalid information    
     When I press "Valider" 
-    And I wait until all Ajax requests are complete
     
     Then I should be on the login page
     And I should see "erreurs ont étés commises"

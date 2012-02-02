@@ -1,1 +1,20 @@
 $("#index_bank").html("<%= escape_javascript(render('banks/index')) %>")
+$("#index_bank").wijdialog({
+  autoOpen: true,
+  height: 400,
+  width: 840,
+  modal: true,
+  captionButtons: {
+      pin: { visible: false },
+      refresh: { visible: false },
+      toggle: { visible: false },
+      minimize: { visible: false },
+      maximize: { visible: false }
+  }
+});
+$(":input[type='text'],:input[type='password'],textarea").wijtextbox();
+$(":input[type='radio']").wijradio();
+$(":input[type='checkbox']").wijcheckbox();
+$(":input[type='submit']").button();
+$("#index_bank").css("display", "block");
+

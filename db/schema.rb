@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211225855) do
+ActiveRecord::Schema.define(:version => 20120131193640) do
 
   create_table "account_types", :force => true do |t|
     t.string   "label"
@@ -139,6 +139,13 @@ ActiveRecord::Schema.define(:version => 20111211225855) do
 
   add_index "simple_captcha_data", ["key"], :name => "idx_key"
 
+  create_table "themes", :force => true do |t|
+    t.string   "label"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username",                             :null => false
     t.string   "email",                                :null => false
@@ -149,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20111211225855) do
     t.string   "perishable_token",  :default => "",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "theme_id"
   end
 
 end

@@ -233,7 +233,7 @@ fr:
       account:
         login: "Identifiant"
         password: "Mot de passe"
-        type: "Type"
+        account_type_id: "Type"
 
   home:
     successfully_updated: "Votre mot de passe a été modifié"

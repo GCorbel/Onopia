@@ -1,5 +1,7 @@
 Onopia::Application.routes.draw do
 
+  namespace(:admin){ resources :themes }
+
   namespace(:admin){ resources :account_types }
 
   resources :accounts
@@ -13,7 +15,11 @@ Onopia::Application.routes.draw do
   
   match 'configuration' => 'configuration#index', :as => :configuration
   
-  resources :users
+  resources :users do
+    member do
+      post 'update_theme'
+    end
+  end
   resources :user_activates, :user_sessions
   resources :configuration, :only => [:index]
   

@@ -1,4 +1,3 @@
+<%= render :partial => 'shared/menu', :locals => { :position => 0 } %>
 Bienvenue <%= @current_user %>
 en cours
-
-<%= link_to "Se deconnecter", user_session_path(@current_user), :method => :delete %>

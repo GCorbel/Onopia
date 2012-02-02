@@ -1,3 +1,29 @@
-<%= render 'form' %>
 
-<p><%= link_to "Back to List", accounts_path %></p>
+<%= render  :partial => "shared/error_popup", 
+            :locals => { :target => @account  }  %>
+<div id="account_form_container"align="center">
+  <div id="account_form_content" align="left">
+  <%= form_for @account, :remote => true do |f| %>
+    <%= f.hidden_field :bank_id %>
+    <p>
+      <%= f.label :login, "Identifiant" %><br />
+      <%= f.text_field :login %>
+    </p>
+    <p>
+      <%= f.label :password, "Mot de passe" %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :account_type_id %><br />
+      <%= f.collection_select(:account_type_id, AccountType.all, :id, :label) %>
+    </p>
+    <p>
+      <%= f.submit "Ajouter le compte" %> 
+      <%= link_to "Annuler", 
+                  banks_path, 
+                  :remote => true %>
+    </p>
+  <% end %>
+  </div>
+</div>
+<%= stylesheet_link_tag 'accounts' %>

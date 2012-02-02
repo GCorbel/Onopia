@@ -1,16 +1,70 @@
-Ajout d'un compte bancaire
-Configuration de mon compte
+<%= stylesheet_link_tag 'banks' %>
+<%= javascript_include_tag 'banks' %>
+<br/>
+<div id="letter_index">
+  <ul>
+    <% ('A'..'Z').each do |letter| %>
+      <li>
+        <%= link_to letter, 
+                    banks_path(:bank => {:label => letter}), 
+                    :remote => true %> 
+      </li>
+    <% end %>
+  </ul>
+</div>
+<table>
+  <tr>
+    <td id="container_result" class="container">
+      <div class="expander">
+        <h3>Résultats</h3>
+        <div id="content_result">
+          <% if @banks.any? %>
+            <table id="bank_list">
+                <tbody>
+                  <% @banks.each do |bank| -%>
+                    <tr>
+                      <td>
+                        <% if bank.icon %>
+                          <%= image_tag bank.icon %>
+                        <% end %>
+                        <%= bank.label %>
+                      </td>
+                      <td>
+                        <%= link_to 'Configurer', 
+                                    new_account_path( :bank => bank, 
+                                                      :bank_id => bank.id), 
+                                    :remote => true %>
+                      </td>
+                    </tr>
+                  <% end -%>
+              </tbody>
+            </table>
+          <% elsif @bank.label %>
+            Aucun résultat.<br/>Veuillez effectuer une autre recherche.
+          <% else %>
+            Veuillez effectuer une recherche pour afficher la liste des banques.
+          <% end %>
+        </div>
+      </div>
+    </td>
+    <td class="container" class="container">
+      <div class="expander">
+        <h3>Recherche</h3>
+        <div id="content_search">
+          <%= form_for  @bank, 
+                        :url => banks_path, 
+                        :action => :index, 
+                        :method => :get, 
+                        :remote => true do |f| %>
+            <%= f.text_field :label %>
+            <br/><br/>
+            <%= f.submit "Rechercher" %>
+          <% end %>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
 
-<%= form_for @bank, :url => banks_path, :action => :index, :method => :get, :remote => true do |f| %>
-  <%= f.label :label, "Rechercher un établissement bancaire : " %><%= f.text_field :label %>
-  <%= f.submit "Rechercher" %>
-<% end %>
 
-<% @banks.each do |bank| -%>
-  <%= bank.label %>
-  <%= link_to 'Configurer', new_account_path(:bank => bank, :bank_id => bank.id), :remote => true %>
-<% end -%>
 
-<% ('A'..'Z').each do |letter| %>
-  <%= link_to letter, banks_path(:bank => {:label => letter}), :remote => true %> 
-<% end %>

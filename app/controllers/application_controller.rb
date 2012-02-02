@@ -2,13 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :current_user
   
-  private
-    #render the error, with the error messages's partial, in JSON format
-    def render_error_json(object)
-      html = render_to_string( :partial => "shared/error_messages", :locals => { :target => object } )
-      render :json => { state: 'error', html: html}
-    end
-    
+  private    
     #get the user session with authlogic
     def current_user_session
       return @current_user_session if defined?(@current_user_session)

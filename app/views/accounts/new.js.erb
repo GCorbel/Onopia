@@ -1,1 +1,6 @@
 $("#index_bank").html("<%= escape_javascript(render('accounts/new')) %>")
+$("select#account_account_type_id").wijdropdown();
+$(":input[type='text'],:input[type='password'],textarea").wijtextbox();
+$(":input[type='radio']").wijradio();
+$(":input[type='checkbox']").wijcheckbox();
+$(":input[type='submit']").button();
