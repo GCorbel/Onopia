@@ -1,3 +1,4 @@
+# encoding: UTF-8
 When /^I wait until all Ajax requests are complete$/ do
   keep_looping = true
   while keep_looping do
@@ -16,7 +17,7 @@ When /^I wait until all Ajax requests are complete$/ do
 end
 
 Then /^I should see an error message$/ do
-  page.should have_selector("div#errorExplanation")
+  page.should have_xpath('//*', "erreurs? (ont étés|a été) commises?")
 end
 
 Then /^show me the html$/ do
@@ -29,12 +30,12 @@ end
 
 When /^I confirm popup$/ do
   page.driver.browser.switch_to.alert.accept 
-  sleep(1)   
+  step %{I wait until all Ajax requests are complete}   
 end
 
 When /^I dismiss popup$/ do
   page.driver.browser.switch_to.alert.dismiss
-  sleep(1)   
+  step %{I wait until all Ajax requests are complete}   
 end
 
 When /^I wait (\d+) seconds?/ do |time|

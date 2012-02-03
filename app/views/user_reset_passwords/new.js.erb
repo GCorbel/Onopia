@@ -1,0 +1,20 @@
+$("#user_reset_password")
+  .html('<%=  escape_javascript(
+              render( :partial => 'user_reset_passwords/new', 
+                      :locals => { :user => @user_reset_password } )) %>');
+$("#user_reset_password").wijdialog({
+    autoOpen: true,
+    width: 400,
+    height: 200,
+    title: "Rappel du mot de passe",
+    captionButtons: {
+      pin: { visible: false },
+      refresh: { visible: false },
+      toggle: { visible: false },
+      minimize: { visible: false },
+      maximize: { visible: false }
+    }
+});
+$("#user_reset_password_email").wijtextbox();
+$("#user_reset_password_submit").button();
+

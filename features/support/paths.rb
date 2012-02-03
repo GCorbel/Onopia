@@ -16,7 +16,16 @@ module NavigationHelpers
 
     when /^the user activates page for (.*)$/
       user = User.find_by_username($1)
-      url_for(:controller => :user_activates, :action => :new, :id => user.perishable_token)
+      url_for(:controller => :user_activates, 
+              :action => :new, 
+              :id => user.perishable_token)
+
+    when /^the edit user reset password page for (.*)$/
+      user = User.find_by_username($1)
+      url_for(:controller => :user_reset_passwords,
+              :action => :edit, 
+              :id => user.perishable_token,
+              :host => 'localhost:8200')
       
     when /^the configuration page$/
       configuration_path

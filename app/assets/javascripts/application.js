@@ -39,3 +39,10 @@ $("html").bind("ajaxStop", function() {
   $('body').css('cursor', 'auto');
 });
 
+function updateStyles() {
+  $(":input[type='text'],:input[type='password'],textarea").wijtextbox();
+  $(":input[type='radio']").wijradio();
+  $(":input[type='checkbox']").wijcheckbox();
+  $(":input[type='submit']").button();
+}
+

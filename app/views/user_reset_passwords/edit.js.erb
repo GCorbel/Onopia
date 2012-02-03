@@ -1,0 +1,4 @@
+$("#user_reset_password")
+  .html('<%= escape_javascript(
+              render( :partial => 'user_reset_passwords/edit', 
+                      :locals => { :user=> @user_reset_password} )) %>');

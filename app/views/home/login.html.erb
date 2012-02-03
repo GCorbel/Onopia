@@ -12,12 +12,24 @@
 			<div class="left">
 				<h1><img src="/assets/onopia_rev-small.png" /></h1>
 				<h2>Utilisation</h2>		
-				<p class="grey">Si vous possédez un compte, identifiez depuis le formulaire <b>Accès Client</b>. Dans le cas contraire, n'hésitez pas à ouvrir un compte : c'est <b>gratuit</b>.</p>
+				<p class="grey">
+				  Si vous possédez un compte, identifiez depuis le formulaire 
+				  <b>Accès Client</b>. 
+				  Dans le cas contraire, n'hésitez pas à ouvrir un compte : 
+				  c'est <b>gratuit</b>.</p>
 				<h2>Une plateforme sécurisée</h2>
-				<p class="grey">Le site est entièrement sécurisé. Les accès aux données bancaires se font uniquement en lecture seule.</p>
+				<p class="grey">Le site est entièrement sécurisé. 
+				Les accès aux données bancaires se font uniquement en lecture seule.
+				</p>
 			</div>
-			<div class="left" id="new_user_session">
-			  <%= render :partial => 'user_sessions/new', :locals => {:user_session => @user_session} %>
+			<div class="left">
+			  <div id="new_user_session">
+			    <%= render  :partial => 'user_sessions/new', 
+			                :locals => {:user_session => @user_session} %>
+			  </div>	
+			  <%= link_to "Mot de passe oublié?", 
+			             new_user_reset_password_path, 
+			             :remote => true %>
 			</div>	
 			<div class="left right" id="new_user" id="new_user_session">	
 			  <%= render :partial => 'users/new', :locals => {:user => @user} %>
@@ -33,7 +45,9 @@
 			<li class="sep">|</li>
 			<li id="toggle">
 				<a id="open" class="open" href="#">Connexion | Inscription</a>
-				<a id="close" style="display: none;" class="close" href="#">Fermer</a>	
+				<a id="close" style="display: none;" class="close" href="#">
+				  Fermer
+				</a>	
 			</li>
 	    	<li class="right">&nbsp;</li>
 		</ul> 
@@ -129,4 +143,38 @@
     }
   });
 </script>
+<div id="user_reset_password"></div>
+<% if @show_user_reset_password %>
+  <% if @user_reset_password %>
+    <% content_for :javascript do %>
+      <script type="text/javascript">
+        $("#user_reset_password")
+          .html('<%= escape_javascript(
+                      render( :partial => 'user_reset_passwords/edit', 
+                              :locals => { :user=> @user_reset_password })) %>');
+        $("#user_reset_password").wijdialog({
+          autoOpen: true,
+          width: 400,
+          height: 200,
+          title: "Rappel du mot de passe",
+          captionButtons: {
+            pin: { visible: false },
+            refresh: { visible: false },
+            toggle: { visible: false },
+            minimize: { visible: false },
+            maximize: { visible: false }
+          }
+        });
+        $("#user_reset_password_password").wijtextbox();
+        $("#user_reset_password_submit").button();
+      </script>
+    <% end %>
+  <% else %>
+    <% content_for :javascript do %>
+      <script type="text/javascript">
+        showMessage("Une erreur c'est produite", "Désolé, nous n'avons pas pu trouvé votre compte.\nVeuillez recommencer le processus.")
+      </script>
+    <% end %>
+  <% end %>
+<% end %>
 

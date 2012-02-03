@@ -1,5 +1,7 @@
 Onopia::Application.routes.draw do
 
+  resources :user_reset_passwords
+
   namespace(:admin){ resources :themes }
 
   namespace(:admin){ resources :account_types }

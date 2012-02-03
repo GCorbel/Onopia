@@ -1,0 +1,13 @@
+<%= render  :partial => "shared/error_popup", 
+            :locals => { :target => user }  %>
+<%= form_for  user,
+              :url => url_for(:controller => :user_reset_passwords, 
+                              :action => :create),
+              :as => :user_reset_password, 
+              :remote => true do |f| %>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p><%= f.submit "Valider", :id => "user_reset_password_submit" %></p>
+<% end %>

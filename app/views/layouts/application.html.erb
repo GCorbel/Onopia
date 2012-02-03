@@ -40,12 +40,13 @@
     <div id="container">
       <%= yield %>
     </div>
-    <div id="message"/>
     <% flash.each do |name, msg| %>
       <script type="text/javascript">
         showMessage("Information", "<%= msg %>");
       </script>
     <% end %>
+    <div id="message"/>
+    <%= yield(:javascript) %>
   </body>
 </html>
 

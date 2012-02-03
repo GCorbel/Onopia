@@ -1,0 +1,17 @@
+<%= render  :partial => "shared/error_popup", 
+            :locals => { :target => user }  %>
+<%= form_for  user,
+              :url => url_for(:controller => :user_reset_passwords, 
+                              :action => :update),
+              :as => :user_reset_password, 
+              :remote => true do |f| %>
+  <% if user %>
+    <%= f.hidden_field :id, :value => user.perishable_token %>
+  <% end %>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p><%= f.submit "Modifier le mot de passe", 
+                  :id => "user_reset_password_submit" %></p>
+<% end %>
