@@ -9,15 +9,14 @@
         <%= javascript_include_tag('culerity') %>
     <% end %>
     <%= yield :javascript_library %>
-    <%= javascript_include_tag('http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.js') %>
-    <%= javascript_include_tag('http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/jquery-ui.js') %>
+    <%= javascript_include_tag('jquery-1.7.1.js') %>
+    <%= javascript_include_tag('jquery-ui.js') %>
     
-    <%= javascript_include_tag('http://cdn.wijmo.com/external/jquery.bgiframe-2.1.3-pre.js') %>
-    <%= javascript_include_tag('http://cdn.wijmo.com/external/globalize.min.js') %>
-    <%= javascript_include_tag('http://cdn.wijmo.com/external/jquery.mousewheel.min.js') %>
-    <%= javascript_include_tag('http://cdn.wijmo.com/external/raphael.js') %>
-    <%= javascript_include_tag('http://cdn.wijmo.com/jquery.wijmo-open.1.5.0.min.js') %>
-    <%= javascript_include_tag('http://cdn.wijmo.com/jquery.wijmo-open.1.5.0.min.js') %>
+    <%= javascript_include_tag('jquery.bgiframe-2.1.3-pre.js') %>
+    <%= javascript_include_tag('globalize.min.js') %>
+    <%= javascript_include_tag('jquery.mousewheel.min.js') %>
+    <%= javascript_include_tag('raphael.js') %>
+    <%= javascript_include_tag('wijmo/jquery.wijmo-open.1.5.0.js') %>
     <%= javascript_include_tag('jquery.dataTables') %>
   
     
@@ -29,10 +28,8 @@
     <%= stylesheet_link_tag "demo_table_jui" %>
     <% if @current_user && @current_user.theme %>
       <%= stylesheet_link_tag @current_user.theme.url %>
-    <% else %>
-      <%= stylesheet_link_tag "http://cdn.wijmo.com/themes/aristo/jquery-wijmo.css" %>
     <% end %>
-    <%= stylesheet_link_tag "http://cdn.wijmo.com/jquery.wijmo-open.1.5.0.css", "http://cdn.wijmo.com/jquery.wijmo-complete.1.5.0.css" %>
+    <%= stylesheet_link_tag "jquery.wijmo-open.1.5.0.css" %>
     <%= yield :stylesheet_library %>
     
     <%= csrf_meta_tag %>
