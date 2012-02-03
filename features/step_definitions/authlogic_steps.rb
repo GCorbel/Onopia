@@ -1,10 +1,13 @@
 def create_user(login)
-  @current_user = User.create!(
-    :username => login,
-    :password => 'generic',
-    :email => "#{login}@example.com",
-    :active => true
-  )
+  @current_user = User.find_by_username(login)
+  unless @current_user
+    @current_user = User.create!(
+      :username => login,
+      :password => 'generic',
+      :email => "#{login}@example.com",
+      :active => true
+    )
+  end
 end
 
 def login_user
@@ -41,7 +44,7 @@ Given /^I am logged in as "(.*)"$/ do |login|
 end
 
 Given /^I am not logged in$/ do
-logout_user
+  logout_user
 end
 
 When /^I Log In$/ do

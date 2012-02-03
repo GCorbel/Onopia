@@ -1,6 +1,10 @@
 # encoding: UTF-8
 
 class UsersController < ApplicationController
+   include ApplicationHelper
+   include ActionView::Helpers::TextHelper
+   include ActionView::Helpers::UrlHelper
+   include ApplicationHelper
   
   # POST /users
   # POST /users.xml
@@ -44,6 +48,7 @@ class UsersController < ApplicationController
   end
   
   def records
+    
     query = @current_user.records.joins(:category)
                          .select("records.*, categories.label as category_label")
                          
@@ -83,8 +88,14 @@ class UsersController < ApplicationController
     end
     
     records = query.search(params_search)
-    result = records.all
-                    .collect{ |r| [r.date,r.label,r.amount,r.category_label]}
+    
+    array_categories = Category.all.collect
+    result = records.all.collect{ |record|
+      category = self.class.helpers.category_for_record(
+        record.category, record, array_categories
+      )
+      [record.date,record.label,record.amount, category, record.id]
+    }
                     
     render :json => {
       :sEcho => params[:sEcho],

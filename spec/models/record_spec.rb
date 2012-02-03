@@ -61,7 +61,7 @@ describe Record do
       Record.bayesian_system.should == bayes
     end
     
-    it "should store madeleine" do
+    it "should store data" do
       NaiveBayes.any_instance.expects(:save)
       Record.store_bayesian_system
     end

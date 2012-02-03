@@ -2,12 +2,38 @@
 
 <% content_for :javascript do %>
   <script type="text/javascript">
-    $(document).ready(function() {
+    var data;
+    $(document).ready(function() { 
       $(".expander").wijexpander();
       $('#list-records').dataTable( {
 		    "bProcessing": true,
 		    "bServerSide": true,
-		    "sAjaxSource": "<%= users_records_path %>",	
+		    "sAjaxSource": "<%= users_records_path %>",
+        "fnServerData": function ( sSource, aoData, fnCallback ) {
+            $.ajax( {
+                "dataType": 'json', 
+                "type": "GET", 
+                "url": sSource, 
+                "data": aoData, 
+                "success":function(json) {
+                  data = json;
+                  fnCallback(json);
+                  $('.record_change_category').each(function(i, item) {
+                    $('category_id_'+data.aaData[i][4])
+                    item.onchange = function(event) {
+                      var category_id = $('#category_id_'+data.aaData[i][4]+ ' option:selected').val()
+                      var record = {"record": {"category_id": category_id} };
+                      $.ajax( {
+                          dataType: 'json', 
+                          type: "PUT", 
+                          url: "/records/" + data.aaData[i][4], 
+                          "data": record
+                      } );
+                    }
+                  });
+                 }
+            } );
+        },
         "oLanguage": {
           "sProcessing":   "Traitement en cours...",
           "sLengthMenu":   "Afficher _MENU_ éléments",
@@ -24,11 +50,9 @@
               "sNext":     "Suivant",
               "sLast":     "Dernier"
           }
-        }
+        },
 	    });
     });
-    
-    
 
   </script>
 <% end %>

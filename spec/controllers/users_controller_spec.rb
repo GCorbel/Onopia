@@ -7,11 +7,6 @@ describe UsersController do
   setup :activate_authlogic
   
   before(:each) do
-      User.delete_all
-      Bank.delete_all
-      Account.delete_all
-      Record.delete_all
-      AccountType.delete_all
     @user = login_user
   end
 

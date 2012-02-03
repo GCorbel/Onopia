@@ -13,9 +13,21 @@ Given /^I load the file for "([^"]*)" with bank "([^"]*)" and type "([^"]*)"$/ d
   end
 end
 
-Given /^"([^"]*)" have an account$/ do |user_name|
-  user = User.find_by_username(user_name)
+Given /^"([^"]*)" have an account$/ do |username|
+  user = User.find_by_username(username)
   account = Factory.create(:account)
   account.user = user
   account.save
 end
+
+When /^I select "([^"]*)" from "([^"]*)" for the first record of "([^"]*)"$/ do |value, field, username|
+  user = User.find_by_username(username)
+  record = user.records.first
+  select(value, :from => "category_id_#{record.id}")
+end
+
+Then /^the category for first record for "([^"]*)" should be "([^"]*)"$/ do |username, category|
+  user = User.find_by_username(username)
+  user.records.first.category.label.should == category
+end
+

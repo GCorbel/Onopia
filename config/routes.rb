@@ -26,6 +26,7 @@ Onopia::Application.routes.draw do
     end
   end
   
+  resources :records, :only => [:update]
   resources :user_activates, :user_sessions
   resources :configuration, :only => [:index]
   

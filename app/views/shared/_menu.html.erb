@@ -4,7 +4,10 @@
   <li><%= link_to "Configuration", configuration_path %></li>
   <li style="margin-left:500px">
     <%= link_to image_tag("http://beta.onopia.com/public/img/logout.png"),
-           user_session_path(@current_user), :method => :delete, :id => "delete" %>
+                 user_session_path(@current_user), 
+                 :method => :delete, 
+                 :id => "delete" 
+    %>
   </li>
 </ul>
 
