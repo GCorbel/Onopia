@@ -21,6 +21,7 @@ module BankAccount
     
     #give an array of the amounts with different options
     def amounts(date_start, date_end, options = {})
+      
       select = "date(date) AS date, sum(amount) as amount, category_id"
       data = records.select(select)
                     .where(:date => date_start.beginning_of_day..

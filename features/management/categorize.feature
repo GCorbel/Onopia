@@ -5,17 +5,17 @@ Feature: Organize records
   Then I do the modifications
  
   Scenario: Modify a category of an account
-    Given a user exists with username: "Guirecc", active: true, password: "generic", email: "guirecc@example.com"
+    Given I have a clean database
+    Given a user: "guirecc" exists with username: "Guirecc", active: true, password: "generic", email: "guirecc@example.com"
     And a account exists with user: the user
-    And a category exists with label: "Épicerie"
-    And a category exists with label: "Salaire"
-    And a record exists with account: the account, category: the category
+    And a category: "Épicerie" exists with label: "Épicerie", id: 1
+    And a category: "Salaire" exists with label: "Salaire", id: 2
+    And a record: "record1" exists with account: the account, category: the category
     And I am logged in as "Guirecc"
     And I go to the management index page
-    And show me the html
     And I wait until all Ajax requests are complete
      
     When I select "Épicerie" from "category_id" for the first record of "Guirecc"
     And I wait until all Ajax requests are complete
     
-    Then the category for first record for "Guirecc" should be "Épicerie"
+    Then a record: "record1" should exist with category_id: 1

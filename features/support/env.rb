@@ -11,12 +11,12 @@ Spork.prefork do
   require 'email_spec'
   require 'email_spec/cucumber'
   require "authlogic/test_case"
-  require 'capybara/firebug'
   
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
   
-  Selenium::WebDriver::Firefox::Profile.firebug_version = '1.8.3'
-  
-  Capybara.javascript_driver = :selenium
+  Capybara.javascript_driver = :chrome
   Capybara.default_selector = :css
   Capybara.server_port = 8200
   Capybara.app_host = "http://localhost:8200"

@@ -9,7 +9,6 @@ module NavigationHelpers
     case page_name
     
     when "the management index page"
-      puts management_index_path
       management_index_path
 
     when /^the home\s?page$/

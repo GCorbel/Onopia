@@ -56,7 +56,6 @@ end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
-  step %{I wait until all Ajax requests are complete}
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|

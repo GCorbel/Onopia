@@ -4,22 +4,33 @@ describe RecordsController do
   fixtures :all
   render_views
   
-  it "update action should render nothing" do
-    record = Factory.create(:record)
+  before(:each) do
+    @record = Factory.create(:record)
+    @category = Factory.create(:category)
+    Record.bayesian_system = nil
+  end
+  
+  it "should update action should render nothing" do
     put  :update, 
           :format => :js, 
-          :id => record, 
+          :id => @record, 
           :record => {}
     response.body.should == " "
   end
 
-  it "update action should update the record" do
-    record = Factory.create(:record)
-    category = Factory.create(:category)
-    Record.any_instance.expects(:train_for).with(category)
+  it "should update action should update the record" do
+    Record.any_instance.expects(:train_for).with(@category)
     put  :update, 
           :format => :js, 
-          :id => record, 
-          :record => { :category_id => category.id}
+          :id => @record, 
+          :record => { :category_id => @category.id}
+  end
+  
+  it "should save the modifications" do
+    Record.any_instance.expects(:save).returns(true)
+    put  :update, 
+          :format => :js, 
+          :id => @record, 
+          :record => { :category_id => @category.id}
   end
 end

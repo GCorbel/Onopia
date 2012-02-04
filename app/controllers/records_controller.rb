@@ -4,6 +4,7 @@ class RecordsController < ApplicationController
     if params[:record][:category_id]
       category = Category.find params[:record][:category_id]
       record.train_for(category)
+      record.save
     end
     render :nothing => true
   end

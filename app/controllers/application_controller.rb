@@ -19,7 +19,6 @@ class ApplicationController < ActionController::Base
     #If the user is logged it must be redirect to the home path
     def redirect_if_logged
       if current_user
-        puts 11111111
         redirect_to root_path
       end
     end
@@ -27,7 +26,6 @@ class ApplicationController < ActionController::Base
     #If the user is not logged it must be redirect to the login path
     def redirect_if_logout
       unless current_user
-        puts 22222222
         redirect_to login_path
       end
     end

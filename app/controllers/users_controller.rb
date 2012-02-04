@@ -1,10 +1,6 @@
 # encoding: UTF-8
 
 class UsersController < ApplicationController
-   include ApplicationHelper
-   include ActionView::Helpers::TextHelper
-   include ActionView::Helpers::UrlHelper
-   include ApplicationHelper
   
   # POST /users
   # POST /users.xml
@@ -48,7 +44,6 @@ class UsersController < ApplicationController
   end
   
   def records
-    
     query = @current_user.records.joins(:category)
                          .select("records.*, categories.label as category_label")
                          
