@@ -5,7 +5,13 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+end
 
 
 # Gems used only for assets and not required
@@ -58,3 +64,4 @@ gem "galetahub-simple_captcha", '0.1.3', :require => "simple_captcha"
 gem 'authlogic', '3.1.0'
 gem 'meta_search', '1.1.3'
 gem 'naive_bayes', :git => 'git://github.com/reddavis/Naive-Bayes.git'
+gem 'heroku'

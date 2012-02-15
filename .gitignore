@@ -21,3 +21,4 @@
 /bayes_data
 /bayes_data/*
 /db/.fuse_hidden*
+chromedriver.log
