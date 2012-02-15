@@ -33,9 +33,6 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
-
 group :test do
   gem 'capybara', '1.1.2'
   gem 'rspec-rails', '2.8.1'
@@ -54,10 +51,12 @@ group :test do
   gem "prawn", '0.8.4'
   gem 'capybara-webkit', '0.9.0'
   gem 'shoulda', :git=>'git://github.com/3den/shoulda.git'
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 group :development do
   gem "nifty-generators", '0.4.6'
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 gem "galetahub-simple_captcha", '0.1.3', :require => "simple_captcha"
