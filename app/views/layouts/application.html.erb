@@ -29,6 +29,8 @@
   </head>
   <body>
     <div id="application_container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
     <%= render :partial => '/shared/javascript'%>

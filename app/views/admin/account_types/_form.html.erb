@@ -1,8 +1,0 @@
-<%= form_for [:admin, @account_type] do |f| %>
-  <%= render :partial => "shared/error_messages", :locals => { :target => @account_type  }  %>
-  <p>
-    <%= f.label :label %><br />
-    <%= f.text_field :label %>
-  </p>
-  <p><%= f.submit %></p>
-<% end %>
