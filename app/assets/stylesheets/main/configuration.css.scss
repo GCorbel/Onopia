@@ -1,0 +1,22 @@
+// Place all the styles related to the Configuration controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#user_theme_id {
+  width: 250px;
+}
+.ui-accordion-right {
+  .ui-accordion-content{
+    height: 1000px;
+    width: 800px; 
+  }
+  
+  .ui-accordion-header{
+    width: 800px; 
+  }
+}
+#index_bank {
+  display: none;
+}
+form#update_theme.edit_user {
+    height: 300px;
+}

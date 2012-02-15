@@ -1,3 +1,6 @@
+<% content_for :stylesheet_link_tag do %>
+  <%= stylesheet_link_tag 'home' %>
+<% end %>
 <%= render :partial => 'shared/menu', :locals => { :position => 0 } %>
 
 <% content_for :javascript do %>
@@ -14,13 +17,9 @@
   </script>
 <% end %>
 
-<% content_for :stylesheet_library do %>
-  <%= stylesheet_link_tag 'home' %>
-<% end %>
-
 <table width="100%">
   <tr>
-    <td width="20%" style="vertical-align:top;">
+    <td width="200px" style="vertical-align:top;">
       <div class="expander">
         <h3>Météo</h3>
         <div>

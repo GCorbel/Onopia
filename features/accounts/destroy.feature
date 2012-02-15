@@ -12,7 +12,8 @@ Feature:
     When I go to the configuration page
   
   Scenario: destroy a bank account
-    When I follow "destroy_account"
+    When I follow "Comptes Bancaires" 
+    And I follow "destroy_account"
     And I confirm popup
     
     Then account should not exist

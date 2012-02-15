@@ -13,6 +13,7 @@ class HomeController < ApplicationController
   def login
     @user = User.new
     @user_session = UserSession.new
+    render :layout => 'login'
   end
 
 end

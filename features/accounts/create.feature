@@ -9,6 +9,7 @@ Feature:
     And account type exist with label: "CODEVI"
       
     When I go to the configuration page
+    And I follow "Comptes Bancaires"
     And I follow "Ajouter un compte bancaire"
     And I wait for "#bank_label"
   

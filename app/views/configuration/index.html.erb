@@ -1,58 +1,40 @@
-<% content_for :javascript_library do %>
-  <%= javascript_include_tag 'configuration' %>
-<% end %>
-<% content_for :stylesheet_library do %>
-  <%= stylesheet_link_tag 'configuration' %>
-<% end %>
 <%= render :partial => 'shared/menu', :locals => { :position => 2 } %>
-<table>
-  <tr>
-    <td>
-      <div class="expander">
-        <h3 id="title_user">Profil du compte</h3>
-        <div id="content_user">
-          <div id="edit_user">
-            <%= render  :partial => 'users/edit', 
-                        :locals => {:user => @current_user} %>
-          </div>
-        </div>
+<br/>
+<div id="accordion">
+  <h3 class="title">Profil du compte</h3>
+  <div class="content">
+    <p>
+      <%= render  :partial => 'users/edit', 
+                  :locals => {:user => @current_user} %>
+    </p>
+  </div>
+  <h3 class="title"><a href="#">Comptes Bancaires</a></h3>
+  <div class="content">
+    <p>
+      <div id="index_bank" title="Ajouter un compte bancaire"></div>
+
+      <div id="index_account">
+        <%= render :partial => 'accounts/index' %>
       </div>
-    </td>
-    <td>
-      <div class="expander">
-        <h3 id="title_account">Comptes Bancaires</h3>
-        <div id="content_account">
-          <div id="index_bank" title="Ajouter un compte bancaire"></div>
-
-          <div id="index_account">
-            <%= render :partial => 'accounts/index' %>
-          </div>
-          <br/>
-          <%= link_to "Ajouter un compte bancaire", 
-                      banks_path, 
-                      :remote => true  %><br/>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="expander">
-        <h3 id="title_theme">Thèmes</h3>
-        <div id="content_theme">
-          <%= form_for  @current_user, 
-                        :url => { :action=>"update_theme", 
-                                  :controller=>"users", 
-                                  :id => @current_user.id }, 
-                        :method => :post,
-                        :html => { :id => "update_theme" } do |f| %>
-            <p>
-              Selectionnez un thème :<br/> 
-              <%= f.collection_select(:theme_id, Theme.all, :id, :label ) %>
-          <% end %>
-        </div>
-      </div>
-    </td>
-  </tr>
-</table>
-
-
-
+      <br/>
+      <%= link_to "Ajouter un compte bancaire", 
+                  banks_path, 
+                  :remote => true  %><br/>
+    </p>
+  </div>
+  <h3 class="title"><a href="#">Thèmes</a></h3>
+  <div class="content">
+    <p>
+    
+      <%= form_for  @current_user, 
+                    :url => { :action=>"update_theme", 
+                              :controller=>"users", 
+                              :id => @current_user.id }, 
+                    :method => :post,
+                    :html => { :id => "update_theme" } do |f| %>
+        Selectionnez un thème :<br/> 
+        <%= f.collection_select(:theme_id, Theme.all, :id, :label ) %>
+      <% end %>
+    </p>
+  </div>
+</div>

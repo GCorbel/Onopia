@@ -8,7 +8,8 @@ describe AccountsController do
   
   before(:each) do
     @account = Factory.create(:account)
-    login_user
+    user = Factory.create(:user, :active => true)
+    login_user user 
   end
 
   it "new action should render new template" do

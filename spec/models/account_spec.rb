@@ -1,26 +1,33 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe User do
+describe Account do
 
   before {@account = Factory.create(:account)}
-
   
-  it "should be invalid with empty login" do 
-    should_not_be_invalid_with_empty(@account, "login")          
-  end
+  it { should belong_to(:user)}
+  it { should belong_to(:bank)}
+  it {  should belong_to(:type), 
+        :class_name => "AccountType", 
+        :foreign_key => "type_id"}
   
-  it "should be invalid with empty password" do 
-    should_not_be_invalid_with_empty(@account, "password")          
-  end
   
-  it "should be invalid with empty type" do 
-    should_not_be_invalid_with_empty(@account, "type_id")           
-  end
+  it { should have_many(:records)}
+  it { should have_many(:records)}
+  it { should have_many(:records)}
   
-  it "should be invalid with empty bank" do 
-    should_not_be_invalid_with_empty(@account, "bank_id")         
-  end
+  it { should validate_presence_of(:login) }
+  it { should validate_presence_of(:password) }
+  it { should validate_presence_of(:type) }
+  
+  it { should allow_mass_assignment_of(:login) }
+  it { should allow_mass_assignment_of(:password) }
+  it { should allow_mass_assignment_of(:balance) }
+  it { should allow_mass_assignment_of(:bank_id) }
+  it { should allow_mass_assignment_of(:type_id) }
+  it { should allow_mass_assignment_of(:user_id) }
+  
+  
   
   describe "years with records" do
     it "should give years with records" do

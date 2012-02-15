@@ -16,10 +16,11 @@ Spork.prefork do
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
   end
   
-  Capybara.javascript_driver = :chrome
+  Capybara.javascript_driver = :webkit
   Capybara.default_selector = :css
   Capybara.server_port = 8200
   Capybara.app_host = "http://localhost:8200"
+  Capybara.default_wait_time = 2
 
   require 'simplecov'
   SimpleCov.coverage_dir 'coverage/cucumber'

@@ -7,7 +7,53 @@ describe UsersController do
   setup :activate_authlogic
   
   before(:each) do
-    @user = login_user
+    @user = Factory.create(:user, :active => true)
+    login_user @user
+  end
+  
+  describe :create do
+    context "when valid" do
+      it "should send an email" do
+        User.stubs(:new).returns(@user)
+        lambda {
+          put :create, :format => :js
+        }.should change(ActionMailer::Base.deliveries, :size).by(1)
+        last_delivery = ActionMailer::Base.deliveries.last
+        last_delivery.to.should include @user.email
+      end
+    end
+    
+    context "when invalid" do
+    
+      before(:each) do
+        User.any_instance.stubs(:valid?).returns(false)
+        put :create, :format => :js
+      end
+      
+      it { should render_template('new') }
+    end
+  end
+  
+  describe :destroy do
+    before(:each) do
+      delete :destroy, :format => :js
+    end
+    
+    it "should disconnect the user" do
+      UserSession.any_instance.expects(:destroy)
+      delete :destroy, :format => :js
+    end
+    
+    it "should destroy the user" do
+      User.any_instance.expects(:destroy)
+      delete :destroy, :format => :js
+    end
+    
+    it "should send a flash message" do
+      flash[:notice].should be
+    end
+    
+    it { should redirect_to login_path }
   end
 
   describe 'json functions' do

@@ -2,7 +2,8 @@ class Record < ActiveRecord::Base
   belongs_to :account
   belongs_to :balance
   belongs_to :category
-  belongs_to :project
+  
+  attr_accessible :label, :amount, :date
   
   #We user Naive Bayes for the IA part
   #You can see the documentation at this address:

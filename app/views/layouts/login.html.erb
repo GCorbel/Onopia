@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Onopia.com" %></title>
+    
+    <!-- javascripts -->
+    <%= javascript_include_tag "application" %>
+    <% if ENV["RAILS_ENV"] == "test" %>
+        <%= javascript_include_tag('test') %>
+    <% end %>
+    <%= javascript_include_tag "login" %>
+    <%= javascript_include_tag "wijmo" %>
+    <%= yield :javascript_library %>
+    
+    <!-- stylesheets -->
+    <%= stylesheet_link_tag "datatables" %>
+    <% if @current_user && @current_user.theme %>
+      <%= stylesheet_link_tag @current_user.theme.url %>
+    <% else %>
+      <%= stylesheet_link_tag "http://cdn.wijmo.com/themes/rocket/jquery-wijmo.css" %>
+    <% end %>
+    <%= stylesheet_link_tag "wijmo" %>
+    <%= stylesheet_link_tag "login" %>
+    <%= yield :stylesheet_library %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="container">
+      <%= yield %>
+    </div>
+    <div id="message"/>
+    <%= render :partial => '/shared/javascript'%>
+  </body>
+</html>
+

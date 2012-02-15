@@ -1,20 +1,15 @@
-require 'pdf/toolkit'
-
+require 'csv'
 module BankReader
   module Drivers
     class CreditAgricoleEpargne
-    
-      def open_file path
-        @reader = PDF::Toolkit.open(path)
+      def open_file(path)
       end
       
       def length
-        puts @reader.to_text.read
       end
       
       def read line
       end
-    
     end
   end
 end

@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20120222111939) do
 
   create_table "account_types", :force => true do |t|
     t.string   "label"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "accounts", :force => true do |t|
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20120222111939) do
     t.integer  "balance",    :limit => 2
     t.integer  "user_id"
     t.integer  "bank_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.integer  "type_id"
   end
 
@@ -41,23 +41,23 @@ ActiveRecord::Schema.define(:version => 20120222111939) do
     t.boolean  "send"
     t.integer  "user_id"
     t.integer  "account_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "balances", :force => true do |t|
     t.decimal  "real",       :precision => 2, :scale => 0
     t.decimal  "virtual",    :precision => 2, :scale => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "banks", :force => true do |t|
     t.string   "label"
     t.string   "url"
     t.string   "icon"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "budgets", :force => true do |t|
@@ -65,29 +65,29 @@ ActiveRecord::Schema.define(:version => 20120222111939) do
     t.decimal  "amount",      :precision => 2, :scale => 0
     t.integer  "user_id"
     t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "categories", :force => true do |t|
     t.string   "label"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "folders", :force => true do |t|
     t.string   "label"
     t.string   "icon"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "messages", :force => true do |t|
     t.string   "subject"
     t.integer  "user_id"
     t.integer  "bank_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "news", :force => true do |t|
@@ -95,22 +95,22 @@ ActiveRecord::Schema.define(:version => 20120222111939) do
     t.string   "title"
     t.string   "favicon"
     t.integer  "folder_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "opportunities", :force => true do |t|
     t.string   "from"
     t.string   "subject"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "project_types", :force => true do |t|
     t.string   "label"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "records", :force => true do |t|
@@ -126,16 +126,16 @@ ActiveRecord::Schema.define(:version => 20120222111939) do
     t.integer  "category_id"
     t.integer  "account_id"
     t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.date     "date"
   end
 
   create_table "simple_captcha_data", :force => true do |t|
     t.string   "key",        :limit => 40
     t.string   "value",      :limit => 6
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   add_index "simple_captcha_data", ["key"], :name => "idx_key"
@@ -143,8 +143,8 @@ ActiveRecord::Schema.define(:version => 20120222111939) do
   create_table "themes", :force => true do |t|
     t.string   "label"
     t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -155,8 +155,8 @@ ActiveRecord::Schema.define(:version => 20120222111939) do
     t.string   "persistence_token"
     t.boolean  "active",            :default => false, :null => false
     t.string   "perishable_token",  :default => "",    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "theme_id"
   end
 

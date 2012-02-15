@@ -306,7 +306,7 @@ fr:
   user_activates:
     controller:
       user_activated: "Votre compte a été activé. Vous pouvez vous connecter."
-      error: "Une erreur s'est produite lors de l'activation de votre compte"
+      error: "Une erreur s'est produite lors de l'activation de votre compte."
   simple_captcha:
     label: "Veuillez saisir le code ci-dessous:"
     message:

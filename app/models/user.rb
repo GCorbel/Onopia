@@ -1,16 +1,14 @@
 class User < ActiveRecord::Base
   has_many :accounts
-  has_many :alerts
-  has_many :budgets
   has_many :messages
-  has_many :news
-  has_many :opportunities
   has_many :records, :through => :accounts
   
   belongs_to :theme
   
   validate :password, :presence => true
   validate :username, :presence => true
+  
+  attr_accessible :username, :email, :password, :captcha, :captcha_key
 
   apply_simple_captcha
   

@@ -14,9 +14,9 @@ describe HomeController do
     end
     
     context "when logged" do
-      setup :activate_authlogic
       before(:each) do
-        login_user
+        user = Factory.create(:user, :active => true)
+        login_user user 
       end
       
       it "should render the home template" do
@@ -35,9 +35,9 @@ describe HomeController do
     end
     
     context "when logged" do
-      setup :activate_authlogic
       before(:each) do
-        login_user
+        user = Factory.create(:user, :active => true)
+        login_user user 
       end
       
       it "should redirect to home" do

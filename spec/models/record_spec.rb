@@ -2,6 +2,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Record do
+  it {should belong_to(:account)}
+  it {should belong_to(:category)}
+  it { should allow_mass_assignment_of(:label) }
+  it { should allow_mass_assignment_of(:amount) }
+  it { should allow_mass_assignment_of(:date) }
 
   before :each do
     @category1 = Factory.create(:category, :label => 'Épicerie')

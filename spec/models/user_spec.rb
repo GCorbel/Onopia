@@ -3,7 +3,31 @@ require 'spec_helper'
 
 describe User do
 
+  it { should have_many(:accounts) }
+  it { should have_many(:records).through(:accounts) }
+  
+  it { should belong_to(:theme) }
+  
+  it { should validate_presence_of(:password).with_message("est trop court (au moins 4 caractères)") }
+  it { should validate_presence_of(:username).with_message("est trop court (au moins 3 caractères)") }
+  it { should ensure_length_of(:password).is_at_least(4) }
+  it { should ensure_length_of(:username).is_at_least(3) }
+  it { should validate_format_of(:email).not_with('test@test').with_message(/ne semble pas être une adresse email/)}
+
+  it { should allow_mass_assignment_of :username }
+  it { should allow_mass_assignment_of :email }
+  it { should allow_mass_assignment_of :password }
+  it { should allow_mass_assignment_of :captcha }
+  it { should allow_mass_assignment_of :captcha_key }
+  
   before {@user = Factory.build(:user)}
+  
+  context "when another user exist" do
+    before {@user = Factory.create(:user)}
+  
+    it { should validate_uniqueness_of(:email) }
+    it { should validate_uniqueness_of(:username) }
+  end
   
   
   it "should return the username for to_s function" do
@@ -14,51 +38,7 @@ describe User do
     user = User.create(  :username => @user.username, 
                   :email => @user.email, 
                   :password => @user.password)
-  
-    user.save.should == true
     user.active.should == false            
-  end
-  
-  it "should be invalid when an other account with same email exist" do
-    @user.save
-    user = User.create(  :username => 'another username', 
-                  :email => @user.email, 
-                  :password => 'another password')
-                  
-    
-    user.errors[:email].size == 1
-    user.errors[:email].first.should == "n'est pas disponible"
-  end
-  
-  it "should be invalid when an other account with same username exist" do
-    @user.save
-    user = User.create(  :username => @user.username, 
-                  :email => 'another@email.com', 
-                  :password => 'another password')
-                  
-    
-    user.errors[:username].size == 1
-    user.errors[:username].first.should == "n'est pas disponible"
-  end
-  
-  it "should be invalid with too short username" do
-    user = User.create(   :email => @user.email,
-                          :username => 'aa',
-                          :password => @user.password)
-    
-    user.save == false
-    user.errors[:username].size == 1
-    user.errors[:username].first.should == "est trop court (au moins 3 caractères)"
-  end
-  
-  it "should be invalid with too short password" do
-    user = User.create(   :email => @user.email,
-                          :username => @user.username,
-                          :password => 'aaa')
-    
-    user.save == false
-    user.errors[:password].size == 1
-    user.errors[:password].first.should == "est trop court (au moins 4 caractères)"
   end
   
   it "should have an encrypted password" do
@@ -67,16 +47,6 @@ describe User do
                   :password => @user.password)
                   
     user.perishable_token.should_not == ""
-  end
-  
-  it "should be invalid with invalid email adress" do
-    user = User.create(  :username => @user.username, 
-                  :email => "aaaaaaaa", 
-                  :password => @user.password)
-            
-    user.save.should == false
-    user.errors[:email].size == 1
-    user.errors[:email].first.should == "ne semble pas être une adresse email"
   end
   
   describe "years with records" do

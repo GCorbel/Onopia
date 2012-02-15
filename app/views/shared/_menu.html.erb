@@ -3,20 +3,20 @@
   <li><%= link_to "Comptes", management_index_path %></li>
   <li><%= link_to "Configuration", configuration_path %></li>
   <li style="margin-left:500px">
-    <%= link_to image_tag("logout.png"),
+    <%= link_to(image_tag("logout.png"),
                  user_session_path(@current_user), 
                  :method => :delete, 
-                 :id => "delete" 
+                 :id => "delete")
     %>
   </li>
 </ul>
 
 <script id="scriptInit" type="text/javascript">
   $(document).ready(function () {
-      $("#menu").wijmenu();
+    $("#menu").wijmenu();
   });
   <% (position + 1).times do %>
-    jQuery(document).ready(function($) {
+    $(document).ready(function($) {
       $("#menu").focus().wijmenu("next");
     });
   <% end %>

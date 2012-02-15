@@ -1,3 +1,3 @@
-Dir["#{Rails.root}/lib/**/*.rb"].each do |path|
-  require path
+Dir["lib/**/*.rb"].each do |path|
+  require_dependency path
 end

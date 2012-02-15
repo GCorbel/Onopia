@@ -2,8 +2,6 @@
 
 class UsersController < ApplicationController
   
-  # POST /users
-  # POST /users.xml
   def create
     @user = User.new(params[:user])
     
@@ -86,7 +84,7 @@ class UsersController < ApplicationController
     
     array_categories = Category.all.collect
     result = records.all.collect{ |record|
-      category = self.class.helpers.category_for_record(
+      category = ApplicationController.helpers.category_for_record(
         record.category, record, array_categories
       )
       [record.date,record.label,record.amount, category, record.id]
