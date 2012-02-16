@@ -54,7 +54,6 @@ class UsersController < ApplicationController
     if params[:sSearch]
       where = "records.label like '%#{params[:sSearch]}%'"
       where+= " OR categories.label like '%#{params[:sSearch]}%'"
-      where+= " OR date like '%#{params[:sSearch]}%'"
       query = query.where(where)
     end
     
