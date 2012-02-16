@@ -1,6 +1,6 @@
 class AddIdThemeForUser < ActiveRecord::Migration
   def up
-    add_column :users, :theme_id, :integration
+    add_column :users, :theme_id, :integer
   end
 
   def down
