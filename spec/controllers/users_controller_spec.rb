@@ -34,6 +34,24 @@ describe UsersController do
     end
   end
   
+  describe :update_theme do
+  
+    before(:each) do
+      @user = Factory.create(:user)
+      User.stubs(:find).returns(@user)
+    end
+    
+    it "should update the user" do
+      User.any_instance.expects(:update_attributes)
+      put :update_theme
+    end
+    
+    it "should redirect to configuration path" do
+      put :update_theme
+      response.should redirect_to configuration_path
+    end
+  end
+  
   describe :destroy do
     before(:each) do
       delete :destroy, :format => :js

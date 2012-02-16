@@ -104,6 +104,26 @@ describe "registration feature", :js => true do
     end
   end
   
+  describe "update the theme for the user" do
+    it "update the theme" do
+      user = Factory.create(:user, :active => true)
+      theme1 = Factory.create(:theme, :label => 'Redmond')
+      theme2 = Factory.create(:theme, :label => 'Rocket')
+      
+      login_user(user)
+      visit configuration_path 
+      click_link "Thèmes"
+      wait_for("#user_theme_id")
+      within("#update_theme") do
+        select(theme2.label, :from => 'user_theme_id')
+      end
+      wait_for_ajax
+      
+      user = User.find user.id
+      user.theme.should == theme2
+    end
+  end
+  
   describe "delete a user" do
     it "delete a user" do
       username = "Guirecc"

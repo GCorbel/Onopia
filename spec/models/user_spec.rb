@@ -19,6 +19,7 @@ describe User do
   it { should allow_mass_assignment_of :password }
   it { should allow_mass_assignment_of :captcha }
   it { should allow_mass_assignment_of :captcha_key }
+  it { should allow_mass_assignment_of :theme_id }
   
   before {@user = Factory.build(:user)}
   

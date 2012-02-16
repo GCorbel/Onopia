@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   validate :password, :presence => true
   validate :username, :presence => true
   
-  attr_accessible :username, :email, :password, :captcha, :captcha_key
+  attr_accessible :username, :email, :password, :captcha, :captcha_key,
+                  :theme_id
 
   apply_simple_captcha
   
