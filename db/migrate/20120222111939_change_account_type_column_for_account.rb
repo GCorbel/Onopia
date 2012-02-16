@@ -1,11 +1,11 @@
 class ChangeAccountTypeColumnForAccount < ActiveRecord::Migration
   def up
-    remove_column :accounts, :account_type_id, :integer
+    remove_column :accounts, :account_type_id
     add_column :accounts, :type_id, :integer
   end
 
   def down
-    remove_column :accounts, :type_id, :integer
+    remove_column :accounts, :type_id
     add_column :accounts, :account_type_id, :integer
   end
 end
