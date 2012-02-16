@@ -16,7 +16,7 @@ module BankAccount
       adapter_type = connection.adapter_name.downcase.to_sym
       case adapter_type
           when :mysql
-              "extract(#{period} from date)"
+              "#{period}(date)" 
           when :sqlite
               if period == "year"
                 period = "Y"
@@ -25,7 +25,7 @@ module BankAccount
               end
               "strftime('%#{period}', date)"
           when :postgresql
-              "#{period}(date)" 
+              "extract(#{period} from date)"
           else
               throw NotImplementedError.new("Unknown adapter type '#{adapter_type}'")
       end
