@@ -10,11 +10,33 @@ module BankAccount
       end
     end
     
+    #Unfortunatly we must to use a database specific SQL
+    # to select the period
+    def get_sql_for(period)
+      adapter_type = connection.adapter_name.downcase.to_sym
+      case adapter_type
+          when :mysql
+              "extract(#{period} from date)"
+          when :sqlite
+              if period == "year"
+                period = "Y"
+              else
+                period = "m"
+              end
+              "strftime('%#{period}', date)"
+          when :postgresql
+              "#{period}(date)" 
+          else
+              throw NotImplementedError.new("Unknown adapter type '#{adapter_type}'")
+      end
+    end
+    
     #get all years with records
     def years_with_records
-      records .select("strftime('%Y',date) as year")
-              .group("strftime('%Y',date)")
-              .order("strftime('%Y',date) DESC").map do |record|
+      query = get_sql_for("year")
+      records .select("#{query} as year")
+              .group(query)
+              .order("#{query} DESC").map do |record|
         record.year.to_i
       end
     end
@@ -46,7 +68,8 @@ module BankAccount
       
       #Check if we want to group by month
       if options[:period] == "month"
-        data = data.group("strftime('%m',date)")
+        query = get_sql_for("month")
+        data = data.group(query)
       elsif options[:group].nil?
         data = data.group("date(date)")
       end
