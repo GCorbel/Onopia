@@ -44,11 +44,12 @@ module BankAccount
     #give an array of the amounts with different options
     def amounts(date_start, date_end, options = {})
       
-      select = "date(date) AS date, sum(amount) as amount, category_id"
+      select = "sum(amount) as amount"
       data = records.select(select)
                     .where(:date => date_start.beginning_of_day..
                             date_end.beginning_of_day)
-                    .order("date(date)")
+                    
+                    
                     
       period = options[:period] || "to_date"
       
@@ -63,15 +64,14 @@ module BankAccount
       
       #Check if we want to group by category
       if options[:group] == "category"
-        data = data.group("category_id")
+        data = data.select("category_id").group(:category_id)
       end
       
-      #Check if we want to group by month
       if options[:period] == "month"
         query = get_sql_for("month")
-        data = data.group(query)
+        data = data.select("#{query} AS month").group(:month).order(:month)
       elsif options[:group].nil?
-        data = data.group("date(date)")
+        data = data.select("date(date) AS date").group(:date).order(:date)
       end
       
       #Give all the data and put a 0 for empty values
@@ -82,8 +82,14 @@ module BankAccount
         end
         result
       else
-        (date_start.send("#{period}")..date_end.send("#{period}")).map do |date|
-          sum = data.detect { |record| record.date.send("#{period}") == date }
+        (date_start.send(period)..date_end.send(period)).map do |date|
+          sum = data.detect do |record|
+            if options[:period] == "month"
+              record.month.to_i == date
+            elsif options[:group].nil?
+              record.date.send(period) == date 
+            end
+          end
           sum && sum.amount.round(2).to_f || 0
         end
       end
