@@ -1,9 +1,12 @@
 class Record < ActiveRecord::Base
   belongs_to :account
-  belongs_to :balance
   belongs_to :category
   
   attr_accessible :label, :amount, :date
+  
+  validates :label, :presence => true
+  validates :amount, :presence => true
+  validates :date, :presence => true
   
   #We user Naive Bayes for the IA part
   #You can see the documentation at this address:

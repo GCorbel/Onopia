@@ -4,17 +4,18 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Record do
   it {should belong_to(:account)}
   it {should belong_to(:category)}
+  
   it { should allow_mass_assignment_of(:label) }
   it { should allow_mass_assignment_of(:amount) }
   it { should allow_mass_assignment_of(:date) }
+  
+  it { should validate_presence_of(:date) }
+  it { should validate_presence_of(:label) }
+  it { should validate_presence_of(:amount) }
 
   before :each do
     @category1 = Factory.create(:category, :label => 'Épicerie')
     @category2 = Factory.create(:category, :label => 'Salaire')
-  end
-
-  it "should be valid" do
-    Record.new.should be_valid
   end
   
   it "should be uncategorized when there is no informations" do
