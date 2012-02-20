@@ -19,7 +19,6 @@ Feature: Users
     And I press "Connexion"
 	
 	  Then I should be on the home page
-	  And I should see "Bienvenue Guirecc"
 
   Scenario: log in with invalid information
 	  Given I have no user

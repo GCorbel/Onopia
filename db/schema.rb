@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131193640) do
+ActiveRecord::Schema.define(:version => 20120205223553) do
 
   create_table "account_types", :force => true do |t|
     t.string   "label"
@@ -115,11 +115,11 @@ ActiveRecord::Schema.define(:version => 20120131193640) do
 
   create_table "records", :force => true do |t|
     t.string   "label"
-    t.decimal  "amount",      :precision => 2, :scale => 0
+    t.decimal  "amount",      :precision => 8, :scale => 2
     t.boolean  "credit"
     t.boolean  "splitted"
     t.string   "code"
-    t.decimal  "balance",     :precision => 2, :scale => 0
+    t.decimal  "balance",     :precision => 8, :scale => 2
     t.boolean  "virtual"
     t.integer  "record_id"
     t.integer  "user_id"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20120131193640) do
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   create_table "simple_captcha_data", :force => true do |t|

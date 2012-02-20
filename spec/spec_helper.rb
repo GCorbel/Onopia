@@ -9,7 +9,8 @@ Spork.prefork do
   require 'rspec/autorun'
   require 'capybara/rspec'
   require "email_spec"
-  require 'simplecov'
+  require 'simplecov'  
+  require "authlogic/test_case"
   SimpleCov.start 'rails'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
@@ -24,7 +25,7 @@ Spork.prefork do
     config.mock_with :mocha
     # config.mock_with :flexmock
     # config.mock_with :rr
-    # config.mock_with :rspec
+    #config.mock_with :rspec
 
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -41,6 +42,15 @@ Spork.prefork do
     
     config.include(EmailSpec::Helpers)
     config.include(EmailSpec::Matchers)
+  end
+  
+  include Authlogic::TestCase
+   
+  def login_user(options = {})
+    @logged_in_user = Factory.create(:user, options)
+    @logged_in_user.active = true
+    UserSession.create!(@logged_in_user)
+    @logged_in_user
   end
 end
 

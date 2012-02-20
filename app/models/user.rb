@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :news
   has_many :opportunities
+  has_many :records, :through => :accounts
   
   belongs_to :theme
   
@@ -19,8 +20,9 @@ class User < ActiveRecord::Base
     config.require_password_confirmation = false
   end
   
+  acts_as_account
+  
   def to_s
     self.username
   end
-  
 end

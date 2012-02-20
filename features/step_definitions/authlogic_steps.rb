@@ -8,22 +8,6 @@ def create_user(login)
 end
 
 def login_user
-  #ApplicationController.any_instance.stubs(:current_user).returns(@user)
-  #ApplicationController.send(:define_method, :current_user, proc {
-  #  @user = User.find_by_username("Guirecc")
-  #  if !@current_user_session and @user
-  #    @current_user = @user
-  #    @current_user_session = UserSession.create!(
-  #      :username => @current_user.username,
-  #      :password => 'generic'
-  #    )
-  #  end
-  #  if @current_user_session
-  #    true
-  #  else
-  #    false
-  #  end
-  #})
   visit "/login"
   click_link "Connexion | Inscription"
   fill_in 'user_session_username', :with => @current_user.username

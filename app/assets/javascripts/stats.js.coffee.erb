@@ -1,0 +1,242 @@
+dateChart = ""
+expensesChart = ""
+incomesChart = ""
+
+
+#Formatter for the date chart
+recordsFormatter = () ->
+  position = this.point.x
+  income = incomes[position]
+  expense = expenses[position]
+  record = records[position]
+  
+  text = '<b>Revenus : </b>' + income + '$<br/>'
+  text += '<b>Dépenses : </b>' + expense + '$<br/>'
+  text += '<b>Total : </b>' + record + '$'
+  text
+
+#Formatter for the pie charts
+categoryFormatter = (chart, data) ->
+  income = chart.point.y
+  category = chart.point.name
+  
+  text = '<b>' + category + ' : </b>' + income + '$'
+  
+#return the targe url with dates
+prefixUrl = (dateStart, dateEnd) ->
+  "users/amounts.js?stats[date_start]=" + dateStart + 
+  "&stats[date_end]="+dateEnd
+
+#refresh the pie charts
+refreshPieChart = (oldData, newData, serie) ->
+  lengthOld = oldData.length
+  lengthNew = newData.length
+  
+  #refresh all the categories already present and add the news
+  find = false
+  i = 0
+  while i < lengthNew
+    j = 0
+    while j < lengthOld
+      #update the value if it find the right category
+      if newData[i][0] == oldData[j].name
+        oldData[j].update(newData[i][1])
+        find = true
+        break
+      j++
+      
+    #add a new point if the category wasn't found
+    if !find
+      serie.addPoint(newData[i])
+    find = false
+    i++
+    
+  #delete all old categories
+  j = 0
+  while j < lengthOld
+    i = 0
+    while i < lengthNew
+      if oldData[j] && newData[i][0] == oldData[j].name
+        find = true
+        break
+      i++
+    if !find && oldData[j]
+      oldData[j].remove()
+    find = false 
+    j++
+  
+
+#called when the pie charts is click
+pieChartClick = (chart, dataTable, data) ->
+  dateStart = getDateStart()
+  dateEnd = getDateEnd()
+  url = "users/records"+
+        "?search[date_greater_than_or_equal_to]="+dateStart+
+        "&search[date_less_than_or_equal_to]="+dateEnd
+        
+  selectedPoints = chart.getSelectedPoints()
+  if selectedPoints.length != 0
+    category = selectedPoints[0].name
+    url += "&search[category_label_equals]="+category
+        
+  $.ajax({
+    url: url
+    context: document.body
+    success: (data) ->
+      # refresh the result table
+      dataTable.fnClearTable()
+      dataTable.fnAddData(data.aaData)
+  });
+ 
+#get the start date
+getDateStart = () ->
+  selectedPoints = dateChart.getSelectedPoints()
+  if selectedPoints.length == 0
+    dateStart = "2010-01-01"
+  else
+    month = selectedPoints[0].x + 1
+    dateStart = "2010-"+month+"-1"
+  dateStart
+ 
+#get the end date
+getDateEnd = () ->
+  selectedPoints = dateChart.getSelectedPoints()
+  if selectedPoints.length == 0
+    dateEnd = "2010-12-31"
+  else
+    month = selectedPoints[0].x + 1
+    dd = new Date(2010, month, 0)
+    dateEnd = "2010-"+month+"-"+dd.getDate()
+  dateEnd
+  
+
+#called when the date chart is click                     
+recordsClick = (chart, dateChart_series, incomesChartSeries, expensesChartSeries, dataTable) ->
+  dateStart = getDateStart()
+  dateEnd = getDateEnd()
+  
+  strCategory = "&stats[options[group]]=category"
+  
+  #refresh data for expense
+  $.ajax({
+    url: prefixUrl(dateStart, dateEnd)+strCategory+
+         "&stats[options[type]]=expenses"
+    context: document.body
+    success: (data) ->
+      expensesCategory = expenses = data
+      refreshPieChart(expensesChartSeries[0].data, 
+                      data, 
+                      expensesChartSeries[0])
+  })
+  
+  #refresh data for incomes
+  $.ajax({
+    url: prefixUrl(dateStart, dateEnd)+strCategory+
+         "&stats[options[type]]=incomes"
+    context: document.body
+    success: (data) ->
+      incomesCategory = incomes = data
+      refreshPieChart(incomesChartSeries[0].data, 
+                      data, 
+                      incomesChartSeries[0])
+  })
+  
+  
+  #refresh data for the result table
+  $.ajax({
+    url: "users/records?search[date_greater_than_or_equal_to]="+dateStart+"&search[date_less_than_or_equal_to]="+dateEnd
+    context: document.body
+    success: (data) ->
+      dataTable.fnClearTable()
+      dataTable.fnAddData(data.aaData)
+  })
+  
+#Initialize a pie chart
+getPieChart = (container, title, data, dataTable) ->
+  chart = new Highcharts.Chart({
+    chart:
+      renderTo: container,
+      defaultSeriesType: 'pie'
+    title:
+      text: title
+    tooltip:
+      formatter:  () ->
+        categoryFormatter(this, data)
+    plotOptions:
+      pie:
+        cursor: 'pointer'
+        point:
+          events:
+            click: () ->
+              selectCategory(this)
+              pieChartClick(chart, dataTable, data)
+    series: [{
+       type: 'pie',
+       data: data
+    }]
+  })
+  
+selectCategory = (point) ->
+  charts = [incomesChart, expensesChart]
+  $.each(charts, (i, chart) ->
+    selectedPoints = chart.getSelectedPoints()
+    $.each(selectedPoints, (i, selectedPoint) ->
+      selectedPoint.select(false)
+    )
+  )
+  point.select(!point.selected) 
+
+#called when the page is ready
+$(document).ready ->
+  #initialize the date chart
+  dateChart = new Highcharts.Chart({
+    chart:
+      renderTo: 'container_year',
+      defaultSeriesType: 'area'
+    title:
+      text: 'Revenus pour 2012'
+    colors: ['#55BF3B', '#BF2222'],
+    tooltip:
+      formatter: recordsFormatter
+    xAxis:
+      categories: <%= I18n.t('month_names', :scope => 'date').compact.inspect %>
+    plotOptions:
+      series:
+        point:
+          events:
+            click: () -> 
+              this.select(!this.selected)
+              recordsClick(dateChart, 
+                            dateChart.series, 
+                            incomesChart.series, 
+                            expensesChart.series,
+                            dataTable)
+    series: [
+      {
+        name: 'Bénéfices',
+        data: incomes
+      }, {
+        name: 'Dépenses',
+        data: expenses
+      }
+    ]
+  })
+  
+  #initialize the result table
+  dataTable = $('#list-records').dataTable({
+      "bProcessing": true,
+      "sAjaxSource": "/users/records"
+  })
+  
+  #initialize the incomes chart
+  incomesChart = getPieChart( 'container_incomes', 
+                              'Revenus par catégories pour 2012',
+                              incomesCategory,
+                              dataTable)
+  
+  #initialize the expenses chart
+  expensesChart = getPieChart( 'container_expenses', 
+                              'Dépenses par catégories pour 2012',
+                              expensesCategory,
+                              dataTable)
+

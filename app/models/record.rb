@@ -1,7 +1,7 @@
 class Record < ActiveRecord::Base
-  has_one :account
-  has_one :balance
-  has_one :category
-  has_one :project
+  belongs_to :account
+  belongs_to :balance
+  belongs_to :category
+  belongs_to :project
   
 end

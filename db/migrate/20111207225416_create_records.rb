@@ -2,11 +2,11 @@ class CreateRecords < ActiveRecord::Migration
   def change
     create_table :records do |t|
       t.string :label
-      t.decimal :amount, :precision => 2
+      t.decimal :amount, :precision => 8, :scale => 2
       t.boolean :credit
       t.boolean :splitted
       t.string :code
-      t.decimal :balance, :precision => 2
+      t.decimal :balance, :precision => 8, :scale => 2
       t.boolean :virtual
       
       t.belongs_to :record

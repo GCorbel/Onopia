@@ -9,19 +9,21 @@ Onopia::Application.routes.draw do
   resources :accounts
 
   get "configuration/index"
-
   get "home/index"
+  get "users/amounts"
+  get "users/records"
   
   match 'login' => 'home#login', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   
   match 'configuration' => 'configuration#index', :as => :configuration
   
-  resources :users do
+  resources :users, :except => [:index] do
     member do
       post 'update_theme'
     end
   end
+  
   resources :user_activates, :user_sessions
   resources :configuration, :only => [:index]
   

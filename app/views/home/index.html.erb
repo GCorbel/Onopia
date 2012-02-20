@@ -1,3 +1,54 @@
 <%= render :partial => 'shared/menu', :locals => { :position => 0 } %>
-Bienvenue <%= @current_user %>
-en cours
+<% content_for :javascript_library do %>
+  <%= javascript_include_tag 'highcharts/highcharts.src' %>
+  <%= javascript_include_tag 'highcharts/modules/exporting' %>
+<% end %>
+
+<% content_for :stylesheet_library do %>
+  <%= stylesheet_link_tag 'home' %>
+<% end %>
+
+<table width="100%">
+  <tr>
+    <td width="20%" style="vertical-align:top;">
+      <div class="expander">
+        <h3>Météo</h3>
+        <div>
+          Emplacement pour la météo des comptes
+        </div>
+      </div>
+      <div class="expander">
+        <h3>Nouvelles</h3>
+        <div>
+          Place pour les nouvelles
+        </div>
+      </div>
+    </td>
+    <td width="60%">    
+      <div>
+        <div id="tabs">
+			    <ul>
+				    <li><a href="#tabs-1">2012</a></li>
+				    <li><a href="#tabs-2">2011</a></li>
+				    <li><a href="#tabs-3">2010</a></li>
+			    </ul>
+			    <ul>
+				    <div id="tabs-1"><%= render :partial => 'shared/stats' %></div>
+				    <div id="tabs-2"></div>
+				    <div id="tabs-3"></div>
+			    </ul>
+			  <div>
+      </div>
+    </td>
+  </tr>
+</table>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $(".expander").wijexpander();
+			$("#tabs").wijtabs();
+    });
+
+    
+</script>
+
+

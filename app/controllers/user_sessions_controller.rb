@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
 
-  before_filter :redirect_if_logged, :except => :destroy
+  #before_filter :redirect_if_logged, :except => :destroy
 
   # POST /user_sessions
   # POST /user_sessions.xml
