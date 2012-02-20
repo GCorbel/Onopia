@@ -4,6 +4,15 @@
   <%= javascript_include_tag 'highcharts/modules/exporting' %>
 <% end %>
 
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".expander").wijexpander();
+		  $("#tabs").wijtabs();
+    });
+  </script>
+<% end %>
+
 <% content_for :stylesheet_library do %>
   <%= stylesheet_link_tag 'home' %>
 <% end %>
@@ -33,7 +42,9 @@
 				    <li><a href="#tabs-3">2010</a></li>
 			    </ul>
 			    <ul>
-				    <div id="tabs-1"><%= render :partial => 'shared/stats' %></div>
+				    <div id="tabs-1">
+				      <%= render  :partial => 'shared/stats' %>
+				    </div>
 				    <div id="tabs-2"></div>
 				    <div id="tabs-3"></div>
 			    </ul>
@@ -42,13 +53,5 @@
     </td>
   </tr>
 </table>
-<script type="text/javascript">
-    $(document).ready(function() {
-      $(".expander").wijexpander();
-			$("#tabs").wijtabs();
-    });
-
-    
-</script>
 
 
