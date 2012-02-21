@@ -1,5 +1,6 @@
 <%= render :partial => 'shared/menu', :locals => { :position => 0 } %>
 <% content_for :javascript_library do %>
+  <%= javascript_include_tag 'stats' %>
   <%= javascript_include_tag 'highcharts/highcharts.src' %>
   <%= javascript_include_tag 'highcharts/modules/exporting' %>
 <% end %>
@@ -9,6 +10,11 @@
     $(document).ready(function() {
       $(".expander").wijexpander();
 		  $("#tabs").wijtabs();
+      $("#tabs").wijtabs({
+        select: function (e, ui) {
+          window.changeYear(ui.tab.innerText)
+        }
+      })
     });
   </script>
 <% end %>
@@ -37,18 +43,21 @@
       <div>
         <div id="tabs">
 			    <ul>
-				    <li><a href="#tabs-1">2012</a></li>
-				    <li><a href="#tabs-2">2011</a></li>
-				    <li><a href="#tabs-3">2010</a></li>
+			      <% @current_user.years_with_records.each do |year| %>
+				      <li><a href="#tabs-1"><%= year %></a></li>
+			      <% end %>
 			    </ul>
-			    <ul>
-				    <div id="tabs-1">
-				      <%= render  :partial => 'shared/stats' %>
-				    </div>
-				    <div id="tabs-2"></div>
-				    <div id="tabs-3"></div>
-			    </ul>
+			    <div id="tabs-1">
+			    </div>
+			    <div id="tabs-2">
+			    </div>
+			    <div id="tabs-3">
+			    </div>
 			  <div>
+			   <%= render :partial => 'shared/stats', 
+				            :locals => { 
+				              :year => @current_user.years_with_records[0]
+				            } %>
       </div>
     </td>
   </tr>

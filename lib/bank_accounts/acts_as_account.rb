@@ -10,6 +10,15 @@ module BankAccount
       end
     end
     
+    #get all years with records
+    def years_with_records
+      records .select("strftime('%Y',date) as year")
+              .group("strftime('%Y',date)")
+              .order("strftime('%Y',date) DESC").map do |record|
+        record.year.to_i
+      end
+    end
+    
     #give an array of the amounts with different options
     def amounts(date_start, date_end, options = {})
       select = "date(date) AS date, sum(amount) as amount, category_id"

@@ -28,6 +28,21 @@ describe User do
     object.errors[field].first.should == "doit être rempli(e)" 
   end
   
+  describe "years with records" do
+    it "should give years with records" do
+      @account = Factory.create(:account)      
+      
+      category = Factory.create(:category)
+      
+      add_account -123.56, Date.new(2012,2,3), @account, category
+      add_account 12.56, Date.new(2012,2,3), @account, category
+      add_account 154.56, Date.new(2011,2,3), @account, category
+      add_account 123, Date.new(2010,2,3), @account, category
+      
+      @account.years_with_records.should == [2012, 2011, 2010]
+    end
+  end
+  
   describe 'calcul functions' do
     before(:each) do
       @account = Factory.create(:account)

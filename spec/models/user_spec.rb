@@ -79,6 +79,25 @@ describe User do
     user.errors[:email].first.should == "ne semble pas être une adresse email"
   end
   
+  describe "years with records" do
+    it "should give years with records" do
+      account = Factory.create(:account)
+      @user.accounts << account
+      account.user = @user
+      account.save
+      
+      
+      category = Factory.create(:category)
+      
+      add_account -123.56, Date.new(2012,2,3), account, category
+      add_account 12.56, Date.new(2012,2,3), account, category
+      add_account 154.56, Date.new(2011,2,3), account, category
+      add_account 123, Date.new(2010,2,3), account, category
+      
+      @user.years_with_records.should == [2012, 2011, 2010]
+    end
+  end
+  
   describe 'account function' do
     before(:each) do
       account1 = Factory.create(:account)

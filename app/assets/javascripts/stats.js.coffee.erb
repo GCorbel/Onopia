@@ -1,14 +1,19 @@
 dateChart = ""
 expensesChart = ""
 incomesChart = ""
+dataTable = ""
+selectedYear = ""
 
+@setSelectedYear = (year) ->
+  selectedYear = year
 
 #Formatter for the date chart
 recordsFormatter = () ->
   position = this.point.x
-  income = incomes[position]
-  expense = expenses[position]
-  record = records[position]
+  
+  income = dateChart.series[0].data[this.point.x].y
+  expense = dateChart.series[1].data[this.point.x].y
+  record = income - expense
   
   text = '<b>Revenus : </b>' + income + '$<br/>'
   text += '<b>Dépenses : </b>' + expense + '$<br/>'
@@ -16,7 +21,7 @@ recordsFormatter = () ->
   text
 
 #Formatter for the pie charts
-categoryFormatter = (chart, data) ->
+categoryFormatter = (chart) ->
   income = chart.point.y
   category = chart.point.name
   
@@ -52,8 +57,8 @@ refreshPieChart = (oldData, newData, serie) ->
     i++
     
   #delete all old categories
-  j = 0
-  while j < lengthOld
+  j = lengthOld
+  while j >= 0
     i = 0
     while i < lengthNew
       if oldData[j] && newData[i][0] == oldData[j].name
@@ -63,55 +68,37 @@ refreshPieChart = (oldData, newData, serie) ->
     if !find && oldData[j]
       oldData[j].remove()
     find = false 
-    j++
+    j--
   
 
 #called when the pie charts is click
-pieChartClick = (chart, dataTable, data) ->
-  dateStart = getDateStart()
-  dateEnd = getDateEnd()
-  url = "users/records"+
-        "?search[date_greater_than_or_equal_to]="+dateStart+
-        "&search[date_less_than_or_equal_to]="+dateEnd
-        
-  selectedPoints = chart.getSelectedPoints()
-  if selectedPoints.length != 0
-    category = selectedPoints[0].name
-    url += "&search[category_label_equals]="+category
-        
-  $.ajax({
-    url: url
-    context: document.body
-    success: (data) ->
-      # refresh the result table
-      dataTable.fnClearTable()
-      dataTable.fnAddData(data.aaData)
-  });
+pieChartClick = (chart, data) ->    
+  refreshDataTable()
  
 #get the start date
 getDateStart = () ->
   selectedPoints = dateChart.getSelectedPoints()
   if selectedPoints.length == 0
-    dateStart = "2010-01-01"
+    dateStart = selectedYear + "-01-01"
   else
     month = selectedPoints[0].x + 1
-    dateStart = "2010-"+month+"-1"
+    dateStart = selectedYear + "-"+month+"-1"
   dateStart
  
 #get the end date
 getDateEnd = () ->
   selectedPoints = dateChart.getSelectedPoints()
   if selectedPoints.length == 0
-    dateEnd = "2010-12-31"
+    dateEnd = selectedYear + "-12-31"
   else
     month = selectedPoints[0].x + 1
-    dd = new Date(2010, month, 0)
-    dateEnd = "2010-"+month+"-"+dd.getDate()
+    dd = new Date(selectedYear, month, 0)
+    dateEnd = selectedYear + "-"+month+"-"+dd.getDate()
   dateEnd
   
 
 #called when the date chart is click                     
-recordsClick = (chart, dateChart_series, incomesChartSeries, expensesChartSeries, dataTable) ->
+recordsClick = (chart, incomesChartSeries, expensesChartSeries) ->
   dateStart = getDateStart()
   dateEnd = getDateEnd()
   
@@ -123,7 +110,6 @@ recordsClick = (chart, dateChart_series, incomesChartSeries, expensesChartSeries
          "&stats[options[type]]=expenses"
     context: document.body
     success: (data) ->
-      expensesCategory = expenses = data
       refreshPieChart(expensesChartSeries[0].data, 
                       data, 
                       expensesChartSeries[0])
@@ -135,16 +121,32 @@ recordsClick = (chart, dateChart_series, incomesChartSeries, expensesChartSeries
          "&stats[options[type]]=incomes"
     context: document.body
     success: (data) ->
-      incomesCategory = incomes = data
       refreshPieChart(incomesChartSeries[0].data, 
                       data, 
                       incomesChartSeries[0])
   })
   
-  
   #refresh data for the result table
+  refreshDataTable()
+
+#refresh data for the result table
+refreshDataTable = () ->
+  dateStart = getDateStart()
+  dateEnd = getDateEnd()
+  url = "users/records"+
+        "?search[date_greater_than_or_equal_to]="+dateStart+
+        "&search[date_less_than_or_equal_to]="+dateEnd
+        
+  charts = [incomesChart, expensesChart]
+  $.each( charts, (i, chart) -> 
+    selectedPoints = chart.getSelectedPoints()
+    if selectedPoints.length != 0
+      category = selectedPoints[0].name
+      url += "&search[category_label_equals]="+category
+  )
+
   $.ajax({
-    url: "users/records?search[date_greater_than_or_equal_to]="+dateStart+"&search[date_less_than_or_equal_to]="+dateEnd
+    url: url
     context: document.body
     success: (data) ->
       dataTable.fnClearTable()
@@ -152,16 +154,17 @@ recordsClick = (chart, dateChart_series, incomesChartSeries, expensesChartSeries
   })
   
 #Initialize a pie chart
-getPieChart = (container, title, data, dataTable) ->
+getPieChart = (type, data) ->
+  dateStart = getDateStart()
+  dateEnd = getDateEnd()
+  
   chart = new Highcharts.Chart({
     chart:
-      renderTo: container,
+      renderTo: 'container_' + type,
       defaultSeriesType: 'pie'
-    title:
-      text: title
     tooltip:
       formatter:  () ->
-        categoryFormatter(this, data)
+        categoryFormatter(this)
     plotOptions:
       pie:
         cursor: 'pointer'
@@ -169,13 +172,13 @@ getPieChart = (container, title, data, dataTable) ->
           events:
             click: () ->
               selectCategory(this)
-              pieChartClick(chart, dataTable, data)
+              pieChartClick(chart, data)
     series: [{
-       type: 'pie',
-       data: data
+       type: 'pie'
     }]
   })
   
+#select a category and close others
 selectCategory = (point) ->
   charts = [incomesChart, expensesChart]
   $.each(charts, (i, chart) ->
@@ -185,6 +188,53 @@ selectCategory = (point) ->
     )
   )
   point.select(!point.selected) 
+  
+#load the charts
+@loadCharts = () ->
+  
+  #refresh data for incomes
+  loadChart(dateChart.series[0], 
+            "&stats[options[period]]=month&stats[options[type]]=incomes")
+  
+  #refresh data for expenses
+  loadChart(dateChart.series[1], 
+            "&stats[options[period]]=month&stats[options[type]]=expenses")
+  
+  #refresh data for incomes category
+  loadChart(incomesChart.series[0], 
+            "&stats[options[group]]=category&stats[options[type]]=incomes")
+  
+  #refresh data for expenses category  
+  loadChart(expensesChart.series[0], 
+            "&stats[options[group]]=category&stats[options[type]]=expenses")
+            
+  refreshDataTable()
+  
+#load a chart with a given url
+loadChart = (serie, suffixUrl, globalData) ->
+  dateStart = getDateStart()
+  dateEnd = getDateEnd()
+  $.ajax({
+    url: prefixUrl(dateStart, dateEnd) + suffixUrl
+    context: document.body
+    success: (data) ->
+      serie.setData(data)
+  })
+  
+#change the current year showed
+@changeYear = (year) ->
+
+  selectedPoints = dateChart.getSelectedPoints()
+  $.each(selectedPoints, (i, selectedPoint) ->
+    selectedPoint.select(false)
+  )
+  
+  incomesChart.setTitle({text: 'Revenus par catégories pour ' + year}); 
+  expensesChart.setTitle({text: 'Dépenses par catégories pour ' + year}); 
+  dateChart.setTitle({text: 'Revenus et dépenses pour ' + year}); 
+  
+  selectedYear = year
+  loadCharts()
 
 #called when the page is ready
 $(document).ready ->
@@ -193,8 +243,6 @@ $(document).ready ->
     chart:
       renderTo: 'container_year',
       defaultSeriesType: 'area'
-    title:
-      text: 'Revenus pour 2012'
     colors: ['#55BF3B', '#BF2222'],
     tooltip:
       formatter: recordsFormatter
@@ -206,37 +254,31 @@ $(document).ready ->
           events:
             click: () -> 
               this.select(!this.selected)
-              recordsClick(dateChart, 
-                            dateChart.series, 
+              recordsClick(dateChart,
                             incomesChart.series, 
                             expensesChart.series,
                             dataTable)
     series: [
       {
-        name: 'Bénéfices',
-        data: incomes
+        name: 'Bénéfices'
       }, {
-        name: 'Dépenses',
-        data: expenses
+        name: 'Dépenses'
       }
     ]
   })
   
   #initialize the result table
   dataTable = $('#list-records').dataTable({
-      "bProcessing": true,
-      "sAjaxSource": "/users/records"
+      "bProcessing": true
   })
   
   #initialize the incomes chart
-  incomesChart = getPieChart( 'container_incomes', 
-                              'Revenus par catégories pour 2012',
-                              incomesCategory,
+  incomesChart = getPieChart( 'incomes',
                               dataTable)
   
   #initialize the expenses chart
-  expensesChart = getPieChart( 'container_expenses', 
-                              'Dépenses par catégories pour 2012',
-                              expensesCategory,
+  expensesChart = getPieChart( 'expenses',
                               dataTable)
+                              
+  loadCharts()
 
