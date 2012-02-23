@@ -180,6 +180,7 @@ getPieChart = (type, data) ->
   
 #select a category and close others
 selectCategory = (point) ->
+  selectedOld = point.selected
   charts = [incomesChart, expensesChart]
   $.each(charts, (i, chart) ->
     selectedPoints = chart.getSelectedPoints()
@@ -187,7 +188,9 @@ selectCategory = (point) ->
       selectedPoint.select(false)
     )
   )
-  point.select(!point.selected) 
+  if !selectedOld
+    point.select(true) 
+  
   
 #load the charts
 @loadCharts = () ->
