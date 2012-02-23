@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205223553) do
+ActiveRecord::Schema.define(:version => 20120222111939) do
 
   create_table "account_types", :force => true do |t|
     t.string   "label"
@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(:version => 20120205223553) do
   create_table "accounts", :force => true do |t|
     t.string   "login"
     t.string   "password"
-    t.decimal  "balance",         :precision => 2, :scale => 0
+    t.integer  "balance",    :limit => 2
     t.integer  "user_id"
     t.integer  "bank_id"
-    t.integer  "account_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "type_id"
   end
 
   create_table "alerts", :force => true do |t|
@@ -115,11 +115,11 @@ ActiveRecord::Schema.define(:version => 20120205223553) do
 
   create_table "records", :force => true do |t|
     t.string   "label"
-    t.decimal  "amount",      :precision => 8, :scale => 2
+    t.decimal  "amount",      :precision => 2, :scale => 0
     t.boolean  "credit"
     t.boolean  "splitted"
     t.string   "code"
-    t.decimal  "balance",     :precision => 8, :scale => 2
+    t.decimal  "balance",     :precision => 2, :scale => 0
     t.boolean  "virtual"
     t.integer  "record_id"
     t.integer  "user_id"

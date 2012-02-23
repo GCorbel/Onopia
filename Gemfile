@@ -58,3 +58,4 @@ gem 'active_reload'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'authlogic'
 gem 'meta_search'
+gem "pdf-toolkit"

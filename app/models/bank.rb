@@ -7,4 +7,6 @@ class Bank < ActiveRecord::Base
 
   has_many :accounts
   has_many :messages
+  
+  acts_as_capitalizable
 end

@@ -6,6 +6,6 @@ FactoryGirl.define do
     f.sequence(:balance){ |n| n*100}
     association :bank, :factory => :bank
     association :user, :factory => :user
-    association :account_type, :factory => :account_type
+    association :type, :factory => :account_type
   end
 end

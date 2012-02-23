@@ -114,6 +114,8 @@ GEM
     multi_json (1.0.4)
     nifty-generators (0.4.6)
     nokogiri (1.5.0)
+    pdf-toolkit (0.49)
+      activesupport (> 0.0.0)
     pickle (0.4.10)
       cucumber (>= 0.8)
       rake
@@ -235,6 +237,7 @@ DEPENDENCIES
   meta_search
   mocha
   nifty-generators
+  pdf-toolkit
   pickle
   prawn (= 0.8.4)
   rails (= 3.1.3)
