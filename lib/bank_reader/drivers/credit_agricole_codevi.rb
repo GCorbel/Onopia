@@ -14,7 +14,7 @@ module BankReader
         {
           :date => Date.parse(@reader[line][0]),
           :label => @reader[line][1].split.join(" "),
-          :amount => @reader[line][2].to_i
+          :amount => @reader[line][2].gsub!(",", ".").to_f
         }
       end
     end

@@ -4,10 +4,11 @@ module BankReader
   describe Driver do
   
     before :each do
+      Dir["#{Rails.root}/lib/**/*.rb"].each { |f| load f }
       @account = Factory.build(:account)
       @account.bank.label = "Credit agricole"
       @account.type.label = "Codevi"
-      @driver = Driver.findDriver(@account)
+      @driver = Driver.find_driver(@account)
     end
     
     it "should find the right driver" do
@@ -24,7 +25,7 @@ module BankReader
       @driver.open_file("spec/data/example.csv")
       @driver.read(0).should == {:date => Date.new(2009,03,17),
         :label => "PRELEVEMENT TRESOR PUBLIC 75 IMPOT NUM 005002 ECH 17",
-        :amount => -1684
+        :amount => -1684.45
       }
     end
     

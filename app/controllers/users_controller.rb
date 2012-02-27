@@ -44,12 +44,52 @@ class UsersController < ApplicationController
   end
   
   def records
-    records = @current_user.records
-                          .joins(:category)
-                          .select("records.*, categories.label as category_label")
-                          .search(params[:search])
-    result = records.all.collect{ |r| [r.date,r.label,r.amount,r.category_label]}
+    query = @current_user.records.joins(:category)
+                         .select("records.*, categories.label as category_label")
+                         
+    if params[:search]
+      params_search = params[:search]
+    else
+      params_search = {}
+    end
+    
+    if params[:sSearch]
+      where = "records.label like '%#{params[:sSearch]}%'"
+      where+= " OR categories.label like '%#{params[:sSearch]}%'"
+      where+= " OR date like '%#{params[:sSearch]}%'"
+      query = query.where(where)
+    end
+    
+    iTotalDisplayRecords = query.search(params_search).size
+    iTotalRecords = @current_user.records.all.size
+    
+    offset = params[:iDisplayStart].to_i / params[:iDisplayLength].to_i
+    query = query.offset(offset).limit(params[:iDisplayLength])
+    
+    case params[:iSortCol_0]
+      when "0"
+        order = "date"
+      when "1"
+        order = "label"
+      when "2"
+        order = "amount"
+      when "3"
+        order = "category_label"
+    end
+    
+    if order
+      order += " #{params[:sSortDir_0]}"
+      query = query.order(order)
+    end
+    
+    records = query.search(params_search)
+    result = records.all
+                    .collect{ |r| [r.date,r.label,r.amount,r.category_label]}
+                    
     render :json => {
+      :sEcho => params[:sEcho],
+      :iTotalRecords => iTotalRecords,
+      :iTotalDisplayRecords => iTotalDisplayRecords,
       :aaData => result
     }
   end

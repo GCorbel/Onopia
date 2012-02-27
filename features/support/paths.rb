@@ -7,6 +7,9 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
+    
+    when "the management index page"
+      management_index_path
 
     when /^the home\s?page$/
       root_path

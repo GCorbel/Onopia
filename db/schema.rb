@@ -115,11 +115,11 @@ ActiveRecord::Schema.define(:version => 20120222111939) do
 
   create_table "records", :force => true do |t|
     t.string   "label"
-    t.decimal  "amount",      :precision => 2, :scale => 0
+    t.decimal  "amount",      :precision => 8, :scale => 2
     t.boolean  "credit"
     t.boolean  "splitted"
     t.string   "code"
-    t.decimal  "balance",     :precision => 2, :scale => 0
+    t.decimal  "balance",     :precision => 8, :scale => 2
     t.boolean  "virtual"
     t.integer  "record_id"
     t.integer  "user_id"

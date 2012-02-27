@@ -37,7 +37,7 @@ Feature:
     
     Then I should be on the configuration page
     And  the following accounts should exist:
-      | account_type_id   | login         | password   |
+      | type_id   | login         | password   |
       | 1                 | 0123456789    | test234    |
     And I should see "Votre compte a été correctement paramétré."
     And I should see "Ajouter un compte bancaire"

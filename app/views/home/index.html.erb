@@ -1,9 +1,4 @@
 <%= render :partial => 'shared/menu', :locals => { :position => 0 } %>
-<% content_for :javascript_library do %>
-  <%= javascript_include_tag 'stats' %>
-  <%= javascript_include_tag 'highcharts/highcharts.src' %>
-  <%= javascript_include_tag 'highcharts/modules/exporting' %>
-<% end %>
 
 <% content_for :javascript do %>
   <script type="text/javascript">

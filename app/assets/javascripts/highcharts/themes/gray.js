@@ -10,8 +10,8 @@ Highcharts.theme = {
 		backgroundColor: {
 			linearGradient: [0, 0, 0, 400],
 			stops: [
-				[0, 'rgb(96, 96, 96)'],
-				[1, 'rgb(16, 16, 16)']
+				[0, 'rgb(200, 200, 200)'],
+				[1, 'rgb(250, 250, 250)']
 			]
 		},
 		borderWidth: 0,
@@ -34,11 +34,11 @@ Highcharts.theme = {
 	},
 	xAxis: {
 		gridLineWidth: 0,
-		lineColor: '#999',
-		tickColor: '#999',
+		lineColor: '#444',
+		tickColor: '#444',
 		labels: {
 			style: {
-				color: '#999',
+				color: '#444',
 				fontWeight: 'bold'
 			}
 		},
@@ -57,7 +57,7 @@ Highcharts.theme = {
 		tickWidth: 0,
 		labels: {
 			style: {
-				color: '#999',
+				color: '#444',
 				fontWeight: 'bold'
 			}
 		},

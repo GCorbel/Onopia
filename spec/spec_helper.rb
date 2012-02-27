@@ -47,8 +47,9 @@ Spork.prefork do
   include Authlogic::TestCase
    
   def login_user(options = {})
-    @logged_in_user = Factory.create(:user, options)
+    @logged_in_user = Factory.build(:user, options)
     @logged_in_user.active = true
+    @logged_in_user.save!
     UserSession.create!(@logged_in_user)
     @logged_in_user
   end
@@ -58,5 +59,6 @@ Spork.each_run do
   # This code will be run each time you run your specs.
   load "#{Rails.root}/config/routes.rb"
   Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
+  Dir["#{Rails.root}/lib/**/*.rb"].each { |f| load f }
   I18n.backend.load_translations
 end

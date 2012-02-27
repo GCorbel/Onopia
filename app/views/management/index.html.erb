@@ -1,0 +1,61 @@
+<%= render :partial => 'shared/menu', :locals => { :position => 1 } %>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".expander").wijexpander();
+      $('#list-records').dataTable( {
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "sAjaxSource": "<%= users_records_path %>",	
+        "oLanguage": {
+          "sProcessing":   "Traitement en cours...",
+          "sLengthMenu":   "Afficher _MENU_ éléments",
+          "sZeroRecords":  "Aucun élément à afficher",
+          "sInfo":         "Affichage de l'élement _START_ à _END_ sur _TOTAL_ éléments",
+          "sInfoEmpty":    "Affichage de l'élement 0 à 0 sur 0 éléments",
+          "sInfoFiltered": "(filtré de _MAX_ éléments au total)",
+          "sInfoPostFix":  "",
+          "sSearch":       "Rechercher :",
+          "sUrl":          "",
+          "oPaginate": {
+              "sFirst":    "Premier",
+              "sPrevious": "Précédent",
+              "sNext":     "Suivant",
+              "sLast":     "Dernier"
+          }
+        }
+	    });
+    });
+    
+    
+
+  </script>
+<% end %>
+
+<div class="expander">
+  <h3>Votre compte</h3>
+  <div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display" id="list-records">
+      <thead>
+	      <tr>
+		      <th width="12%">Date</th>
+		      <th width="70%">Libellé</th>
+		      <th width="8%">Montant</th>
+		      <th width="10%">Categorie</th>
+	      </tr>
+      </thead>
+      <tbody>
+	
+      </tbody>
+      <tfoot>
+	      <tr>
+		      <th>Date</th>
+		      <th>Libellé</th>
+		      <th>Montant</th>
+		      <th>Categorie</th>
+	      </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

@@ -1,4 +1,7 @@
 <% content_for(:javascript_library) do %>
+  <%= javascript_include_tag 'stats' %>
+  <%= javascript_include_tag 'highcharts/highcharts.src' %>
+  <%= javascript_include_tag 'highcharts/modules/exporting' %>
   <%= javascript_include_tag 'highcharts/themes/gray' %>
 <% end %>
 <% content_for(:javascript) do %>

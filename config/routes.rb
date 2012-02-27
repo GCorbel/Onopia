@@ -1,5 +1,7 @@
 Onopia::Application.routes.draw do
 
+  get "management/index"
+
   resources :user_reset_passwords
 
   namespace(:admin){ resources :themes }
